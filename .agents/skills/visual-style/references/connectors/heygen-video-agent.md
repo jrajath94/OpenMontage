@@ -79,29 +79,29 @@ Format: landscape (16:9)
 
 ## Workflow
 
-1. **Load the style** — Read the `visual-style.md` file
+1. **Load the style** - Read the `visual-style.md` file
 2. **Extract key fields:**
    - `style_prompt_full` (required)
    - `motion.*` fields (recommended)
    - `mood.avoid` (recommended)
    - `layout.aspect_ratio` or `x_heygen.orientation`
-3. **Build the prompt** — Use the template above
-4. **Call HeyGen Video Agent** — Use the HeyGen MCP tool or API
-5. **Store reference** — Save the video ID to `x_heygen.video_id` if desired
+3. **Build the prompt** - Use the template above
+4. **Call HeyGen Video Agent** - Use the HeyGen MCP tool or API
+5. **Store reference** - Save the video ID to `x_heygen.video_id` if desired
 
 ## Tips
 
-- **Be explicit about what you don't want** — HeyGen responds well to negative constraints
-- **Motion graphics mode** — Add "No avatar. No b-roll. Pure motion graphics." for abstract styles
-- **Data visualization** — Mention "animated charts, counters, data viz" for number-heavy content
-- **Transitions matter** — Specify transition style explicitly; defaults may not match your style
+- **Be explicit about what you don't want** - HeyGen responds well to negative constraints
+- **Motion graphics mode** - Add "No avatar. No b-roll. Pure motion graphics." for abstract styles
+- **Data visualization** - Mention "animated charts, counters, data viz" for number-heavy content
+- **Transitions matter** - Specify transition style explicitly; defaults may not match your style
 
 ## Supported Styles
 
 These gallery styles work especially well with HeyGen Video Agent:
 
-- `mueller-brockmann-swiss.visual-style.md` — Data-driven, grid-locked
-- `neville-brody-industrial.visual-style.md` — Bold typography, industrial
-- `saul-bass-cinematic.visual-style.md` — Cinematic titles, bold shapes
-- `game-boy-color.visual-style.md` — Pixel art, retro gaming
-- `heygen-ai-video.visual-style.md` — Modern AI/SaaS aesthetic
+- `mueller-brockmann-swiss.visual-style.md` - Data-driven, grid-locked
+- `neville-brody-industrial.visual-style.md` - Bold typography, industrial
+- `saul-bass-cinematic.visual-style.md` - Cinematic titles, bold shapes
+- `game-boy-color.visual-style.md` - Pixel art, retro gaming
+- `heygen-ai-video.visual-style.md` - Modern AI/SaaS aesthetic
