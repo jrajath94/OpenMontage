@@ -1,4 +1,4 @@
-# STORYBOARD.md format — frames → groups
+# STORYBOARD.md format - frames → groups
 
 `STORYBOARD.md` is the single reviewable plan the user approves at Step 3 and the **manual**
 each frame-worker follows at Step 4. It is **hierarchical**: one block per **frame**, written
@@ -10,7 +10,7 @@ reads its own frame block. A frame's **composition id = its `src` file stem**
 and the `window.__timelines` key.
 
 Step 2 writes the skeleton (frame fields, groups `TBD`); Step 3 fills the groups + brand. It
-is a build spec, not code — the planner writes WHAT, the worker decides HOW. **Never write
+is a build spec, not code - the planner writes WHAT, the worker decides HOW. **Never write
 millisecond tweens here.**
 
 ## File shape
@@ -57,32 +57,32 @@ avoid: ["generic slideshow", "tiny unreadable hero text"]
 …
 ```
 
-## Frame block — required fields
+## Frame block - required fields
 
 | field                             | meaning                                                                                                                        |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | heading `## Frame N — <frame_id>` | `frame_id` matches the `src` stem; `N` = the 1-based index.                                                                    |
-| `src`                             | `compositions/frames/NN-<frame_id>.html` — where the worker writes; the assembler references it. Stem = `data-composition-id`. |
-| `duration`                        | the frame span length in seconds (e.g. `7.198s`) — **required**; the assembler sums these for cumulative `data-start`.         |
+| `src`                             | `compositions/frames/NN-<frame_id>.html` - where the worker writes; the assembler references it. Stem = `data-composition-id`. |
+| `duration`                        | the frame span length in seconds (e.g. `7.198s`) - **required**; the assembler sums these for cumulative `data-start`.         |
 | `span_sec`                        | `[start, end]` track seconds. `duration = end − start`.                                                                        |
-| `pacing`                          | `beat_cut` \| `phrase_flow` — from the skeleton; the worker must obey (no hard-cut on `phrase_flow`).                          |
+| `pacing`                          | `beat_cut` \| `phrase_flow` - from the skeleton; the worker must obey (no hard-cut on `phrase_flow`).                          |
 | `mood`, `feel`                    | from the skeleton; tone + the one-line music situation the planner matched against.                                            |
 | `### Groups` list                 | ≥1 group; groups tile the frame span in order.                                                                                 |
 
-## Group entry — exactly one of three kinds
+## Group entry - exactly one of three kinds
 
-Every group is **template** OR **free_design** OR **asset** — never two, never none. All three
+Every group is **template** OR **free_design** OR **asset** - never two, never none. All three
 carry `span_sec` (track seconds, tiling the frame) and may carry `copy`.
 
-- **template** — `template: <catalog id>` + `params` (keys from the catalog entry) + `role_bindings` (real audiomap anchor seconds) + `copy`.
-- **free_design** — `free_design: { dominant_system, primitives: [catalog ids], density_topology }` + `anchors` (real beat / onset seconds) + `copy`.
-- **asset** — `asset: { treatment, clips: [public/…], anchors?, overlay_copy? }`. `treatment` ∈ `beat_cut` (one clip per anchor — only on a `beat_cut` frame) | `ken_burns` (slow push — fits `phrase_flow`) | `bg_under_text` (clip dimmed behind a template / free group). See [`montage.md`](montage.md).
+- **template** - `template: <catalog id>` + `params` (keys from the catalog entry) + `role_bindings` (real audiomap anchor seconds) + `copy`.
+- **free_design** - `free_design: { dominant_system, primitives: [catalog ids], density_topology }` + `anchors` (real beat / onset seconds) + `copy`.
+- **asset** - `asset: { treatment, clips: [public/…], anchors?, overlay_copy? }`. `treatment` ∈ `beat_cut` (one clip per anchor - only on a `beat_cut` frame) | `ken_burns` (slow push - fits `phrase_flow`) | `bg_under_text` (clip dimmed behind a template / free group). See [`montage.md`](montage.md).
 
 ## Rules
 
 - Frames tile the track (gap-free, first at 0, last at `duration_s`); a frame's groups tile its span; no group < ~1 bar; no group boundary inside a `rolls[]` run.
 - `params` keys come from the template's [`template-catalog.md`](template-catalog.md) entry.
-- All anchor seconds are **track seconds from `audiomap.json`** — the worker converts to frame-local by subtracting the frame start.
+- All anchor seconds are **track seconds from `audiomap.json`** - the worker converts to frame-local by subtracting the frame start.
 - A `phrase_flow` frame MUST NOT use `beat_cut` asset treatment or per-onset hard cuts.
 - The brand `style` is set once; every group's palette draws from it.
 - Reviewable prose-plus-data; keep it scannable. No GSAP, no millisecond timing.
