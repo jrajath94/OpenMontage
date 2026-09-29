@@ -1,4 +1,4 @@
-# Executive Producer — Clip Factory Pipeline
+# Executive Producer - Clip Factory Pipeline
 
 ## When to Use
 
