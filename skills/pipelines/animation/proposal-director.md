@@ -1,23 +1,23 @@
-# Proposal Director — Animation Pipeline
+# Proposal Director - Animation Pipeline
 
 ## When to Use
 
-You are the **Proposal Director** for a generated animation video. You sit between the Research Director and the Script Director. You receive a `research_brief` full of raw findings — both topic data and animation technique research — and transform it into a concrete, reviewable proposal that the user approves before any money is spent.
+You are the **Proposal Director** for a generated animation video. You sit between the Research Director and the Script Director. You receive a `research_brief` full of raw findings - both topic data and animation technique research - and transform it into a concrete, reviewable proposal that the user approves before any money is spent.
 
 **This is the approval gate.** Nothing downstream runs until the user says "go."
 
 Animation proposals have a unique dimension: **animation mode selection**. Unlike explainer videos where the visual approach is secondary to the narrative, animation videos ARE their visual approach. The mode choice (Manim vs Remotion vs AI video vs motion graphics) fundamentally shapes the entire production.
 
-## Runtime Selection (required field — `render_runtime`)
+## Runtime Selection (required field - `render_runtime`)
 
 Animation proposals must lock **both** a `renderer_family` (creative grammar) and a `render_runtime` (technical engine). These are separate concepts now that HyperFrames is a first-class runtime. Read `skills/meta/animation-runtime-selector.md` and `skills/core/hyperframes.md` for the decision matrix, and `AGENT_GUIDE.md` → "Present Both Composition Runtimes (HARD RULE)" for the governance contract.
 
-**MANDATORY workflow — present both runtimes, don't silently default:**
+**MANDATORY workflow - present both runtimes, don't silently default:**
 
 1. Query `video_compose.get_info()["render_engines"]`. If both `remotion` and `hyperframes` are `True`, proceed to step 2. If only one is available, go to step 4 with just that one.
 2. Present both runtimes to the user with brief-specific analysis:
-   - **Remotion** — one line on fit (e.g. "your brief uses data-chart and stat_card heavily, both already exist as React components"), one line on tradeoff (e.g. "React component authoring is more rigid than HTML/CSS for custom typographic motion").
-   - **HyperFrames** — one line on fit (e.g. "the kinetic-typography opener fits HTML + GSAP better than Remotion interpolation"), one line on tradeoff (e.g. "no word-level caption burn parity yet; no access to existing Remotion chart library").
+   - **Remotion** - one line on fit (e.g. "your brief uses data-chart and stat_card heavily, both already exist as React components"), one line on tradeoff (e.g. "React component authoring is more rigid than HTML/CSS for custom typographic motion").
+   - **HyperFrames** - one line on fit (e.g. "the kinetic-typography opener fits HTML + GSAP better than Remotion interpolation"), one line on tradeoff (e.g. "no word-level caption burn parity yet; no access to existing Remotion chart library").
 3. Recommend one with rationale tied to the brief's `delivery_promise`, the selected animation mode, and the reuse strategy from research.
 4. Wait for explicit user approval. Do NOT write `render_runtime` into `proposal_packet.production_plan` before approval.
 5. Log a `render_runtime_selection` decision in `decision_log` with BOTH runtimes in `options_considered`, the user's pick as `selected`, and the rationale as `reason`. If a runtime was unavailable, record it as rejected with `rejected_because: "runtime not available on this machine"`.
@@ -56,7 +56,7 @@ A `render_runtime_selection` decision with only one option considered when both 
 
 Before starting proposal work, check if a VideoAnalysisBrief exists for this project.
 
-**When a VideoAnalysisBrief is present — Reference-Aware Animation Concept Design:**
+**When a VideoAnalysisBrief is present - Reference-Aware Animation Concept Design:**
 
 **HARD RULE: No carbon copies.** Each concept option MUST:
 1. Name at least ONE animation element it keeps from the reference (pacing, motion style, narrative structure)
@@ -81,16 +81,16 @@ to validate the animation style before full production.
 
 **If a `research_brief` artifact exists:** Read it thoroughly. Extract:
 
-**If no research_brief exists (direct user brief):** The user has given you a creative brief directly. This is common for short videos (30-60s) where formal research is overkill. Use the user's brief as your input and proceed to Step 2. Note the missing research as a limitation — you won't have data_points, technique references, or audience_insights to draw from, so concept design relies on your knowledge and the user's direction.
+**If no research_brief exists (direct user brief):** The user has given you a creative brief directly. This is common for short videos (30-60s) where formal research is overkill. Use the user's brief as your input and proceed to Step 2. Note the missing research as a limitation - you won't have data_points, technique references, or audience_insights to draw from, so concept design relies on your knowledge and the user's direction.
 
 **When a research_brief IS available,** extract:
 
-- **`research_summary`** — read first. Contains both the key insight and the most promising animation approach.
-- **`angles_discovered`** — raw concept candidates, each with an `animation_fit` field.
-- **`data_points`** — especially those with high `visual_potential` ratings.
-- **Animation technique references** — from the animation-specific research step. These directly inform mode selection.
-- **`audience_insights.misconceptions`** — animation excels at showing "wrong way → right way" transitions.
-- **Mathematical/technical accuracy notes** — critical constraints on what we can and cannot simplify.
+- **`research_summary`** - read first. Contains both the key insight and the most promising animation approach.
+- **`angles_discovered`** - raw concept candidates, each with an `animation_fit` field.
+- **`data_points`** - especially those with high `visual_potential` ratings.
+- **Animation technique references** - from the animation-specific research step. These directly inform mode selection.
+- **`audience_insights.misconceptions`** - animation excels at showing "wrong way → right way" transitions.
+- **Mathematical/technical accuracy notes** - critical constraints on what we can and cannot simplify.
 
 ### Step 2: Run Preflight
 
@@ -110,12 +110,12 @@ python -c "from tools.tool_registry import registry; import json; registry.disco
 
 | Capability | What to Check | Impact if Missing |
 |------------|---------------|-------------------|
-| `math_animate` | Is ManimCE installed and working? | Cannot do programmatic math animation — fall back to diagram_gen + image_selector |
-| `diagram_gen` | Is Mermaid rendering available? | Cannot do diagram-led animation — fall back to image_selector |
+| `math_animate` | Is ManimCE installed and working? | Cannot do programmatic math animation - fall back to diagram_gen + image_selector |
+| `diagram_gen` | Is Mermaid rendering available? | Cannot do diagram-led animation - fall back to image_selector |
 | `video_selector` | Which video gen providers are available? | Limits AI video clip options |
 | `image_selector` | Which image gen providers are available? | Limits still frame options |
 | `tts_selector` | Which TTS providers are available? | Affects narration quality |
-| `video_compose` | Is FFmpeg/Remotion available? | Critical — cannot render without this |
+| `video_compose` | Is FFmpeg/Remotion available? | Critical - cannot render without this |
 
 Record all findings. **Do not propose an animation mode that requires tools you don't have.**
 
@@ -127,7 +127,7 @@ Before locking animation mode or visual identity, read `skills/meta/taste-direct
 
 #### Step 3a: Tool Availability Scan
 
-Before designing concepts, scan what's available and present it honestly. **Do NOT hardcode provider names, costs, or key names in this output** — they drift. Read them live from the registry:
+Before designing concepts, scan what's available and present it honestly. **Do NOT hardcode provider names, costs, or key names in this output** - they drift. Read them live from the registry:
 
 ```python
 from tools.tool_registry import registry
@@ -152,7 +152,7 @@ Math/Diagram: {configured}/{total}
 ```
 
 **Rules for this output:**
-- Every name, provider, cost, and install instruction comes from `provider_menu_summary()` or `provider_menu()`. Don't type them from memory — provider surfaces change between releases.
+- Every name, provider, cost, and install instruction comes from `provider_menu_summary()` or `provider_menu()`. Don't type them from memory - provider surfaces change between releases.
 - Never cite a cost that isn't live in the tool's `estimate_cost` or install metadata.
 - Composition runtimes are a separate section because the "Present Both" HARD RULE needs all three engines visible.
 
@@ -213,7 +213,7 @@ Note: This approach is not yet proven in the OpenMontage pipeline.
 
 **Critical principle: Surface capabilities, don't hide limitations.** The user should know exactly what's possible right now vs. what needs setup.
 
-**Rules for this section — same as Step 3a:**
+**Rules for this section - same as Step 3a:**
 - Every provider name, env var, and cost comes from `provider_menu_summary()` or a tool's live `install_instructions` / `estimate_cost`.
 - The `{placeholder}` tokens above are for the agent to fill from the registry, not paste literally.
 - If you find yourself typing a specific API-key env-var name or a per-unit dollar cost into this section, stop. Those drift between releases; hardcoding them in a director skill is a governance regression (see AGENT_GUIDE.md on hardcoded provider names). Pull the same data from the registry instead.
@@ -227,13 +227,13 @@ Note: This approach is not yet proven in the OpenMontage pipeline.
 - If no paid APIs available → **Approach D** (zero-key Remotion) or **Approach E** (diagrams)
 - If the user wants maximum quality and has video gen keys → **Approach F** (mixed: video clips for hero shots + Remotion for data)
 - **Always offer at least one free/local option** alongside paid approaches
-- **Never silently downgrade** — if the best approach needs a key the user doesn't have, say so explicitly
+- **Never silently downgrade** - if the best approach needs a key the user doesn't have, say so explicitly
 
 ### Step 3d: Mood Board (Before Concepts)
 
 Before developing full concepts, present a quick mood board to catch direction mismatches early:
 
-- **3-5 reference images** (animation style examples from web search — show what each approach LOOKS like)
+- **3-5 reference images** (animation style examples from web search - show what each approach LOOKS like)
 - **Color palette direction** (2-3 options, e.g. clean data-viz vs vibrant motion graphics vs sketchy hand-drawn)
 - **Tone references** ("Think: 3Blue1Brown meets Kurzgesagt" or "Think: Pixar short meets infographic")
 - **1-2 animation style samples** (if Manim: mathematical elegance; if Remotion: smooth data transitions; if AI video: cinematic motion)
@@ -248,7 +248,7 @@ Don't dump the full proposal at once. Build understanding step by step:
 
 1. **Research summary** (2-3 sentences): "Here's what I found..."
    → User reacts, course-corrects if needed.
-2. **Mood board** (from Step 3d — already presented)
+2. **Mood board** (from Step 3d - already presented)
    → User confirms animation style direction.
 3. **Concept options** (3+ approaches):
    → Present below.
@@ -294,7 +294,7 @@ For each concept, specify:
 
 Choose from: `myth_busting`, `problem_solution`, `data_narrative`, `comparison`, `timeline`, `journey`, `analogy`, `progressive_build`, `transformation`
 
-**Animation-specific structure: `progressive_build`** — start simple, add complexity layer by layer. This is the classic 3Blue1Brown approach and works exceptionally well for math/technical topics.
+**Animation-specific structure: `progressive_build`** - start simple, add complexity layer by layer. This is the classic 3Blue1Brown approach and works exceptionally well for math/technical topics.
 
 #### 4d: Duration and Platform
 
@@ -320,16 +320,16 @@ Choose from: `myth_busting`, `problem_solution`, `data_narrative`, `comparison`,
 
 Present all concepts clearly to the user. For each concept, show:
 
-1. **Title** and **hook** — the creative pitch
-2. **Animation mode** — what the video will LOOK like (with a plain-language description)
-3. **Why this works** — research backing, in one sentence
-4. **Duration** — how long
-5. **Reuse strategy** — "5 scenes built from 2 templates" vs "8 unique scenes"
+1. **Title** and **hook** - the creative pitch
+2. **Animation mode** - what the video will LOOK like (with a plain-language description)
+3. **Why this works** - research backing, in one sentence
+4. **Duration** - how long
+5. **Reuse strategy** - "5 scenes built from 2 templates" vs "8 unique scenes"
 
 #### Step 5b: Invite Mixing
 
 After presenting concepts, always say something like:
-> "You can also mix elements — for example, Concept A's hook with Concept C's animation approach, or Concept B's narrative with Concept A's visual style. What speaks to you?"
+> "You can also mix elements - for example, Concept A's hook with Concept C's animation approach, or Concept B's narrative with Concept A's visual style. What speaks to you?"
 
 If the user mixes, create a new hybrid concept entry in the proposal_packet with clear attribution: "Hook from Concept A, animation approach from Concept C, narrative structure from Concept B."
 
@@ -405,7 +405,7 @@ COST ESTIMATE
     Headroom: $X.XX for revisions
 ```
 
-**Animation cost note:** Programmatic animation (Manim, Remotion, diagram_gen) is FREE. This means animation pipelines can often be much cheaper than explainer pipelines — the primary cost is TTS narration and any AI-generated images/video used as backgrounds or transitions.
+**Animation cost note:** Programmatic animation (Manim, Remotion, diagram_gen) is FREE. This means animation pipelines can often be much cheaper than explainer pipelines - the primary cost is TTS narration and any AI-generated images/video used as backgrounds or transitions.
 
 ### Step 8: Assemble the Approval Gate
 
@@ -436,16 +436,16 @@ Validate the `proposal_packet` artifact against `schemas/artifacts/proposal_pack
 |------------------|------------------------------------|
 | Script Director | `selected_concept` (title, hook, key_points, animation_mode, narrative_structure) + research data |
 | Scene Director | `selected_concept.animation_mode` + `reuse_strategy` + `production_plan.playbook` |
-| Asset Director | `production_plan.stages[assets].tools` — knows exactly which providers to use |
-| Executive Producer | `cost_estimate` — initializes budget tracking |
-| All stages | `approval.approved_budget_usd` — hard spending cap |
+| Asset Director | `production_plan.stages[assets].tools` - knows exactly which providers to use |
+| Executive Producer | `cost_estimate` - initializes budget tracking |
+| All stages | `approval.approved_budget_usd` - hard spending cap |
 
 ## Common Pitfalls
 
 - **Not showing the Tool Availability Scan**: The user must know what's available BEFORE seeing concepts. Don't hide missing keys or tools.
-- **Ignoring animation approach feasibility**: If the routed image/video provider isn't available, don't propose that approach without explicitly telling the user what's needed. Read each missing tool's `install_instructions` from the registry (do NOT hardcode specific env var names here — they drift). Design around constraints OR explicitly state what's needed.
+- **Ignoring animation approach feasibility**: If the routed image/video provider isn't available, don't propose that approach without explicitly telling the user what's needed. Read each missing tool's `install_instructions` from the registry (do NOT hardcode specific env var names here - they drift). Design around constraints OR explicitly state what's needed.
 - **Three versions of the same concept with different titles**: Structural diversity means different animation approaches, different narrative structures, different hooks.
-- **Not leveraging free tools**: Animation has a huge cost advantage — Manim, Remotion data-viz, and diagram_gen are free. If proposing expensive AI video, justify why free alternatives won't work.
+- **Not leveraging free tools**: Animation has a huge cost advantage - Manim, Remotion data-viz, and diagram_gen are free. If proposing expensive AI video, justify why free alternatives won't work.
 - **Over-promising visual complexity**: 20 unique hand-crafted scenes is not realistic. Design reuse strategies that look varied but share underlying templates.
 - **Skipping the approval gate**: This is the whole point of pre-production. No shortcuts.
 - **Ignoring mathematical accuracy**: If the research brief flagged technical accuracy constraints, the concept MUST respect them. A beautiful but wrong animation is a failure.
@@ -457,17 +457,17 @@ Validate the `proposal_packet` artifact against `schemas/artifacts/proposal_pack
 
 If you encounter a generation technique, provider behavior, or prompting pattern you are unsure about:
 
-1. **Search the web** for current best practices — models and APIs change frequently, and the agent's training data may be stale
+1. **Search the web** for current best practices - models and APIs change frequently, and the agent's training data may be stale
 2. **Check `.agents/skills/`** for existing Layer 3 knowledge (provider-specific prompting guides, API patterns)
 3. **If neither helps**, write a project-scoped skill at `projects/<project-name>/skills/<name>.md` documenting what you learned
 4. **Reference source URLs** in the skill so the knowledge is traceable
 5. **Log it** in the decision log: `category: "capability_extension"`, `subject: "learned technique: <name>"`
 
 This is especially important for:
-- **Video generation prompting** — models respond to specific vocabularies that change with each version
-- **Image model parameters** — optimal settings for FLUX, GPT Image, Imagen differ and evolve
-- **Audio provider quirks** — voice cloning, music generation, and TTS each have model-specific best practices
-- **Remotion component patterns** — new composition techniques emerge as the framework evolves
+- **Video generation prompting** - models respond to specific vocabularies that change with each version
+- **Image model parameters** - optimal settings for FLUX, GPT Image, Imagen differ and evolve
+- **Audio provider quirks** - voice cloning, music generation, and TTS each have model-specific best practices
+- **Remotion component patterns** - new composition techniques emerge as the framework evolves
 
 Do not rely on stale knowledge. When in doubt, search first.
 
@@ -478,4 +478,4 @@ Do not rely on stale knowledge. When in doubt, search first.
 This stage gates on human approval (`human_approval_default: true`). After review passes:
 checkpoint with `status="awaiting_human"`, present the summary (the Backlot board renders
 the artifact), and **END YOUR TURN**. Do not start the next stage in the same response.
-Approval is per-gate — an earlier "go ahead" does not cover this gate.
+Approval is per-gate - an earlier "go ahead" does not cover this gate.
