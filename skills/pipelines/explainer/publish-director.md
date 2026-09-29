@@ -1,4 +1,4 @@
-# Publish Director — Explainer Pipeline
+# Publish Director - Explainer Pipeline
 
 ## When to Use
 
@@ -31,7 +31,7 @@ Collect everything needed for metadata:
 - Avoid clickbait but be compelling
 - Examples: "Vector Databases Explained in 60 Seconds" > "About Vector Databases"
 
-**Description** (first 150 chars are critical — shown in search):
+**Description** (first 150 chars are critical - shown in search):
 - Opening line: restate the hook with the main value proposition
 - Body: key topics covered, with relevant keywords naturally included
 - Chapters: timestamp markers for each major section (from script sections)
@@ -86,7 +86,7 @@ Each chapter maps to a script section's `start_seconds`.
 ### Step 5: Package Export
 
 Use the `export_bundle` tool (capability `publish`) to do the packaging
-deterministically — pass it the final `video_path` (from `render_report`), the
+deterministically - pass it the final `video_path` (from `render_report`), the
 `title`, and the metadata you prepared (`description`, `tags`, `hashtags`,
 `chapters`, optional `subtitles_path` and `thumbnail_path`/`thumbnail_concept`).
 It lays out the export directory, writes the metadata files, and returns a
@@ -109,13 +109,13 @@ exports/
       concept.json          # Thumbnail concept (or the copied thumbnail image)
 ```
 
-`export_bundle` is a local, offline packager — it does not upload. A networked
+`export_bundle` is a local, offline packager - it does not upload. A networked
 publisher (e.g. a YouTube uploader) would be a separate `publish`-capability
 provider.
 
 ### Step 6: Build Publish Log
 
-`export_bundle` already returns a schema-valid `publish_log` in `data["publish_log"]` — persist that directly rather than hand-building one. Do **not** add extra entry fields (the schema sets `additionalProperties: false`; only `platform`, `status`, `url`, `video_id`, `visibility`, `export_path`, `timestamp`, `metadata_used`, `error` are allowed). The shape it returns:
+`export_bundle` already returns a schema-valid `publish_log` in `data["publish_log"]` - persist that directly rather than hand-building one. Do **not** add extra entry fields (the schema sets `additionalProperties: false`; only `platform`, `status`, `url`, `video_id`, `visibility`, `export_path`, `timestamp`, `metadata_used`, `error` are allowed). The shape it returns:
 
 ```json
 {
@@ -170,4 +170,4 @@ Validate the publish_log against the schema and persist via checkpoint.
 This stage gates on human approval (`human_approval_default: true`). After review passes:
 checkpoint with `status="awaiting_human"`, present the summary (the Backlot board renders
 the artifact), and **END YOUR TURN**. Do not start the next stage in the same response.
-Approval is per-gate — an earlier "go ahead" does not cover this gate.
+Approval is per-gate - an earlier "go ahead" does not cover this gate.
