@@ -36,15 +36,15 @@ Do not change models silently. For a 30-second video, either obtain approval for
 
 Specify, in this order:
 
-1. **Purpose and duration** — what the music supports and the requested length.
-2. **Genre and era** — use musical vocabulary, not a living artist imitation.
-3. **Tempo and harmony** — BPM or tempo range, meter, key or tonal center.
-4. **Instrumentation and texture** — name lead, rhythm, bass, and ambient layers.
-5. **Structure** — timestamped sections or `[Intro]`, `[Verse]`, `[Chorus]`, `[Bridge]`, `[Outro]`.
-6. **Dynamics and synchronization** — entrances, rests, builds, hits, and holds tied to edit times.
-7. **Vocal policy** — instrumental-only constraints, a vocal profile, or clearly separated custom lyrics.
-8. **Mix and ending** — density, foreground/background role, headroom character, and final decay.
-9. **Exclusions** — unwanted vocals, instruments, gestures, clichés, abrupt endings, or copyrighted material.
+1. **Purpose and duration** - what the music supports and the requested length.
+2. **Genre and era** - use musical vocabulary, not a living artist imitation.
+3. **Tempo and harmony** - BPM or tempo range, meter, key or tonal center.
+4. **Instrumentation and texture** - name lead, rhythm, bass, and ambient layers.
+5. **Structure** - timestamped sections or `[Intro]`, `[Verse]`, `[Chorus]`, `[Bridge]`, `[Outro]`.
+6. **Dynamics and synchronization** - entrances, rests, builds, hits, and holds tied to edit times.
+7. **Vocal policy** - instrumental-only constraints, a vocal profile, or clearly separated custom lyrics.
+8. **Mix and ending** - density, foreground/background role, headroom character, and final decay.
+9. **Exclusions** - unwanted vocals, instruments, gestures, clichés, abrupt endings, or copyrighted material.
 
 For video underscore, use timestamp windows that cover the full requested duration. Ask for one primary change per window and identify the exact synchronization moment.
 
@@ -61,11 +61,11 @@ For custom lyrics, put performance direction before a separate `Lyrics:` block a
 
 When vocals are requested, define these before writing the prompt:
 
-1. **Vocal role** — solo lead, duet, call-and-response, backing ensemble, or vocal texture.
-2. **Language and script** — name the sung language and keep the custom lyrics in one intentional script; do not silently transliterate or code-switch.
-3. **Singer profile** — voice type or range, timbre, intensity, diction, ornamentation, and emotional distance. Do not imitate a named artist.
-4. **Section behavior** — state where the lead enters, where harmonies or echoes appear, and which sections remain instrumental.
-5. **Lyric contract** — separate directions from a `Lyrics:` block, use `[Verse]`, `[Chorus]`, `[Bridge]`, and `[Outro]`, and reserve parentheses for intentional backing-vocal echoes.
+1. **Vocal role** - solo lead, duet, call-and-response, backing ensemble, or vocal texture.
+2. **Language and script** - name the sung language and keep the custom lyrics in one intentional script; do not silently transliterate or code-switch.
+3. **Singer profile** - voice type or range, timbre, intensity, diction, ornamentation, and emotional distance. Do not imitate a named artist.
+4. **Section behavior** - state where the lead enters, where harmonies or echoes appear, and which sections remain instrumental.
+5. **Lyric contract** - separate directions from a `Lyrics:` block, use `[Verse]`, `[Chorus]`, `[Bridge]`, and `[Outro]`, and reserve parentheses for intentional backing-vocal echoes.
 
 Treat the returned vocal as untrusted until auditioned. Check lyric adherence, language drift, pronunciation, intelligibility, unwanted backing vocals, vocal/instrument balance, and whether the performance follows the requested emotional arc. A technically valid file with poor diction or altered lyrics is not an approved vocal result.
 
