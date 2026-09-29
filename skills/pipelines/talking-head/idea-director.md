@@ -1,4 +1,4 @@
-# Idea Director — Talking Head Pipeline
+# Idea Director - Talking Head Pipeline
 
 ## When to Use
 
@@ -6,11 +6,11 @@ You are starting a talking-head video project. You have raw footage of a person 
 
 Unlike the explainer pipeline (which starts from a topic), you start from existing footage. The brief documents what you're working with and what the final video should look like.
 
-## Runtime Selection (MANDATORY — present the constraint, don't silently pick)
+## Runtime Selection (MANDATORY - present the constraint, don't silently pick)
 
-Lock `render_runtime = "remotion"` (preferred — uses `TalkingHead` + `remotion_caption_burn`) or `"ffmpeg"` (for source-footage concat with no composition). **HyperFrames is NOT a valid runtime on this pipeline in Phase 1** — the TalkingHead composition and word-level caption burn have no HyperFrames parity yet.
+Lock `render_runtime = "remotion"` (preferred - uses `TalkingHead` + `remotion_caption_burn`) or `"ffmpeg"` (for source-footage concat with no composition). **HyperFrames is NOT a valid runtime on this pipeline in Phase 1** - the TalkingHead composition and word-level caption burn have no HyperFrames parity yet.
 
-Per AGENT_GUIDE.md → "Present Both Composition Runtimes (HARD RULE)": do NOT silently default to remotion. Tell the user: "HyperFrames is available, but talking-head depends on the Remotion TalkingHead composition, so remotion is the only viable composition choice (or ffmpeg for a raw cut) — OK to proceed?" Record a `render_runtime_selection` decision with hyperframes as a rejected option (`rejected_because: "TalkingHead + caption parity deferred on talking-head"`).
+Per AGENT_GUIDE.md → "Present Both Composition Runtimes (HARD RULE)": do NOT silently default to remotion. Tell the user: "HyperFrames is available, but talking-head depends on the Remotion TalkingHead composition, so remotion is the only viable composition choice (or ffmpeg for a raw cut) - OK to proceed?" Record a `render_runtime_selection` decision with hyperframes as a rejected option (`rejected_because: "TalkingHead + caption parity deferred on talking-head"`).
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ Use ffprobe to extract metadata:
 - Audio channels and codec
 - File size
 
-This tells you what you're working with — quality, length, format.
+This tells you what you're working with - quality, length, format.
 
 ### Step 2: Quick Content Assessment
 
@@ -71,4 +71,4 @@ Validate the brief against the schema and persist via checkpoint.
 This stage gates on human approval (`human_approval_default: true`). After review passes:
 checkpoint with `status="awaiting_human"`, present the summary (the Backlot board renders
 the artifact), and **END YOUR TURN**. Do not start the next stage in the same response.
-Approval is per-gate — an earlier "go ahead" does not cover this gate.
+Approval is per-gate - an earlier "go ahead" does not cover this gate.
