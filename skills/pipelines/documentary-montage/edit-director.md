@@ -24,13 +24,13 @@ its job, you have the raw material. The edit is the thinking.
 
 Documentary montage lives in four dimensions you have to balance:
 
-1. **Rhythm** — how long each hold lasts and how the holds relate.
-2. **Juxtaposition** — which image follows which, and what it means.
-3. **Music sync** — cuts landing on beats, dropouts earning weight.
-4. **Continuity of register** — the grain, color, and era don't swing
+1. **Rhythm** - how long each hold lasts and how the holds relate.
+2. **Juxtaposition** - which image follows which, and what it means.
+3. **Music sync** - cuts landing on beats, dropouts earning weight.
+4. **Continuity of register** - the grain, color, and era don't swing
    wildly unless the swing is the point.
 
-The enemy is "slideshow" — a sequence of clips played back-to-back
+The enemy is "slideshow" - a sequence of clips played back-to-back
 with the same hold length and no sound design. If it feels like a
 slideshow, the edit has failed, regardless of how good the clips are.
 
@@ -40,7 +40,7 @@ approved Remotion-first path.
 
 ## Process
 
-### 0. Guardrails — No Silent Major Changes
+### 0. Guardrails - No Silent Major Changes
 
 Before touching the timeline, re-read the brief. If any of these are
 true, STOP and surface to the user per the Decision Communication
@@ -73,7 +73,7 @@ table from the scene director's tone chart:
 transitions get min.
 
 Total hold time must sum to within ±10% of `brief.duration_seconds`.
-If you overshoot, compress non-hero holds first — never cut heroes
+If you overshoot, compress non-hero holds first - never cut heroes
 short to fit duration.
 
 ### 2. Arrange By Narrative Beat, Not By Score
@@ -86,7 +86,7 @@ You MAY reorder slots when:
 - The music bed has a downbeat at a known timestamp and reordering
   two slots lands a hero on the beat (see step 4).
 - Two adjacent slots are visually identical and swapping one breaks
-  the monotony (but see step 7 — diversify should have caught this
+  the monotony (but see step 7 - diversify should have caught this
   already).
 - The final image isn't landing. The last 5-10s carries
   disproportionate weight; if the scene director's choice dies, move
@@ -146,7 +146,7 @@ Record the music config in `edit_decisions.audio.music` with:
 }
 ```
 
-`ducking: false` is the default for this pipeline — there's no
+`ducking: false` is the default for this pipeline - there's no
 narration to duck under. If the user approved a narration track, set
 ducking to true and let it dip during segments.
 
@@ -235,7 +235,7 @@ Compute the offset: `offset_seconds = body_duration - tag_duration`.
 This makes the tag's fade-out align with the body's closing fade-out
 (the last cut's `transition_out: fade_out`). If the final cut's hold
 is shorter than the tag duration, start the tag earlier so it overlaps
-the second-to-last cut as well — this is fine and often looks better.
+the second-to-last cut as well - this is fine and often looks better.
 
 Record in `edit_decisions.end_tag`:
 
@@ -248,7 +248,7 @@ Record in `edit_decisions.end_tag`:
 }
 ```
 
-If `mode == "concat"`, omit this section — the compose-director will
+If `mode == "concat"`, omit this section - the compose-director will
 append the tag after the body without needing a timing offset.
 
 ### 9. Emit The Edit Decisions
@@ -325,7 +325,7 @@ Canonical shape for this pipeline:
 - The transition vocabulary is at most 4 distinct values.
 - Music config exists (or brief explicitly says no music).
 - At least one `silence_window` entry for pieces >= 60s.
-- Every cut has a one-line `reason` — if you can't write one, the
+- Every cut has a one-line `reason` - if you can't write one, the
   cut is arbitrary and should be reconsidered.
 - `metadata.total_duration_seconds` matches the sum of cut durations.
 
@@ -333,14 +333,14 @@ Canonical shape for this pipeline:
 
 - **Cutting by information density instead of rhythm.** A doc
   montage is not a Wikipedia article. "But I need to show this" is
-  not a reason — if the image doesn't sustain a hold, it doesn't
+  not a reason - if the image doesn't sustain a hold, it doesn't
   belong.
 - **Over-using dissolves.** A dissolve on every cut says "I couldn't
   commit". Commit.
 - **Ignoring the music bed until the end.** Music is not a sweetener
   you add at compose time. It is a timing grid you cut TO.
 - **Letting the final image be a weak one.** The last frame is
-  disproportionately remembered. If it's weak, swap it — the scene
+  disproportionately remembered. If it's weak, swap it - the scene
   director's slot ordering is a strong suggestion, not a contract.
 - **Freeze-frame endings.** Reads as technical error. End on a
   fade-to-black instead.
@@ -351,7 +351,7 @@ Canonical shape for this pipeline:
 - **Three different transition types in the first 15 seconds.**
   Readers will feel the edit working. Restraint is the brand.
 
-## Worked Pacing Example — "A Minute in the Rain"
+## Worked Pacing Example - "A Minute in the Rain"
 
 90 seconds, elegiac, list shape, 15 hero-flagged slots.
 
@@ -377,4 +377,4 @@ scale collisions.
 This stage gates on human approval (`human_approval_default: true`). After review passes:
 checkpoint with `status="awaiting_human"`, present the summary (the Backlot board renders
 the artifact), and **END YOUR TURN**. Do not start the next stage in the same response.
-Approval is per-gate — an earlier "go ahead" does not cover this gate.
+Approval is per-gate - an earlier "go ahead" does not cover this gate.
