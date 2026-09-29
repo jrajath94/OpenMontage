@@ -33,7 +33,7 @@ FADE DURATION:    0.3s opacity  |  0.5-1.0s slide/scale
 
 ### Font Pairing Rules
 
-- Limit to **1-2 font families** per video — more creates visual noise
+- Limit to **1-2 font families** per video - more creates visual noise
 - Pair a **display/bold heading** font with a **neutral body** font
 - Size difference between title and body: at least **50% larger**
 - **Sans-serif** for motion graphics and captions (holds up in motion)
@@ -61,7 +61,7 @@ FADE DURATION:    0.3s opacity  |  0.5-1.0s slide/scale
 | Subtitles | 42+ | 84+ | Accessibility requirement |
 | Lower third name | 48-60 | 96-120 | Bold weight |
 | Lower third role | 36-44 | 72-88 | Light/regular weight |
-| Thumbnail text | — | — | Must read at 120-160px wide display |
+| Thumbnail text | - | - | Must read at 120-160px wide display |
 
 ## Safe Zones
 
@@ -83,9 +83,9 @@ At 3840x2160: Title Safe = inner **3072x1728px**
 | **Instagram Reels** | 996x1400 | 210px | 310px | 84px |
 | **YouTube Shorts** | 984x1500 | 120px | 300px | 96px |
 | **Facebook Reels** | 1080x1520 | 100px | 300px | 60px |
-| **Instagram Stories** | 1080x1620 | 100px | 200px | — |
+| **Instagram Stories** | 1080x1620 | 100px | 200px | - |
 
-**Universal cross-platform safe zone: 900x1400px centered** — works on all platforms.
+**Universal cross-platform safe zone: 900x1400px centered** - works on all platforms.
 
 ## Text Animation Timing
 
@@ -111,13 +111,13 @@ At 3840x2160: Title Safe = inner **3072x1728px**
 
 | Easing | Cubic Bezier | Use For |
 |--------|-------------|---------|
-| **easeOutCubic** | `(0.33, 1, 0.68, 1)` | Text entrances (decelerates into place) — **default choice** |
+| **easeOutCubic** | `(0.33, 1, 0.68, 1)` | Text entrances (decelerates into place) - **default choice** |
 | **easeOutQuart** | `(0.25, 1, 0.5, 1)` | Snappier entrance, kinetic type |
 | **easeInOutQuad** | `(0.45, 0, 0.55, 1)` | Smooth position transitions |
 | **easeInOutCubic** | `(0.65, 0, 0.35, 1)` | Scale and opacity changes |
 | **easeInCubic** | `(0.32, 0, 0.67, 0)` | Exits (accelerates out) |
 
-**Never use linear easing** for text animations — it feels robotic.
+**Never use linear easing** for text animations - it feels robotic.
 
 ### Reveal Techniques
 
@@ -206,21 +206,21 @@ At 3840x2160: Title Safe = inner **3072x1728px**
 
 ### Text-Over-Video Techniques
 
-1. **Semi-transparent box** — 70-80% black opacity behind text (most reliable)
-2. **Text stroke** — 2-4px dark outline around light text
-3. **Drop shadow** — subtle shadow for depth (less reliable on busy backgrounds)
-4. **Darkened region** — gradient overlay behind text area
-5. **Full-screen overlay** — 30-50% dark overlay for text-heavy screens
+1. **Semi-transparent box** - 70-80% black opacity behind text (most reliable)
+2. **Text stroke** - 2-4px dark outline around light text
+3. **Drop shadow** - subtle shadow for depth (less reliable on busy backgrounds)
+4. **Darkened region** - gradient overlay behind text area
+5. **Full-screen overlay** - 30-50% dark overlay for text-heavy screens
 
 ## Applying to OpenMontage
 
 When generating text for video in the compose/asset stages:
 
-1. **Font selection** — use the recommended video fonts above; prefer Inter or Open Sans for body, Montserrat Bold for titles
-2. **Size check** — never go below 40px at 1080p for any text element
-3. **Safe zones** — all text within 80% title-safe area; for vertical/short-form, use the 900x1400px universal safe zone
-4. **Subtitle styling** — 42px+, max 2 lines, max 42 chars/line, semi-transparent background at 75% opacity
-5. **Animation** — use easeOutCubic for entrances, hold text for at least 1 second per 13 characters after animation
-6. **Contrast** — verify 4.5:1 minimum on a representative graded frame; prefer white-on-dark-background (21:1)
-7. **Platform targeting** — check the platform safe zone table above and adjust text placement accordingly
-8. **Remotion rendering** — all font families must be loaded via `@import` or `fontFamily` in the component; test that fonts render in the Docker/Lambda environment
+1. **Font selection** - use the recommended video fonts above; prefer Inter or Open Sans for body, Montserrat Bold for titles
+2. **Size check** - never go below 40px at 1080p for any text element
+3. **Safe zones** - all text within 80% title-safe area; for vertical/short-form, use the 900x1400px universal safe zone
+4. **Subtitle styling** - 42px+, max 2 lines, max 42 chars/line, semi-transparent background at 75% opacity
+5. **Animation** - use easeOutCubic for entrances, hold text for at least 1 second per 13 characters after animation
+6. **Contrast** - verify 4.5:1 minimum on a representative graded frame; prefer white-on-dark-background (21:1)
+7. **Platform targeting** - check the platform safe zone table above and adjust text placement accordingly
+8. **Remotion rendering** - all font families must be loaded via `@import` or `fontFamily` in the component; test that fonts render in the Docker/Lambda environment
