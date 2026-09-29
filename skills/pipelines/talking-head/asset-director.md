@@ -1,4 +1,4 @@
-# Asset Director — Talking Head Pipeline
+# Asset Director - Talking Head Pipeline
 
 ## When to Use
 
@@ -52,8 +52,8 @@ subtitle_gen.execute({
 
 If the scene plan includes background music:
 
-1. **Check local pixabay music library** — look for downloaded MP3s matching the mood
-2. **Use `pixabay_music` tool** — search by mood/genre keywords from the scene plan
+1. **Check local pixabay music library** - look for downloaded MP3s matching the mood
+2. **Use `pixabay_music` tool** - search by mood/genre keywords from the scene plan
 3. **Run `audio_energy` analysis** on the selected track to find optimal start offset (skip quiet intros)
 
 Record the music path, offset, and whether looping is needed in the asset manifest.
@@ -94,7 +94,7 @@ Create a composition JSON snippet for each overlay. These will be rendered by th
 | Data chart | `bar_chart` | `chartData` (array of `{label, value}`) |
 | Pie chart | `pie_chart` | `chartData` (array of `{label, value}`) |
 | Line chart | `line_chart` | `chartSeries` (array of `{name, data: number[]}`) |
-| KPI dashboard | `kpi_grid` | `chartData` (array of `{label, value}`) — keep numbers small with suffix (e.g. "2.4M") |
+| KPI dashboard | `kpi_grid` | `chartData` (array of `{label, value}`) - keep numbers small with suffix (e.g. "2.4M") |
 | Progress indicator | `progress_bar` | `progress` (0-100), `text` |
 | Section title | `hero_title` | `text`, `subtitle` (optional) |
 | Callout/quote | `callout` | `text`, `icon` |
@@ -187,23 +187,23 @@ If you encounter uncertainty during asset generation:
 
 Visual accuracy matters. If the script mentions a specific place, person, or object,
 verify what it actually looks like before generating images. Don't rely on
-the AI model's training data — it may be wrong or outdated.
+the AI model's training data - it may be wrong or outdated.
 
 ## When You Do Not Know How
 
 If you encounter a generation technique, provider behavior, or prompting pattern you are unsure about:
 
-1. **Search the web** for current best practices — models and APIs change frequently, and the agent's training data may be stale
+1. **Search the web** for current best practices - models and APIs change frequently, and the agent's training data may be stale
 2. **Check `.agents/skills/`** for existing Layer 3 knowledge (provider-specific prompting guides, API patterns)
 3. **If neither helps**, write a project-scoped skill at `projects/<project-name>/skills/<name>.md` documenting what you learned
 4. **Reference source URLs** in the skill so the knowledge is traceable
 5. **Log it** in the decision log: `category: "capability_extension"`, `subject: "learned technique: <name>"`
 
 This is especially important for:
-- **Video generation prompting** — models respond to specific vocabularies that change with each version
-- **Image model parameters** — optimal settings for FLUX, GPT Image, Imagen differ and evolve
-- **Audio provider quirks** — voice cloning, music generation, and TTS each have model-specific best practices
-- **Remotion component patterns** — new composition techniques emerge as the framework evolves
+- **Video generation prompting** - models respond to specific vocabularies that change with each version
+- **Image model parameters** - optimal settings for FLUX, GPT Image, Imagen differ and evolve
+- **Audio provider quirks** - voice cloning, music generation, and TTS each have model-specific best practices
+- **Remotion component patterns** - new composition techniques emerge as the framework evolves
 
 Do not rely on stale knowledge. When in doubt, search first.
 
@@ -214,4 +214,4 @@ Do not rely on stale knowledge. When in doubt, search first.
 This stage gates on human approval (`human_approval_default: true`). After review passes:
 checkpoint with `status="awaiting_human"`, present the summary (the Backlot board renders
 the artifact), and **END YOUR TURN**. Do not start the next stage in the same response.
-Approval is per-gate — an earlier "go ahead" does not cover this gate.
+Approval is per-gate - an earlier "go ahead" does not cover this gate.
