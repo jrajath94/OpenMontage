@@ -1,4 +1,4 @@
-# VEO 3.1 / VEO 3 — Prompting Guide
+# VEO 3.1 / VEO 3 - Prompting Guide
 
 > Source: [Vertex AI Video Gen Prompt Guide](https://cloud.google.com/vertex-ai/generative-ai/docs/video/video-gen-prompt-guide)
 > For universal vocabulary, see: `skills/creative/video-gen-prompting.md`
@@ -9,26 +9,26 @@
 
 VEO responds to the most comprehensive prompt structure of any model:
 
-1. **Subject** — who/what the action revolves around
-2. **Action** — movements, interactions, expressions
-3. **Scene / Context** — location, time, weather, period
-4. **Camera Angles** — shot type and perspective
-5. **Camera Movements** — dynamic motion
-6. **Lens / Optical Effects** — how the camera "sees"
-7. **Lighting** — source, direction, quality
-8. **Tone / Mood** — emotional register
-9. **Artistic Style** — photorealistic, cinematic, animation, art movement
-10. **Ambiance** — color palettes, atmospheric effects, textures
-11. **Temporal Elements** — pacing, time flow, rhythm
-12. **Audio** — sound effects, ambient, dialogue (VEO 3 generates dialogue)
-13. **Cinematic Terms** — editing techniques (match cut, montage, split diopter)
-14. **Negative Prompt** — what to exclude
+1. **Subject** - who/what the action revolves around
+2. **Action** - movements, interactions, expressions
+3. **Scene / Context** - location, time, weather, period
+4. **Camera Angles** - shot type and perspective
+5. **Camera Movements** - dynamic motion
+6. **Lens / Optical Effects** - how the camera "sees"
+7. **Lighting** - source, direction, quality
+8. **Tone / Mood** - emotional register
+9. **Artistic Style** - photorealistic, cinematic, animation, art movement
+10. **Ambiance** - color palettes, atmospheric effects, textures
+11. **Temporal Elements** - pacing, time flow, rhythm
+12. **Audio** - sound effects, ambient, dialogue (VEO 3 generates dialogue)
+13. **Cinematic Terms** - editing techniques (match cut, montage, split diopter)
+14. **Negative Prompt** - what to exclude
 
 ## VEO-Specific Strengths
 
 - **Dialogue generation**: VEO 3 natively generates character speech. Write dialogue naturally.
 - **Audio integration**: Ambient sound, music, and voice are generated together with video.
-- **Negative prompts**: Explicitly supported — "no text overlays, no watermarks, no lens flare"
+- **Negative prompts**: Explicitly supported - "no text overlays, no watermarks, no lens flare"
 - **Editing vocabulary**: Understands "match cut", "jump cut", "montage", "split diopter" as prompt terms.
 
 ### Camera vocabulary VEO honors literally
@@ -54,7 +54,7 @@ VEO specifically responds to optical effects most models ignore:
 | **Fisheye** | "fisheye lens distortion, skatepark POV" |
 | **Anamorphic lens flare** | "anamorphic lens flare streaking horizontally from setting sun" |
 
-These three focus modes (rack, pull, tracking) are different — VEO 3.1 honors the distinction per the paper.
+These three focus modes (rack, pull, tracking) are different - VEO 3.1 honors the distinction per the paper.
 
 ## VEO Art Movement References
 
