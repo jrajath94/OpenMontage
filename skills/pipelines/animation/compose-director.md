@@ -8,15 +8,15 @@ Render the animation with an emphasis on text sharpness, timing integrity, and c
 
 Before any other work, read `edit_decisions.render_runtime`. It was locked at proposal and MUST NOT be changed silently. The rest of this skill assumes `render_runtime="remotion"` (the default for this pipeline). If the proposal locked a different runtime:
 
-- **`render_runtime="hyperframes"`** — HTML/CSS/GSAP render. Do NOT follow the Remotion-specific sections below (public/ staging, Remotion composition JSON). Instead:
+- **`render_runtime="hyperframes"`** - HTML/CSS/GSAP render. Do NOT follow the Remotion-specific sections below (public/ staging, Remotion composition JSON). Instead:
   1. Read `skills/core/hyperframes.md` for the full routing model.
   2. Read `.agents/skills/hyperframes/SKILL.md` and `.agents/skills/hyperframes-cli/SKILL.md` for authoring contract and CLI usage.
-  3. Call `video_compose` with `edit_decisions.render_runtime="hyperframes"` — it delegates to `hyperframes_compose`, which owns workspace materialization under `projects/<name>/hyperframes/`, runs `hyperframes check → render`, and returns the MP4 path.
+  3. Call `video_compose` with `edit_decisions.render_runtime="hyperframes"` - it delegates to `hyperframes_compose`, which owns workspace materialization under `projects/<name>/hyperframes/`, runs `hyperframes check → render`, and returns the MP4 path.
   4. `hyperframes check` MUST pass before render. It unifies lint, runtime, layout, motion, and WCAG contrast checks; contrast can be deferred with `skip_contrast=true` during iteration but not for final delivery.
-- **`render_runtime="ffmpeg"`** — simple concat/trim with no composition. Call `video_compose` directly; it will not auto-upgrade to Remotion.
-- **Runtime unavailable** — do NOT silently swap to a different engine. Surface the blocker to the user per AGENT_GUIDE.md > "Escalate Blockers Explicitly" and wait for approval (recorded as a `render_runtime_selection` decision in decision_log) before switching.
+- **`render_runtime="ffmpeg"`** - simple concat/trim with no composition. Call `video_compose` directly; it will not auto-upgrade to Remotion.
+- **Runtime unavailable** - do NOT silently swap to a different engine. Surface the blocker to the user per AGENT_GUIDE.md > "Escalate Blockers Explicitly" and wait for approval (recorded as a `render_runtime_selection` decision in decision_log) before switching.
 
-The post-render self-review (final_review) is identical across runtimes — same ffprobe probe, frame sampling, audio spotcheck, and promise preservation checks. `final_review.checks.promise_preservation.render_runtime_used` must equal the runtime that actually ran.
+The post-render self-review (final_review) is identical across runtimes - same ffprobe probe, frame sampling, audio spotcheck, and promise preservation checks. `final_review.checks.promise_preservation.render_runtime_used` must equal the runtime that actually ran.
 
 **Pass `proposal_packet` to `video_compose.execute()`** when you invoke it. That lets the tool directly compare the proposal-locked runtime against the runtime recorded in `edit_decisions` and flip `runtime_swap_detected=true` if they diverge. Without it, the check is `skipped` and the reviewer skill has to catch swaps via cross-artifact comparison instead.
 
@@ -124,8 +124,8 @@ print(f"Needs loop: {data['needs_loop']}")
 ```
 
 This tool:
-1. **Finds the best section** — analyzes per-second loudness and finds the N-second window with highest average energy. Ambient music tracks often have quiet intros (10-30s) before the main melody kicks in.
-2. **Recommends loop** — if the music from the offset is shorter than the video, it tells you to enable looping.
+1. **Finds the best section** - analyzes per-second loudness and finds the N-second window with highest average energy. Ambient music tracks often have quiet intros (10-30s) before the main melody kicks in.
+2. **Recommends loop** - if the music from the offset is shorter than the video, it tells you to enable looping.
 
 **Apply the offset in the composition JSON:**
 
@@ -142,12 +142,12 @@ This tool:
 }
 ```
 
-- `offsetSeconds` — start playback from this point in the track (skips quiet intro)
-- `loop` — set to `true` if the remaining music is shorter than the video
+- `offsetSeconds` - start playback from this point in the track (skips quiet intro)
+- `loop` - set to `true` if the remaining music is shorter than the video
 
 **If the tool says `needs_loop: true`:** set `"loop": true` in the composition JSON. Remotion will loop the audio seamlessly with the volume fade resetting per loop.
 
-### 4. Pre-Render Validation (MANDATORY — NO EXCEPTIONS)
+### 4. Pre-Render Validation (MANDATORY - NO EXCEPTIONS)
 
 Run `composition_validator` before every render:
 
@@ -185,7 +185,7 @@ npx remotion render Explainer \
   --codec=h264 --crf=18
 ```
 
-**Note:** The composition name is `Explainer` (not `ExplainerVideo`). Do NOT specify `src/index.ts` as entry point — Remotion auto-discovers it.
+**Note:** The composition name is `Explainer` (not `ExplainerVideo`). Do NOT specify `src/index.ts` as entry point - Remotion auto-discovers it.
 
 ### 8. Post-Render Self-Review (MANDATORY)
 
@@ -227,10 +227,10 @@ Recommended metadata keys:
 
 ## Common Pitfalls
 
-- **Forgetting to copy assets to `remotion-composer/public/`** — the #1 cause of render failures. Images generate to `projects/<name>/assets/` but Remotion reads from `public/`.
+- **Forgetting to copy assets to `remotion-composer/public/`** - the #1 cause of render failures. Images generate to `projects/<name>/assets/` but Remotion reads from `public/`.
 - Soft or aliased text after rendering.
 - Compression choices that damage diagrams.
 - Scene cadence changing between preview and final.
-- **Skipping `composition_validator`** — catches missing files, bad timings, audio mismatches before you waste render time.
-- **Not extracting frames for self-review** — a rendered video is not "done" until frames are visually inspected. Black frames, missing particles, or invisible images are not always obvious from file size alone.
-- **Using `durationInFrames` from `useVideoConfig()` for scene-level timing** — this returns the FULL composition duration, not the scene's Sequence duration. See `skills/core/remotion.md` Critical Constraints.
+- **Skipping `composition_validator`** - catches missing files, bad timings, audio mismatches before you waste render time.
+- **Not extracting frames for self-review** - a rendered video is not "done" until frames are visually inspected. Black frames, missing particles, or invisible images are not always obvious from file size alone.
+- **Using `durationInFrames` from `useVideoConfig()` for scene-level timing** - this returns the FULL composition duration, not the scene's Sequence duration. See `skills/core/remotion.md` Critical Constraints.
