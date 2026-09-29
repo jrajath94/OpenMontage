@@ -1,12 +1,12 @@
-# Compose Director — Talking Head Pipeline
+# Compose Director - Talking Head Pipeline
 
 ## When to Use
 
 You have edit decisions and an asset manifest. Your job is to render the final talking-head video: apply the enhancement chain, burn subtitles, mix audio, and encode to the target profile.
 
-## Runtime Routing (HARD CONSTRAINT — Remotion or FFmpeg only)
+## Runtime Routing (HARD CONSTRAINT - Remotion or FFmpeg only)
 
-Phase 1 deferred from HyperFrames. `edit_decisions.render_runtime` must be `"remotion"` (preferred — uses the `TalkingHead` composition + `remotion_caption_burn`) or `"ffmpeg"` (for source-footage concat with no composition).
+Phase 1 deferred from HyperFrames. `edit_decisions.render_runtime` must be `"remotion"` (preferred - uses the `TalkingHead` composition + `remotion_caption_burn`) or `"ffmpeg"` (for source-footage concat with no composition).
 
 - If `edit_decisions.render_runtime == "hyperframes"`, stop. Re-open the idea stage and surface the constraint. Silent rewrite is a governance violation.
 - Per AGENT_GUIDE.md → "Present Both Composition Runtimes (HARD RULE)": the pipeline's constraint doesn't skip the conversation. Present the constraint to the user so they know HyperFrames exists but isn't viable here. Record a `render_runtime_selection` decision with hyperframes `rejected_because: "TalkingHead + caption parity deferred on talking-head"`.
@@ -64,14 +64,14 @@ Before rendering anything, validate the inputs and catch issues that are expensi
 
 ### Step 1: Run Enhancement Chain
 
-Apply video enhancements in this exact order. **Attempt every step** if the tool is available — do not skip steps without a reason.
+Apply video enhancements in this exact order. **Attempt every step** if the tool is available - do not skip steps without a reason.
 
-1. **Face enhancement** — apply `talking_head_standard` preset
-2. **Eye enhancement** — under-eye dark circle removal + eye brightening
-3. **Color grading** — apply a profile
-4. **Audio enhancement** — noise reduction, normalization
+1. **Face enhancement** - apply `talking_head_standard` preset
+2. **Eye enhancement** - under-eye dark circle removal + eye brightening
+3. **Color grading** - apply a profile
+4. **Audio enhancement** - noise reduction, normalization
 
-**Eye enhancement** — always attempt this after face_enhance. It makes a visible difference on webcam/phone footage:
+**Eye enhancement** - always attempt this after face_enhance. It makes a visible difference on webcam/phone footage:
 ```
 eye_enhance.execute({
     "input_path": "<face_enhanced_video>",
@@ -100,9 +100,9 @@ Common speed factors:
 |--------|----------|
 | `0.5` | Slow-mo for dramatic effect |
 | `1.0` | Normal (no change) |
-| `1.25` | Slightly faster — tighter pacing without sounding unnatural |
-| `1.5` | Noticeably faster — good for recaps or condensed content |
-| `2.0` | Double speed — time-lapse effect |
+| `1.25` | Slightly faster - tighter pacing without sounding unnatural |
+| `1.5` | Noticeably faster - good for recaps or condensed content |
+| `2.0` | Double speed - time-lapse effect |
 
 Apply speed AFTER enhancements, BEFORE reframing.
 
@@ -187,12 +187,12 @@ FFmpeg subtitle style string for vertical talking-head:
 
 ### Step 3b: Burn Overlay Graphics (if scene plan includes overlays)
 
-If the scene plan includes overlay scenes (text_cards, stat_cards, charts, comparisons, callouts), pass them to `remotion_caption_burn` alongside captions. **Both captions and overlays render in a single Remotion pass** — no separate FFmpeg compositing needed.
+If the scene plan includes overlay scenes (text_cards, stat_cards, charts, comparisons, callouts), pass them to `remotion_caption_burn` alongside captions. **Both captions and overlays render in a single Remotion pass** - no separate FFmpeg compositing needed.
 
 **How it works:** The TalkingHead Remotion composition renders three layers:
-1. **Video** (bottom) — the talking-head footage
-2. **Overlays** (middle) — positioned charts, stats, callouts with fade in/out
-3. **Captions** (top) — word-by-word highlighting, always visible
+1. **Video** (bottom) - the talking-head footage
+2. **Overlays** (middle) - positioned charts, stats, callouts with fade in/out
+3. **Captions** (top) - word-by-word highlighting, always visible
 
 **Combine Step 3 and 3b into one `remotion_caption_burn` call:**
 ```
@@ -246,7 +246,7 @@ remotion_caption_burn.execute({
 ```
 
 **Overlay position options:**
-- `lower_third` → bottom area, above captions (default — safest for most overlays)
+- `lower_third` → bottom area, above captions (default - safest for most overlays)
 - `upper_third` → top area (good for stats while speaker is center/lower)
 - `left_panel` → left 45% of frame (side-by-side with speaker)
 - `right_panel` → right 45% of frame
@@ -270,7 +270,7 @@ remotion_caption_burn.execute({
 
 **Important:** After speed adjustment, recalculate overlay timestamps: `adjusted_time = original_time / speed_factor`.
 
-**Fallback (no Remotion):** If Remotion is unavailable, `remotion_caption_burn` falls back to FFmpeg for captions only. Overlays are NOT rendered in FFmpeg fallback mode — warn the user that overlays require Remotion.
+**Fallback (no Remotion):** If Remotion is unavailable, `remotion_caption_burn` falls back to FFmpeg for captions only. Overlays are NOT rendered in FFmpeg fallback mode - warn the user that overlays require Remotion.
 
 ### Step 3c: Green Screen Composite (if green screen footage)
 
@@ -367,7 +367,7 @@ video_stitch.execute({
 
 Use `audio_mixer` to layer background music:
 
-**For multi-clip reels** — use `segmented_music` to play music only during talking head sections:
+**For multi-clip reels** - use `segmented_music` to play music only during talking head sections:
 ```
 audio_mixer.execute({
     "operation": "segmented_music",
@@ -383,12 +383,12 @@ audio_mixer.execute({
 })
 ```
 
-**For single talking-head videos** — use `duck` or `full_mix`:
+**For single talking-head videos** - use `duck` or `full_mix`:
 - Layer original audio with background music
 - Apply ducking if music is present
 - Normalize final levels
 
-### Step 6: Final Encode — MANDATORY
+### Step 6: Final Encode - MANDATORY
 
 **Do not skip this step.** Without a final encode, the output will be oversized and may not play correctly on the target platform.
 
@@ -404,7 +404,7 @@ Use `video_compose` with `encode` operation:
 | YouTube Shorts | 60s | < 40 MB |
 | YouTube | unlimited | < 25 MB/min |
 
-If the output exceeds the target, re-encode with a lower bitrate. A 66-second Instagram Reel at 76 MB is unacceptable — it should be under 30 MB.
+If the output exceeds the target, re-encode with a lower bitrate. A 66-second Instagram Reel at 76 MB is unacceptable - it should be under 30 MB.
 
 ```
 video_compose.execute({
@@ -466,7 +466,7 @@ Document output: path, format, resolution, duration, file size, QA results.
 |-----------|----------|
 | **Playability** | Does the video play without errors? |
 | **Quality** | Are enhancements applied correctly? |
-| **Framing** | If reframed — is the face centered? No important content cropped? |
+| **Framing** | If reframed - is the face centered? No important content cropped? |
 | **Audio** | Is speech clear with balanced levels? Music only during intended segments? |
 | **Subtitles** | Are captions visible at the bottom? Not occluding the face? Word highlighting working? |
 | **Transitions** | Are transitions clean? Correct type (crossfade vs fadeblack)? |
