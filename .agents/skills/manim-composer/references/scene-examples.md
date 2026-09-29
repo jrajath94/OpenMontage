@@ -87,7 +87,7 @@ Walk through calculation slowly. "Let's see why the algebra matches the geometry
 - Morphing animation between them
 
 **Content**
-"You can build a square wave—something with sharp corners—from perfectly smooth sine waves." Show the result first, then promise to explain how.
+"You can build a square wave-something with sharp corners-from perfectly smooth sine waves." Show the result first, then promise to explain how.
 
 **Narration Notes**
 Tone: wonder, slight disbelief. This should feel surprising.
@@ -135,7 +135,7 @@ Go slow. "A sine wave has three knobs we can adjust..."
 Show that adding waves means adding their heights at each point. Demonstrate with two specific frequencies combining.
 
 **Narration Notes**
-"Adding waves is simple—at each point, just add the heights."
+"Adding waves is simple-at each point, just add the heights."
 
 **Technical Notes**
 - VGroup of three function graphs
@@ -156,7 +156,7 @@ Show that adding waves means adding their heights at each point. Demonstrate wit
 - Grid lines transforming
 
 **Content**
-Show a grid. Highlight i-hat (1,0) and j-hat (0,1). Apply a transformation—watch the entire grid move while tracking where basis vectors land.
+Show a grid. Highlight i-hat (1,0) and j-hat (0,1). Apply a transformation-watch the entire grid move while tracking where basis vectors land.
 
 **Narration Notes**
 "Watch what happens to the grid when we apply this transformation. Notice how every point moves."
