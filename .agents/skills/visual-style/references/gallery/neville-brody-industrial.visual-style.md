@@ -58,10 +58,10 @@ typography:
     family: "Monospace or condensed sans"
     style: "small, dense, all caps"
   rules:
-    - "Type IS the visual — collides with content, not placed on it"
+    - "Type IS the visual - collides with content, not placed on it"
     - "Fractured alignment is intentional"
     - "Mix extreme weights"
-    - "Never center — always flush left or fractured"
+    - "Never center - always flush left or fractured"
     - "Type can bleed off-frame"
 
 layout:
@@ -69,7 +69,7 @@ layout:
   alignment: "Flush left, fractured off-axis"
   aspect_ratio: "16:9"
   notes:
-    - "Dense — minimal whitespace"
+    - "Dense - minimal whitespace"
     - "Cropped image fragments as texture"
     - "Labels feel like broadcast control room overlays"
 
@@ -112,7 +112,7 @@ x_heygen:
 
 ## Design Principles
 
-Typography is not decoration — it is the architecture.
+Typography is not decoration - it is the architecture.
 Tension creates attention.
 Break the grid with intention.
 Every collision is choreographed.
