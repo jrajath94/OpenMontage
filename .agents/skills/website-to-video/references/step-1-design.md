@@ -1,35 +1,35 @@
 # Step 1: Write DESIGN.md (the brand-truth cheat sheet)
 
-DESIGN.md is a **brand-truth cheat sheet** — colors and fonts you'll **weave into your composed builds**. It is NOT a layout spec, not a moodboard, not a 400-line design system audit.
+DESIGN.md is a **brand-truth cheat sheet** - colors and fonts you'll **weave into your composed builds**. It is NOT a layout spec, not a moodboard, not a 400-line design system audit.
 
-DESIGN.md is the brand inflection sub-agents apply when building each beat: which color is "primary," which font is for headlines, what tone the brand carries — the load-bearing knobs they flip while building.
+DESIGN.md is the brand inflection sub-agents apply when building each beat: which color is "primary," which font is for headlines, what tone the brand carries - the load-bearing knobs they flip while building.
 
-**Target length: 250–350 lines.** Step 5 sub-agents read DESIGN.md to brand each beat — the more precise the component CSS values you encode here, the more brand-faithful the result. Going under 200 lines tends to produce generic dark-cinematic output because sub-agents have no brand component DNA to work from; going over 350 means you're over-investing in prose.
+**Target length: 250–350 lines.** Step 5 sub-agents read DESIGN.md to brand each beat - the more precise the component CSS values you encode here, the more brand-faithful the result. Going under 200 lines tends to produce generic dark-cinematic output because sub-agents have no brand component DNA to work from; going over 350 means you're over-investing in prose.
 
 **Fast-pacing exception:** For billboard-per-beat videos (short social ads where each beat is a single hero element on full-bleed background), a 50-line DESIGN.md with just colors + fonts + 3-5 do's/don'ts is enough. The Step 5 sub-agent prompt pastes brand values inline, so DESIGN.md depth only matters when the beats render full UIs.
 
-**User preferences always override brand rules.** If the user says "make it bright even though the site is dark" or "use serif fonts even though the brand is sans" — follow the user. DESIGN.md describes the captured website. The video might deliberately break that.
+**User preferences always override brand rules.** If the user says "make it bright even though the site is dark" or "use serif fonts even though the brand is sans" - follow the user. DESIGN.md describes the captured website. The video might deliberately break that.
 
-**Read these now** — they're the inputs DESIGN.md is built from. Don't guess colors or sizes from screenshots:
+**Read these now** - they're the inputs DESIGN.md is built from. Don't guess colors or sizes from screenshots:
 
-- `capture/extracted/tokens.json` — top brand colors (HEX) and font families with weight ranges.
-- `capture/extracted/design-styles.json` — computed CSS values from the live DOM: typography hierarchy (font-size, weight, line-height, letter-spacing per text role), button variants (background, padding, radius, shadow), card/container/nav styles, spacing scale, border-radius scale, box-shadow values with usage counts. **Primary data source for Sections 3–6 below.**
+- `capture/extracted/tokens.json` - top brand colors (HEX) and font families with weight ranges.
+- `capture/extracted/design-styles.json` - computed CSS values from the live DOM: typography hierarchy (font-size, weight, line-height, letter-spacing per text role), button variants (background, padding, radius, shadow), card/container/nav styles, spacing scale, border-radius scale, box-shadow values with usage counts. **Primary data source for Sections 3–6 below.**
 
-**Font availability check — do this before writing anything else.** Read `capture/extracted/fonts-manifest.json`. The capture pipeline reads the OpenType `name` table embedded in every downloaded font file, so even hash-renamed Next.js/Webpack fonts are identified by their real family name (Inter, JetBrains Mono, Geist Mono, etc.). No guessing required.
+**Font availability check - do this before writing anything else.** Read `capture/extracted/fonts-manifest.json`. The capture pipeline reads the OpenType `name` table embedded in every downloaded font file, so even hash-renamed Next.js/Webpack fonts are identified by their real family name (Inter, JetBrains Mono, Geist Mono, etc.). No guessing required.
 
 The manifest gives you two views:
 
-- `families[]` — one entry per distinct family with the weights captured, whether it's a variable font, and the files belonging to it
-- `files[]` — one entry per downloaded font with family, subfamily, weight, style, and any variation axes
+- `families[]` - one entry per distinct family with the weights captured, whether it's a variable font, and the files belonging to it
+- `files[]` - one entry per downloaded font with family, subfamily, weight, style, and any variation axes
 
 **How to use it:**
 
-- For each family you'll reference in DESIGN.md, name it by what's in `families[].family` (e.g. "Inter", not "f266e704 hashed font"). The hashed filenames are the `@font-face src` paths — they stay as-is on disk; only the display name comes from the manifest.
+- For each family you'll reference in DESIGN.md, name it by what's in `families[].family` (e.g. "Inter", not "f266e704 hashed font"). The hashed filenames are the `@font-face src` paths - they stay as-is on disk; only the display name comes from the manifest.
 - If a family has `variable: true` and `variationAxes` includes `"wght"`, you can use any weight 100-900 via `font-variation-settings: 'wght' <value>` even if only one static weight appears in the captured files. Note this in DESIGN.md so sub-agents know they have the full weight range available.
-- If the manifest's `unidentified[]` is non-empty, those files failed name-table extraction (rare — heavily subset fonts that strip metadata). Flag them as `unknown` in DESIGN.md and suggest a fallback rather than guessing.
-- Commercial fonts hosted on brand CDNs (GT Walsheim, Söhne, Graphik, Canela) won't be in the manifest because they aren't downloaded. Detect this by checking what the site uses (from `design-styles.json`) against what's in the manifest — anything used but missing is a CDN-hosted font. Flag explicitly: "Söhne not in capture; use Inter 600 as substitute."
+- If the manifest's `unidentified[]` is non-empty, those files failed name-table extraction (rare - heavily subset fonts that strip metadata). Flag them as `unknown` in DESIGN.md and suggest a fallback rather than guessing.
+- Commercial fonts hosted on brand CDNs (GT Walsheim, Söhne, Graphik, Canela) won't be in the manifest because they aren't downloaded. Detect this by checking what the site uses (from `design-styles.json`) against what's in the manifest - anything used but missing is a CDN-hosted font. Flag explicitly: "Söhne not in capture; use Inter 600 as substitute."
 
-Sub-agents try to use the fonts you list. The manifest tells you exactly what's available — there's no excuse for claiming "Charlie Display 700" when no such file exists.
+Sub-agents try to use the fonts you list. The manifest tells you exactly what's available - there's no excuse for claiming "Charlie Display 700" when no such file exists.
 
 ---
 
@@ -39,23 +39,23 @@ Sub-agents try to use the fonts you list. The manifest tells you exactly what's 
 
 3–5 sentences describing the brand's visual personality. Cover: dark-first or light-first, contrast strategy, dominant visual elements (gradients, illustrations, photography, UI mockups), overall mood, what makes it distinctive vs. generic.
 
-This is the only prose section. Make it specific to _this_ brand — not template-filling. A sentence that could describe any well-designed website is not useful.
+This is the only prose section. Make it specific to _this_ brand - not template-filling. A sentence that could describe any well-designed website is not useful.
 
 **Example:**
 
-> Stripe's visual language is light-first and clean, with deep navy (`#061B31`) and pure white as the foundation. The accent stack — Stripe Purple (`#533AFD`) for CTAs, Vibrant Orange (`#FF6118`) for energetic emphasis — keeps interactive elements unmistakable. Type is sohne-var Light (300) for display, weight 400 for body; the brand achieves hierarchy through size and weight, never color shifts. The mood is confident financial-tech — premium without theatrical drama. Distinctive: gradient overlays at 135° between purple and orange appear as subtle washes over white backgrounds, never as bold focal elements.
+> Stripe's visual language is light-first and clean, with deep navy (`#061B31`) and pure white as the foundation. The accent stack - Stripe Purple (`#533AFD`) for CTAs, Vibrant Orange (`#FF6118`) for energetic emphasis - keeps interactive elements unmistakable. Type is sohne-var Light (300) for display, weight 400 for body; the brand achieves hierarchy through size and weight, never color shifts. The mood is confident financial-tech - premium without theatrical drama. Distinctive: gradient overlays at 135° between purple and orange appear as subtle washes over white backgrounds, never as bold focal elements.
 
 ---
 
 ### `## 2. Quick Reference`
 
-A flat lookup of the values sub-agents grab while composing beats. Two sub-sections — keep them tight.
+A flat lookup of the values sub-agents grab while composing beats. Two sub-sections - keep them tight.
 
 #### Colors
 
 List 8–12 colors with brand-specific names + HEX + role. Not generic ("Accent 1") but evocative ("Stripe Purple", "Deep Navy", "Slate Border"). The name carries meaning; "blue 4" doesn't.
 
-**For each text-on-surface combination the brand uses, compute the WCAG AA contrast ratio and flag failing pairings explicitly.** A real failure mode from prior runs: the brand's secondary-text color (`#68686A`) on its dark panel color (`#18191B`) = 3.16:1, which fails AA's 4.5:1 minimum. Sub-agents faithfully reproduced the brand's color choice and the result was unreadable. Encode the safe / unsafe pairings here so sub-agents pick text colors by surface context, not by "this is the brand's secondary text color." The `/hyperframes-contrast` skill audits ratios — run it before finalizing DESIGN.md.
+**For each text-on-surface combination the brand uses, compute the WCAG AA contrast ratio and flag failing pairings explicitly.** A real failure mode from prior runs: the brand's secondary-text color (`#68686A`) on its dark panel color (`#18191B`) = 3.16:1, which fails AA's 4.5:1 minimum. Sub-agents faithfully reproduced the brand's color choice and the result was unreadable. Encode the safe / unsafe pairings here so sub-agents pick text colors by surface context, not by "this is the brand's secondary text color." The `/hyperframes-contrast` skill audits ratios - run it before finalizing DESIGN.md.
 
 **Example:**
 
@@ -79,11 +79,11 @@ List 8–12 colors with brand-specific names + HEX + role. Not generic ("Accent 
 - **Success Green** (`#4CD963`): Confirmation states. On Pure White: 1.7:1 ❌ — must be paired with a darker outline or use as accent on dark surfaces
 ```
 
-**Where the brand's own palette fails WCAG**, document the substitute (like the `#9A9A9E` override above). Sub-agents pick the safe color by surface — and if the deviation matters to the brand identity, the user can revisit at Step 6.
+**Where the brand's own palette fails WCAG**, document the substitute (like the `#9A9A9E` override above). Sub-agents pick the safe color by surface - and if the deviation matters to the brand identity, the user can revisit at Step 6.
 
 #### Fonts
 
-List font families with their role AND **the exact file path per family + weight** from `fonts-manifest.json`. Sub-agents will copy the `@font-face` block verbatim — if you only name the family without the path, sub-agents have to guess which `.woff2` file belongs to which family and get it wrong half the time (a real failure mode from prior runs: agents pointed `@font-face` for "ES Build Neutral" at the Inter `.woff2` files and the wordmark rendered in Inter).
+List font families with their role AND **the exact file path per family + weight** from `fonts-manifest.json`. Sub-agents will copy the `@font-face` block verbatim - if you only name the family without the path, sub-agents have to guess which `.woff2` file belongs to which family and get it wrong half the time (a real failure mode from prior runs: agents pointed `@font-face` for "ES Build Neutral" at the Inter `.woff2` files and the wordmark rendered in Inter).
 
 **Example:**
 
@@ -203,7 +203,7 @@ Logo marquees, testimonial carousels, pricing tables, gradient overlays, glassmo
 - **Background:** `rgba(255, 255, 255, 0.9)`
 - **Border:** `1px solid rgba(255, 255, 255, 0.2)`
 - **Backdrop filter:** `blur(8px)`
-- **Use:** floating chat widgets, modal overlays, hero callouts only — the only place transparent fills appear in the system
+- **Use:** floating chat widgets, modal overlays, hero callouts only - the only place transparent fills appear in the system
 ```
 
 **The rule:** if a sub-agent in Step 5 has to invent CSS values for a component this brand actually uses, you under-documented this section. The values should be lookup-able, not guessable.
@@ -230,7 +230,7 @@ Identify the **base unit** (typically `4px` or `8px`) and the full scale with us
 | xl    | `60px`  | Major section separation                                  |
 | 2xl   | `100px` | Page-level rhythm, hero section padding                   |
 
-Never use odd values (`13px`, `17px`) — the system only uses multiples of 4.
+Never use odd values (`13px`, `17px`) - the system only uses multiples of 4.
 ```
 
 #### Border-radius scale
@@ -251,7 +251,7 @@ Every radius the site uses, with what uses it.
 How does this brand use whitespace — generous and architectural? Tight and information-dense? Section gaps in the 60–100px range, or 20–40px? Document the brand's actual rhythm.
 
 ```markdown
-Generous whitespace as confidence. Section gaps are always `60–100px`. Content never touches viewport edges — minimum `40px` horizontal padding on mobile, `80–160px` on desktop. The brand uses negative space as active design, not emptiness.
+Generous whitespace as confidence. Section gaps are always `60–100px`. Content never touches viewport edges - minimum `40px` horizontal padding on mobile, `80–160px` on desktop. The brand uses negative space as active design, not emptiness.
 ```
 
 ---
@@ -279,15 +279,15 @@ Generous whitespace as confidence. Section gaps are always `60–100px`. Content
 ```markdown
 ### Iteration Guide
 
-1. **All interactive elements use Framer Blue (`#0000EE`)** — links, primary buttons, active states, focus indicators. Secondary uses `#0099FF` for hover. **No other interactive color exists in the system.**
+1. **All interactive elements use Framer Blue (`#0000EE`)** - links, primary buttons, active states, focus indicators. Secondary uses `#0099FF` for hover. **No other interactive color exists in the system.**
 
 2. **Typography: GT Walsheim Medium for headings, Inter for body.** Hierarchy enforced through size only, never color. H2 `62px`, H5 `85px`, body `14px`, labels `12px`/500. Text defaults to `#000000` on white, `#FFFFFF` on dark.
 
-3. **Spacing is base-4** — every margin / padding / gap is a multiple of `4px`. Section gaps `60–100px`. **Never use odd values like `13px` or `17px`** — the system has no place for them.
+3. **Spacing is base-4** - every margin / padding / gap is a multiple of `4px`. Section gaps `60–100px`. **Never use odd values like `13px` or `17px`** - the system has no place for them.
 
 4. **Cards: white (`#FFFFFF`), `1px` border `#EFEFEF`, `8px` radius, `16–20px` padding, no shadow by default.** Dark-mode cards swap to `#1A1A1A` background with `#242424` border. Shadow only appears on hover.
 
-5. **Glass containers** use `rgba(255,255,255,0.9)` background, `1px` border `rgba(255,255,255,0.2)`, optional `backdrop-filter: blur(8px)`. **These are the only place transparent fills appear** — everywhere else uses solid color.
+5. **Glass containers** use `rgba(255,255,255,0.9)` background, `1px` border `rgba(255,255,255,0.2)`, optional `backdrop-filter: blur(8px)`. **These are the only place transparent fills appear** - everywhere else uses solid color.
 ```
 
 If your draft has a rule like "all interactive elements require visible focus states for accessibility" — delete it. Not wrong, just not load-bearing for _this_ brand.
