@@ -1,7 +1,7 @@
 ---
 name: seedance-2-0
 description: |
-  Generate cinematic clips with ByteDance Seedance 2.0 — the preferred premium video model in OpenMontage when a paid gateway is configured. Use when: (1) producing trailers, teasers, hype edits, or premium cinematic clips, (2) needing native synchronized audio (speech, SFX, ambience) in a single pass, (3) needing multi-shot cuts inside one generation, (4) needing director-level camera control, (5) needing lip-sync from quoted dialogue in the prompt, (6) needing reference-conditioned generation with up to 9 images + 3 video clips + 3 audio clips, (7) wanting consistent character identity across shots. Accessible via fal.ai (`seedance_video` tool), HeyGen (Video Agent / Avatar Shots), Replicate, Runway (Enterprise, non-US), Freepik, BytePlus ModelArk, Higgsfield, Pollo, and other aggregators.
+  Generate cinematic clips with ByteDance Seedance 2.0 - the preferred premium video model in OpenMontage when a paid gateway is configured. Use when: (1) producing trailers, teasers, hype edits, or premium cinematic clips, (2) needing native synchronized audio (speech, SFX, ambience) in a single pass, (3) needing multi-shot cuts inside one generation, (4) needing director-level camera control, (5) needing lip-sync from quoted dialogue in the prompt, (6) needing reference-conditioned generation with up to 9 images + 3 video clips + 3 audio clips, (7) wanting consistent character identity across shots. Accessible via fal.ai (`seedance_video` tool), HeyGen (Video Agent / Avatar Shots), Replicate, Runway (Enterprise, non-US), Freepik, BytePlus ModelArk, Higgsfield, Pollo, and other aggregators.
 allowed-tools: Bash, Read, Write
 metadata:
   openclaw:
@@ -14,7 +14,7 @@ metadata:
 
 # Seedance 2.0 (ByteDance)
 
-Seedance 2.0 is the ByteDance Seed team's unified multimodal video+audio model (released Feb 2026, globally available via partner APIs April 2026). It is the **preferred premium default** for cinematic, trailer, teaser, and motion-led work inside OpenMontage whenever any supporting gateway is configured. OpenMontage wraps four gateways directly (`seedance_video` → fal.ai, `seedance_replicate` → Replicate, `runway_video` with `model="seedance_2.0"` → Runway, `higgsfield_video` with `model="seedance_2.0"` → Higgsfield); BytePlus / Freepik / HeyGen-Video-Agent wrappers are on the roadmap. The scoring engine deduplicates by `provider="seedance"` so whichever gateway the user has configured wins automatically — agents should pass `preferred_provider="seedance"` to `video_selector` (or let the scorer pick) rather than routing to a specific gateway by name.
+Seedance 2.0 is the ByteDance Seed team's unified multimodal video+audio model (released Feb 2026, globally available via partner APIs April 2026). It is the **preferred premium default** for cinematic, trailer, teaser, and motion-led work inside OpenMontage whenever any supporting gateway is configured. OpenMontage wraps four gateways directly (`seedance_video` → fal.ai, `seedance_replicate` → Replicate, `runway_video` with `model="seedance_2.0"` → Runway, `higgsfield_video` with `model="seedance_2.0"` → Higgsfield); BytePlus / Freepik / HeyGen-Video-Agent wrappers are on the roadmap. The scoring engine deduplicates by `provider="seedance"` so whichever gateway the user has configured wins automatically - agents should pass `preferred_provider="seedance"` to `video_selector` (or let the scorer pick) rather than routing to a specific gateway by name.
 
 ## Why it is the OpenMontage premium default
 
@@ -40,7 +40,7 @@ Switch away only for a specific reason: strict budget (use the `fast` variant or
 | **Replicate** | `REPLICATE_API_TOKEN` | `seedance_replicate` | ✅ wrapped | `bytedance/seedance-2.0` + `bytedance/seedance-2.0-fast`. Standard Replicate prediction API. |
 | **Runway** | `RUNWAY_API_KEY` | `runway_video` (model: `seedance_2.0`) | ✅ wrapped | Third-party Seedance 2.0 model inside Runway. **Unlimited/Enterprise plans, non-US only**. Selected via `model` param. |
 | **Higgsfield** | `HIGGSFIELD_API_KEY` + `_SECRET` | `higgsfield_video` (model: `seedance_2.0`) | ✅ wrapped | Seedance 2.0 is the default model on this tool. Emphasis on character identity + long-form chaining. |
-| **HeyGen** | `HEYGEN_API_KEY` | `heygen_video` (1.x only) + TODO | ⚠️ 1.x only | The `seedance_pro` / `seedance_lite` workflow provider strings on HeyGen map to Seedance 1.x. 2.0 access flows through Video Agent / Avatar Shots endpoints — a separate `seedance_heygen` tool is on the roadmap. |
+| **HeyGen** | `HEYGEN_API_KEY` | `heygen_video` (1.x only) + TODO | ⚠️ 1.x only | The `seedance_pro` / `seedance_lite` workflow provider strings on HeyGen map to Seedance 1.x. 2.0 access flows through Video Agent / Avatar Shots endpoints - a separate `seedance_heygen` tool is on the roadmap. |
 | **BytePlus ModelArk / Volcengine** | BytePlus token | not wrapped | 🔜 roadmap | Direct from ByteDance. Pro ~$0.15 / 5 s, Lite ~$0.010/s. Token-based. |
 | **Freepik** | Freepik token | not wrapped | 🔜 roadmap | `POST /v1/ai/image-to-video/seedance-pro-1080p` for 1080p I2V |
 | **Pollo / PiAPI / Atlas Cloud / AIMLAPI** | various | not wrapped | 🔜 roadmap | Aggregators resell fal.ai or ByteDance endpoints |
@@ -57,7 +57,7 @@ bytedance/seedance-2.0/fast/reference-to-video
 ```
 
 Pricing (fal.ai, 720p): standard $0.3034 / s (T2V), $0.3024 / s (I2V). Fast $0.2419 / s across endpoints.
-The `fast` variant trades some camera/motion fidelity for latency and cost — do **not** route slow-mo, multi-shot, or dolly-heavy prompts to `fast` on the first try.
+The `fast` variant trades some camera/motion fidelity for latency and cost - do **not** route slow-mo, multi-shot, or dolly-heavy prompts to `fast` on the first try.
 
 ## Calling Seedance 2.0 inside OpenMontage
 
@@ -95,7 +95,7 @@ seedance.execute({
 })
 ```
 
-## Prompt structure — The Higgsfield Methodology (canonical as of 2026)
+## Prompt structure - The Higgsfield Methodology (canonical as of 2026)
 
 **CRITICAL: Open every prompt with a shot-structure declaration.** Seedance rewards prompts that declare format upfront before any creative description. This is the single biggest quality lever.
 
@@ -118,9 +118,9 @@ One continuous shot, POV [setting] perspective, no cuts, no zoom, natural head m
 
 ### Body structure (after the opener)
 
-1. **Environment/location** — sensory detail (wet asphalt, sodium lamps, neon bleed, rain particulates, volumetric haze)
-2. **Character block** — with reference tags and identity-lock language (see Reference-to-video below)
-3. **Enemy/secondary character block** — same detail level
+1. **Environment/location** - sensory detail (wet asphalt, sodium lamps, neon bleed, rain particulates, volumetric haze)
+2. **Character block** - with reference tags and identity-lock language (see Reference-to-video below)
+3. **Enemy/secondary character block** - same detail level
 4. **Beat-by-beat choreography** with TEMPORAL MARKERS: `0–3s: …  3–6s: …  6–10s: …`
 5. **VFX inline in brackets:** `[VFX: branching white-blue electric arcs pulsing along forearms, sparks jumping between fingers]`
 6. **Slow-motion markers:** write `RAMPS TO SLOW MOTION` before the impact beat, `SNAPS BACK TO REAL TIME` on resume
@@ -130,16 +130,16 @@ One continuous shot, POV [setting] perspective, no cuts, no zoom, natural head m
 
 - `snaps forward`, `lunges`, `sprints`, `weaves`, `chambers`, `drives`, `pivots`, `redirects`, `ducks`, `slips`
 - `explodes outward`, `devastating`, `raw force`, `kinetic`, `overload`, `compresses`, `erupts`, `fractures`, `ripples`
-- Avoid soft verbs: `attacks`, `hits`, `fights` — these read generic and Seedance underdelivers on them
+- Avoid soft verbs: `attacks`, `hits`, `fights` - these read generic and Seedance underdelivers on them
 
-### Camera behavior — state what it IS and ISN'T doing
+### Camera behavior - state what it IS and ISN'T doing
 
 Seedance misfires when camera intent is ambiguous. Always explicitly negate what you don't want:
 - `no cuts` (for continuous POV)
 - `no zoom` (prevents unnatural perspective punch-ins)
 - `no stabilization` (when you want chaotic handheld)
 - `no smoothness at all`
-- `no 3D, no cartoon, no VFX aesthetic` — counter-intuitive but forces photoreal skin/texture/lighting even when the scene has heavy VFX elements
+- `no 3D, no cartoon, no VFX aesthetic` - counter-intuitive but forces photoreal skin/texture/lighting even when the scene has heavy VFX elements
 
 ### Realism enforcement phrase
 
@@ -192,14 +192,14 @@ Aang says: "I won't run anymore."
 Sokka, half a step behind, replies: "Then we fight."
 ```
 
-Use `Character says: "..."` / `Character replies: "..."` exactly — mouth shapes key off quoted strings. Keep each line under ~6 words; longer lines risk drift on fast clips.
+Use `Character says: "..."` / `Character replies: "..."` exactly - mouth shapes key off quoted strings. Keep each line under ~6 words; longer lines risk drift on fast clips.
 
 ### Audio cues that work
 
 Ambient: `distant thunder rolling over mountains`, `wind through reeds`, `crackling campfire`
 Diegetic: `boots crunching snow`, `staff planting on stone`, `wingbeats overhead`
 Music direction (light touch only): `low orchestral swell building`, `taiko drums entering on Shot 3`
-Do **not** request complex multi-instrument scores — keep music language textural.
+Do **not** request complex multi-instrument scores - keep music language textural.
 
 ### Reference-to-video
 
@@ -215,7 +215,7 @@ Shot 2 (medium close-up): hero turns toward camera, staff in hand.
 Shot 3 (extreme close-up, rack focus): hero's eyes open, wind whipping.
 ```
 
-**Identity-anchor phrases that measurably reduce face drift** (stack them — redundancy helps):
+**Identity-anchor phrases that measurably reduce face drift** (stack them - redundancy helps):
 - `the same character`
 - `consistent across different scenes / all shots`
 - `maintain exact appearance from reference image`
@@ -224,7 +224,7 @@ Shot 3 (extreme close-up, rack focus): hero's eyes open, wind whipping.
 
 **Single-reference workflow (common in practice):** When you only have one photo:
 - Use a clear, front-facing portrait with neutral lighting and minimal motion blur; avoid occluded faces (e.g., phones, sunglasses, heavy shadow).
-- Reuse the SAME reference image across all shots — do not generate new refs per shot.
+- Reuse the SAME reference image across all shots - do not generate new refs per shot.
 - Put all shots in ONE prompt under a single `[identity_lock]` block so the model treats them as a coherent sequence.
 - If wardrobe is changing by design (e.g., civilian → costume), describe the costume verbatim on every shot it appears and add `Do not alter clothing category or primary color` to lock it once generated.
 
@@ -237,19 +237,19 @@ Shot 3 (extreme close-up, rack focus): hero's eyes open, wind whipping.
 | `duration` | `5`–`8` for hero shots, `10`–`12` for full scenes with multi-shot cuts, `4` for quick inserts. `auto` when unsure. |
 | `aspect_ratio` | `21:9` for cinematic trailers, `16:9` for broadcast / YouTube, `9:16` for Reels/Shorts/TikTok |
 | `resolution` | `720p` default. Drop to `480p` for cost-capped batch previews, not for finals |
-| `generate_audio` | Keep **on** unless you have a specific reason to mute — Seedance's moat is synced audio. Strip audio downstream in compose if needed. |
+| `generate_audio` | Keep **on** unless you have a specific reason to mute - Seedance's moat is synced audio. Strip audio downstream in compose if needed. |
 | `model_variant` | `standard` for hero/cinematic shots; `fast` only for b-roll, previews, or when latency is the hard constraint |
-| `seed` | Set a seed before iterating variants of a chosen shot — everything else held constant |
+| `seed` | Set a seed before iterating variants of a chosen shot - everything else held constant |
 
 ## What to avoid
 
 | Don't | Why |
 |---|---|
 | Cram four-plus simultaneous character actions into one shot | Motion coherence breaks; split into multi-shot |
-| Request readable text / logos inside the clip | Text rendering is unreliable — handle text in Remotion overlay |
+| Request readable text / logos inside the clip | Text rendering is unreliable - handle text in Remotion overlay |
 | Mix conflicting lighting ("bright noon" + "neon night") | Model picks one and ignores the other |
 | Write dialogue longer than ~6 words on fast-cut shots | Lip-sync drift |
-| Use `fast` variant for slow-mo, multi-shot, or complex camera moves | Routinely misses on first try — route to `standard` |
+| Use `fast` variant for slow-mo, multi-shot, or complex camera moves | Routinely misses on first try - route to `standard` |
 | Generate music through Seedance audio | Texture-only is fine; for real scoring use `music` / `pixabay_music` / `elevenlabs` and mix in compose |
 | Bypass `video_selector` without a reason | Loses cost/availability/fallback handling and scoring context |
 
@@ -258,14 +258,14 @@ Shot 3 (extreme close-up, rack focus): hero's eyes open, wind whipping.
 1. **Block out shape** with a single `duration=5` `fast` T2V pass at the intended framing. Confirm the composition works.
 2. **Lock the seed** once the composition reads.
 3. **Upgrade to `standard`** with the same seed, tighten camera and lighting language.
-4. **Extend and add shots** — move to multi-shot or longer duration only after a single-shot version is clean.
+4. **Extend and add shots** - move to multi-shot or longer duration only after a single-shot version is clean.
 5. **Keep a per-clip README** with prompt + seed + variant for every shot that makes the cut, so the compose stage can re-render consistent retakes.
 
 ## Integration notes for OpenMontage pipelines
 
 - **Cinematic pipeline:** Seedance 2.0 is the default video model. Use 21:9 for hero, multi-shot for montage beats, reference-to-video when the brief has a visual bible.
-- **Animated explainer:** Use Seedance 2.0 for the establishing / mood clips only; most shots should stay in Remotion. Don't replace Remotion motion graphics with Seedance — different tool, different job.
-- **Screen demo / podcast / clip factory:** Seedance is not the right default — these are footage-led. Only use for stylized cold-opens.
+- **Animated explainer:** Use Seedance 2.0 for the establishing / mood clips only; most shots should stay in Remotion. Don't replace Remotion motion graphics with Seedance - different tool, different job.
+- **Screen demo / podcast / clip factory:** Seedance is not the right default - these are footage-led. Only use for stylized cold-opens.
 - **Cost discipline:** `standard` at 10 s ≈ $3.03 per clip. Budget accordingly in the proposal stage. `fast` at 5 s ≈ $1.21 for previews.
 
 ## Verification checklist for every Seedance shot
