@@ -123,12 +123,12 @@ Create a style guide frame that documents the system:
 
 ## Workflow
 
-1. **Read the style** — Load the `visual-style.md` file
-2. **Create color styles** — One style per color in the palette
-3. **Create text styles** — Display, body, and caption styles
-4. **Set up layout grid** — Create grid presets
-5. **Build style guide frame** — Document the system
-6. **Add reference images** — Import `assets.reference_images` if available
+1. **Read the style** - Load the `visual-style.md` file
+2. **Create color styles** - One style per color in the palette
+3. **Create text styles** - Display, body, and caption styles
+4. **Set up layout grid** - Create grid presets
+5. **Build style guide frame** - Document the system
+6. **Add reference images** - Import `assets.reference_images` if available
 
 ## Figma Plugin Integration
 
@@ -169,7 +169,7 @@ interface TypographyStyle {
 
 ## Tips
 
-- **Font availability** — Check that `typography.*.family` fonts are available in Figma (Google Fonts or locally installed)
-- **Color organization** — Use folders to group color styles by purpose
-- **Style descriptions** — Use the `role` field as the style description
-- **Design review** — Create a checklist from `typography.rules` and `mood.avoid`
+- **Font availability** - Check that `typography.*.family` fonts are available in Figma (Google Fonts or locally installed)
+- **Color organization** - Use folders to group color styles by purpose
+- **Style descriptions** - Use the `role` field as the style description
+- **Design review** - Create a checklist from `typography.rules` and `mood.avoid`
