@@ -59,7 +59,7 @@ For a **3-minute explainer video** (scale proportionally for other lengths):
 
 ## Anti-Subjective Rule
 
-> Hooks, beats, and section descriptions in OpenMontage scripts must describe the **visual cause** of the emotion, not the emotion itself. The CMU/Harvard CHAI study showed that subjective phrasing varies wildly across annotators and across model interpretations — so it does not constrain pixels and it doesn't reliably guide downstream generation tools.
+> Hooks, beats, and section descriptions in OpenMontage scripts must describe the **visual cause** of the emotion, not the emotion itself. The CMU/Harvard CHAI study showed that subjective phrasing varies wildly across annotators and across model interpretations - so it does not constrain pixels and it doesn't reliably guide downstream generation tools.
 >
 > | Avoid | Use instead |
 > |---|---|
@@ -131,18 +131,18 @@ Apply this: always consider opening with what the audience *thinks* is true befo
 
 Don't explain the answer. **Reconstruct the reasoning path** so the viewer feels they discovered it.
 
-1. **The Question** — Pose a specific, concrete question
-2. **The Naive Attempt** — Show the obvious approach; let it partially work, then break
-3. **The Key Insight** — Introduce ONE new idea. Pause visually for 2-3 seconds of silence.
-4. **The Build** — Apply the insight step by step. Each step feels inevitable.
-5. **The Generalization** — "Notice this pattern works beyond our specific example..."
+1. **The Question** - Pose a specific, concrete question
+2. **The Naive Attempt** - Show the obvious approach; let it partially work, then break
+3. **The Key Insight** - Introduce ONE new idea. Pause visually for 2-3 seconds of silence.
+4. **The Build** - Apply the insight step by step. Each step feels inevitable.
+5. **The Generalization** - "Notice this pattern works beyond our specific example..."
 
 **Progressive Revelation:** Never show the full picture at once. Build visuals layer by layer.
 Each layer arrives exactly when the narration references it.
 
 ## Camera Intent Per Beat
 
-When writing a beat, attach one line of camera intent so the scene-director doesn't have to invent it from a blank slate. Use the universal vocabulary in `skills/creative/video-gen-prompting.md` (Subject / Subject Motion / Scene / Spatial Framing / Camera). One line is enough — the scene-director will expand it.
+When writing a beat, attach one line of camera intent so the scene-director doesn't have to invent it from a blank slate. Use the universal vocabulary in `skills/creative/video-gen-prompting.md` (Subject / Subject Motion / Scene / Spatial Framing / Camera). One line is enough - the scene-director will expand it.
 
 Example beat:
 
@@ -152,7 +152,7 @@ Narration: "We grew up imagining electrons as tiny planets orbiting the nucleus.
 Camera intent: medium shot of stylized atom; slow rotation; deep focus.
 ```
 
-The camera-intent line is consumed verbatim by the scene-director's 5-aspect spec — keep it concrete, no mood adjectives.
+The camera-intent line is consumed verbatim by the scene-director's 5-aspect spec - keep it concrete, no mood adjectives.
 
 ## Pacing Rules
 
@@ -169,11 +169,11 @@ The camera-intent line is consumed verbatim by the scene-director's 5-aspect spe
 
 These are the most relevant research-backed rules from cognitive science:
 
-1. **Segmenting** — Max 1 new concept per 30-45 seconds. A 3-min video = 4-6 concept segments.
-2. **Signaling** — Use verbal signposts every 30-45 seconds ("Here's where it gets interesting").
-3. **Temporal Contiguity** — Narration and visuals must be simultaneous. Learning drops ~30% when offset even by a few seconds.
-4. **Coherence** — Remove interesting-but-irrelevant content. "Seductive details" reduce learning by 20-30% on transfer tests.
-5. **Modality** — Use narration (audio) + visuals (animation), NOT on-screen text + visuals. Spoken words + pictures outperform written words + pictures.
+1. **Segmenting** - Max 1 new concept per 30-45 seconds. A 3-min video = 4-6 concept segments.
+2. **Signaling** - Use verbal signposts every 30-45 seconds ("Here's where it gets interesting").
+3. **Temporal Contiguity** - Narration and visuals must be simultaneous. Learning drops ~30% when offset even by a few seconds.
+4. **Coherence** - Remove interesting-but-irrelevant content. "Seductive details" reduce learning by 20-30% on transfer tests.
+5. **Modality** - Use narration (audio) + visuals (animation), NOT on-screen text + visuals. Spoken words + pictures outperform written words + pictures.
 
 ## Applying to OpenMontage
 
