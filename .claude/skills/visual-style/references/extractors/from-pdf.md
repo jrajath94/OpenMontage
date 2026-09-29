@@ -4,12 +4,12 @@ Generate a `visual-style.md` from a PDF brand guide or style document.
 
 ## Workflow
 
-1. **Receive PDF** — User uploads a brand guide, style guide, or design document
-2. **Parse sections** — Identify color, typography, layout, and guidelines sections
-3. **Map to fields** — Translate brand guide specifications to visual-style.md fields
-4. **Fill gaps** — Generate `style_prompt_full` from the structured data
-5. **Output** — Complete `visual-style.md`
-6. **Validate** — Ensure all required fields are present
+1. **Receive PDF** - User uploads a brand guide, style guide, or design document
+2. **Parse sections** - Identify color, typography, layout, and guidelines sections
+3. **Map to fields** - Translate brand guide specifications to visual-style.md fields
+4. **Fill gaps** - Generate `style_prompt_full` from the structured data
+5. **Output** - Complete `visual-style.md`
+6. **Validate** - Ensure all required fields are present
 
 ## Common Brand Guide Sections
 
@@ -236,8 +236,8 @@ Do's and Don'ts synthesized into mood.avoid list.
 
 ## Tips
 
-- **Prioritize specificity** — Brand guides are precise; preserve exact values
-- **Don't invent** — If a section isn't in the PDF, leave the field empty
-- **Synthesize style_prompt_full** — This should read like a brief you'd give a designer
-- **Capture the don'ts** — `mood.avoid` is often explicitly stated in brand guides
-- **Note the source** — Include page numbers or section names in Extraction Notes
+- **Prioritize specificity** - Brand guides are precise; preserve exact values
+- **Don't invent** - If a section isn't in the PDF, leave the field empty
+- **Synthesize style_prompt_full** - This should read like a brief you'd give a designer
+- **Capture the don'ts** - `mood.avoid` is often explicitly stated in brand guides
+- **Note the source** - Include page numbers or section names in Extraction Notes
