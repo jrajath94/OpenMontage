@@ -1,6 +1,6 @@
 ---
 name: video-toolkit
-description: Create professional videos autonomously using claude-code-video-toolkit — AI voiceovers, image generation, music, talking heads, and Remotion rendering.
+description: Create professional videos autonomously using claude-code-video-toolkit - AI voiceovers, image generation, music, talking heads, and Remotion rendering.
 metadata:
   openclaw:
     emoji: "🎬"
@@ -88,7 +88,7 @@ MODAL_DEWATERMARK_ENDPOINT_URL=https://...modal.run
 MODAL_LTX2_ENDPOINT_URL=https://...modal.run
 ```
 
-Optional but recommended — Cloudflare R2 for reliable file transfer:
+Optional but recommended - Cloudflare R2 for reliable file transfer:
 ```
 R2_ACCOUNT_ID=...
 R2_ACCESS_KEY_ID=...
@@ -255,7 +255,7 @@ python3 tools/flux2.py \
   --cloud modal
 ```
 
-#### 4d. Video Clips — B-Roll & Animated Backgrounds (optional)
+#### 4d. Video Clips - B-Roll & Animated Backgrounds (optional)
 
 Generate AI video clips for b-roll cutaways, animated slide backgrounds, or intro/outro sequences:
 
@@ -292,7 +292,7 @@ Use in Remotion compositions with `<OffthreadVideo>`:
 - Width/height must be divisible by 64. Default: 768x512.
 - ~$0.20-0.25 per clip, ~2.5 min generation time.
 - Cold start ~60-90s. Subsequent clips on warm GPU are faster.
-- Generated audio is ambient only — use voiceover/music tools for speech and music.
+- Generated audio is ambient only - use voiceover/music tools for speech and music.
 - ~30% of generations may have training data artifacts (logos/text). Re-run with `--seed` to vary.
 
 #### 4e. Talking Head Narrator (optional)
@@ -320,7 +320,7 @@ python3 tools/sadtalker.py \
 # Repeat for each scene that needs a narrator
 ```
 
-**SadTalker rules — follow these exactly:**
+**SadTalker rules - follow these exactly:**
 - **ALWAYS** use `--preprocess full` (default `crop` outputs a square, wrong aspect ratio)
 - **ALWAYS** use `--still` (reduces head movement, looks professional)
 - **ALWAYS** generate per-scene clips (6-15s each), NEVER one long video
@@ -421,7 +421,7 @@ import { glitch } from '../../../lib/transitions/presentations/glitch';
 import { lightLeak } from '../../../lib/transitions/presentations/light-leak';
 ```
 
-**NEVER import from `lib/transitions` barrel** — import custom transitions from `lib/transitions/presentations/` directly.
+**NEVER import from `lib/transitions` barrel** - import custom transitions from `lib/transitions/presentations/` directly.
 
 ---
 
@@ -435,7 +435,7 @@ import { lightLeak } from '../../../lib/transitions/presentations/light-leak';
 | Audio too short/long for scene | Re-run Step 5 (sync timing) and update config |
 | `npm run render` fails | Make sure you're in the project dir, not toolkit root. Run `npm install` first |
 | "Cannot find module" in Remotion | Check import paths. Custom components use `../../../lib/` relative paths |
-| Cold start timeout on Modal | First call after idle takes 30-120s. Retry once — second call uses warm GPU |
+| Cold start timeout on Modal | First call after idle takes 30-120s. Retry once - second call uses warm GPU |
 
 ---
 
