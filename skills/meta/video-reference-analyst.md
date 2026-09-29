@@ -1,9 +1,9 @@
-# Video Reference Analyst — Meta Skill
+# Video Reference Analyst - Meta Skill
 
 ## When to Use
 
 When the user provides a video URL (YouTube, Shorts, Instagram, TikTok, or any URL)
-or a local video file as a REFERENCE — meaning "make me something like this," not
+or a local video file as a REFERENCE - meaning "make me something like this," not
 "edit this footage."
 
 If the user says "edit this video" or "cut this into clips," route to the appropriate
@@ -63,7 +63,7 @@ the visual transitions, the narration style]
 Now let me check what I can do with your current setup..."
 ```
 
-The 5-aspect block above is the **canonical form** that `proposal-director`, `script-director`, and `scene-director` will read. Do not collapse it back into prose — keep the labels.
+The 5-aspect block above is the **canonical form** that `proposal-director`, `script-director`, and `scene-director` will read. Do not collapse it back into prose - keep the labels.
 
 **Motion classification is critical.** The VideoAnalysisBrief now includes per-scene
 `motion_type` ("motion_clip", "animated_still", "static_image") and `flow_variance`.
@@ -79,7 +79,7 @@ Use this to determine the production approach:
 Getting this wrong leads to proposing the wrong pipeline and wrong tool path.
 
 **Vision analysis:** After presenting the structural data, examine the extracted
-keyframes yourself. You ARE a multimodal model — look at the keyframe images and
+keyframes yourself. You ARE a multimodal model - look at the keyframe images and
 enrich the VideoAnalysisBrief with:
 - Per-frame descriptions (subjects, text, composition, color)
 - Cross-frame visual continuity and style consistency
@@ -90,21 +90,21 @@ enrich the VideoAnalysisBrief with:
 
 Update the brief's `content_analysis`, `style_profile`, and `replication_guidance`
 fields with your visual observations. This is where the analysis becomes truly
-comprehensive — the tools provide structure; your vision provides understanding.
+comprehensive - the tools provide structure; your vision provides understanding.
 
 ### 5-Aspect Structured Output (MANDATORY)
 
-The analyst's report MUST break down the reference video into the **five aspects** from the CMU/Harvard CHAI study (also the canonical structure used in `skills/creative/video-gen-prompting.md`). A narrative-only summary is no longer sufficient — downstream stages (proposal, script, scene-director) ingest the 5-aspect form directly without re-parsing prose.
+The analyst's report MUST break down the reference video into the **five aspects** from the CMU/Harvard CHAI study (also the canonical structure used in `skills/creative/video-gen-prompting.md`). A narrative-only summary is no longer sufficient - downstream stages (proposal, script, scene-director) ingest the 5-aspect form directly without re-parsing prose.
 
 **Decision-tree captioning policy.** For each detected shot, walk all five aspects in order:
 
 > - **Subject:** type, attributes (count, age, role, costume, distinguishing features), multiple-subject disambiguation, transitions across shots (revealing / disappearing / switching / complex-alternating).
 > - **Subject Motion:** actions in temporal order; group/interaction patterns (parallel, sequential, reactive); locomotion vs gesture vs facial.
-> - **Scene:** **overlays separately** (text, lower thirds, graphics, watermark — call these out as their own layer, do not merge into setting) + POV (drone, aerial, OTS, macro, top-down, dashcam, FPV, handheld, locked-off) + setting + time of day + dynamics (weather, particles, crowd movement).
-> - **Spatial Framing:** shot size (ECU/CU/MS/WS/EWS), subject position in frame, depth (foreground/midground/background usage), height-relative (above/at/below subject) — and how each of these **changes** across the shot if the camera or subject moves.
+> - **Scene:** **overlays separately** (text, lower thirds, graphics, watermark - call these out as their own layer, do not merge into setting) + POV (drone, aerial, OTS, macro, top-down, dashcam, FPV, handheld, locked-off) + setting + time of day + dynamics (weather, particles, crowd movement).
+> - **Spatial Framing:** shot size (ECU/CU/MS/WS/EWS), subject position in frame, depth (foreground/midground/background usage), height-relative (above/at/below subject) - and how each of these **changes** across the shot if the camera or subject moves.
 > - **Camera:** playback speed (real-time / slow-mo / time-lapse), lens distortion (anamorphic, fish-eye, tilt-shift), height (ground / eye / overhead), angle (high / low / Dutch), focus / DoF (rack focus, deep focus, shallow), steadiness (locked / handheld / gimbal), movement (push / pull / pan / tilt / dolly / truck / crane / orbit).
 >
-> **Mark any aspect explicitly as N/A** if it doesn't apply (e.g., "Subject: N/A — pure scenery shot," or "Scene overlays: N/A — no graphics"). **Silent omission is the most common analyst failure** and produces ambiguous downstream prompts.
+> **Mark any aspect explicitly as N/A** if it doesn't apply (e.g., "Subject: N/A - pure scenery shot," or "Scene overlays: N/A - no graphics"). **Silent omission is the most common analyst failure** and produces ambiguous downstream prompts.
 
 See `skills/creative/video-gen-prompting.md` for primitive definitions and the canonical vocabulary used at every aspect.
 
@@ -132,11 +132,11 @@ Composition engine       Remotion: available        READY
 ```
 
 **Composition engine selection:** Remotion and HyperFrames are parallel, non-ranked
-composition runtimes — do NOT pre-lock either one here. When both are available, the
+composition runtimes - do NOT pre-lock either one here. When both are available, the
 "Present Both Composition Runtimes (HARD RULE)" gate in `AGENT_GUIDE.md` governs the
 choice: present both options to the user with tradeoffs at the proposal stage and wait
 for explicit approval before locking `render_runtime`. Silently picking a default is
-forbidden. FFmpeg is not a composition runtime in this flow — it is reserved for
+forbidden. FFmpeg is not a composition runtime in this flow - it is reserved for
 standalone operations (trim, transcode, subtitle burn) outside the composition pipeline.
 
 Be honest about gaps. If video generation is needed but unavailable, say so clearly:
@@ -153,7 +153,7 @@ generation providers configured. Here are your options:
 Which would you prefer?"
 ```
 
-Read install_instructions from the registry for each unavailable tool — do NOT
+Read install_instructions from the registry for each unavailable tool - do NOT
 hardcode key names, provider names, or setup URLs.
 
 ### Step 3: Ask Critical Questions
@@ -163,12 +163,12 @@ Before proposing, gather what the VideoAnalysisBrief doesn't tell you:
 1. "Do you want narration in your version, or visuals-only with music?"
 2. **If narration: lock the audio architecture now.** Ask:
    "How should the story be told? Options:
-   • **Single narrator** — one voice tells the whole story (like a Pixar short)
-   • **Character dialogue** — characters speak to each other, no narrator
-   • **Narrator + character voices** — narrator drives the story, characters
+   • **Single narrator** - one voice tells the whole story (like a Pixar short)
+   • **Character dialogue** - characters speak to each other, no narrator
+   • **Narrator + character voices** - narrator drives the story, characters
      have occasional dialogue lines"
    This decision shapes the script, voice casting, and budget. It MUST be
-   resolved before proposals — do not defer it to the script or compose stage.
+   resolved before proposals - do not defer it to the script or compose stage.
 3. "How long should your video be? The reference is [X] seconds."
 4. "Is there a specific topic/subject you want, or should I riff on the
    same theme as the reference?"
@@ -183,7 +183,7 @@ message already answers some of these, skip those.
 the agent must do targeted research before proposing concepts. Do NOT skip this
 and rely solely on the reference analysis + your own knowledge.
 
-Research scope (keep it focused — this is not the full research-director stage):
+Research scope (keep it focused - this is not the full research-director stage):
 
 1. **Content landscape:** Search for 3-5 existing videos similar to what the user
    wants. What works? What's been overdone? What angles are fresh? This grounds
@@ -202,7 +202,7 @@ Research scope (keep it focused — this is not the full research-director stage
    what makes similar content engaging (tropes, hooks, payoff patterns).
 
 **How to present:** Don't dump raw research. Weave findings into your proposals:
-- "I looked at similar channels — most food personification videos use X, so our
+- "I looked at similar channels - most food personification videos use X, so our
   twist of Y would stand out"
 - "Kling handles anthropomorphic characters well when you use [specific technique]"
 - "The top-performing 60-second comedy shorts all use a 3-beat structure: setup,
@@ -370,7 +370,7 @@ After sample approval, the agent MUST enter the pipeline. This is not optional.
 **Mandatory steps:**
 1. Read the pipeline manifest: `pipeline_defs/animation.yaml` (or whichever
    pipeline matches the production type)
-2. Execute **stage by stage** in order — research → proposal → script →
+2. Execute **stage by stage** in order - research → proposal → script →
    scene_plan → assets → edit → compose → publish
 3. Before EACH stage, read its director skill from
    `skills/pipelines/<pipeline>/<stage>-director.md`
