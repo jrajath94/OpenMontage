@@ -24,11 +24,11 @@ The `color_grade` tool uses these FFmpeg filters. Understanding them helps you c
 | Filter | Purpose | Key Parameters |
 |--------|---------|----------------|
 | `eq` | Brightness, contrast, saturation, gamma | `contrast=1.0:saturation=1.0:brightness=0.0:gamma=1.0` |
-| `colorbalance` | RGB adjustments in shadows/mids/highlights | `rs/gs/bs` (shadows), `rm/gm/bm` (mids), `rh/gh/bh` (highlights) — range -1.0 to 1.0 |
+| `colorbalance` | RGB adjustments in shadows/mids/highlights | `rs/gs/bs` (shadows), `rm/gm/bm` (mids), `rh/gh/bh` (highlights) - range -1.0 to 1.0 |
 | `curves` | Tone curves per channel | `all='0/0 0.5/0.5 1/1'` or per-channel `red=`, `green=`, `blue=` |
-| `colortemperature` | White balance shift | `temperature=6500` (neutral) — lower = cooler, higher = warmer |
+| `colortemperature` | White balance shift | `temperature=6500` (neutral) - lower = cooler, higher = warmer |
 | `lut3d` | Apply external .cube LUT | `lut3d='path/to/file.cube'` |
-| `hue` | Hue rotation and saturation | `h=0:s=1` — h in degrees, s as multiplier |
+| `hue` | Hue rotation and saturation | `h=0:s=1` - h in degrees, s as multiplier |
 | `normalize` | Auto-stretch histogram to full range | `blackpt=black:whitept=white:smoothing=0` |
 
 ### Filter Chain Order
@@ -93,11 +93,11 @@ eq=contrast=1.03:saturation=0.75:brightness=-0.02
 - Converting from LOG/flat camera profiles to display color
 
 ### LUT Application Best Practices
-1. **Always correct before grading** — normalize/white-balance the footage first, then apply creative LUT
-2. **Use intensity < 1.0** — a LUT at full strength usually looks overdone; 0.6-0.8 is typical
-3. **Test on skin tones first** — if people appear in the video, skin must look natural
-4. **One LUT per project** — switching LUTs between scenes creates visual inconsistency
-5. **LUT file location** — store in `assets/luts/` relative to the project, reference with `lut_path`
+1. **Always correct before grading** - normalize/white-balance the footage first, then apply creative LUT
+2. **Use intensity < 1.0** - a LUT at full strength usually looks overdone; 0.6-0.8 is typical
+3. **Test on skin tones first** - if people appear in the video, skin must look natural
+4. **One LUT per project** - switching LUTs between scenes creates visual inconsistency
+5. **LUT file location** - store in `assets/luts/` relative to the project, reference with `lut_path`
 
 ### FFmpeg LUT Application
 ```bash
@@ -107,7 +107,7 @@ ffmpeg -i input.mp4 -vf "split[a][b];[b]lut3d='my_lut.cube'[graded];[a][graded]b
 
 ## Skin Tone Protection
 
-Skin tones are the most critical element in color grading — viewers instantly notice unnatural skin.
+Skin tones are the most critical element in color grading - viewers instantly notice unnatural skin.
 
 **The Skin Tone Line:**
 - On a vectorscope, healthy skin (all ethnicities) falls on a narrow line at approximately 123 degrees (between red and yellow)
@@ -115,7 +115,7 @@ Skin tones are the most critical element in color grading — viewers instantly 
 
 **Rules:**
 - Never push saturation above 1.2 on footage with people
-- After grading, check a frame with visible skin — if it looks orange, green, or magenta, pull back
+- After grading, check a frame with visible skin - if it looks orange, green, or magenta, pull back
 - The `cinematic_warm` profile at intensity 0.85 is pre-tuned to keep skin natural
 - For `moody_dark`, keep intensity at 0.6-0.7 to avoid making skin look grey
 
@@ -151,11 +151,11 @@ When generating graphics, overlays, or diagrams that accompany graded video, use
 
 When using the `color_grade` tool:
 
-1. **Select profile by content type** using the table above — don't default to `cinematic_warm` for everything
-2. **Set intensity to 0.8** as a starting point, not 1.0 — subtlety reads better on mobile screens
-3. **Test on a single frame first** before grading the full video — saves render time
-4. **Grade after face enhancement** — the enhancement chain order in `skills/creative/enhancement-strategy.md` is: subtitle → face → color → audio → final
-5. **Use the same profile across all clips in a video** — visual consistency is critical
+1. **Select profile by content type** using the table above - don't default to `cinematic_warm` for everything
+2. **Set intensity to 0.8** as a starting point, not 1.0 - subtlety reads better on mobile screens
+3. **Test on a single frame first** before grading the full video - saves render time
+4. **Grade after face enhancement** - the enhancement chain order in `skills/creative/enhancement-strategy.md` is: subtitle → face → color → audio → final
+5. **Use the same profile across all clips in a video** - visual consistency is critical
 6. **For generated visuals** (image_selector, math_animate), apply a lighter grade (0.5-0.6) since they're already stylized
 7. **Use the Wong palette** for any generated graphics (diagrams, code snippets, overlays) to ensure colorblind accessibility
-8. **For custom grades**, follow the filter chain order above and keep parameter changes small — ±0.05 per adjustment, then review
+8. **For custom grades**, follow the filter chain order above and keep parameter changes small - ±0.05 per adjustment, then review
