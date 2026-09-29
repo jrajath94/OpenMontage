@@ -253,9 +253,9 @@ faceswap_execution_id = faceswap(
 
 ## Best Practices
 
-1. **Use a clear, front-facing face photo** — the source image should show a single face with good lighting
-2. **Face swap is GPU-intensive** — expect 1-3 minutes processing time, poll every 10 seconds
-3. **Source image quality matters** — higher resolution face photos produce better results
-4. **One face per source image** — the source should contain exactly one face to swap in
-5. **Works with any video** — the target video can be an avatar video, a recording, or any video with visible faces
-6. **Chain with other workflows** — generate an avatar video first, then swap in a custom face for personalization
+1. **Use a clear, front-facing face photo** - the source image should show a single face with good lighting
+2. **Face swap is GPU-intensive** - expect 1-3 minutes processing time, poll every 10 seconds
+3. **Source image quality matters** - higher resolution face photos produce better results
+4. **One face per source image** - the source should contain exactly one face to swap in
+5. **Works with any video** - the target video can be an avatar video, a recording, or any video with visible faces
+6. **Chain with other workflows** - generate an avatar video first, then swap in a custom face for personalization
