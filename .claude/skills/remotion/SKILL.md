@@ -1,9 +1,9 @@
 ---
 name: remotion
-description: Toolkit-specific Remotion patterns — custom transitions, shared components, and project conventions. For core Remotion framework knowledge (hooks, animations, rendering, etc.), see the `remotion-official` skill.
+description: Toolkit-specific Remotion patterns - custom transitions, shared components, and project conventions. For core Remotion framework knowledge (hooks, animations, rendering, etc.), see the `remotion-official` skill.
 ---
 
-# Remotion — Toolkit Extensions
+# Remotion - Toolkit Extensions
 
 > **Core Remotion knowledge** lives in `.claude/skills/remotion-official/` (synced from the official [remotion-dev/skills](https://github.com/remotion-dev/skills) repo). This file covers **toolkit-specific** patterns only.
 
@@ -116,14 +116,14 @@ cd showcase/transitions && npm run studio
 
 ## Toolkit Best Practices
 
-1. **Frame-based animations only** — Avoid CSS transitions/animations; they cause flickering during render
-2. **Use fps from useVideoConfig()** — Make animations frame-rate independent
-3. **Clamp interpolations** — Use `extrapolateRight: 'clamp'` to prevent runaway values
-4. **Use OffthreadVideo** — Better performance than `<Video>` for complex compositions
-5. **delayRender for async** — Always block rendering until data is ready
-6. **staticFile for assets** — Reference files from `public/` folder correctly
-7. **All projects use 30fps** — Timing: frames = seconds × 30
-8. **playbackRate must be constant** — For variable/extreme speeds, pre-process with FFmpeg
+1. **Frame-based animations only** - Avoid CSS transitions/animations; they cause flickering during render
+2. **Use fps from useVideoConfig()** - Make animations frame-rate independent
+3. **Clamp interpolations** - Use `extrapolateRight: 'clamp'` to prevent runaway values
+4. **Use OffthreadVideo** - Better performance than `<Video>` for complex compositions
+5. **delayRender for async** - Always block rendering until data is ready
+6. **staticFile for assets** - Reference files from `public/` folder correctly
+7. **All projects use 30fps** - Timing: frames = seconds × 30
+8. **playbackRate must be constant** - For variable/extreme speeds, pre-process with FFmpeg
 
 ## Project Timing Conventions
 
