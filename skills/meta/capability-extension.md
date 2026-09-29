@@ -2,7 +2,7 @@
 
 ## When to Use
 
-When you encounter a production need that no existing tool covers. The agent can extend the system — but with guardrails. This replaces the blanket "do NOT write ad-hoc Python scripts" rule with a structured protocol.
+When you encounter a production need that no existing tool covers. The agent can extend the system - but with guardrails. This replaces the blanket "do NOT write ad-hoc Python scripts" rule with a structured protocol.
 
 ## Assessment First
 
