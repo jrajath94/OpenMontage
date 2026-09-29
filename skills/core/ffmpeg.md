@@ -32,10 +32,10 @@ and audio cleanup.
 
 Apply enhancements in this order to avoid filter interactions:
 
-1. **Subtitles first** — burn into the base video
-2. **Face enhance** — smoothing/sharpening works best on ungraded footage
-3. **Color grade** — applies look after face is already enhanced
-4. **Audio enhance** — independent of video, apply last
+1. **Subtitles first** - burn into the base video
+2. **Face enhance** - smoothing/sharpening works best on ungraded footage
+3. **Color grade** - applies look after face is already enhanced
+4. **Audio enhance** - independent of video, apply last
 
 Each step is optional and gracefully skipped if the tool is unavailable.
 
@@ -62,13 +62,13 @@ Each step is optional and gracefully skipped if the tool is unavailable.
 | Podcast | -16 LUFS | 7-11 LU |
 | Broadcast | -24 LUFS | 7 LU |
 
-The `clean_speech` preset targets -16 LUFS with 11 LU range — good for YouTube/social media.
+The `clean_speech` preset targets -16 LUFS with 11 LU range - good for YouTube/social media.
 
 ### Color Grade Intensity
 
-- `intensity: 0.85` — recommended default for cinematic_warm on talking heads
-- `intensity: 0.5` — subtle, barely noticeable
-- `intensity: 1.0` — full effect, may look over-processed on some footage
+- `intensity: 0.85` - recommended default for cinematic_warm on talking heads
+- `intensity: 0.5` - subtle, barely noticeable
+- `intensity: 1.0` - full effect, may look over-processed on some footage
 
 ### Audio Ducking
 
@@ -86,6 +86,6 @@ The `clean_speech` preset targets -16 LUFS with 11 LU range — good for YouTube
 - [ ] Audio and video remain in sync after processing
 - [ ] Subtitles are in the bottom 20% of frame, never covering the face
 - [ ] Audio loudness is within target range for the platform
-- [ ] Enhancement is visible but natural — skin tones look healthy, not orange
+- [ ] Enhancement is visible but natural - skin tones look healthy, not orange
 - [ ] No audio clipping or silence gaps at cut points
 - [ ] File size is reasonable for the target platform
