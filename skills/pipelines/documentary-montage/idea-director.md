@@ -7,11 +7,11 @@ downstream stage will read. For this pipeline, the brief is the
 thematic core: what the montage is ABOUT, what it should feel like,
 and how long it should run.
 
-## Runtime Selection (MANDATORY — present the constraint, don't silently pick)
+## Runtime Selection (MANDATORY - present the constraint, don't silently pick)
 
-Lock `render_runtime = "remotion"`. **HyperFrames is NOT a valid runtime on this pipeline in Phase 1** — documentary-montage depends on the Remotion `CinematicRenderer` composition and its ProRes-4444 alpha end-tag overlay stack, neither of which has HyperFrames parity.
+Lock `render_runtime = "remotion"`. **HyperFrames is NOT a valid runtime on this pipeline in Phase 1** - documentary-montage depends on the Remotion `CinematicRenderer` composition and its ProRes-4444 alpha end-tag overlay stack, neither of which has HyperFrames parity.
 
-Per AGENT_GUIDE.md → "Present Both Composition Runtimes (HARD RULE)": do NOT silently default. Tell the user: "HyperFrames is available on your machine as an alternative runtime, but documentary-montage depends on the Remotion CinematicRenderer + end-tag overlay stack, so remotion is the only viable choice here — OK to proceed?" Record a `render_runtime_selection` decision in `decision_log` listing both runtimes in `options_considered`, with hyperframes `rejected_because: "CinematicRenderer + end-tag overlay parity deferred on documentary-montage"`.
+Per AGENT_GUIDE.md → "Present Both Composition Runtimes (HARD RULE)": do NOT silently default. Tell the user: "HyperFrames is available on your machine as an alternative runtime, but documentary-montage depends on the Remotion CinematicRenderer + end-tag overlay stack, so remotion is the only viable choice here - OK to proceed?" Record a `render_runtime_selection` decision in `decision_log` listing both runtimes in `options_considered`, with hyperframes `rejected_because: "CinematicRenderer + end-tag overlay parity deferred on documentary-montage"`.
 
 ## Prerequisites
 
@@ -37,8 +37,8 @@ Good thematic questions:
 
 Bad thematic questions (too abstract or too concrete):
 
-- "A video about cities" (too abstract — no feeling)
-- "A montage with 8 specific shots of the moon" (too concrete — that's
+- "A video about cities" (too abstract - no feeling)
+- "A montage with 8 specific shots of the moon" (too concrete - that's
   a shot list, not a theme)
 
 ### 2. Fix The Tone
@@ -48,12 +48,12 @@ keys off this.
 
 Common registers for this pipeline:
 
-- **elegiac** — long holds, muted color, slow cuts (loss, memory, home)
-- **urgent** — short cuts, hard sync, motion-heavy (crisis, cities, now)
-- **reverent** — stately, symmetrical, patient (nature, ritual, scale)
-- **wry** — ironic juxtaposition, cut on absurdity (consumer culture,
+- **elegiac** - long holds, muted color, slow cuts (loss, memory, home)
+- **urgent** - short cuts, hard sync, motion-heavy (crisis, cities, now)
+- **reverent** - stately, symmetrical, patient (nature, ritual, scale)
+- **wry** - ironic juxtaposition, cut on absurdity (consumer culture,
   politics, mid-century optimism)
-- **dreamlike** — slow dissolves, repeated motifs, non-linear (childhood,
+- **dreamlike** - slow dissolves, repeated motifs, non-linear (childhood,
   grief, memory)
 
 ### 3. Pick A Duration And A Shape
@@ -62,26 +62,26 @@ Duration matters because it caps the number of beats.
 
 | Duration | Beats | Use |
 |----------|-------|-----|
-| 30-45s | 8-12 cuts | Social/Instagram/reel — one feeling, no arc |
-| 60-90s | 15-25 cuts | Standard short — mini arc with a turn |
-| 2-3 min | 30-50 cuts | Proper essay montage — 3-act arc possible |
+| 30-45s | 8-12 cuts | Social/Instagram/reel - one feeling, no arc |
+| 60-90s | 15-25 cuts | Standard short - mini arc with a turn |
+| 2-3 min | 30-50 cuts | Proper essay montage - 3-act arc possible |
 
 Shape options:
 
-- **single-image expansion** — one idea, held from many angles (good
+- **single-image expansion** - one idea, held from many angles (good
   for elegiac pieces under 60s)
-- **before/after** — first half establishes, second half turns (good
+- **before/after** - first half establishes, second half turns (good
   for wry or urgent registers)
-- **three-act** — setup → turn → release (the Adam Curtis move, needs
+- **three-act** - setup → turn → release (the Adam Curtis move, needs
   >90s)
-- **list/catalogue** — "everyone who..." structure, no arc, just
+- **list/catalogue** - "everyone who..." structure, no arc, just
   accumulation (good for reverent or elegiac)
 
 ### 4. Note Music Intent (MANDATORY)
 
 Documentary montage is inseparable from its music bed. **Music is MANDATORY
 for this pipeline.** The ONLY way out is an explicit user opt-out (e.g.
-"no music, I want it silent") — which MUST be recorded as
+"no music, I want it silent") - which MUST be recorded as
 `music_plan.source = "none"` with a `music_plan.opt_out_reason` field.
 
 Silent-by-design briefs that feel "pure" at the idea stage regularly look
@@ -97,16 +97,16 @@ itself. If the user has not mentioned music, ASSUME THEY WANT IT and pick:
 Before declaring no source available, also query
 `registry.get_by_capability("music_generation")`. **Warn the user if no music
 source is available.** Do not silently
-defer this — it becomes an expensive surprise at the asset stage.
+defer this - it becomes an expensive surprise at the asset stage.
 
 ### 5. Note End-Tag Intent (MANDATORY)
 
-Every documentary-montage film closes on a philosophical end-tag — one
+Every documentary-montage film closes on a philosophical end-tag - one
 short, abstract line that gives the whole thing meaning. It is rendered
-as a Remotion end-card ("shining underlined tag" register — bold weight,
+as a Remotion end-card ("shining underlined tag" register - bold weight,
 letter-spaced, animated underline).
 
-**Default mode is `"overlay"`** — the tag fades in over the final scenes
+**Default mode is `"overlay"`** - the tag fades in over the final scenes
 of the body footage, so it feels like part of the film rather than a
 separate card tacked on at the end. The alternative is `"concat"` which
 appends a standalone black-card after the body. Use concat only when the
@@ -133,13 +133,13 @@ Expected shape:
 ```
 
 Fields:
-- `text` — 3-9 words. A thesis, not a summary.
-- `palette` — `"cool_offwhite_on_black"` or `"warm_ivory_on_black"`.
-- `duration_seconds` — total tag screen time (fade-in + hold + fade-out).
+- `text` - 3-9 words. A thesis, not a summary.
+- `palette` - `"cool_offwhite_on_black"` or `"warm_ivory_on_black"`.
+- `duration_seconds` - total tag screen time (fade-in + hold + fade-out).
   5-8s is the sweet spot.
-- `render_engine` — always `"remotion"`.
-- `component` — always `"EndTag"`.
-- `mode` — `"overlay"` (default) or `"concat"`.
+- `render_engine` - always `"remotion"`.
+- `component` - always `"EndTag"`.
+- `mode` - `"overlay"` (default) or `"concat"`.
   - **overlay**: tag rendered as ProRes 4444 with alpha → composited on
     final body footage via FFmpeg overlay filter. Tag fades appear over
     the last N seconds of live footage. The body's own fade-out and the
@@ -152,7 +152,7 @@ Fields:
 Unlike music and end-tag, narration is OPTIONAL. Absence is fine if
 visuals + music + end-tag carry the register. If narration IS used, name
 the TTS provider and voice. Record `narration: "none"` explicitly if
-there's no narration — don't leave the field missing.
+there's no narration - don't leave the field missing.
 
 ### 7. Record The Brief
 
@@ -213,7 +213,7 @@ open for the scene director to decide per slot.
 - Assuming silence will earn itself. It won't. Music is mandatory unless
   the user explicitly says no.
 - Skipping the end-tag because "the images speak for themselves". They
-  don't — the end-tag is the thesis. Propose one every time.
+  don't - the end-tag is the thesis. Propose one every time.
 
 ---
 
@@ -222,4 +222,4 @@ open for the scene director to decide per slot.
 This stage gates on human approval (`human_approval_default: true`). After review passes:
 checkpoint with `status="awaiting_human"`, present the summary (the Backlot board renders
 the artifact), and **END YOUR TURN**. Do not start the next stage in the same response.
-Approval is per-gate — an earlier "go ahead" does not cover this gate.
+Approval is per-gate - an earlier "go ahead" does not cover this gate.
