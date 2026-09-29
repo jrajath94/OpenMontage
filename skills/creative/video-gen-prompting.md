@@ -1,4 +1,4 @@
-# Video Generation Prompting — Universal Guide
+# Video Generation Prompting - Universal Guide
 
 ## When to Use
 
@@ -30,7 +30,7 @@ For model-specific tips, see the linked guides below.
 When listing multiple subjects or events:
 
 - **Temporal order** when events unfold over time ("First X enters, then Y reacts").
-- **Prominence order** when temporal isn't relevant — humans before objects, largest/most-centered first, then secondary subjects.
+- **Prominence order** when temporal isn't relevant - humans before objects, largest/most-centered first, then secondary subjects.
 
 ## Self-Contained Prompt
 
@@ -55,7 +55,7 @@ The OpenMontage canonical 5-aspect skeleton:
 
 ### Prompt Length by Model
 
-Empirical sweet spots from the paper's Section 6 findings — different models reward different prompt densities:
+Empirical sweet spots from the paper's Section 6 findings - different models reward different prompt densities:
 
 | Model | Sweet Spot | Notes |
 |---|---|---|
@@ -91,7 +91,7 @@ Empirical sweet spots from the paper's Section 6 findings — different models r
 
 ## Camera Movements
 
-The paper shows current models confuse translation, rotation, and lens-only changes — group your prompts so the model can't conflate them:
+The paper shows current models confuse translation, rotation, and lens-only changes - group your prompts so the model can't conflate them:
 
 | Group | Primitives | Rule |
 |---|---|---|
@@ -99,11 +99,11 @@ The paper shows current models confuse translation, rotation, and lens-only chan
 | **Rotation** (camera pivots in place) | pan left/right, tilt up/down, roll CW/CCW | "pan right across the room" |
 | **Lens-only** (no camera move) | zoom in/out, rack focus, pull focus, focus tracking | "zoom in" ≠ "dolly in" |
 | **Hybrid / signature** | dolly zoom (vertigo), arc/orbit, crane, whip pan, tracking/follow, handheld | "vertigo" only at moments of revelation |
-| **Stillness states** | static (NO movement at all — strict), micro-shake, locked-off | "static" requires zero movement, focus change, or zoom |
+| **Stillness states** | static (NO movement at all - strict), micro-shake, locked-off | "static" requires zero movement, focus change, or zoom |
 
 > **dolly ≠ zoom.** dolly is camera translation; zoom is focal-length change. Models follow whichever token dominates. **pan ≠ truck.** pan rotates, truck translates laterally.
 
-> **Static shot is strict.** A static shot has zero movement, zero focus change, zero zoom. If any of those occur, do NOT write "static camera" — pick the right movement primitive.
+> **Static shot is strict.** A static shot has zero movement, zero focus change, zero zoom. If any of those occur, do NOT write "static camera" - pick the right movement primitive.
 
 ## Camera Height (relative to ground)
 
@@ -140,7 +140,7 @@ The paper shows current models confuse translation, rotation, and lens-only chan
 | Over-the-shoulder | "OTS framing of the laptop screen" |
 | Top-down oblique | "top-down view of the chess board, tilted slightly" |
 | Dashcam | "vehicle dashcam framing of the road" |
-| Objective / Neutral | (default — use when no specific POV) |
+| Objective / Neutral | (default - use when no specific POV) |
 
 ## Lighting Vocabulary
 
@@ -148,8 +148,8 @@ The paper shows current models confuse translation, rotation, and lens-only chan
 |------|--------|
 | **Natural light** | Soft, realistic (morning sun, overcast, moonlight) |
 | **Golden hour** | Warm sunlight, long shadows, romantic |
-| **High-key** | Bright, even, cheerful — comedy, lifestyle |
-| **Low-key** | Dark, high contrast — thriller, drama |
+| **High-key** | Bright, even, cheerful - comedy, lifestyle |
+| **Low-key** | Dark, high contrast - thriller, drama |
 | **Rembrandt** | Triangle of light on cheek, classic portrait |
 | **Film noir** | Deep shadows, stark highlights |
 | **Volumetric** | Visible light rays through atmosphere (fog, dust) |
@@ -173,7 +173,7 @@ The paper shows current models confuse translation, rotation, and lens-only chan
 
 ### Lens Distortion
 
-The paper distinguishes two primitives that models honor as separate effects — they are NOT interchangeable:
+The paper distinguishes two primitives that models honor as separate effects - they are NOT interchangeable:
 
 | Primitive | Effect |
 |---|---|
@@ -210,7 +210,7 @@ Always name the cause: "by subject movement" or "by camera movement". This unloc
 
 > Models lose character identity across cuts unless you re-state it. In every shot of a multi-shot prompt, repeat the same 3–6 disambiguating visual attributes for each named subject verbatim. Pronouns and "the same character" do not work.
 >
-> Example: "Aang — bald, blue arrow tattoo on forehead, orange-and-yellow robes — plants his staff. … Aang — bald, blue arrow tattoo on forehead, orange-and-yellow robes — turns to camera."
+> Example: "Aang - bald, blue arrow tattoo on forehead, orange-and-yellow robes - plants his staff. … Aang - bald, blue arrow tattoo on forehead, orange-and-yellow robes - turns to camera."
 
 ## Style & Aesthetic References
 
@@ -242,7 +242,7 @@ Always name the cause: "by subject movement" or "by camera movement". This unloc
 
 ### Playback Speed
 
-The paper defines six explicit playback-speed primitives. Use the right one — they're not synonymous:
+The paper defines six explicit playback-speed primitives. Use the right one - they're not synonymous:
 
 | Primitive | Definition |
 |---|---|
@@ -283,7 +283,7 @@ Put dialogue in quotation marks: `Character says: "Hello world."`
 >
 > "Inspiring," "powerful," "moody," "epic" do not constrain pixels.
 
-> **Static shot is strict.** A static shot has zero movement, zero focus change, zero zoom. If any of those occur, do NOT write "static camera" — pick the right movement primitive.
+> **Static shot is strict.** A static shot has zero movement, zero focus change, zero zoom. If any of those occur, do NOT write "static camera" - pick the right movement primitive.
 
 | Don't | Why | Do Instead |
 |-------|-----|-----------|
@@ -299,12 +299,12 @@ Put dialogue in quotation marks: `Character says: "Hello world."`
 
 ## Prompt Iteration Strategy
 
-1. **Start simple** — subject + action + setting. See what the model gives you.
-2. **Add one element at a time** — camera, then lighting, then style.
-3. **If a shot misfires** — strip back. Freeze camera, simplify action, try again.
-4. **For consistency across clips** — repeat the same style/lighting/grade description.
-5. **Use seed values** — when you find a good result, save the seed for variations.
-6. **For Grok reference-image video** — assign each source image a clear role in the prompt using `<IMAGE_1>`, `<IMAGE_2>`, etc.
+1. **Start simple** - subject + action + setting. See what the model gives you.
+2. **Add one element at a time** - camera, then lighting, then style.
+3. **If a shot misfires** - strip back. Freeze camera, simplify action, try again.
+4. **For consistency across clips** - repeat the same style/lighting/grade description.
+5. **Use seed values** - when you find a good result, save the seed for variations.
+6. **For Grok reference-image video** - assign each source image a clear role in the prompt using `<IMAGE_1>`, `<IMAGE_2>`, etc.
 
 ## Example: Generic Prompt Template
 
