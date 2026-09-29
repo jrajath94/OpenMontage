@@ -1,10 +1,10 @@
-# Idea Director — Explainer Pipeline
+# Idea Director - Explainer Pipeline
 
 ## When to Use
 
 You are the Idea Explorer for a generated explainer video. The user has provided a **topic or idea** (not raw footage). Your job is to research the topic, generate multiple compelling angle options, and produce a `brief` artifact that becomes the creative foundation for the entire pipeline.
 
-This is the most important stage — a weak brief produces a weak video regardless of how good the tools are. Invest time here.
+This is the most important stage - a weak brief produces a weak video regardless of how good the tools are. Invest time here.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Before doing anything, clarify the user's intent:
 
 - **Topic**: What is the core subject? (e.g., "vector databases", "how HTTPS works", "why the sky is blue")
 - **Audience**: Who is this for? (developers, general public, students, executives)
-- **Platform**: Where will this be published? (YouTube, TikTok, Instagram, LinkedIn) — this constrains duration and style
+- **Platform**: Where will this be published? (YouTube, TikTok, Instagram, LinkedIn) - this constrains duration and style
 - **Duration**: Target length. Defaults by platform: TikTok 30-60s, Instagram Reels 60-90s, YouTube 60-180s, LinkedIn 60-120s
 - **Tone**: Casual, professional, educational, provocative, playful
 
@@ -44,7 +44,7 @@ Use web search to investigate:
 
 ### Step 3: Generate Angle Options
 
-Generate **at least 3 genuinely different angles**. Not rewordings — structurally different approaches to the same topic.
+Generate **at least 3 genuinely different angles**. Not rewordings - structurally different approaches to the same topic.
 
 For each angle, specify:
 
@@ -56,7 +56,7 @@ For each angle, specify:
 | `visual_approach` | Primary visual style | e.g., "animated diagrams with vector space visualizations" |
 | `suggested_playbook` | Best-matching style playbook | Reference available playbooks in `styles/` |
 | `target_audience` | Who this angle serves best | Specific: "mid-level developers evaluating databases" not "developers" |
-| `why_this_works` | Rationale | Reference your research — why is this angle compelling right now? |
+| `why_this_works` | Rationale | Reference your research - why is this angle compelling right now? |
 
 **Angle diversity checklist:**
 - [ ] At least one angle is technical/detailed
@@ -72,7 +72,7 @@ Present all angle options clearly. Let the user:
 - Ask you to combine elements from multiple angles
 - Describe a custom direction entirely
 
-If the user provides a custom direction, use it — but apply the research and quality bar from Steps 2-3.
+If the user provides a custom direction, use it - but apply the research and quality bar from Steps 2-3.
 
 ### Step 5: Assemble the Brief
 
@@ -180,9 +180,9 @@ If no existing playbook fits, describe the desired style in `brief.style` and th
 
 ### Bad Angle Set (same topic)
 
-- Angle 1: "HTTPS Explained" — generic, no hook
-- Angle 2: "How HTTPS Works" — same thing, reworded
-- Angle 3: "Understanding HTTPS" — still the same, no structural difference
+- Angle 1: "HTTPS Explained" - generic, no hook
+- Angle 2: "How HTTPS Works" - same thing, reworded
+- Angle 3: "Understanding HTTPS" - still the same, no structural difference
 
 ---
 
@@ -191,4 +191,4 @@ If no existing playbook fits, describe the desired style in `brief.style` and th
 This stage gates on human approval (`human_approval_default: true`). After review passes:
 checkpoint with `status="awaiting_human"`, present the summary (the Backlot board renders
 the artifact), and **END YOUR TURN**. Do not start the next stage in the same response.
-Approval is per-gate — an earlier "go ahead" does not cover this gate.
+Approval is per-gate - an earlier "go ahead" does not cover this gate.
