@@ -23,7 +23,7 @@ style_prompt_full: >
   uses geometric sans-serifs (ABC Solar, TT Norms Pro, or similar) with
   clear hierarchy. Large rounded corners (12-48px) on cards and buttons.
   Smooth fade-in animations and subtle hover transitions. Tech-forward
-  but approachable — innovation meets accessibility. Avoid harsh corporate
+  but approachable - innovation meets accessibility. Avoid harsh corporate
   blue, avoid dark mode unless specifically requested, avoid overly
   complex gradients or 3D effects.
 
@@ -92,7 +92,7 @@ motion:
     - "smooth hover transitions (150-200ms)"
   animation_style: >
     Smooth and modern. Elements fade and slide in gracefully.
-    Subtle scale effects on hover. Nothing bouncy or playful —
+    Subtle scale effects on hover. Nothing bouncy or playful -
     confident and professional with a touch of polish.
   pacing: "Quick, responsive, modern feel"
   audio_cues:
@@ -134,7 +134,7 @@ x_heygen:
 
 AI should feel accessible, not intimidating.
 White space communicates premium quality.
-The cyan-pink gradient is the hero — use it sparingly but boldly.
+The cyan-pink gradient is the hero - use it sparingly but boldly.
 Every interaction should feel smooth and responsive.
 
 ## Extraction Notes
@@ -160,7 +160,7 @@ Hey Blue for interactive elements, Prism Pink for highlights.
 ### paper.design
 Clean layouts with the gradient as a bold accent element.
 Large typography with clear hierarchy. Rounded card patterns.
-Avoid heavy shadows — use subtle borders instead.
+Avoid heavy shadows - use subtle borders instead.
 
 ### Figma
 Color styles: `brand/hey-blue`, `brand/prism-pink`, `brand/gradient`.
