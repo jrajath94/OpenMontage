@@ -1,6 +1,6 @@
 ---
 name: ltx2
-description: AI video generation with LTX-2.3 22B — text-to-video, image-to-video clips for video production. Use when generating video clips, animating images, creating b-roll, animated backgrounds, or motion content. Triggers include video generation, animate image, b-roll, motion, video clip, text-to-video, image-to-video.
+description: AI video generation with LTX-2.3 22B - text-to-video, image-to-video clips for video production. Use when generating video clips, animating images, creating b-roll, animated backgrounds, or motion content. Triggers include video generation, animate image, b-roll, motion, video clip, text-to-video, image-to-video.
 ---
 
 # LTX-2.3 Video Generation
@@ -155,7 +155,7 @@ LTX-2 generates raw clips. Combine with the rest of the toolkit:
 - **Text rendering:** Cannot reliably generate readable text in video. Use Remotion overlays instead.
 - **Max duration:** ~8s per clip. Longer content needs stitching.
 - **Audio:** Generated audio is ambient/environmental only. Use voiceover/music tools for speech and music.
-- **License:** Community License — free under $10M revenue, commercial license needed above that.
+- **License:** Community License - free under $10M revenue, commercial license needed above that.
 
 ## Setup
 
