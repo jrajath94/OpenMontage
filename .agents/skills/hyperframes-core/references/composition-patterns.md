@@ -1,6 +1,6 @@
 # Composition Patterns
 
-How to architect a project — when to inline everything in one HTML, when to split into sub-compositions, what the `index.html` orchestrator looks like at scale, and the common sub-composition archetypes seen in real projects. Pair with `minimal-composition.md` (single-file shape) and `sub-compositions.md` (mechanics of a sub-comp file).
+How to architect a project - when to inline everything in one HTML, when to split into sub-compositions, what the `index.html` orchestrator looks like at scale, and the common sub-composition archetypes seen in real projects. Pair with `minimal-composition.md` (single-file shape) and `sub-compositions.md` (mechanics of a sub-comp file).
 
 ## Two Architectures
 
@@ -11,7 +11,7 @@ How to architect a project — when to inline everything in one HTML, when to sp
 | Timeline registration | One timeline keyed at the root's `data-composition-id`  | Root timeline (often near-empty) + one timeline per sub-comp, each keyed by its `id` |
 | Routing entry         | `references/minimal-composition.md`                     | `references/sub-compositions.md`                                                     |
 
-Both architectures use the same runtime contract — `data-*` attributes + `window.__timelines[id]`. The choice is structural, not behavioral.
+Both architectures use the same runtime contract - `data-*` attributes + `window.__timelines[id]`. The choice is structural, not behavioral.
 
 ### Pick monolithic when
 
@@ -22,7 +22,7 @@ Both architectures use the same runtime contract — `data-*` attributes + `wind
 
 ### Pick modular when
 
-- The video has clear scene cuts — each scene is its own segment of the timeline.
+- The video has clear scene cuts - each scene is its own segment of the timeline.
 - Some scenes are large (>100 lines of markup or significant scripted animation).
 - A scene is reusable (kinetic intro, end-card logo lockup, a transition).
 - The video has a continuous audio track over multiple visual segments. Keep audio at the root, visual segments as sub-comps.
@@ -119,7 +119,7 @@ When using sub-compositions, `index.html` should be **thin**. Its job is to decl
 
 Key properties of this layout:
 
-- **Visual scenes on the same `data-track-index`** (e.g. `1`). Sequential — they cannot overlap on the same track. For a cross-fade between two scenes, put one on a higher track and overlap their times by the fade duration.
+- **Visual scenes on the same `data-track-index`** (e.g. `1`). Sequential - they cannot overlap on the same track. For a cross-fade between two scenes, put one on a higher track and overlap their times by the fade duration.
 - **Audio on a separate, higher track index** (e.g. `10`). Keeps the linter's overlap rules clear of any visual collisions.
 - **Root timeline is near-empty.** All animation lives in the sub-comps. A root-level fade-to-black at the very end is fine; do not stage a parallel animation track from the root.
 - **Host slot ids** use `el-<name>` or `<scene-id>`. The slot's `data-composition-id` must still equal the sub-comp's internal id (see `sub-compositions.md`).
@@ -128,11 +128,11 @@ Key properties of this layout:
 
 ### A. Content scene (default)
 
-The sub-comp contains the scene's full DOM, scoped CSS, and timeline. This is the standard pattern in `sub-compositions.md` — most scenes are this.
+The sub-comp contains the scene's full DOM, scoped CSS, and timeline. This is the standard pattern in `sub-compositions.md` - most scenes are this.
 
 ### B. Host media + main-timeline driver (REQUIRED for any `<video>`/`<audio>`)
 
-Media playback only works when the `<video>`/`<audio>` is a **direct child of the host root** — never inside a sub-comp `<template>` (it would render blank/black). This is not optional or "for media that spans scenes"; it applies to every clip, including a scene-specific one. The scene's sub-comp keeps the frame/shell; the media is a host sibling positioned over it.
+Media playback only works when the `<video>`/`<audio>` is a **direct child of the host root** - never inside a sub-comp `<template>` (it would render blank/black). This is not optional or "for media that spans scenes"; it applies to every clip, including a scene-specific one. The scene's sub-comp keeps the frame/shell; the media is a host sibling positioned over it.
 
 A sub-comp timeline **cannot** drive host elements (a global selector or `document.querySelector` does not resolve across the boundary). So author the media's per-scene motion (scale/opacity/morph/tilt/breathing) on the **main timeline** in `index.html`, at **global time** = scene-local time + the scene slot's `data-start`.
 
@@ -193,13 +193,13 @@ A sub-comp timeline **cannot** drive host elements (a global selector or `docume
 
 Caveats:
 
-- The host media must be a direct root child and exist in the DOM (static in `index.html`) — it always is.
+- The host media must be a direct root child and exist in the DOM (static in `index.html`) - it always is.
 - Clip lifecycle owns the media element's visibility across its `[data-start, data-start+data-duration]` window. The main-timeline opacity/scale tweens compose with it fine; for an opacity reveal/crossfade prefer a host **wrapper** so you are not fighting the lifecycle on the media element itself.
-- Two media elements sharing the same `src` + `data-start` trigger `duplicate_media_discovery_risk` (benign — both still render).
+- Two media elements sharing the same `src` + `data-start` trigger `duplicate_media_discovery_risk` (benign - both still render).
 
 ### C. Multi-scene merge
 
-When several beat-level scenes share continuous state — a chat thread that grows, a persistent headline word that carries across the cut, a single canvas with internal phase changes — collapse them into one sub-comp and use **internal phase divs** rather than multiple sub-comp slots.
+When several beat-level scenes share continuous state - a chat thread that grows, a persistent headline word that carries across the cut, a single canvas with internal phase changes - collapse them into one sub-comp and use **internal phase divs** rather than multiple sub-comp slots.
 
 ```html
 <!-- compositions/act2-merged.html -->
@@ -228,11 +228,11 @@ When several beat-level scenes share continuous state — a chat thread that gro
 </template>
 ```
 
-Reach for this over multiple sequential slots when scenes share DOM, share a canvas, or need to cross-fade with persistent elements (a headline that survives the cut between phases). Each phase is just a div inside the same sub-comp — the parent timeline never has to know about the internal phase boundaries.
+Reach for this over multiple sequential slots when scenes share DOM, share a canvas, or need to cross-fade with persistent elements (a headline that survives the cut between phases). Each phase is just a div inside the same sub-comp - the parent timeline never has to know about the internal phase boundaries.
 
 ### D. Audio at root, reactive visual inside
 
-Audio always lives at the host (`index.html`) as a root-level `<audio>` so playback survives scene cuts. A sub-comp that visualizes audio should read a **pre-baked** frequency curve at init, then sample the baked curve from its timeline — the visual must still be a deterministic function of `tl.time()`, not of `audio.currentTime`. See `determinism-rules.md` and `hyperframes-creative` for the authoring pattern.
+Audio always lives at the host (`index.html`) as a root-level `<audio>` so playback survives scene cuts. A sub-comp that visualizes audio should read a **pre-baked** frequency curve at init, then sample the baked curve from its timeline - the visual must still be a deterministic function of `tl.time()`, not of `audio.currentTime`. See `determinism-rules.md` and `hyperframes-creative` for the authoring pattern.
 
 ## Naming Conventions
 
@@ -246,7 +246,7 @@ Audio always lives at the host (`index.html`) as a root-level `<audio>` so playb
 | Element ids inside a sub-comp       | prefix with the scene id                    | `#act0-bell`, `#b1-tape`                   |
 | Audio at root                       | `data-track-index` well above visual tracks | `10` while visuals use `1`                 |
 
-The `-template` suffix on `<template>` is conventional but not required — the runtime extracts contents from whichever `<template>` is in `<body>`, regardless of id. The prefix on inner element ids is the only safeguard against id collisions when multiple sub-comps are mounted into the same host page at once.
+The `-template` suffix on `<template>` is conventional but not required - the runtime extracts contents from whichever `<template>` is in `<body>`, regardless of id. The prefix on inner element ids is the only safeguard against id collisions when multiple sub-comps are mounted into the same host page at once.
 
 ## Editing Existing Projects
 
@@ -257,7 +257,7 @@ ls compositions/ 2>/dev/null && echo "modular" || echo "monolithic"
 ```
 
 - In a **monolithic** project, add new scenes as inline `<section class="clip">` elements with a non-overlapping `data-start` and a sensible `data-track-index`, and extend the existing single timeline.
-- In a **modular** project, match the pattern: add a new file under `compositions/`, add a slot in `index.html`, keep the root timeline thin. Do **not** start inlining new scenes into `index.html` when sibling scenes are sub-comps — the inconsistency is the worst of both worlds.
+- In a **modular** project, match the pattern: add a new file under `compositions/`, add a slot in `index.html`, keep the root timeline thin. Do **not** start inlining new scenes into `index.html` when sibling scenes are sub-comps - the inconsistency is the worst of both worlds.
 - If a monolithic project needs a third or fourth scene cut, lift each scene into a sub-comp before adding more. The conversion is mechanical (see "Refactor between them" above).
 
-When picking the slot's `data-start`/`data-duration`, prefer continuing the existing sequencing convention (adjoining starts, deliberate overlaps for cross-fades). Don't introduce a new track index unless you actually need parallel visual layers — most sequential-scene projects use exactly one visual track.
+When picking the slot's `data-start`/`data-duration`, prefer continuing the existing sequencing convention (adjoining starts, deliberate overlaps for cross-fades). Don't introduce a new track index unless you actually need parallel visual layers - most sequential-scene projects use exactly one visual track.
