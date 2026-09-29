@@ -1,7 +1,7 @@
 ---
 name: heygen
 description: |
-  [DEPRECATED] Use `create-video` for prompt-based video generation or `avatar-video` for precise avatar/scene control. This legacy skill combines both workflows — the newer focused skills provide clearer guidance.
+  [DEPRECATED] Use `create-video` for prompt-based video generation or `avatar-video` for precise avatar/scene control. This legacy skill combines both workflows - the newer focused skills provide clearer guidance.
 homepage: https://docs.heygen.com/reference/generate-video-agent
 allowed-tools: mcp__heygen__*
 metadata:
@@ -15,8 +15,8 @@ metadata:
 # HeyGen API (Deprecated)
 
 > **This skill is deprecated.** Use the focused skills instead:
-> - **`create-video`** — Generate videos from a text prompt (Video Agent API)
-> - **`avatar-video`** — Build videos with specific avatars, voices, scripts, and scenes (v2 API)
+> - **`create-video`** - Generate videos from a text prompt (Video Agent API)
+> - **`avatar-video`** - Build videos with specific avatars, voices, scripts, and scenes (v2 API)
 
 This skill remains for backward compatibility but will be removed in a future release.
 
@@ -26,7 +26,7 @@ AI avatar video creation API for generating talking-head videos, explainers, and
 
 ## Tool Selection
 
-If HeyGen MCP tools are available (`mcp__heygen__*`), **prefer them** over direct HTTP API calls — they handle authentication and request formatting automatically.
+If HeyGen MCP tools are available (`mcp__heygen__*`), **prefer them** over direct HTTP API calls - they handle authentication and request formatting automatically.
 
 | Task | MCP Tool | Fallback (Direct API) |
 |------|----------|----------------------|
@@ -49,8 +49,8 @@ Always use [prompt-optimizer.md](references/prompt-optimizer.md) guidelines to s
 
 **Without MCP tools (direct API):**
 1. Write an optimized prompt using [prompt-optimizer.md](references/prompt-optimizer.md) → [visual-styles.md](references/visual-styles.md)
-2. `POST /v1/video_agent/generate` — see [video-agent.md](references/video-agent.md)
-3. `GET /v2/videos/<id>` — see [video-status.md](references/video-status.md)
+2. `POST /v1/video_agent/generate` - see [video-agent.md](references/video-agent.md)
+3. `GET /v2/videos/<id>` - see [video-status.md](references/video-status.md)
 
 Only use v2/video/generate when user explicitly needs:
 - Exact script without AI modification
@@ -64,11 +64,11 @@ Only use v2/video/generate when user explicitly needs:
 | Task | MCP Tool | Read |
 |------|----------|------|
 | Generate video from prompt (easy) | `mcp__heygen__generate_video_agent` | [prompt-optimizer.md](references/prompt-optimizer.md) → [visual-styles.md](references/visual-styles.md) → [video-agent.md](references/video-agent.md) |
-| Generate video with precise control | — | [video-generation.md](references/video-generation.md), [avatars.md](references/avatars.md), [voices.md](references/voices.md) |
+| Generate video with precise control | - | [video-generation.md](references/video-generation.md), [avatars.md](references/avatars.md), [voices.md](references/voices.md) |
 | Check video status / get download URL | `mcp__heygen__get_video` | [video-status.md](references/video-status.md) |
-| Add captions or text overlays | — | [captions.md](references/captions.md), [text-overlays.md](references/text-overlays.md) |
-| Transparent video for compositing | — | [video-generation.md](references/video-generation.md) (WebM section) |
-| Use with Remotion | — | [remotion-integration.md](references/remotion-integration.md) |
+| Add captions or text overlays | - | [captions.md](references/captions.md), [text-overlays.md](references/text-overlays.md) |
+| Transparent video for compositing | - | [video-generation.md](references/video-generation.md) (WebM section) |
+| Use with Remotion | - | [remotion-integration.md](references/remotion-integration.md) |
 
 ## Reference Files
 
