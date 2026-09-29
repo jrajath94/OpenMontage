@@ -52,8 +52,8 @@ TARGET LUFS:    -14 LUFS (YouTube/TikTok/IG) | -16 LUFS (podcasts)
 - Inspiring soundtrack / cinematic light (builds emotion without overwhelming)
 
 **Key rules:**
-- Always use **instrumental** tracks when voiceover is present — lyrics compete with narration
-- Choose dynamically **even** tracks — avoid dramatic crescendos or beat drops
+- Always use **instrumental** tracks when voiceover is present - lyrics compete with narration
+- Choose dynamically **even** tracks - avoid dramatic crescendos or beat drops
 - Match energy to the learning context: upbeat for "exciting new concept," gentle for serious topics
 
 ## Sound Effects (SFX) Placement
@@ -105,7 +105,7 @@ TARGET LUFS:    -14 LUFS (YouTube/TikTok/IG) | -16 LUFS (podcasts)
 
 ### Processing Chain
 
-1. **High-pass filter:** 80-100 Hz (24 dB/oct slope) — removes rumble and low-frequency TTS artifacts
+1. **High-pass filter:** 80-100 Hz (24 dB/oct slope) - removes rumble and low-frequency TTS artifacts
 2. **EQ:**
    - Cut ~500 Hz: removes muddiness/boxy quality
    - Boost 2-5 kHz (+2-3 dB): adds presence and clarity
@@ -121,11 +121,11 @@ TARGET LUFS:    -14 LUFS (YouTube/TikTok/IG) | -16 LUFS (podcasts)
 5. **Limiter:** ceiling at **-1.5 dBTP**
 
 ### AI-specific tips
-- AI TTS has inconsistent dynamics — compression is more important than for human speech
+- AI TTS has inconsistent dynamics - compression is more important than for human speech
 - ElevenLabs may have subtle artifacts in 4-6 kHz; use narrow notch cut if detected
 - Sidechain background music to voiceover track for automatic ducking
 - Cut 2-4 kHz on the music bed to clear the "intelligibility band" for voice
-- Always test on phone speakers — if voice disappears, boost 2-4 kHz more aggressively
+- Always test on phone speakers - if voice disappears, boost 2-4 kHz more aggressively
 
 ## Applying to OpenMontage
 
@@ -138,4 +138,4 @@ When the **audio_mixer** tool is used in the compose stage:
 5. Target -14 LUFS integrated for YouTube output
 6. Keep true peak below -1.5 dBTP
 7. For AI TTS narration, apply the processing chain above before mixing
-8. Test the final mix on phone speakers — most viewers watch on mobile
+8. Test the final mix on phone speakers - most viewers watch on mobile
