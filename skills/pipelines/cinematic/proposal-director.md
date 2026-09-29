@@ -1,4 +1,4 @@
-# Proposal Director — Cinematic Pipeline
+# Proposal Director - Cinematic Pipeline
 
 ## When to Use
 
@@ -6,16 +6,16 @@ You are the **Proposal Director** for a cinematic video (trailers, brand films, 
 
 **This is the approval gate.** Nothing downstream runs until the user says "go."
 
-## Runtime Selection (required field — `render_runtime`)
+## Runtime Selection (required field - `render_runtime`)
 
 Cinematic proposals must lock **both** a `renderer_family` (creative grammar: `cinematic-trailer`, `documentary-montage`, etc.) and a `render_runtime` (technical engine). Read `skills/meta/animation-runtime-selector.md` and `skills/core/hyperframes.md` for the decision matrix, and `AGENT_GUIDE.md` → "Present Both Composition Runtimes (HARD RULE)" for the governance contract.
 
-**MANDATORY workflow — present both runtimes, don't silently default:**
+**MANDATORY workflow - present both runtimes, don't silently default:**
 
 1. Query `video_compose.get_info()["render_engines"]`. If both `remotion` and `hyperframes` are `True`, proceed to step 2.
 2. Present both runtimes to the user with brief-specific analysis:
-   - **Remotion** — one line on fit (mention `CinematicRenderer`, `<OffthreadVideo>`, existing transition stack if applicable), one line on tradeoff.
-   - **HyperFrames** — one line on fit (mention kinetic title sequences, registry shader transitions, or HTML-native typographic motion if applicable), one line on tradeoff.
+   - **Remotion** - one line on fit (mention `CinematicRenderer`, `<OffthreadVideo>`, existing transition stack if applicable), one line on tradeoff.
+   - **HyperFrames** - one line on fit (mention kinetic title sequences, registry shader transitions, or HTML-native typographic motion if applicable), one line on tradeoff.
 3. Recommend one with rationale tied to the brief's `delivery_promise` (especially `motion_required`), `renderer_family`, and approved tone.
 4. Wait for explicit user approval. Do NOT write `render_runtime` into `proposal_packet.production_plan` before approval.
 5. Log a `render_runtime_selection` decision in `decision_log` with BOTH runtimes in `options_considered` plus `ffmpeg` if it was a realistic option.
@@ -55,7 +55,7 @@ A `render_runtime_selection` decision with only one option considered when both 
 
 Before starting proposal work, check if a VideoAnalysisBrief exists for this project.
 
-**When a VideoAnalysisBrief is present — Reference-Aware Cinematic Concept Design:**
+**When a VideoAnalysisBrief is present - Reference-Aware Cinematic Concept Design:**
 
 **HARD RULE: No carbon copies.** Each concept option MUST:
 1. Name at least ONE cinematic element it keeps from the reference (mood, pacing, color palette, shot language)
@@ -72,7 +72,7 @@ Before starting proposal work, check if a VideoAnalysisBrief exists for this pro
 | **Same color world, different lighting** | Reference: warm golden hour → Ours: warm but tungsten/interior |
 
 **Mandatory Sample Protocol:** After concept approval, produce a 10-15 second cinematic
-sample BEFORE full production. This is critical for cinematic work — mood mismatches are
+sample BEFORE full production. This is critical for cinematic work - mood mismatches are
 expensive to fix downstream. Present with visual + audio + music.
 
 **When no VideoAnalysisBrief is present:** Skip this step and proceed normally.
@@ -81,12 +81,12 @@ expensive to fix downstream. Present with visual + audio + music.
 
 Read the `research_brief` thoroughly. Extract:
 
-- **`research_summary`** — the researcher's strongest creative direction.
-- **`angles_discovered`** — these are your raw cinematic direction candidates.
-- **Visual references** — the real-world precedents that inform each direction.
-- **Audio direction** — music mood and sound design notes.
-- **Source reality** — what footage/stills the user actually has.
-- **Motion commitment** — whether motion is required.
+- **`research_summary`** - the researcher's strongest creative direction.
+- **`angles_discovered`** - these are your raw cinematic direction candidates.
+- **Visual references** - the real-world precedents that inform each direction.
+- **Audio direction** - music mood and sound design notes.
+- **Source reality** - what footage/stills the user actually has.
+- **Motion commitment** - whether motion is required.
 
 ### Step 2: Run Preflight
 
@@ -97,12 +97,12 @@ python -c "from tools.tool_registry import registry; import json; registry.disco
 ```
 
 Record:
-- Video generation providers — **critical for cinematic**. If motion is required, these must be available.
-- Image generation providers — for support visuals and mood inserts
-- TTS providers — for narration (if applicable; many cinematic pieces are narration-free)
-- Music generation — check availability honestly
-- Enhancement tools — color_grade, audio_enhance are high-value for cinematic
-- **Remotion render engine** — check `video_compose.get_info()["render_engines"]["remotion"]`
+- Video generation providers - **critical for cinematic**. If motion is required, these must be available.
+- Image generation providers - for support visuals and mood inserts
+- TTS providers - for narration (if applicable; many cinematic pieces are narration-free)
+- Music generation - check availability honestly
+- Enhancement tools - color_grade, audio_enhance are high-value for cinematic
+- **Remotion render engine** - check `video_compose.get_info()["render_engines"]["remotion"]`
 
 **Motion-required enforcement:** If the research brief indicates `motion_required: true`, verify that video generation or source footage can actually deliver motion. If neither is available, **do not silently downgrade to still-led**. Instead, present the constraint honestly and let the user decide.
 
@@ -110,7 +110,7 @@ Record:
 
 Before developing full concepts, present a quick mood board to catch direction mismatches early. Cinematic work is especially susceptible to tone misalignment, so this step is critical:
 
-- **3-5 reference images** (from web search — real film stills, not generic stock)
+- **3-5 reference images** (from web search - real film stills, not generic stock)
 - **Color palette direction** (2-3 palettes: e.g. desaturated cold vs warm golden vs high-contrast noir)
 - **Tone references** ("Think: Terrence Malick meets National Geographic" or "Think: David Fincher trailer pacing")
 - **1-2 music mood references** (genre + energy + emotional arc, e.g. "ambient synth building to orchestral crescendo")
@@ -127,7 +127,7 @@ For each concept, specify all fields in `proposal_packet.concept_options`:
 
 #### 3a: Title and Emotional Hook
 
-Cinematic hooks are different from explainer hooks — they evoke **feeling**, not information gaps.
+Cinematic hooks are different from explainer hooks - they evoke **feeling**, not information gaps.
 
 | Pattern | When to Use |
 |---------|-------------|
@@ -169,11 +169,11 @@ delivery_promise:
 #### 3d: Visual Treatment
 
 For each concept, define:
-- **Color palette** — specific hex references, not just "dark"
-- **Lighting approach** — high_key, low_key, natural, golden_hour, etc.
-- **Camera language** — dominant shot sizes, movements
-- **Texture** — film grain, clean digital, anamorphic, handheld
-- **Typography** — if title cards are used, their style and restraint level
+- **Color palette** - specific hex references, not just "dark"
+- **Lighting approach** - high_key, low_key, natural, golden_hour, etc.
+- **Camera language** - dominant shot sizes, movements
+- **Texture** - film grain, clean digital, anamorphic, handheld
+- **Typography** - if title cards are used, their style and restraint level
 
 #### 3e: Renderer Family Selection
 
@@ -195,7 +195,7 @@ Don't dump the full proposal at once. Build understanding step by step:
 
 1. **Research summary** (2-3 sentences): "Here's what I found about the subject and its visual potential..."
    → User reacts, course-corrects if needed.
-2. **Mood board** (from Step 2c — already presented)
+2. **Mood board** (from Step 2c - already presented)
    → User confirms feel.
 3. **Concept directions** (3+ emotional/visual approaches):
    → Present each concept's emotional hook, arc, and visual treatment.
@@ -217,7 +217,7 @@ Before presenting concepts:
 #### 4c: Invite Mixing
 
 After presenting concepts, always say something like:
-> "You can also mix elements — for example, Concept A's emotional arc with Concept C's visual treatment and Concept B's music direction. What speaks to you?"
+> "You can also mix elements - for example, Concept A's emotional arc with Concept C's visual treatment and Concept B's music direction. What speaks to you?"
 
 If the user mixes, create a new hybrid concept entry in the proposal_packet with clear attribution: "Emotional arc from Concept A, visual treatment from Concept C, music direction from Concept B."
 
@@ -228,10 +228,10 @@ Let the user select, combine, modify, or redirect entirely.
 Cinematic videos live and die by their audio. Surface the music situation before the user approves.
 
 Check availability in this order:
-1. **User music library** — query `registry.get_by_capability("music_library")` and list available tracks
-2. **Royalty-free search** — query `registry.get_by_capability("music_search")` and report providers/licensing
-3. **Music generation APIs** — query `registry.get_by_capability("music_generation")` and report status, cost, and quality honestly
-4. **Bring-your-own path** — user can drop a track in `music_library/`
+1. **User music library** - query `registry.get_by_capability("music_library")` and list available tracks
+2. **Royalty-free search** - query `registry.get_by_capability("music_search")` and report providers/licensing
+3. **Music generation APIs** - query `registry.get_by_capability("music_generation")` and report status, cost, and quality honestly
+4. **Bring-your-own path** - user can drop a track in `music_library/`
 
 Present explicit options:
 ```
@@ -249,10 +249,10 @@ Recommendation: [specific recommendation based on mood research]
 For the selected concept, design the stage-by-stage plan with specific providers, costs, and honest tradeoffs.
 
 **Cinematic-specific tool priorities:**
-- **Color grade** — high priority. Cinematic output without grade looks flat.
-- **Audio enhance** — high priority. Audio dynamics matter more in mood-driven work.
-- **Video generation** — if motion-required, this is non-negotiable.
-- **Music** — must be resolved. No cinematic piece should have silence as a surprise.
+- **Color grade** - high priority. Cinematic output without grade looks flat.
+- **Audio enhance** - high priority. Audio dynamics matter more in mood-driven work.
+- **Video generation** - if motion-required, this is non-negotiable.
+- **Music** - must be resolved. No cinematic piece should have silence as a surprise.
 
 ### Step 7: Cost Estimate
 
@@ -278,24 +278,24 @@ Validate `proposal_packet` against schema and submit.
 - **Hiding motion downgrade**: If motion-required content will actually be still images with Ken Burns, say so explicitly.
 - **Music as afterthought**: In cinematic work, music is 50% of the mood. Surface it early.
 - **Three versions of "dark and moody"**: Three concepts with the same emotional register but different titles are one concept. Diversity means different arcs, different moods, different risks.
-- **Ignoring source reality**: If the user has no footage and limited generation tools, the proposal must reflect that — not pretend the constraints don't exist.
+- **Ignoring source reality**: If the user has no footage and limited generation tools, the proposal must reflect that - not pretend the constraints don't exist.
 
 
 ## When You Do Not Know How
 
 If you encounter a generation technique, provider behavior, or prompting pattern you are unsure about:
 
-1. **Search the web** for current best practices — models and APIs change frequently, and the agent's training data may be stale
+1. **Search the web** for current best practices - models and APIs change frequently, and the agent's training data may be stale
 2. **Check `.agents/skills/`** for existing Layer 3 knowledge (provider-specific prompting guides, API patterns)
 3. **If neither helps**, write a project-scoped skill at `projects/<project-name>/skills/<name>.md` documenting what you learned
 4. **Reference source URLs** in the skill so the knowledge is traceable
 5. **Log it** in the decision log: `category: "capability_extension"`, `subject: "learned technique: <name>"`
 
 This is especially important for:
-- **Video generation prompting** — models respond to specific vocabularies that change with each version
-- **Image model parameters** — optimal settings for FLUX, GPT Image, Imagen differ and evolve
-- **Audio provider quirks** — voice cloning, music generation, and TTS each have model-specific best practices
-- **Remotion component patterns** — new composition techniques emerge as the framework evolves
+- **Video generation prompting** - models respond to specific vocabularies that change with each version
+- **Image model parameters** - optimal settings for FLUX, GPT Image, Imagen differ and evolve
+- **Audio provider quirks** - voice cloning, music generation, and TTS each have model-specific best practices
+- **Remotion component patterns** - new composition techniques emerge as the framework evolves
 
 Do not rely on stale knowledge. When in doubt, search first.
 
@@ -306,4 +306,4 @@ Do not rely on stale knowledge. When in doubt, search first.
 This stage gates on human approval (`human_approval_default: true`). After review passes:
 checkpoint with `status="awaiting_human"`, present the summary (the Backlot board renders
 the artifact), and **END YOUR TURN**. Do not start the next stage in the same response.
-Approval is per-gate — an earlier "go ahead" does not cover this gate.
+Approval is per-gate - an earlier "go ahead" does not cover this gate.
