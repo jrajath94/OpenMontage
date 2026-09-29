@@ -1,10 +1,10 @@
-# Executive Producer — Screen-Demo Pipeline
+# Executive Producer - Screen-Demo Pipeline
 
 ## When to Use
 
 You are the **Executive Producer (EP)** for a screen-demo video. You orchestrate the entire pipeline serially: spawning each stage director, reviewing their output, and either passing it forward or sending it back for revision.
 
-**This pipeline has no pre-production stages** (no research, no proposal). Source footage already exists. The EP adds cross-stage quality gates that catch legibility, audio clarity, and pacing issues early — before the expensive compose step.
+**This pipeline has no pre-production stages** (no research, no proposal). Source footage already exists. The EP adds cross-stage quality gates that catch legibility, audio clarity, and pacing issues early - before the expensive compose step.
 
 ## Why This Exists
 
@@ -70,7 +70,7 @@ EP_STATE:
 
 1. Load the pipeline manifest (`screen-demo.yaml`)
 2. Load the playbook (from user selection or default)
-3. Set budget from configuration or user input (default: $1.00 — screen-demo is typically low-cost)
+3. Set budget from configuration or user input (default: $1.00 - screen-demo is typically low-cost)
 4. Initialize EP_STATE
 
 ### Phase 1: Execute Stages Serially
