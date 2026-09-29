@@ -17,7 +17,7 @@ style_prompt_full: >
   Josef Müller-Brockmann Swiss International Style. Grid-locked layouts
   with mathematical precision. Black and white base with ONE accent color
   (electric blue #0066FF). Strong diagonal compositions. Helvetica
-  typography only. Data visualizations are the hero — animated charts,
+  typography only. Data visualizations are the hero - animated charts,
   counters, grids. Every frame snaps to a grid. Transitions are horizontal
   grid wipes. No organic shapes. No gradients. No stock photography.
   Everything is geometric, systematic, precise.
@@ -33,7 +33,7 @@ colors:
   accent:
     - name: "Electric Blue"
       hex: "#0066FF"
-      role: "the ONE accent — data highlights, key emphasis"
+      role: "the ONE accent - data highlights, key emphasis"
   neutral:
     - name: "Grid Gray"
       hex: "#CCCCCC"
@@ -56,13 +56,13 @@ typography:
     weight: "light"
     style: "small, uppercase, wide tracking"
   rules:
-    - "Helvetica ONLY — no other typeface"
+    - "Helvetica ONLY - no other typeface"
     - "Type sizes follow a mathematical scale"
-    - "Always flush left — never centered"
+    - "Always flush left - never centered"
     - "Weight contrast does the hierarchy"
 
 layout:
-  grid: "Strict modular grid — 12 columns"
+  grid: "Strict modular grid - 12 columns"
   alignment: "Flush left, grid-snapped"
   aspect_ratio: "16:9"
   notes:
@@ -116,12 +116,12 @@ x_heygen:
 Typography and the grid are the only design elements needed.
 Mathematical relationships create visual harmony.
 Restraint is the ultimate sophistication.
-The grid is not a limitation — it is liberation through structure.
+The grid is not a limitation - it is liberation through structure.
 
 ## Connectors
 
 ### HeyGen Video Agent
-Use `style_prompt_full` verbatim. Specify: No avatar, no b-roll — pure motion graphics.
+Use `style_prompt_full` verbatim. Specify: No avatar, no b-roll - pure motion graphics.
 Hard cuts between scenes. Data visualizations should animate systematically.
 
 ### HTML Slides
