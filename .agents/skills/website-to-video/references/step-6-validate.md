@@ -2,11 +2,11 @@
 
 This is the quality gate. Before the user sees anything, YOU verify that the video matches the storyboard, the creative direction from Step 2, and DESIGN.md. Deliver something you'd be proud to post with your name on it.
 
-## Definition of Done — required before ANY preview or summary
+## Definition of Done - required before ANY preview or summary
 
-**You may not say the video is ready, looks good, or present a preview URL until every item below is checked.** No exceptions. Do not summarize your impressions — paste the actual evidence for each.
+**You may not say the video is ready, looks good, or present a preview URL until every item below is checked.** No exceptions. Do not summarize your impressions - paste the actual evidence for each.
 
-Score each item 1–5. If any item scores below 3, fix it before continuing. **Do not rush these.** Each checkbox is its own pass through the artifacts — slow down, look at every frame, write the actual observation, not a summary impression.
+Score each item 1–5. If any item scores below 3, fix it before continuing. **Do not rush these.** Each checkbox is its own pass through the artifacts - slow down, look at every frame, write the actual observation, not a summary impression.
 
 ```
 [ ] Every beat HTML read top-to-bottom    → see "Per-beat file read" below; paste the per-beat verdict
@@ -23,18 +23,18 @@ Score each item 1–5. If any item scores below 3, fix it before continuing. **D
 [ ] Critic sub-agent run                  → paste its single biggest quality gap finding, verbatim
 ```
 
-### w2h-verify — the source of truth
+### w2h-verify - the source of truth
 
-The skill ran for months on agents reading "REQUIRED" and skipping anyway. The verify script ends that — it computes facts the agent cannot fudge:
+The skill ran for months on agents reading "REQUIRED" and skipping anyway. The verify script ends that - it computes facts the agent cannot fudge:
 
 - **Required artifacts present** (STORYBOARD.md, DESIGN.md, SCRIPT.md, index.html)
-- **Brand visuals used** — at least 1 beat must reference a captured `hero-*`, `image-*`, or `svgs/*.svg` asset (logo doesn't count). Catches the "9% asset usage / brand isn't visually present" failure.
-- **Headline font-size** — per-beat, the largest CSS `font-size` must be ≥80px. Catches the "headlines too small to read" failure that surfaces later as inspect `clipped_text` errors.
-- **Timeline coverage** — per-beat, GSAP event positions must span ≥70% of the beat's `data-duration`. Catches "webpage not shot" failures where the beat has entrance tweens then goes static.
-- **Shader transitions consistency** — shaders declared in STORYBOARD.md must appear in index.html (with HyperShader runtime present, not just as SFX file references).
-- **SFX timestamp drift** — storyboard `t=X.Xs` vs index.html `data-start=X.X`, picks the closest index timestamp per file for multi-timestamp SFX.
-- **Beat duration consistency** — storyboard's beat ranges (`B4 — Name | 16.600 – 21.000s |`) must match `data-duration` in index.html within ±0.5s. Catches storyboard staleness.
-- **Rendered MP4 existence** — INFO only; flagged when claiming verified motion without rendering.
+- **Brand visuals used** - at least 1 beat must reference a captured `hero-*`, `image-*`, or `svgs/*.svg` asset (logo doesn't count). Catches the "9% asset usage / brand isn't visually present" failure.
+- **Headline font-size** - per-beat, the largest CSS `font-size` must be ≥80px. Catches the "headlines too small to read" failure that surfaces later as inspect `clipped_text` errors.
+- **Timeline coverage** - per-beat, GSAP event positions must span ≥70% of the beat's `data-duration`. Catches "webpage not shot" failures where the beat has entrance tweens then goes static.
+- **Shader transitions consistency** - shaders declared in STORYBOARD.md must appear in index.html (with HyperShader runtime present, not just as SFX file references).
+- **SFX timestamp drift** - storyboard `t=X.Xs` vs index.html `data-start=X.X`, picks the closest index timestamp per file for multi-timestamp SFX.
+- **Beat duration consistency** - storyboard's beat ranges (`B4 — Name | 16.600 – 21.000s |`) must match `data-duration` in index.html within ±0.5s. Catches storyboard staleness.
+- **Rendered MP4 existence** - INFO only; flagged when claiming verified motion without rendering.
 
 Run it as the LAST gate in your DoD pass, after fixing everything else:
 
@@ -44,7 +44,7 @@ node <repo-root>/skills/website-to-video/scripts/w2h-verify.mjs <project-dir>
 
 (Locate the repo root from a project subdirectory: `find "$HOME" -path '*/skills/website-to-video/scripts/w2h-verify.mjs' -maxdepth 10 2>/dev/null | head -1`.)
 
-**The script's output is the deliverable.** Paste the entire report — the table, the percentages, the FAIL lines — verbatim into your final user-facing summary, in the "What I verified" / "What I did NOT verify" section. The user will read it directly. You don't get to summarize, simplify, or omit rows.
+**The script's output is the deliverable.** Paste the entire report - the table, the percentages, the FAIL lines - verbatim into your final user-facing summary, in the "What I verified" / "What I did NOT verify" section. The user will read it directly. You don't get to summarize, simplify, or omit rows.
 
 **If any row says FAIL:**
 
@@ -62,7 +62,7 @@ The script's exit code is 0 (all pass) or 1 (one or more fail). If you ship with
 
 ### Per-beat file read
 
-This is what verification means now: you open each `compositions/beat-N.html` and read it top-to-bottom against DESIGN.md and STORYBOARD.md. Step 5 already required this once before advancing here — repeat it here as the final check, in case fixes during Step 5 introduced new problems.
+This is what verification means now: you open each `compositions/beat-N.html` and read it top-to-bottom against DESIGN.md and STORYBOARD.md. Step 5 already required this once before advancing here - repeat it here as the final check, in case fixes during Step 5 introduced new problems.
 
 For each beat, write a per-beat verdict in this form:
 
@@ -79,32 +79,32 @@ Beat N (Ns–Ns) — <name>
 
 The pre-fix-era flow took longer specifically because it caught these problems. Don't trade the careful look for a green checkmark.
 
-**Why this matters:** The natural tendency is to look at a contact sheet, see that content is present, and declare it done. That is not verification — that is pattern-matching to a completion signal. Verification means opening every file the sub-agents produced, reading every line, and reporting the raw result. "Frame 7 at 14.2s shows the Raycast logo SVG drawing its final stroke at 0.85 opacity against #07080A, the headline 'Crush your sprint' has settled in 96px Inter SemiBold below" is evidence. "The video looks great" is not.
+**Why this matters:** The natural tendency is to look at a contact sheet, see that content is present, and declare it done. That is not verification - that is pattern-matching to a completion signal. Verification means opening every file the sub-agents produced, reading every line, and reporting the raw result. "Frame 7 at 14.2s shows the Raycast logo SVG drawing its final stroke at 0.85 opacity against #07080A, the headline 'Crush your sprint' has settled in 96px Inter SemiBold below" is evidence. "The video looks great" is not.
 
 ---
 
 ## Lint + Validate + Snapshot
 
-The `hyperframes` skill (which you loaded in Step 5) already covers the mechanics of linting, validating, and snapshotting. Follow those rules — run lint, validate, take snapshots scaled to the video length (formula: `max(beats × 3, ceil(duration_seconds / 2))`). Fix errors. This step adds the **pipeline-specific verification** on top of that.
+The `hyperframes` skill (which you loaded in Step 5) already covers the mechanics of linting, validating, and snapshotting. Follow those rules - run lint, validate, take snapshots scaled to the video length (formula: `max(beats × 3, ceil(duration_seconds / 2))`). Fix errors. This step adds the **pipeline-specific verification** on top of that.
 
-**Errors:** Fix ALL of them. These are real problems — missing timeline registration, broken scripts, missing assets.
+**Errors:** Fix ALL of them. These are real problems - missing timeline registration, broken scripts, missing assets.
 
 **Warnings:** Read each one and decide. Some are real quality issues you must fix:
 
-- **GSAP tween overlaps** — elements fighting over the same property = visual glitches
-- **Unscoped selectors** — will target elements in ALL compositions when bundled, causing data loss
-- **Missing `class="clip"`** — element visible for entire video instead of its scheduled time
-- **Missing `data-start` on root** — playback won't begin
+- **GSAP tween overlaps** - elements fighting over the same property = visual glitches
+- **Unscoped selectors** - will target elements in ALL compositions when bundled, causing data loss
+- **Missing `class="clip"`** - element visible for entire video instead of its scheduled time
+- **Missing `data-start` on root** - playback won't begin
 
 Some are style suggestions you can safely ignore:
 
-- **File too large** — composition works fine, just harder to read
-- **Deprecated attributes** (data-layer, data-end) — still work, just not preferred
-- **Dense tracks** — informational, not a bug
+- **File too large** - composition works fine, just harder to read
+- **Deprecated attributes** (data-layer, data-end) - still work, just not preferred
+- **Dense tracks** - informational, not a bug
 
-**WCAG contrast warnings — per-warning verification, not blanket dismissal.**
+**WCAG contrast warnings - per-warning verification, not blanket dismissal.**
 
-The validator samples text colors at fixed timestamps. Elements at `opacity: 0` (pre-entrance) or mid-fade get measured as if fully visible — real false positives exist. BUT this is a per-warning judgment, not a blanket excuse.
+The validator samples text colors at fixed timestamps. Elements at `opacity: 0` (pre-entrance) or mid-fade get measured as if fully visible - real false positives exist. BUT this is a per-warning judgment, not a blanket excuse.
 
 **For EACH warning the validator emits, paste this block in your verdict:**
 
@@ -117,15 +117,15 @@ Warning N: <quote the validator output verbatim>
   Action: <hex change at line N>  OR  NONE because <reason>
 ```
 
-**Forbidden:** writing "the N warnings are mostly transition-window false positives" without per-warning evidence. That phrasing alone fails the gate. The validator does not report 158 warnings as a group — it reports them individually, and you verify them individually.
+**Forbidden:** writing "the N warnings are mostly transition-window false positives" without per-warning evidence. That phrasing alone fails the gate. The validator does not report 158 warnings as a group - it reports them individually, and you verify them individually.
 
 Don't blindly ignore. Don't blindly fix. Verify each.
 
 ## Visual Verification (snapshot)
 
-After lint and validate pass, capture snapshot frames to SEE your own output. **Take many snapshots — as much as you can actually read and view all of them without hitting diminishing returns**. This is your only visual feedback before the user sees the project. You wanna be honored and proud of what you give to the user.
+After lint and validate pass, capture snapshot frames to SEE your own output. **Take many snapshots - as much as you can actually read and view all of them without hitting diminishing returns**. This is your only visual feedback before the user sees the project. You wanna be honored and proud of what you give to the user.
 
-Scale snapshot count to the video — not a fixed number. Formula: `max(beats × 3, ceil(duration_seconds / 2))`. A 3-beat 10s video: max(9, 5) = 9 frames. An 8-beat 60s video: max(24, 30) = 30 frames. Aim for at least 3 frames per beat: entrance, hold, and near-exit.
+Scale snapshot count to the video - not a fixed number. Formula: `max(beats × 3, ceil(duration_seconds / 2))`. A 3-beat 10s video: max(9, 5) = 9 frames. An 8-beat 60s video: max(24, 30) = 30 frames. Aim for at least 3 frames per beat: entrance, hold, and near-exit.
 
 ```bash
 # The CLI auto-loads .env from the current working directory, so a
@@ -141,20 +141,20 @@ npx hyperframes snapshot <project-dir> --frames <N> \
 
 Output lands in `<project-dir>/snapshots/`. Gemini writes `snapshots/descriptions.md` automatically.
 
-**If `descriptions.md` is missing or empty after the snapshot:** `GEMINI_API_KEY` was not set — confirm it's in `<project-dir>/.env` (the CLI loads .env from CWD) or in your shell environment. Re-run after fixing.
+**If `descriptions.md` is missing or empty after the snapshot:** `GEMINI_API_KEY` was not set - confirm it's in `<project-dir>/.env` (the CLI loads .env from CWD) or in your shell environment. Re-run after fixing.
 
-**Fallback if Gemini is genuinely unavailable** (no key, key invalid, or quota exhausted): use your own image-reading capability to inspect each frame in `snapshots/` directly. For each frame, write one sentence describing what's on screen — focus on the dimensions Gemini would catch (blank/dark frames, missing brand assets, text legibility, layout problems). Save these descriptions as `snapshots/descriptions.md` yourself so the rest of the checklist still has a single source of truth. State explicitly in your verdict that descriptions were agent-authored, not Gemini-authored, so the user knows to spot-check.
+**Fallback if Gemini is genuinely unavailable** (no key, key invalid, or quota exhausted): use your own image-reading capability to inspect each frame in `snapshots/` directly. For each frame, write one sentence describing what's on screen - focus on the dimensions Gemini would catch (blank/dark frames, missing brand assets, text legibility, layout problems). Save these descriptions as `snapshots/descriptions.md` yourself so the rest of the checklist still has a single source of truth. State explicitly in your verdict that descriptions were agent-authored, not Gemini-authored, so the user knows to spot-check.
 
-**Gemini descriptions will flag two frames as "blank/black" — these two are expected and not bugs:**
+**Gemini descriptions will flag two frames as "blank/black" - these two are expected and not bugs:**
 
-- `frame-00-at-0.0s.png` — always dark, animations haven't started
-- The last frame of the video — always dark, the s-end dummy scene is intentionally invisible
+- `frame-00-at-0.0s.png` - always dark, animations haven't started
+- The last frame of the video - always dark, the s-end dummy scene is intentionally invisible
 
 Every other frame described as "black," "blank," "no visible content," or "loading screen" in the middle of the video IS a bug. Investigate and fix it.
 
-**Two required reads — both, not one. Then a per-beat verdict.**
+**Two required reads - both, not one. Then a per-beat verdict.**
 
-1. **Read `snapshots/descriptions.md`** — Gemini's objective written analysis of every frame. Read every line. Do not skim.
+1. **Read `snapshots/descriptions.md`** - Gemini's objective written analysis of every frame. Read every line. Do not skim.
 
 2. **View `snapshots/contact-sheet.jpg` cell-by-cell.** Not a glance. Look at every cell, name what's in it. Past agents have reported "contact sheet looks good" after a single scan and missed: a beat that was visually black for 80% of its duration, a logo placed off-screen, a headline clipped at the canvas edge, captions running off the bottom. The contact sheet is the only place these failures are visible together. **For each cell, write one sentence: what's in frame, what's moving, which brand assets are present, anything that looks wrong.** If you find yourself wanting to summarize the contact sheet as a whole, stop and go back to cell-by-cell.
 
@@ -176,13 +176,13 @@ A beat PASSES only if:
 
 A beat that "has some content" does not automatically pass. Compare against what was _planned_, not just "something is there."
 
-**If any beat fails: fix it, re-snapshot, re-read descriptions.md, re-write the per-beat verdict from scratch.** Do not carry forward old verdicts after a fix — re-evaluate everything because fixes can break adjacent beats.
+**If any beat fails: fix it, re-snapshot, re-read descriptions.md, re-write the per-beat verdict from scratch.** Do not carry forward old verdicts after a fix - re-evaluate everything because fixes can break adjacent beats.
 
 **Keep iterating until every beat passes.** There is no time limit. A video with one black CTA beat is not done.
 
-## Critic Sub-Agent — do not skip
+## Critic Sub-Agent - do not skip
 
-**This is not optional. Run it after your per-beat verdicts all pass — before you start preview.**
+**This is not optional. Run it after your per-beat verdicts all pass - before you start preview.**
 
 Spawn a sub-agent with this exact prompt:
 
@@ -211,9 +211,9 @@ If you cannot find any problems and want to score everything 4–5, you are not 
 
 Read every score. Fix anything below 3 before showing the user. If the CTA scores below 3, fix the CTA. Do not rationalize low scores as "the user can decide."
 
-## Audio + motion verification — three paths, pick one
+## Audio + motion verification - three paths, pick one
 
-Snapshots are silent stills. 18 PNG snapshots from a 30s 30fps video = 18/900 = 2% of frames. The other 98% — including all motion, all transitions, all audio — is unverified by snapshots alone. "Confirmed via snapshot" is not coverage.
+Snapshots are silent stills. 18 PNG snapshots from a 30s 30fps video = 18/900 = 2% of frames. The other 98% - including all motion, all transitions, all audio - is unverified by snapshots alone. "Confirmed via snapshot" is not coverage.
 
 You MUST do ONE of these three paths before declaring done:
 
@@ -232,7 +232,7 @@ Open the Studio URL in a browser via Playwright (or another browser tool you hav
 
 ### Path 2: Render a low-res MP4 and read it frame-by-frame
 
-When Playwright isn't available, render at 540p (fast — ~30s for a 30s video) and read the MP4:
+When Playwright isn't available, render at 540p (fast - ~30s for a 30s video) and read the MP4:
 
 ```bash
 node /<repo-root>/packages/cli/dist/cli.js render <project-dir> \
@@ -272,9 +272,9 @@ The Studio URL is the deliverable. In your final response, always include it:
 http://localhost:<port>/#project/<project-name>
 ```
 
-Use the actual port and project name from the preview command output. Do NOT present `index.html` as the project link — that's the source file. The user-facing project is the running Studio preview.
+Use the actual port and project name from the preview command output. Do NOT present `index.html` as the project link - that's the source file. The user-facing project is the running Studio preview.
 
-### Honest disclosure — REQUIRED in your final summary
+### Honest disclosure - REQUIRED in your final summary
 
 Your final message to the user MUST end with these two sections, even if everything passed. Both sections appear AFTER the preview URL, BEFORE you stop talking.
 
@@ -299,17 +299,17 @@ The user reads this section to know what to spot-check.
 - "Looks great, ready to ship" (no disclosure)
 - "All checks pass" (when one was actually skipped)
 - "Sub-agents confirmed everything" (delegating trust without verifying)
-- Omitting the "What I did NOT verify" section because you happened to verify everything (still include it — write "None" if true, but the section header must appear).
+- Omitting the "What I did NOT verify" section because you happened to verify everything (still include it - write "None" if true, but the section header must appear).
 
 Lying or omitting here is worse than skipping a check honestly. A short user spot-check beats a hidden broken video every time.
 
 ## Render (on-demand only)
 
-**Do NOT render automatically.** Preview is the delivery — the user scrubs, spots tweaks, and you iterate. Rendering takes minutes per pass and is wasted if the user wants changes.
+**Do NOT render automatically.** Preview is the delivery - the user scrubs, spots tweaks, and you iterate. Rendering takes minutes per pass and is wasted if the user wants changes.
 
-Only render when the user **explicitly asks** — "render it", "make the final", "export the MP4", "I'm happy, produce the file."
+Only render when the user **explicitly asks** - "render it", "make the final", "export the MP4", "I'm happy, produce the file."
 
-When rendering, **always specify quality and resolution explicitly.** Don't use defaults silently — pick the right settings for the use case and tell the user what you're rendering:
+When rendering, **always specify quality and resolution explicitly.** Don't use defaults silently - pick the right settings for the use case and tell the user what you're rendering:
 
 ```bash
 # Standard quality, 1080p landscape (default for most videos)
@@ -338,4 +338,4 @@ npx hyperframes render --skill=website-to-video --output renders/<name>.mp4 --qu
 | `--crf`           | integer                                                                                    | Override encoder quality (lower = better, mutually exclusive with --video-bitrate) |
 | `--video-bitrate` | e.g. `10M`                                                                                 | Target bitrate (mutually exclusive with --crf)                                     |
 
-Tell the user what you're rendering and why: "Rendering at standard quality, 1080p landscape, 30fps — this gives good quality with reasonable render time. Want me to use high quality or 4K instead?"
+Tell the user what you're rendering and why: "Rendering at standard quality, 1080p landscape, 30fps - this gives good quality with reasonable render time. Want me to use high quality or 4K instead?"
