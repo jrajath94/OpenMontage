@@ -1,4 +1,4 @@
-# Sora 2 — Prompting Guide
+# Sora 2 - Prompting Guide
 
 > Source: [OpenAI Sora 2 Cookbook](https://developers.openai.com/cookbook/examples/sora/sora2_prompting_guide)
 > For universal vocabulary, see: `skills/creative/video-gen-prompting.md`
@@ -51,7 +51,7 @@ Sora uniquely responds to these production-level details that most models ignore
 - **Prose-first**: Write a rich paragraph, then add technical blocks. Don't lead with camera specs.
 - **Character references**: Can lock onto up to 2 uploaded character IDs via API.
 - **Dialogue sync**: Short lines work. Complex multi-character dialogue does not.
-- **Edit commands**: "Same shot, switch to 85mm" or "Same lighting, new palette: teal, sand, rust" — Sora supports iterative refinement on existing generations.
+- **Edit commands**: "Same shot, switch to 85mm" or "Same lighting, new palette: teal, sand, rust" - Sora supports iterative refinement on existing generations.
 - **Creative freedom**: Shorter prompts → more creative latitude. Longer → more control.
 
 ## Color Palette Technique
