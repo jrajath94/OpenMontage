@@ -33,7 +33,7 @@ scene analysis from dialogue.
 
 ### Choosing When to Diarize
 
-- **Single speaker (talking head):** Skip diarization — it adds latency with no benefit.
+- **Single speaker (talking head):** Skip diarization - it adds latency with no benefit.
 - **Multiple speakers (interview, podcast):** Enable diarization to label who said what.
 - **Diarization requires** `whisperx` and `HF_TOKEN`. If unavailable, the tool proceeds without speaker labels.
 
