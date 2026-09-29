@@ -1,4 +1,4 @@
-﻿# OpenMontage â€" Skill Index
+# OpenMontage â€" Skill Index
 
 > For the full agent onboarding guide, see [`AGENT_GUIDE.md`](../AGENT_GUIDE.md) in the project root.
 
@@ -37,8 +37,8 @@ Every tool declares a `capability` (what it does) and a `provider` (who/what pow
 ### Selector / Provider Pattern
 
 For capability families with multiple providers (TTS, video generation), the architecture uses:
-- **Selector tool** (`tts_selector`, `video_selector`, `image_selector`) — routes to the best available provider based on requirements, API key availability, and cost. Selectors auto-discover providers from the registry. Agents should default to selectors when the user hasn't specified a provider.
-- **Provider tools** — call a specific provider directly. Agents use these when the user explicitly requests a provider or when the selector's routing isn't appropriate.
+- **Selector tool** (`tts_selector`, `video_selector`, `image_selector`) - routes to the best available provider based on requirements, API key availability, and cost. Selectors auto-discover providers from the registry. Agents should default to selectors when the user hasn't specified a provider.
+- **Provider tools** - call a specific provider directly. Agents use these when the user explicitly requests a provider or when the selector's routing isn't appropriate.
 
 ### Capability Family Reference
 
@@ -55,21 +55,21 @@ Key capability families to look for in the output:
 | `tts` | `tts_selector` | Auto-discovers all `capability="tts"` tools |
 | `video_generation` | `video_selector` | Auto-discovers all `capability="video_generation"` tools |
 | `image_generation` | `image_selector` | Auto-discovers all `capability="image_generation"` tools |
-| `audio_processing` | — | FFmpeg-based local tools |
-| `enhancement` | — | Mixed providers |
-| `analysis` | — | Mixed providers |
-| `character_animation` | — | Local character specs, SVG rigs, pose libraries, action timelines, previews, and QA |
-| `3d_world_generation` | — | Local semantic terrain, procedural scattering, explicit landmarks, diagnostics, and HyperFrames/Three.js fly-through workspaces |
-| `3d_asset_acquisition` | — | Rights-safe local GLTF/GLB catalogs and provenance |
-| `3d_asset_generation` | — | Atlas/fal textured mesh generation and reconstruction for unique scene assets |
-| `3d_world_rendering` | — | Blender assembly and production rendering of detailed worlds |
-| `graphics` | — | Local rendering tools |
-| `music_library` | — | Discovers user-provided local tracks |
-| `music_search` | — | Discovers royalty-free search/download providers |
-| `music_generation` | — | Discovers paid/local generation providers |
-| `subtitle` | — | Pure Python |
-| `avatar` | — | Local GPU models |
-| `video_post` | — | FFmpeg-based local tools |
+| `audio_processing` | - | FFmpeg-based local tools |
+| `enhancement` | - | Mixed providers |
+| `analysis` | - | Mixed providers |
+| `character_animation` | - | Local character specs, SVG rigs, pose libraries, action timelines, previews, and QA |
+| `3d_world_generation` | - | Local semantic terrain, procedural scattering, explicit landmarks, diagnostics, and HyperFrames/Three.js fly-through workspaces |
+| `3d_asset_acquisition` | - | Rights-safe local GLTF/GLB catalogs and provenance |
+| `3d_asset_generation` | - | Atlas/fal textured mesh generation and reconstruction for unique scene assets |
+| `3d_world_rendering` | - | Blender assembly and production rendering of detailed worlds |
+| `graphics` | - | Local rendering tools |
+| `music_library` | - | Discovers user-provided local tracks |
+| `music_search` | - | Discovers royalty-free search/download providers |
+| `music_generation` | - | Discovers paid/local generation providers |
+| `subtitle` | - | Pure Python |
+| `avatar` | - | Local GPU models |
+| `video_post` | - | FFmpeg-based local tools |
 
 ### Adding New Tools
 
@@ -77,8 +77,8 @@ Key capability families to look for in the output:
 2. Set `capability` and `provider` in the class definition
 3. If joining a multi-provider family, the existing selector discovers it automatically
 4. Attach relevant Layer 2 and Layer 3 skills via `agent_skills[]`
-5. The registry discovers tools automatically — no manual registration needed
-6. **No other files need updating** — selectors, manifests, and instructions all derive from the registry
+5. The registry discovers tools automatically - no manual registration needed
+6. **No other files need updating** - selectors, manifests, and instructions all derive from the registry
 
 ## Core Skills
 
@@ -86,10 +86,10 @@ Key capability families to look for in the output:
 |-------|------|---------|----------------------|
 | FFmpeg | `core/ffmpeg.md` | Video encoding, filtering, composition | `ffmpeg`, `video-toolkit` |
 | Remotion | `core/remotion.md` | React-based composition, Phase 3+ | `remotion-best-practices`, `remotion` |
-| HyperFrames | `core/hyperframes.md` | HTML/CSS/GSAP composition runtime — kinetic typography, music-to-video, product promos, website capture. Vendored at v0.7.17 (2026-06-27). | `hyperframes` (router) → `hyperframes-core` (contract), `hyperframes-creative` (palette/type/narration), `hyperframes-media` (TTS/BGM/SFX/captions), `hyperframes-animation` (all motion), `hyperframes-cli`, `hyperframes-registry`, `media-use`, `motion-graphics`, `music-to-video` (beats-driven), `website-to-video`, `remotion-to-hyperframes` (migration), `gsap-core`, `gsap-timeline` |
-| WhisperX | `core/whisperx.md` | Transcription with word-level timestamps — default STT (offline, free) | `speech-to-text` |
-| Azure STT | (tool: `azure_stt`) | Optional cloud speech-to-text, word-level timestamps — preferred when `AZURE_SPEECH_KEY` is set | `azure-speech-to-text` |
-| Azure TTS | (tool: `azure_tts`) | Optional cloud neural narration (SSML prosody, express-as styles) — same Speech key as `azure_stt` | `azure-text-to-speech` |
+| HyperFrames | `core/hyperframes.md` | HTML/CSS/GSAP composition runtime - kinetic typography, music-to-video, product promos, website capture. Vendored at v0.7.17 (2026-06-27). | `hyperframes` (router) → `hyperframes-core` (contract), `hyperframes-creative` (palette/type/narration), `hyperframes-media` (TTS/BGM/SFX/captions), `hyperframes-animation` (all motion), `hyperframes-cli`, `hyperframes-registry`, `media-use`, `motion-graphics`, `music-to-video` (beats-driven), `website-to-video`, `remotion-to-hyperframes` (migration), `gsap-core`, `gsap-timeline` |
+| WhisperX | `core/whisperx.md` | Transcription with word-level timestamps - default STT (offline, free) | `speech-to-text` |
+| Azure STT | (tool: `azure_stt`) | Optional cloud speech-to-text, word-level timestamps - preferred when `AZURE_SPEECH_KEY` is set | `azure-speech-to-text` |
+| Azure TTS | (tool: `azure_tts`) | Optional cloud neural narration (SSML prosody, express-as styles) - same Speech key as `azure_stt` | `azure-text-to-speech` |
 | Subtitle Sync | `core/subtitle-sync.md` | Subtitle timing and alignment | `remotion-best-practices` |
 | Color Grading | `core/color-grading.md` | FFmpeg color profiles, LUT workflow, accessibility | `ffmpeg` |
 
@@ -115,8 +115,8 @@ Key capability families to look for in the output:
 | Image Gen Usage | `creative/image-gen-usage.md` | Prompt consistency, hero reference, batch strategy | `flux-best-practices`, `bfl-api` |
 | Image Provider Usage | `creative/image-provider-usage.md` | Provider selection (FLUX/Grok/OpenAI/Recraft/stock), cost-quality tradeoffs | `flux-best-practices`, `bfl-api`, `grok-media` |
 | 3D World Generation | `creative/3d-world-generation.md` | Semantic world planning, asset sourcing/generation, Blender assembly, and fidelity review | `3d-asset-generation`, `threejs-world-generation` |
-| B-Roll Planning | `creative/broll-planning.md` | Stock vs. generated decision, query construction, footage evaluation | — |
-| Stock Sourcing Usage | `creative/stock-sourcing-usage.md` | Pexels/Pixabay usage, parameters, licensing, integration | — |
+| B-Roll Planning | `creative/broll-planning.md` | Stock vs. generated decision, query construction, footage evaluation | - |
+| Stock Sourcing Usage | `creative/stock-sourcing-usage.md` | Pexels/Pixabay usage, parameters, licensing, integration | - |
 | Scene Detect Usage | `creative/scene-detect-usage.md` | Threshold tuning, algorithm selection, content presets | â€" |
 | Diagram Gen Usage | `creative/diagram-gen-usage.md` | Complexity limits, progressive building, themes | `beautiful-mermaid` |
 | Music Gen Usage | `creative/music-gen-usage.md` | BPM selection, prompt engineering, duration matching | `music`, `elevenlabs` |
@@ -145,7 +145,7 @@ Pipeline type skills provide production guidance for specific video formats, ind
 
 Stage director skills teach the agent HOW to execute each pipeline stage. Each skill is a detailed markdown file with process steps, quality rubrics, and self-evaluation criteria.
 
-### Animated Explainer Pipeline (`pipelines/explainer/`) — v2.0
+### Animated Explainer Pipeline (`pipelines/explainer/`) - v2.0
 
 | Skill | File | Stage | Key Capabilities |
 |-------|------|-------|-----------------|
@@ -173,7 +173,7 @@ Stage director skills teach the agent HOW to execute each pipeline stage. Each s
 | Compose Director | `pipelines/talking-head/compose-director.md` | `compose` | Enhancement chain, render |
 | Publish Director | `pipelines/talking-head/publish-director.md` | `publish` | Metadata, export packaging |
 
-### Screen Demo Pipeline (`pipelines/screen-demo/`) — v2.0
+### Screen Demo Pipeline (`pipelines/screen-demo/`) - v2.0
 
 | Skill | File | Stage | Key Capabilities |
 |-------|------|-------|-----------------|
@@ -186,7 +186,7 @@ Stage director skills teach the agent HOW to execute each pipeline stage. Each s
 | Compose Director | `pipelines/screen-demo/compose-director.md` | `compose` | Legibility-first render, crisp screen output, verification |
 | Publish Director | `pipelines/screen-demo/publish-director.md` | `publish` | Searchable metadata, chapter packaging, thumbnail concepts |
 
-### Clip Factory Pipeline (`pipelines/clip-factory/`) — v2.0
+### Clip Factory Pipeline (`pipelines/clip-factory/`) - v2.0
 
 | Skill | File | Stage | Key Capabilities |
 |-------|------|-------|-----------------|
@@ -199,7 +199,7 @@ Stage director skills teach the agent HOW to execute each pipeline stage. Each s
 | Compose Director | `pipelines/clip-factory/compose-director.md` | `compose` | Multi-job rendering, batch resilience, per-output verification |
 | Publish Director | `pipelines/clip-factory/publish-director.md` | `publish` | Posting order, platform copy, batch cataloging |
 
-### Podcast Repurpose Pipeline (`pipelines/podcast-repurpose/`) — v2.0
+### Podcast Repurpose Pipeline (`pipelines/podcast-repurpose/`) - v2.0
 
 | Skill | File | Stage | Key Capabilities |
 |-------|------|-------|-----------------|
@@ -212,7 +212,7 @@ Stage director skills teach the agent HOW to execute each pipeline stage. Each s
 | Compose Director | `pipelines/podcast-repurpose/compose-director.md` | `compose` | Audio-first rendering, deliverable prioritization |
 | Publish Director | `pipelines/podcast-repurpose/publish-director.md` | `publish` | Episode cross-linking, guest attribution, staggered release logic |
 
-### Cinematic Pipeline (`pipelines/cinematic/`) — v2.0
+### Cinematic Pipeline (`pipelines/cinematic/`) - v2.0
 
 | Skill | File | Stage | Key Capabilities |
 |-------|------|-------|-----------------|
@@ -225,7 +225,7 @@ Stage director skills teach the agent HOW to execute each pipeline stage. Each s
 | Compose Director | `pipelines/cinematic/compose-director.md` | `compose` | Grade and mix finishing, frame-treatment judgment |
 | Publish Director | `pipelines/cinematic/publish-director.md` | `publish` | Hero vs teaser packaging, poster-frame concepts |
 
-### Animation Pipeline (`pipelines/animation/`) — v2.0
+### Animation Pipeline (`pipelines/animation/`) - v2.0
 
 | Skill | File | Stage | Key Capabilities |
 |-------|------|-------|-----------------|
@@ -241,7 +241,7 @@ Stage director skills teach the agent HOW to execute each pipeline stage. Each s
 
 > **Note:** The old `idea-director.md` still exists for reference but is superseded by the research + proposal two-stage flow in v2.0.
 
-### Hybrid Pipeline (`pipelines/hybrid/`) — v2.0
+### Hybrid Pipeline (`pipelines/hybrid/`) - v2.0
 
 | Skill | File | Stage | Key Capabilities |
 |-------|------|-------|-----------------|
@@ -254,7 +254,7 @@ Stage director skills teach the agent HOW to execute each pipeline stage. Each s
 | Compose Director | `pipelines/hybrid/compose-director.md` | `compose` | Source/support balance checks, variant verification, coherent mix |
 | Publish Director | `pipelines/hybrid/publish-director.md` | `publish` | Master-vs-derivative packaging, source-mix metadata |
 
-### Avatar Spokesperson Pipeline (`pipelines/avatar-spokesperson/`) — v2.0
+### Avatar Spokesperson Pipeline (`pipelines/avatar-spokesperson/`) - v2.0
 
 | Skill | File | Stage | Key Capabilities |
 |-------|------|-------|-----------------|
@@ -267,7 +267,7 @@ Stage director skills teach the agent HOW to execute each pipeline stage. Each s
 | Compose Director | `pipelines/avatar-spokesperson/compose-director.md` | `compose` | Lip-sync verification, subtitle-safe framing, clean render checks |
 | Publish Director | `pipelines/avatar-spokesperson/publish-director.md` | `publish` | Audience-led packaging, presenter-first thumbnail concepts |
 
-### Localization Dub Pipeline (`pipelines/localization-dub/`) — v2.0
+### Localization Dub Pipeline (`pipelines/localization-dub/`) - v2.0
 
 | Skill | File | Stage | Key Capabilities |
 |-------|------|-------|-----------------|
@@ -292,7 +292,7 @@ Cross-cutting skills that apply to all pipelines:
 | Skill Creator | `meta/skill-creator.md` | Dynamically create new skills during pipeline runs |
 | Animation Runtime Selector | `meta/animation-runtime-selector.md` | Choose render runtime + animation library per scene |
 | Taste Direction | `meta/taste-direction.md` | Convert a brief into taste dials, anti-patterns, and reference strategy for proposal/playbook/atelier work |
-| Bespoke Composition (Atelier) | `meta/bespoke-composition.md` | Hand-author a composition from scratch (hero work) — no stock scene-types; routes art-direction → motion principles → engine mechanics → atelier render |
+| Bespoke Composition (Atelier) | `meta/bespoke-composition.md` | Hand-author a composition from scratch (hero work) - no stock scene-types; routes art-direction → motion principles → engine mechanics → atelier render |
 
 ## Style Playbooks
 
@@ -325,5 +325,5 @@ Claude Code accesses them via symlinks in `.claude/skills/`.
 | **Design** | `tailwind-design-system`, `web-design-guidelines`, `vercel-react-best-practices`, `vercel-composition-patterns` | `wshobson/agents`, `vercel-labs/agent-skills` |
 | **AI Video (HeyGen)** | `heygen`, `avatar-video`, `create-video`, `faceswap`, `ai-video-gen`, `video-download`, `video-edit`, `video-translate`, `video-understand`, `visual-style` | `heygen-com/skills` |
 | **AI Video/Image/TTS/Avatar (Kling Official)** | `kling-official` - official direct API auth, Classic/Turbo/Omni task protocols, multi-reference Omni syntax, internal Elements/Account Usage helpers, callback notes, TTS voice parameters, avatar/lip-sync face selection, error handling, and cost governance for `kling_official_video` / `kling_official_image` / `kling_tts` / `kling_avatar` / `kling_lip_sync` | Local OpenMontage skill |
-| **AI Video (Premium)** | `seedance-2-0` — preferred premium default (cinematic, trailer, multi-shot, lip-sync, synced audio); accessed via `seedance_video` (fal.ai) or `heygen_video` Avatar Shots; `seedance-2-5` — 4–30 s clips, 50 multimodal references, prompt contract (section order, `Hard cut` breakdown, continuity locks, asset method) | Local OpenMontage skill |
+| **AI Video (Premium)** | `seedance-2-0` - preferred premium default (cinematic, trailer, multi-shot, lip-sync, synced audio); accessed via `seedance_video` (fal.ai) or `heygen_video` Avatar Shots; `seedance-2-5` - 4–30 s clips, 50 multimodal references, prompt contract (section order, `Hard cut` breakdown, continuity locks, asset method) | Local OpenMontage skill |
 | **Infrastructure** | `acestep`, `ltx2`, `playwright-recording` | `digitalsamba/claude-code-video-toolkit` |
