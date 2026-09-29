@@ -1,4 +1,4 @@
-# Compose Director — Explainer Pipeline
+# Compose Director - Explainer Pipeline
 
 ## When to Use
 
@@ -8,11 +8,11 @@ This is the last technical stage before the video exists as a playable file. Eve
 
 ## Runtime Routing (MANDATORY first step)
 
-Read `edit_decisions.render_runtime` before anything else. It was locked at proposal and must not be changed silently. The rest of this skill's process steps (Remotion public/ staging, word-level caption burn, etc.) assume `render_runtime="remotion"` — the default for data-driven explainers.
+Read `edit_decisions.render_runtime` before anything else. It was locked at proposal and must not be changed silently. The rest of this skill's process steps (Remotion public/ staging, word-level caption burn, etc.) assume `render_runtime="remotion"` - the default for data-driven explainers.
 
-- **`render_runtime="hyperframes"`** — HTML/CSS/GSAP render. Do NOT follow the Remotion-specific steps below. Instead: read `skills/core/hyperframes.md`, `.agents/skills/hyperframes/SKILL.md`, and `.agents/skills/hyperframes-cli/SKILL.md`. Call `video_compose` with the edit_decisions unchanged — it will delegate to `hyperframes_compose`, which materializes a workspace under `projects/<name>/hyperframes/`, runs `lint → validate → render`, and returns the MP4. Both lint AND validate must pass before render; contrast can be deferred during iteration but not for final delivery.
-- **`render_runtime="ffmpeg"`** — simple concat/trim. Call `video_compose` directly; it will NOT auto-upgrade to Remotion when this runtime is explicitly locked.
-- **Runtime unavailable** — surface the blocker per AGENT_GUIDE.md > "Escalate Blockers Explicitly" and get user approval (recorded as a `render_runtime_selection` decision in decision_log) before switching.
+- **`render_runtime="hyperframes"`** - HTML/CSS/GSAP render. Do NOT follow the Remotion-specific steps below. Instead: read `skills/core/hyperframes.md`, `.agents/skills/hyperframes/SKILL.md`, and `.agents/skills/hyperframes-cli/SKILL.md`. Call `video_compose` with the edit_decisions unchanged - it will delegate to `hyperframes_compose`, which materializes a workspace under `projects/<name>/hyperframes/`, runs `lint → validate → render`, and returns the MP4. Both lint AND validate must pass before render; contrast can be deferred during iteration but not for final delivery.
+- **`render_runtime="ffmpeg"`** - simple concat/trim. Call `video_compose` directly; it will NOT auto-upgrade to Remotion when this runtime is explicitly locked.
+- **Runtime unavailable** - surface the blocker per AGENT_GUIDE.md > "Escalate Blockers Explicitly" and get user approval (recorded as a `render_runtime_selection` decision in decision_log) before switching.
 
 `final_review.checks.promise_preservation.render_runtime_used` must equal the runtime that actually ran; `runtime_swap_detected` must be `false` unless an approved decision authorizes the swap.
 
@@ -34,7 +34,7 @@ Read `edit_decisions.render_runtime` before anything else. It was locked at prop
 
 Based on the edit decisions, pick the rendering approach:
 
-**Remotion render** (DEFAULT — use this unless explicitly overridden):
+**Remotion render** (DEFAULT - use this unless explicitly overridden):
 - Animated text cards, stat cards, chart scenes
 - Complex transitions (morph, zoom, ken-burns)
 - Programmatic motion graphics
@@ -42,13 +42,13 @@ Based on the edit decisions, pick the rendering approach:
 - Word-level captions via CaptionOverlay component
 - Best for: ALL explainer videos, both image-based and animation-heavy
 
-**FFmpeg pipeline** (FALLBACK — only when Remotion is unavailable):
+**FFmpeg pipeline** (FALLBACK - only when Remotion is unavailable):
 - Static images with Ken Burns
 - Audio layering
 - SRT subtitle burn-in
 - Best for: environments without Node.js/Remotion installed
 
-**IMPORTANT: When using Remotion, ALL of these go through Remotion — not FFmpeg:**
+**IMPORTANT: When using Remotion, ALL of these go through Remotion - not FFmpeg:**
 - Audio (narration + music) → Remotion `audio` prop, NOT external audio_mixer
 - Subtitles → Remotion `captions` prop (word-level), NOT SRT burn via FFmpeg
 - Text overlays (CTA, titles) → Remotion `text_card` cut type, NOT AI-generated images
@@ -61,13 +61,13 @@ Before rendering, present the user with audio options and get their preferences.
 
 > **Audio setup for this video:**
 >
-> **Narration:** I can generate TTS narration using OpenAI TTS (`gpt-4o-mini-tts` — $0.015/min, 6 voices, voice direction). Which voice and tone would you like? I'll propose a voice based on the video topic, or you can choose:
-> - `onyx` — deep, authoritative (documentaries, tech)
-> - `echo` — resonant, futuristic (product ads, sci-fi)
-> - `nova` — bright, energetic (upbeat, explainers)
-> - `fable` — warm, storytelling (narratives, education)
-> - `shimmer` — expressive, warm (organic, lifestyle)
-> - `alloy` — neutral, balanced (general purpose)
+> **Narration:** I can generate TTS narration using OpenAI TTS (`gpt-4o-mini-tts` - $0.015/min, 6 voices, voice direction). Which voice and tone would you like? I'll propose a voice based on the video topic, or you can choose:
+> - `onyx` - deep, authoritative (documentaries, tech)
+> - `echo` - resonant, futuristic (product ads, sci-fi)
+> - `nova` - bright, energetic (upbeat, explainers)
+> - `fable` - warm, storytelling (narratives, education)
+> - `shimmer` - expressive, warm (organic, lifestyle)
+> - `alloy` - neutral, balanced (general purpose)
 >
 > **Music:** I can automatically find royalty-free background music from Pixabay (no key needed). If you have a `FREESOUND_API_KEY`, I can also search Freesound as a backup.
 >
@@ -183,7 +183,7 @@ When all scenes are Remotion component types (hero_title, stat_card, bar_chart, 
 pie_chart, kpi_grid, comparison, callout, progress_bar, text_card), render the entire video
 as a single Remotion composition using the Explainer entry point. No FFmpeg assembly needed.
 The edit_decisions cuts array maps directly to Remotion props. See `skills/core/remotion.md`
-for the proven formula — especially the all-dark-background rule for visual consistency.
+for the proven formula - especially the all-dark-background rule for visual consistency.
 
 ### Step 5: Audio Post-Processing
 
@@ -197,7 +197,7 @@ natively via `<Audio>` components. Pass audio sources in the composition props:
   }
 }
 ```
-Remotion renders audio and video in a single pass — no external muxing needed.
+Remotion renders audio and video in a single pass - no external muxing needed.
 Do NOT use `audio_mixer` for ducking/mixing when rendering via Remotion.
 
 **FFmpeg fallback (ONLY when Remotion is unavailable):**
@@ -211,9 +211,9 @@ The video_compose tool will mux this with the video.
 
 ### Step 5b: Generate Subtitles (Mandatory)
 
-Subtitles are mandatory for all explainer content. Generate them from the narration audio — do NOT skip this step.
+Subtitles are mandatory for all explainer content. Generate them from the narration audio - do NOT skip this step.
 
-**Remotion path (DEFAULT — when using Remotion render):**
+**Remotion path (DEFAULT - when using Remotion render):**
 
 1. **Transcribe** the full narration using the `transcriber` tool (whisperx):
    ```python
@@ -239,7 +239,7 @@ Subtitles are mandatory for all explainer content. Generate them from the narrat
            })
    ```
 
-3. **Add captions to composition props** — they go in the `captions` array alongside `cuts` and `audio`:
+3. **Add captions to composition props** - they go in the `captions` array alongside `cuts` and `audio`:
    ```json
    {
      "cuts": [...],
@@ -270,7 +270,7 @@ If Remotion is not available, fall back to SRT generation + FFmpeg burn:
    # Then burn with video_compose operation='burn_subtitles'
    ```
 
-**The final deliverable MUST have subtitles** — either via Remotion captions or FFmpeg burn.
+**The final deliverable MUST have subtitles** - either via Remotion captions or FFmpeg burn.
 
 ### Step 5c: Pre-Render Validation (Mandatory)
 
@@ -293,21 +293,21 @@ Common catches:
 
 **Do not skip this step.** If validation fails, fix the issue and re-validate before rendering.
 
-### Step 6: Post-Render Self-Review (Mandatory — ALL steps required)
+### Step 6: Post-Render Self-Review (Mandatory - ALL steps required)
 
 After rendering, the agent **must review its own output** before presenting to the user. This catches issues the validator can't see (visual quality, audio sync, subtitle readability).
 
 **CRITICAL: You MUST complete ALL of steps 6a through 6e. Do NOT skip any step.
 The most common agent failure is doing 6a (frames) and 6c (visual) while skipping
-6b (audio transcription) — which misses catastrophic issues like missing audio entirely.**
+6b (audio transcription) - which misses catastrophic issues like missing audio entirely.**
 
-**6a. Probe rendered file (FIRST — gate for all other checks):**
+**6a. Probe rendered file (FIRST - gate for all other checks):**
 ```bash
 ffprobe -v quiet -print_format json -show_format -show_streams rendered_video.mp4
 ```
 Verify:
 - Video stream exists (codec_type: "video") with correct resolution
-- **Audio stream exists (codec_type: "audio")** — if NO audio stream, STOP and fix immediately
+- **Audio stream exists (codec_type: "audio")** - if NO audio stream, STOP and fix immediately
 - Duration is within ±5% of target
 - File size is reasonable (not 0 bytes)
 
@@ -327,7 +327,7 @@ FrameSampler().execute({
 })
 ```
 
-**6c. Transcribe rendered audio (MANDATORY — do NOT skip):**
+**6c. Transcribe rendered audio (MANDATORY - do NOT skip):**
 ```python
 from tools.analysis.transcriber import Transcriber
 result = Transcriber().execute({
@@ -340,28 +340,28 @@ result = Transcriber().execute({
 # If word count < 80% of script word count: audio is cut off — investigate
 ```
 
-**6d. Visual inspection — review each frame:**
+**6d. Visual inspection - review each frame:**
 - Does the background color/gradient match intent? (watch for white backgrounds on dark-themed videos)
 - Are images rendering correctly? (not blank, not stretched)
 - Are subtitles/captions visible and properly spaced?
 - Are overlays (section titles, stat reveals) positioned correctly?
 - Is the opening scene visually strong? (important for social media thumbnails)
-- Does the CTA/closing screen show correct text? (AI-generated text in images frequently hallucinates — use Remotion text_card for any text that must be exact)
+- Does the CTA/closing screen show correct text? (AI-generated text in images frequently hallucinates - use Remotion text_card for any text that must be exact)
 
-**6e. Audio inspection — check transcript against script:**
+**6e. Audio inspection - check transcript against script:**
 - Is the full narration captured? (compare last transcribed word to last scripted word)
 - Any words cut off at the end? (narration exceeding video duration)
-- Timing alignment — do narration segments roughly match their intended scenes?
+- Timing alignment - do narration segments roughly match their intended scenes?
 - Is background music audible? (transcriber may not capture music, but ffprobe confirms audio stream)
 
 **6f. Compile and present review to user:**
 
 > **Post-render review for "[Video Title]":**
 >
-> **File:** [duration]s, [resolution], [file size] — audio stream: [present/MISSING]
-> **Audio:** [Complete/Cut off at Xs] — [N]/[M] words transcribed from rendered output
-> **Visuals:** [N scenes inspected] — [issues or "all scenes rendering correctly"]
-> **Captions:** [Remotion CaptionOverlay / FFmpeg SRT / MISSING] — [word-level highlight working / issues]
+> **File:** [duration]s, [resolution], [file size] - audio stream: [present/MISSING]
+> **Audio:** [Complete/Cut off at Xs] - [N]/[M] words transcribed from rendered output
+> **Visuals:** [N scenes inspected] - [issues or "all scenes rendering correctly"]
+> **Captions:** [Remotion CaptionOverlay / FFmpeg SRT / MISSING] - [word-level highlight working / issues]
 > **Issues found:** [list any issues with severity]
 >
 > **Recommendations:** [what to fix, if anything]
