@@ -1,8 +1,8 @@
-# Storyboard format — `STORYBOARD.md` + parsed manifest
+# Storyboard format - `STORYBOARD.md` + parsed manifest
 
 Defines the storyboard's **base data format** only: the `STORYBOARD.md` file shape and the `StoryboardManifest` it parses into. How a workflow _generates_ a storyboard lives in that workflow; the optional narration/TTS file (`SCRIPT.md`) is a separate concern owned by the TTS step, not here.
 
-A storyboard is the **plan layer** for a video — an ordered set of **frames** (key moments) in one markdown file. HyperFrames Studio renders it as a contact sheet (the Storyboard view, behind `VITE_STUDIO_ENABLE_STORYBOARD=1`). Parser: `@hyperframes/core/storyboard` → `StoryboardManifest`; read API: `GET /api/projects/<id>/storyboard`.
+A storyboard is the **plan layer** for a video - an ordered set of **frames** (key moments) in one markdown file. HyperFrames Studio renders it as a contact sheet (the Storyboard view, behind `VITE_STUDIO_ENABLE_STORYBOARD=1`). Parser: `@hyperframes/core/storyboard` → `StoryboardManifest`; read API: `GET /api/projects/<id>/storyboard`.
 
 ## Frontmatter (global direction)
 
@@ -28,7 +28,7 @@ One `## Frame N — Title` heading per frame (`Frame` / `Beat` / `Scene` accepte
 | `scene`         | one-line contact-sheet caption (aliases `description` / `summary` / `caption`)                                |
 | `voiceover`     | the frame's narration _guide_ (aliases `vo` / `voice_over` / `narration`)                                     |
 | `poster`        | seconds to seek for the tile poster (past the intro animation)                                                |
-| _any other key_ | kept verbatim under the frame's `extra` — a workflow carries its own per-frame data (effects, assets, …) here |
+| _any other key_ | kept verbatim under the frame's `extra` - a workflow carries its own per-frame data (effects, assets, …) here |
 
 ## Parsed manifest
 
@@ -53,7 +53,7 @@ The read API also adds `srcExists` per frame and attaches the optional `SCRIPT.m
 
 ## `SCRIPT.md` (out of scope here)
 
-Optional, free-form, **not parsed into the manifest** — the locked-narration file that drives TTS. Its format is defined in `references/script-format.md`, and it is absent for videos with no narration/TTS. The per-frame `voiceover` above is the storyboard's own narration guide.
+Optional, free-form, **not parsed into the manifest** - the locked-narration file that drives TTS. Its format is defined in `references/script-format.md`, and it is absent for videos with no narration/TTS. The per-frame `voiceover` above is the storyboard's own narration guide.
 
 ## Example
 
