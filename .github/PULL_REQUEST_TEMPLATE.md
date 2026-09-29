@@ -1,6 +1,6 @@
 <!--
 Thanks for contributing to OpenMontage! Please fill in the sections below.
-Keep PRs focused — one logical change per PR is easier to review and merge.
+Keep PRs focused - one logical change per PR is easier to review and merge.
 -->
 
 ## Summary
