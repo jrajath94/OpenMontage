@@ -7,7 +7,7 @@ BVH files are fetched from the `una-dinosauria/cmu-mocap` mirror; `clips.js` /
 IDs live in `catalog.json` (e.g. `wave` = CMU 141_16, `shuffle` = CMU 77_29).
 See `../THIRD_PARTY_NOTICES.md` for the full attribution.
 
-## Add a motion (self-extending — no code changes)
+## Add a motion (self-extending - no code changes)
 
 ```
 node add-motion.mjs <name> <cmu-id|url|path> [category] "[description]"
@@ -16,6 +16,6 @@ node add-motion.mjs <name> <cmu-id|url|path> [category] "[description]"
 
 This fetches the BVH, converts it (auto-mapping fair1 / CMU / Mixamo skeletons),
 rebundles `clips.js`, and updates `catalog.json`. CMU has thousands of clips
-(walk, run, dance, wave, jump, …). Prefer CMU for anything shipped — it keeps the
+(walk, run, dance, wave, jump, …). Prefer CMU for anything shipped - it keeps the
 library license-clean. Different skeletons may need an alias added to the `ALIAS`
 table in `bvh2clip.mjs`, and `--axis xy|zy` to pick the projection plane.
