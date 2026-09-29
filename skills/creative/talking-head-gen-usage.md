@@ -19,11 +19,11 @@ KEY RULE:         Generate audio FIRST, then pass to talking_head
 | Scenario | Use talking_head? |
 |----------|-------------------|
 | Avatar spokesperson video from a single photo | Yes |
-| Personalized message — animate a headshot with custom narration | Yes |
+| Personalized message - animate a headshot with custom narration | Yes |
 | No video footage exists but a photo is available | Yes |
-| Multi-language avatar — same face, different audio tracks | Yes |
-| Existing video footage needs processing | No — use the talking-head pipeline |
-| Lip-syncing existing video to new audio | No — use the `lip_sync` tool |
+| Multi-language avatar - same face, different audio tracks | Yes |
+| Existing video footage needs processing | No - use the talking-head pipeline |
+| Lip-syncing existing video to new audio | No - use the `lip_sync` tool |
 
 ## Input Requirements
 
@@ -37,10 +37,10 @@ KEY RULE:         Generate audio FIRST, then pass to talking_head
 
 ### Audio
 
-- Clean speech audio — WAV or MP3
+- Clean speech audio - WAV or MP3
 - Sample rate: 16kHz or higher
 - Audio duration determines output video duration
-- Remove background noise before feeding into talking_head — clean audio produces cleaner lip sync
+- Remove background noise before feeding into talking_head - clean audio produces cleaner lip sync
 
 ## Model Selection
 
@@ -57,9 +57,9 @@ KEY RULE:         Generate audio FIRST, then pass to talking_head
 
 | Mode | What It Does | When to Use |
 |------|-------------|-------------|
-| `crop` | Crops face region, animates, pastes back into original frame | Default — best for headshots and portraits |
+| `crop` | Crops face region, animates, pastes back into original frame | Default - best for headshots and portraits |
 | `resize` | Resizes full input to model dimensions | When you want full-frame output at model resolution |
-| `full` | No preprocessing — input passed directly | Advanced — input must already be correctly sized for the model |
+| `full` | No preprocessing - input passed directly | Advanced - input must already be correctly sized for the model |
 
 ### expression_scale Tuning
 
@@ -128,10 +128,10 @@ Before accepting talking_head output, verify:
 When using the `talking_head` tool:
 
 1. **Generate audio FIRST** (via `tts_selector`, `elevenlabs_tts`, `openai_tts`, or `piper_tts`), then pass to talking_head
-2. **Use `expression_scale=1.0` as baseline** — only increase for high-energy content
+2. **Use `expression_scale=1.0` as baseline** - only increase for high-energy content
 3. **Always apply `face_enhance` AFTER talking_head** to polish the output
 4. **For corporate/professional content**, use `still_mode=true` and `expression_scale=0.7`
-5. **Source photo quality directly impacts output quality** — use the best available photo
-6. **Crop mode is the safest default** — only use `resize` or `full` if crop produces bad framing
-7. **Preview a 5-second clip before generating the full video** — catch artifacts early
+5. **Source photo quality directly impacts output quality** - use the best available photo
+6. **Crop mode is the safest default** - only use `resize` or `full` if crop produces bad framing
+7. **Preview a 5-second clip before generating the full video** - catch artifacts early
 8. **Fallback strategy:** if SadTalker is unavailable but Wav2Lip is, record a simple static video from the photo and lip-sync it with the `lip_sync` tool instead
