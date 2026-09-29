@@ -414,4 +414,4 @@ Tags by category:
 
 - `COMPNAME` → your component name (e.g., `shimmer-sweep`)
 - Background should be `transparent` so it overlays cleanly
-- No `data-composition-id` or `window.__timelines` — the parent owns timing
+- No `data-composition-id` or `window.__timelines` - the parent owns timing
