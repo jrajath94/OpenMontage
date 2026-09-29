@@ -20,7 +20,7 @@ style_prompt_full: >
   resolution (160x144 native). Dithering patterns for shading.
   Simple sprite animations at low frame rates (10-15fps). UI elements
   have that distinctive GBC border style. Sound design would be
-  chiptune — 4-channel audio aesthetic. Portable, colorful, charming.
+  chiptune - 4-channel audio aesthetic. Portable, colorful, charming.
   Not as limited as original Game Boy, but still clearly constrained.
   Pokemon Crystal, Link's Awakening DX, Wario Land 3 as references.
 
@@ -133,7 +133,7 @@ x_heygen:
 
 Constraints breed creativity.
 Every pixel counts when you only have 160x144.
-Color is precious — use it intentionally.
+Color is precious - use it intentionally.
 Charm comes from character, not complexity.
 
 ## Connectors
@@ -141,7 +141,7 @@ Charm comes from character, not complexity.
 ### HeyGen Video Agent
 Use `style_prompt_full` verbatim. Emphasize: chunky pixels, limited colors,
 low frame rate animations. Screen wipe transitions. Chiptune audio aesthetic.
-No smooth movements — everything is discrete pixel steps.
+No smooth movements - everything is discrete pixel steps.
 
 ### HTML Slides
 Use pixel fonts (Press Start 2P, VT323). Scale graphics at integer multiples
