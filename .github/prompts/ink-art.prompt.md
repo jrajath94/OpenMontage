@@ -1,5 +1,5 @@
 ---
-description: Hand-drawn ink-on-white doodle animation — a character that draws itself then walks/dances/waves, or a deadpan contraption explainer. Vector, deterministic, HyperFrames → MP4.
+description: Hand-drawn ink-on-white doodle animation - a character that draws itself then walks/dances/waves, or a deadpan contraption explainer. Vector, deterministic, HyperFrames → MP4.
 ---
 
 Read `skills/creative/ink-theater.md` and `ink-theater/README.md`, then build the hand-drawn ink animation the user asks for.
