@@ -4,16 +4,16 @@
 > HyperFrames documentation, Disney's 12 Principles of Animation (Frank Thomas & Ollie
 > Johnston), Motion Design School, The Animator's Survival Kit (Richard Williams)
 
-## Runtime Choice — Remotion vs HyperFrames
+## Runtime Choice - Remotion vs HyperFrames
 
 Animation work in OpenMontage runs on one of two composition runtimes. Both
 are first-class; the choice is creative, not a fallback:
 
-- **Remotion (React-based)** — when the scene is a React component, uses the
+- **Remotion (React-based)** - when the scene is a React component, uses the
   existing chart/text-card/comparison/kpi stack, or needs pixel-accurate
   frame-level interpolation through `useCurrentFrame()` + `interpolate()`.
   Default for data-heavy explainers.
-- **HyperFrames (HTML/GSAP)** — when the motion is expressed naturally as
+- **HyperFrames (HTML/GSAP)** - when the motion is expressed naturally as
   CSS + GSAP timelines: kinetic typography, product promos, launch reels,
   website/UI-driven compositions, registry-block-driven scenes. Default
   when the brief is motion-graphics-led and the scene library in
@@ -67,7 +67,7 @@ EXPORT:           H.264 CRF 18-20 for web, ProRes 422 for editing
 | **easeInOutCubic** | `(0.65, 0, 0.35, 1)` | Position changes within scene |
 | **easeOutBack** | `(0.34, 1.56, 0.64, 1)` | Bouncy pop-in (playful) |
 | **easeOutElastic** | spring simulation | Attention-grabbing reveals |
-| **linear** | `(0, 0, 1, 1)` | **NEVER for motion** — only for opacity or color |
+| **linear** | `(0, 0, 1, 1)` | **NEVER for motion** - only for opacity or color |
 
 ### Hold Frames
 
@@ -94,24 +94,24 @@ After a movement completes, **hold the pose** before the next animation:
 
 ### Transition Rules
 
-1. **Consistent transitions** — pick 2-3 types and stick with them throughout the video
-2. **Transition = meaning** — a wipe means "next step," a zoom means "deeper detail"
-3. **Don't over-transition** — a hard cut is the most invisible and most professional transition
-4. **Audio leads visual** — start transition sound 10-20ms before the visual change
+1. **Consistent transitions** - pick 2-3 types and stick with them throughout the video
+2. **Transition = meaning** - a wipe means "next step," a zoom means "deeper detail"
+3. **Don't over-transition** - a hard cut is the most invisible and most professional transition
+4. **Audio leads visual** - start transition sound 10-20ms before the visual change
 
 ## Composition for Motion Graphics
 
 ### Layout
 
-- **Rule of thirds** — place focal elements on intersection points
-- **Visual hierarchy** — largest/brightest element = most important
-- **White space** — minimum 10% margin on all sides (within title-safe)
-- **Direction of motion** — left-to-right = forward/progress, right-to-left = reverse/back
+- **Rule of thirds** - place focal elements on intersection points
+- **Visual hierarchy** - largest/brightest element = most important
+- **White space** - minimum 10% margin on all sides (within title-safe)
+- **Direction of motion** - left-to-right = forward/progress, right-to-left = reverse/back
 
 ### Color
 
 - **Max 5 colors** from the style playbook palette
-- **1 accent color** for emphasis — used sparingly
+- **1 accent color** for emphasis - used sparingly
 - **Background** should be the least saturated color
 - **Contrast** between foreground elements and background: minimum 3:1
 
@@ -135,12 +135,12 @@ When multiple elements enter:
 
 When building animation/motion graphics content:
 
-1. **Render at 30fps** (OpenMontage default) — Manim at 60fps, transcode down
-2. **Never use linear easing** — default to `easeInOutCubic` for all motion
-3. **Stagger multi-element entrances** by 100-200ms — don't reveal everything at once
+1. **Render at 30fps** (OpenMontage default) - Manim at 60fps, transcode down
+2. **Never use linear easing** - default to `easeInOutCubic` for all motion
+3. **Stagger multi-element entrances** by 100-200ms - don't reveal everything at once
 4. **Hold key frames** for 1.0-2.0s after reveals (synced to narration)
-5. **Use 2-3 transition types** consistently — hard cut + crossfade covers most needs
-6. **Audio leads visual** — SFX starts 10-20ms before transition (see sound-design.md)
-7. **Max 5 palette colors** — enforce from the style playbook
+5. **Use 2-3 transition types** consistently - hard cut + crossfade covers most needs
+6. **Audio leads visual** - SFX starts 10-20ms before transition (see sound-design.md)
+7. **Max 5 palette colors** - enforce from the style playbook
 8. **Anticipation + overshoot** on important movements for polish
 9. **Export H.264 CRF 18-20** for final output via `video_compose`
