@@ -24,7 +24,7 @@ Prefer `autoAlpha` over `opacity` for show/hide:
 gsap.to(".panel", { autoAlpha: 0, duration: 0.4 });
 ```
 
-`autoAlpha: 0` sets both `opacity: 0` and `visibility: hidden`, which removes the element from hit-testing and accessibility tree at zero alpha — closer to "gone" than plain `opacity: 0`.
+`autoAlpha: 0` sets both `opacity: 0` and `visibility: hidden`, which removes the element from hit-testing and accessibility tree at zero alpha - closer to "gone" than plain `opacity: 0`.
 
 ## clearProps
 
@@ -43,17 +43,17 @@ Useful at the end of an animation segment to hand the element back to CSS.
 gsap.to(".chart", { "--hue": 180, duration: 1 });
 ```
 
-Animate any custom property. Works for color, length, number — anything CSS will interpolate.
+Animate any custom property. Works for color, length, number - anything CSS will interpolate.
 
 ## Relative and Directional Values
 
 - Relative: `"+=20"`, `"-=10"`, `"*=2"`.
-- Directional rotation: `"360_cw"`, `"-170_short"`, `"90_ccw"` — controls which way the angle takes when going between two values.
+- Directional rotation: `"360_cw"`, `"-170_short"`, `"90_ccw"` - controls which way the angle takes when going between two values.
 
 ## SVG Specifics
 
-- `svgOrigin` sets transform origin in the SVG's global coordinate space (not the element's local box). **Do not** combine `svgOrigin` with `transformOrigin` on the same element — pick one.
-- Animate SVG transform attributes via the same alias names (`x`, `y`, `rotation`) — GSAP handles the SVG-specific quirks.
+- `svgOrigin` sets transform origin in the SVG's global coordinate space (not the element's local box). **Do not** combine `svgOrigin` with `transformOrigin` on the same element - pick one.
+- Animate SVG transform attributes via the same alias names (`x`, `y`, `rotation`) - GSAP handles the SVG-specific quirks.
 
 ## Performance Rules
 
@@ -73,7 +73,7 @@ Only on elements that _actually_ animate. Applied everywhere it becomes useless 
 
 ### gsap.quickTo for frequent updates (preview-only)
 
-For high-frequency updates driven by **events** — pointer move, scroll, audio scrub — `quickTo` reuses the same tween instead of creating a new one each frame:
+For high-frequency updates driven by **events** - pointer move, scroll, audio scrub - `quickTo` reuses the same tween instead of creating a new one each frame:
 
 ```javascript
 const xTo = gsap.quickTo("#cursor", "x", { duration: 0.4, ease: "power3" });
