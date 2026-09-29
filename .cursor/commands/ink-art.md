@@ -1,4 +1,4 @@
-# /ink-art — hand-drawn ink doodle animation
+# /ink-art - hand-drawn ink doodle animation
 
 A character that draws itself then walks/dances/waves, or a deadpan contraption explainer. Vector, deterministic, rendered via HyperFrames to MP4.
 
