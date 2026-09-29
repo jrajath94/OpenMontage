@@ -18,7 +18,7 @@ where to cut, what to remove, how to pace, and how to structure the final edit.
 
 ### What to Cut
 
-1. **Filler words:** "um", "uh", "like", "you know" — cut at word boundaries using word timestamps.
+1. **Filler words:** "um", "uh", "like", "you know" - cut at word boundaries using word timestamps.
 2. **False starts:** When the speaker restarts a sentence, keep only the final take.
 3. **Dead air:** Silence longer than 1.5 seconds should be trimmed to ~0.5 seconds.
 4. **Off-topic tangents:** If the speaker wanders, cut to the next relevant segment.
