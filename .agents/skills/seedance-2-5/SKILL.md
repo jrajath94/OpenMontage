@@ -43,7 +43,7 @@ OpenMontage tool instead of constructing a provider payload manually.
 
 **50 assets is a ceiling to use deliberately, not to max out.** A cluttered reference
 set with competing faces, props, and locations produces a *less* coherent result than a
-smaller, chosen one. Rule: one reference per element that must stay consistent — a face,
+smaller, chosen one. Rule: one reference per element that must stay consistent - a face,
 a product, a location, a style.
 
 ---
@@ -59,7 +59,7 @@ scene has only one meaningful action.
 ### Section order
 
 One continuous block of text, broken into labeled sections. Skipping a section does not
-degrade the output generally — it breaks it in a specific, predictable way.
+degrade the output generally - it breaks it in a specific, predictable way.
 
 ```
 GLOBAL STYLE
@@ -110,7 +110,7 @@ reference does that work; keep GLOBAL STYLE, the shot breakdown, and AUDIO regar
 On vendor web platforms these are UI selectors, and changing genre alone shifts pacing,
 contrast, and camera behavior with the scene description held identical. **The API routes
 above expose no such selectors**, so on OpenMontage tool calls that intent has to be
-written into `GLOBAL STYLE` and `LIGHTING` explicitly — genre, decade, grain and color
+written into `GLOBAL STYLE` and `LIGHTING` explicitly - genre, decade, grain and color
 response, light source and its angle, and the emotional register. Leaving them implicit is
 the difference between a shot that reads as noir and one that is merely dark.
 
@@ -133,13 +133,13 @@ usually phrased positively, stating what holds.
 | `IDENTITY / NO-IP LOCK` | "A wholly original, invented face." No logos, no readable text, no recognizable melody |
 
 **State monotonicity.** The cheapest continuity trick available: states only advance,
-never reset. Wetness only accumulates. The cookie only shrinks — whole, bitten, two
-halves, finished — and never regrows. Writing the progression shot by shot stops the model
+never reset. Wetness only accumulates. The cookie only shrinks - whole, bitten, two
+halves, finished - and never regrows. Writing the progression shot by shot stops the model
 from cleaning up your character on the next cut.
 
 **One grammar per action.** When an action repeats, define one way to perform it and
 forbid the rest, then close the list: exactly five sword actions in the piece, each with
-its timestamp. Same for slow motion — allow-list it to named moments and nowhere else.
+its timestamp. Same for slow motion - allow-list it to named moments and nowhere else.
 
 **Event tracks.** Write ambient elements as a timestamped event list rather than as
 texture: each wave with its second and its spray height as a percentage of frame, at
@@ -176,7 +176,7 @@ still gives you a wall; a slow travelling gives you geometry.
 ## Voice
 
 Voice is a **conditioning sentence, not an asset**. Write it once with accent, tempo, and
-manner, then paste it verbatim — without changing a word — every time that character
+manner, then paste it verbatim - without changing a word - every time that character
 speaks. Rewording widens the sampling range and destabilizes the voice.
 
 Write accent phonetically, describing what the mouth does rather than where the speaker is
@@ -199,7 +199,7 @@ Keep audio tracks separate. Never voice and music in the same reference clip.
 ## Chaining and correction
 
 Past 30 seconds, extend the previous clip or pass it as a video reference plus a
-description of what comes next — the second route also lets you introduce new characters
+description of what comes next - the second route also lets you introduce new characters
 or objects at the seam. Avoid vendor "long video" options that stitch several generations
 from one short prompt: there is not enough detail available for the runtime.
 
@@ -242,14 +242,14 @@ Iteration discipline that keeps that cost bounded:
 
 ## Reference
 
-[`reference/techniques.md`](reference/techniques.md) — ten prompt archetypes, the settings
+[`reference/techniques.md`](reference/techniques.md) - ten prompt archetypes, the settings
 each used, why the combination works, and which technique each one introduces. Use it to
 pick the closest archetype before writing from scratch.
 
 ## Provenance
 
 The prompting method, lock patterns, and asset rules above are distilled from material the
-Higgsfield team published in August 2026 — an official Seedance 2.5 prompting guide of ten
+Higgsfield team published in August 2026 - an official Seedance 2.5 prompting guide of ten
 categories each tested across multiple generations, and the open-sourced production method
 of a 110-minute Seedance feature. No prompt from either source is reproduced verbatim; the
 technique is restated with original templates. Credit for the underlying work is theirs.
