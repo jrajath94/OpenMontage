@@ -20,7 +20,7 @@ Pick `.out` for entrances, `.in` for exits, `.inOut` for symmetric moves and con
 
 ## Easing Vocabulary (character & mood)
 
-Easings are tone of voice: a video that only whispers is boring; one that varies between whisper, normal, and punch is engaging. Every composition should use at least 3 different easings — `power2.out` for everything produces flat, monotonous motion.
+Easings are tone of voice: a video that only whispers is boring; one that varies between whisper, normal, and punch is engaging. Every composition should use at least 3 different easings - `power2.out` for everything produces flat, monotonous motion.
 
 The full palette by character (each family has `.in`, `.out`, `.inOut` variants):
 
@@ -35,7 +35,7 @@ The full palette by character (each family has `.in`, `.out`, `.inOut` variants)
 | `circ`               | Circular acceleration (starts very fast, ends very gentle or vice versa)     | Camera moves, scene transitions, orbital motion                                                    |
 | `steps(N)`           | Discrete N-step jumps, no interpolation                                      | Typing effects, cursor blink, counter ticks, retro/digital aesthetics                              |
 
-**Mood mapping:** Match easing character to the beat's emotional content. Smooth/organic easings (`sine`, `power1`) feel contemplative and drifting. Aggressive deceleration (`power4.out`, `expo.out`) feels snappy and confident. Spring overshoot (`back.out`) feels bouncy and physical. The storyboard's mood description should guide which character fits — not a formula.
+**Mood mapping:** Match easing character to the beat's emotional content. Smooth/organic easings (`sine`, `power1`) feel contemplative and drifting. Aggressive deceleration (`power4.out`, `expo.out`) feels snappy and confident. Spring overshoot (`back.out`) feels bouncy and physical. The storyboard's mood description should guide which character fits - not a formula.
 
 ## Defaults
 
@@ -52,7 +52,7 @@ Or globally:
 gsap.defaults({ duration: 0.6, ease: "power2.out" });
 ```
 
-Setting defaults at timeline scope is preferred — it documents the motion language of that composition in one place.
+Setting defaults at timeline scope is preferred - it documents the motion language of that composition in one place.
 
 ## Stagger
 
@@ -80,7 +80,7 @@ gsap.fromTo(
 );
 ```
 
-Prefer `stagger` over N separate tweens with manual delays — it stays correct when the target count or order changes. Use `fromTo()` rather than `from()` so the start state is explicit (see `gsap-timeline-and-labels.md` → sub-composition entrances).
+Prefer `stagger` over N separate tweens with manual delays - it stays correct when the target count or order changes. Use `fromTo()` rather than `from()` so the start state is explicit (see `gsap-timeline-and-labels.md` → sub-composition entrances).
 
 ## Function-Based Values
 
@@ -98,7 +98,7 @@ Use this for per-element values that depend on index, attributes, or measured si
 
 ## gsap.matchMedia (preview only)
 
-`matchMedia` runs setup only when a media query matches and auto-reverts when it stops matching. It is useful for **preview** in the browser at different viewport sizes, and for `prefers-reduced-motion`. It is **not** a substitute for rendering at the composition's actual `data-width`/`data-height` — HyperFrames renders at a fixed viewport.
+`matchMedia` runs setup only when a media query matches and auto-reverts when it stops matching. It is useful for **preview** in the browser at different viewport sizes, and for `prefers-reduced-motion`. It is **not** a substitute for rendering at the composition's actual `data-width`/`data-height` - HyperFrames renders at a fixed viewport.
 
 ```javascript
 let mm = gsap.matchMedia();
