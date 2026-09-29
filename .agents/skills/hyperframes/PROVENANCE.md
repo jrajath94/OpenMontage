@@ -1,4 +1,4 @@
-# HyperFrames Skills — Provenance
+# HyperFrames Skills - Provenance
 
 The 12 HyperFrames-family skills under `.agents/skills/` are vendored from the upstream HyperFrames monorepo:
 
@@ -15,7 +15,7 @@ The 12 HyperFrames-family skills under `.agents/skills/` are vendored from the u
 | Skill | Notes |
 |---|---|
 | `hyperframes` | Slim entry-point in 0.7; deep content moved to focused skills below. |
-| `hyperframes-cli` | Greatly expanded in 0.7 (was 1 file, now 7). Now covers `validate`, `inspect`, `snapshot`, `benchmark`, `lambda`, etc. natively — the old OM-local patch teaching `validate` is obsolete and was dropped. |
+| `hyperframes-cli` | Greatly expanded in 0.7 (was 1 file, now 7). Now covers `validate`, `inspect`, `snapshot`, `benchmark`, `lambda`, etc. natively - the old OM-local patch teaching `validate` is obsolete and was dropped. |
 | `hyperframes-registry` | Block/component registry workflow. |
 | `website-to-video` | Renamed upstream from `website-to-hyperframes`. |
 
@@ -23,13 +23,13 @@ The 12 HyperFrames-family skills under `.agents/skills/` are vendored from the u
 
 | Skill | Why we want it in OpenMontage |
 |---|---|
-| `hyperframes-core` | The composition contract — `data-*` timing, tracks, sub-compositions. The split-out core of what was in `hyperframes` 0.4. |
-| `hyperframes-creative` | Non-animation creative direction — palette, type, narration, beat planning. |
-| `hyperframes-media` | Audio + media assets — TTS, BGM, SFX, transcription, captions, background removal. |
+| `hyperframes-core` | The composition contract - `data-*` timing, tracks, sub-compositions. The split-out core of what was in `hyperframes` 0.4. |
+| `hyperframes-creative` | Non-animation creative direction - palette, type, narration, beat planning. |
+| `hyperframes-media` | Audio + media assets - TTS, BGM, SFX, transcription, captions, background removal. |
 | `hyperframes-animation` | All animation knowledge (rules, blueprints, transitions, techniques, 7 runtime adapters). Replaces ad-hoc motion guidance previously scattered in `hyperframes`. |
-| `media-use` | Agent Media OS — one `resolve` verb resolves BGM/SFX/image/icon needs into local files via project/global cache + HeyGen catalog. Strategic for OpenMontage asset stages. |
+| `media-use` | Agent Media OS - one `resolve` verb resolves BGM/SFX/image/icon needs into local files via project/global cache + HeyGen catalog. Strategic for OpenMontage asset stages. |
 | `motion-graphics` | Short design-led motion graphic patterns (kinetic typography, stat reveals, logo stings, lower-thirds). |
-| `remotion-to-hyperframes` | Migration guidance — directly relevant given OpenMontage runs BOTH runtimes. |
+| `remotion-to-hyperframes` | Migration guidance - directly relevant given OpenMontage runs BOTH runtimes. |
 | `music-to-video` | Beat-synced music-driven video workflow using `hyperframes beats`. |
 
 ## Intentionally NOT vendored
@@ -60,4 +60,4 @@ done
 
 ## Future automation
 
-Upstream 0.7 added `hyperframes skills` — a CLI that installs/updates HF skills with a freshness manifest and version check. Consider adopting it as the mechanical source of truth instead of hand-vendoring (would also auto-flag staleness across multi-agent setups). See `feat(cli): skills freshness — version check, manifest, global install + multi-agent mirror (#1753)` in HF history.
+Upstream 0.7 added `hyperframes skills` - a CLI that installs/updates HF skills with a freshness manifest and version check. Consider adopting it as the mechanical source of truth instead of hand-vendoring (would also auto-flag staleness across multi-agent setups). See `feat(cli): skills freshness — version check, manifest, global install + multi-agent mirror (#1753)` in HF history.
