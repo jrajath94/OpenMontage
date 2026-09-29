@@ -17,7 +17,7 @@ comparisons and picture-in-picture commentary.
 | `audio_mixer` | Mix, duck, and crossfade audio tracks across stitch points |
 | `scene_detect` | Find natural scene boundaries in source footage |
 
-## When to Stitch — Decision Tree
+## When to Stitch - Decision Tree
 
 ```
 Do you have multiple clips that need to become one video?
@@ -51,7 +51,7 @@ Clips play one after another in timeline order. This is the most common strategy
 **Audio continuity rules:**
 - Match audio levels across clips before stitching (normalize to -16 LUFS)
 - If background music spans multiple clips, mix it as a single track via `audio_mixer` and mux post-concat
-- Never let music cut abruptly at a stitch point — crossfade or duck instead
+- Never let music cut abruptly at a stitch point - crossfade or duck instead
 
 ### 2. Spatial Stitching
 
@@ -89,7 +89,7 @@ AI video generators produce short clips (LTX-2: ~8 seconds max). Stitching them
 into longer sequences requires special care to maintain visual continuity.
 
 **Process:**
-1. Generate clips with overlapping prompts — last frame description of clip N should match first frame description of clip N+1
+1. Generate clips with overlapping prompts - last frame description of clip N should match first frame description of clip N+1
 2. Use `frame_sampler` to extract the last frame of clip N and first frame of clip N+1
 3. Visually inspect the pair for continuity breaks (color shift, subject position, background change)
 4. If discontinuity is minor → use a 0.5-1.0s crossfade to smooth the junction
@@ -97,10 +97,10 @@ into longer sequences requires special care to maintain visual continuity.
 6. After stitching, apply a global color grade to unify the visual tone across clips
 
 **AI clip chaining pitfalls:**
-- AI clips may have inconsistent FPS — normalize all clips to the same FPS before stitching
-- Color temperature often shifts between generations — apply consistent color grade post-stitch
-- Motion direction may not match — review last/first frames for jarring movement reversals
-- Audio (if any) will not be continuous — strip AI audio and use a single music/narration track
+- AI clips may have inconsistent FPS - normalize all clips to the same FPS before stitching
+- Color temperature often shifts between generations - apply consistent color grade post-stitch
+- Motion direction may not match - review last/first frames for jarring movement reversals
+- Audio (if any) will not be continuous - strip AI audio and use a single music/narration track
 
 ### 4. Hybrid Stitching
 
@@ -240,7 +240,7 @@ causing audio to drift out of sync by the end.
 **Problem:** Stitching a 16:9 clip with a 9:16 clip creates letterboxing or stretching.
 
 **Solution:** Decide on a target aspect ratio up front. Pad non-conforming clips with black
-bars (`pad` filter) or crop them (`crop` filter) — never stretch.
+bars (`pad` filter) or crop them (`crop` filter) - never stretch.
 
 ### Variable Frame Rate (VFR) Sources
 
