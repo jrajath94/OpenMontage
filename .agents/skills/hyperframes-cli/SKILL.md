@@ -9,31 +9,31 @@ Everything runs through `npx hyperframes` unless project instructions specify a 
 
 ## Workflow
 
-1. **Scaffold** — `npx hyperframes init my-video` (or `capture` from a URL). `init` also checks the installed skills against the latest on GitHub and updates the global set if any are out of date. The `--skip-skills` flag is currently neutered (temporary, while the skills.sh registry catches up), so every `init` runs this check and pulls our latest skills regardless.
-2. **Write** — author HTML composition (see the `hyperframes-core` skill)
-3. **Lint** — `npx hyperframes lint`
-4. **Validate** — `npx hyperframes validate` (runtime errors + contrast)
-5. **Visual inspect** — `npx hyperframes inspect`
-6. **Preview** — `npx hyperframes preview` opens **Studio**, the timeline editor where the user can manually edit anything (not just watch). Review there, then ask before rendering.
-7. **Render** — pick the variant:
+1. **Scaffold** - `npx hyperframes init my-video` (or `capture` from a URL). `init` also checks the installed skills against the latest on GitHub and updates the global set if any are out of date. The `--skip-skills` flag is currently neutered (temporary, while the skills.sh registry catches up), so every `init` runs this check and pulls our latest skills regardless.
+2. **Write** - author HTML composition (see the `hyperframes-core` skill)
+3. **Lint** - `npx hyperframes lint`
+4. **Validate** - `npx hyperframes validate` (runtime errors + contrast)
+5. **Visual inspect** - `npx hyperframes inspect`
+6. **Preview** - `npx hyperframes preview` opens **Studio**, the timeline editor where the user can manually edit anything (not just watch). Review there, then ask before rendering.
+7. **Render** - pick the variant:
    - Iterate: `npx hyperframes render --quality draft`
    - Deliver: `npx hyperframes render --quality high --output out.mp4`
    - CI / cross-host repro: `npx hyperframes render --docker --strict --output out.mp4`
    - Cloud (long / large): `npx hyperframes lambda render ./my-project --width 1920 --height 1080 --wait` (see Lambda below)
 
-Run lint, validate, and inspect before preview. `lint` catches missing `data-composition-id`, overlapping tracks, and unregistered timelines. `validate` loads the composition in headless Chrome and reports runtime console errors plus WCAG contrast issues. `inspect` seeks through the timeline and reports text spilling out of bubbles/containers or off the canvas — and, when a `*.motion.json` sidecar is present, verifies motion intent (entrances firing under seek, stagger order, in-frame, liveness) against that same seeked timeline.
+Run lint, validate, and inspect before preview. `lint` catches missing `data-composition-id`, overlapping tracks, and unregistered timelines. `validate` loads the composition in headless Chrome and reports runtime console errors plus WCAG contrast issues. `inspect` seeks through the timeline and reports text spilling out of bubbles/containers or off the canvas - and, when a `*.motion.json` sidecar is present, verifies motion intent (entrances firing under seek, stagger order, in-frame, liveness) against that same seeked timeline.
 
-For motion-heavy work, prefer snapshot-driven iteration and a `*.motion.json` sidecar — see `references/lint-validate-inspect.md` for the discipline and motion-verification spec.
+For motion-heavy work, prefer snapshot-driven iteration and a `*.motion.json` sidecar - see `references/lint-validate-inspect.md` for the discipline and motion-verification spec.
 
 ## Agent Conventions
 
 Cross-cutting rules that hold for every command:
 
-- **`--json` is available on every command except `render`, `preview`, and `play`.** Use it for any agent / CI invocation of the supported commands; output includes a `_meta` envelope (cli version, latest available, update advice). `render` reports status via stdout + exit code only — verify success with the post-render check below; `preview` / `play` are servers, no JSON.
+- **`--json` is available on every command except `render`, `preview`, and `play`.** Use it for any agent / CI invocation of the supported commands; output includes a `_meta` envelope (cli version, latest available, update advice). `render` reports status via stdout + exit code only - verify success with the post-render check below; `preview` / `play` are servers, no JSON.
 - **`doctor --json` always exits 0**, even when the environment is broken. Gate on the payload's `ok` field: `npx hyperframes doctor --json | jq -e '.ok' > /dev/null`. This insulates pipelines from CLI release churn.
 - **Non-TTY mode is auto-detected.** When `stdout` is not a TTY (CI, agents, piped output) the CLI auto-switches to non-interactive; `init` then **requires `--example`**. Pass `--non-interactive` to force this mode even on a TTY.
 - **CI gating on render**: `--strict` fails on lint errors, `--strict-all` fails on warnings too, `--strict-variables` fails on undeclared `--variables` keys.
-- **Paths in `--json` are redacted** — `$HOME` becomes the literal `$HOME` so output is safe to paste into bug reports and agent contexts.
+- **Paths in `--json` are redacted** - `$HOME` becomes the literal `$HOME` so output is safe to paste into bug reports and agent contexts.
 - **Render is user-gated.** Never auto-render once the checks pass. Pause at `preview`, tell the user the video is editable in Studio, and render only after they approve.
 - **Post-render verification.** After `render` returns exit 0, confirm the output file exists and has plausible size before reporting success: `[ -s "$OUTPUT" ] || echo "render produced no output"`. The CLI prints `◇  <path>` on success; for long renders also sanity-check duration with `ffprobe -i "$OUTPUT" -show_format -v error`.
 
@@ -80,11 +80,11 @@ npx hyperframes validate
 
 Add `inspect` for layout-sensitive work and `render --strict` in CI to fail on lint errors.
 
-### Visual smoke test — required when the project uses sub-compositions
+### Visual smoke test - required when the project uses sub-compositions
 
 `lint` / `validate` / `inspect` evaluate each composition **in isolation**. They never load `index.html` and mount sub-compositions via `data-composition-src`, so they cannot catch cross-file mount failures (see `hyperframes-core` → `references/sub-compositions.md`, "Common pitfalls"). The only gate that catches them is one that actually loads `index.html` and seeks the timeline.
 
-Use `hyperframes snapshot` — it loads the project the same way `render` does (so it exercises the same mount path) but only captures the timestamps you request, so it's seconds instead of a full render:
+Use `hyperframes snapshot` - it loads the project the same way `render` does (so it exercises the same mount path) but only captures the timestamps you request, so it's seconds instead of a full render:
 
 ```bash
 # Capture one frame at the midpoint of every sub-composition.
@@ -101,9 +101,9 @@ Per-frame red flags (each maps to a specific failure mode the static gates miss)
 
 | What you see                                                                       | Root cause                                                                                  |
 | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| Text shows up tiny + unstyled in the top-left corner                               | `<style>` block left in `<head>` outside `<template>` (Pitfall 1) — no CSS reached live DOM |
-| SVG/icon elements blown up to canvas-size                                          | Same as above — no width/height constraints applied                                         |
-| Hero element of the scene is missing entirely; only background + watermark visible | Host-id ≠ template id (Pitfall 2) — timeline never ran, frame captured at initial state     |
-| Snapshot command logs `Sub-composition timelines not registered after 45000ms`     | Pitfall 2 — direct confirmation                                                             |
+| Text shows up tiny + unstyled in the top-left corner                               | `<style>` block left in `<head>` outside `<template>` (Pitfall 1) - no CSS reached live DOM |
+| SVG/icon elements blown up to canvas-size                                          | Same as above - no width/height constraints applied                                         |
+| Hero element of the scene is missing entirely; only background + watermark visible | Host-id ≠ template id (Pitfall 2) - timeline never ran, frame captured at initial state     |
+| Snapshot command logs `Sub-composition timelines not registered after 45000ms`     | Pitfall 2 - direct confirmation                                                             |
 
 `snapshots/` can be deleted after eyeballing; the user-facing final render is a separate pass with `npx hyperframes render`.
