@@ -6,13 +6,13 @@ license: MIT
 
 # Synthetic Screen Recording (Remotion TerminalScene)
 
-**Decision this skill answers:** When the user wants a screen-recording-looking demo of a terminal, CLI tool, or coding workflow — do I **capture the real desktop** (OS screen recording via `screen_recorder`, Windows-MCP, Cap, or Playwright), or do I **synthesize it in Remotion** with the `TerminalScene` component?
+**Decision this skill answers:** When the user wants a screen-recording-looking demo of a terminal, CLI tool, or coding workflow - do I **capture the real desktop** (OS screen recording via `screen_recorder`, Windows-MCP, Cap, or Playwright), or do I **synthesize it in Remotion** with the `TerminalScene` component?
 
 > **Heuristic:** If the agent can author the exact command/output sequence in advance, synthesize. Only capture live when the real behavior is unpredictable, needs a real app UI, or the user explicitly asked for a real recording.
 
 ## Why this exists
 
-v3 of the OpenMontage showcase tried to use Windows-MCP + `screen_recorder` to drive a Git-Bash window for the install walkthrough. It stalled on window positioning, focus races, and taskbar privacy concerns. We pivoted to **pure Remotion rendering** — a React component named `TerminalScene` that draws a fake terminal and types commands character-by-character. The output is visually indistinguishable from a real screen recording (same traffic-light window chrome, blinking cursor, scrolling output) but deterministic, privacy-safe, pixel-perfect at 1080p, and pace-controllable to the frame.
+v3 of the OpenMontage showcase tried to use Windows-MCP + `screen_recorder` to drive a Git-Bash window for the install walkthrough. It stalled on window positioning, focus races, and taskbar privacy concerns. We pivoted to **pure Remotion rendering** - a React component named `TerminalScene` that draws a fake terminal and types commands character-by-character. The output is visually indistinguishable from a real screen recording (same traffic-light window chrome, blinking cursor, scrolling output) but deterministic, privacy-safe, pixel-perfect at 1080p, and pace-controllable to the frame.
 
 That component + pattern is the capability this skill makes discoverable.
 
@@ -22,7 +22,7 @@ That component + pattern is the capability this skill makes discoverable.
 - The demo is a **terminal / CLI / coding session** where commands and outputs are predictable
 - The user wants a polished tutorial feel (clean typography, floating pills, cursor blink)
 - Install walkthroughs, setup demos, API key config, `make` targets, `git clone` flows
-- You need tight sync with narration — every command must land on a specific beat
+- You need tight sync with narration - every command must land on a specific beat
 - You want the result reproducible (re-render gets identical pixels)
 - The user's actual desktop has private apps/windows visible you'd otherwise have to crop
 
@@ -35,7 +35,7 @@ That component + pattern is the capability this skill makes discoverable.
 **For a browser demo** → `playwright-recording` skill, not this one.
 **For a real desktop** → `screen_recorder` tool or Cap via `cap_recorder`.
 
-## The component — `TerminalScene`
+## The component - `TerminalScene`
 
 Located at: `remotion-composer/src/components/TerminalScene.tsx`
 Exported from: `remotion-composer/src/components/index.ts`
@@ -60,10 +60,10 @@ interface TerminalSceneProps {
 { kind: "pill",  text: string, color?: string, durationSeconds?: number }
 ```
 
-- `cmd` — prints the prompt, types the text character-by-character (`typeSpeed` is seconds per character, default 0.035), then holds for `holdSeconds` (default 0.3)
-- `out` — a line of program output, reveals instantly with a short fade-in
-- `pause` — dead time. Terminal holds on last visible state. USE THIS TO SYNC WITH NARRATION.
-- `pill` — non-blocking floating badge (top-right). Spring-in, hold, spring-out. Does NOT advance the cursor — the next step runs in parallel.
+- `cmd` - prints the prompt, types the text character-by-character (`typeSpeed` is seconds per character, default 0.035), then holds for `holdSeconds` (default 0.3)
+- `out` - a line of program output, reveals instantly with a short fade-in
+- `pause` - dead time. Terminal holds on last visible state. USE THIS TO SYNC WITH NARRATION.
+- `pill` - non-blocking floating badge (top-right). Spring-in, hold, spring-out. Does NOT advance the cursor - the next step runs in parallel.
 
 ## Authoring pattern
 
@@ -95,17 +95,17 @@ cuts.append({
 
 ## THE RULE: pace with narration, never ahead
 
-**The #1 failure mode:** steps run continuously and burn through all content in the first 40% of the scene, leaving the terminal frozen for the remaining 60%. This is what killed the v3 first pass — the capability menu rendered at t=80s but narration didn't announce it until t=92s.
+**The #1 failure mode:** steps run continuously and burn through all content in the first 40% of the scene, leaving the terminal frozen for the remaining 60%. This is what killed the v3 first pass - the capability menu rendered at t=80s but narration didn't announce it until t=92s.
 
 **Do this instead:**
 
-1. **Know your narration cues** — for each scene, write down the exact video-time each narration segment starts.
+1. **Know your narration cues** - for each scene, write down the exact video-time each narration segment starts.
 2. **Start with a pause** that reaches the first narration cue before any command types.
-3. **Time each command to land with its narration line** — `cmd` should start typing the moment narration says its line, not before.
+3. **Time each command to land with its narration line** - `cmd` should start typing the moment narration says its line, not before.
 4. **Put pauses between command groups** that bridge to the next narration cue.
-5. **End with a closer hold** — a pause long enough that the final state is readable after narration ends.
+5. **End with a closer hold** - a pause long enough that the final state is readable after narration ends.
 
-**Sanity-check your steps before rendering** — every minute of Remotion render is precious. Sum the step durations and verify they equal scene duration:
+**Sanity-check your steps before rendering** - every minute of Remotion render is precious. Sum the step durations and verify they equal scene duration:
 
 ```python
 import math
@@ -131,16 +131,16 @@ See `lib/verify_scene_pacing.py` for a reusable version of this script.
 
 ## Design rules (inherited from the v3 retune)
 
-- **Intro pause** — every terminal scene opens with at least 2s of empty-terminal-with-blinking-cursor before anything types. The viewer needs to register the window.
-- **Pill timing** — a pill should fire at the exact moment its named event completes on screen (e.g., `repo cloned` immediately after the last `Receiving objects` line). Pills are your substitute for real-world UI notifications.
-- **Command hold after typing** — keep `holdSeconds` ≥ 0.3 on every `cmd` so viewers register the completed command before the first output scrolls in.
-- **Output cadence** — space `holdSeconds` on output lines between 0.4 and 1.0. Output that flies too fast feels like a bug; output that crawls feels boring.
-- **Auto-scroll works** — the terminal holds the most recent 18 lines. Don't worry about off-screen content.
+- **Intro pause** - every terminal scene opens with at least 2s of empty-terminal-with-blinking-cursor before anything types. The viewer needs to register the window.
+- **Pill timing** - a pill should fire at the exact moment its named event completes on screen (e.g., `repo cloned` immediately after the last `Receiving objects` line). Pills are your substitute for real-world UI notifications.
+- **Command hold after typing** - keep `holdSeconds` ≥ 0.3 on every `cmd` so viewers register the completed command before the first output scrolls in.
+- **Output cadence** - space `holdSeconds` on output lines between 0.4 and 1.0. Output that flies too fast feels like a bug; output that crawls feels boring.
+- **Auto-scroll works** - the terminal holds the most recent 18 lines. Don't worry about off-screen content.
 - **Cursor blinks only on the latest command line while typing + a ~0.2s tail** after typing completes.
 
 ## `ProviderChip` (companion component)
 
-The `.agents/skills/synthetic-screen-recording` pattern also owns `ProviderChip` — a rotating badge overlay that cycles through a list of provider names at a fixed cadence. Used in the v3 showcase to cycle through all 11 AI video-gen providers during the "generated motion" section.
+The `.agents/skills/synthetic-screen-recording` pattern also owns `ProviderChip` - a rotating badge overlay that cycles through a list of provider names at a fixed cadence. Used in the v3 showcase to cycle through all 11 AI video-gen providers during the "generated motion" section.
 
 ```python
 overlays.append({
@@ -171,11 +171,11 @@ The pattern generalizes. When you need to fake another UI surface (Claude Code c
 
 ## Related skills
 
-- `.agents/skills/remotion` — general Remotion authoring (hooks, springs, sequences)
-- `.agents/skills/playwright-recording` — real browser-flow capture for web apps
-- `tools/capture/screen_recorder` — ffmpeg-based desktop capture
-- `tools/capture/cap_recorder` — Cap.so polished desktop capture
-- `skills/pipelines/screen-demo/asset-director.md` — chooses between synthetic and real for a screen-demo project
+- `.agents/skills/remotion` - general Remotion authoring (hooks, springs, sequences)
+- `.agents/skills/playwright-recording` - real browser-flow capture for web apps
+- `tools/capture/screen_recorder` - ffmpeg-based desktop capture
+- `tools/capture/cap_recorder` - Cap.so polished desktop capture
+- `skills/pipelines/screen-demo/asset-director.md` - chooses between synthetic and real for a screen-demo project
 
 ## Provenance
 
