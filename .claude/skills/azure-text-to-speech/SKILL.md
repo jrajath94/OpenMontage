@@ -1,18 +1,18 @@
 ---
 name: azure-text-to-speech
-description: Generate neural narration audio using Azure AI Speech (REST text-to-speech). Use when synthesizing voiceovers or narration in OpenMontage. Optional cloud TTS provider — preferred when AZURE_SPEECH_KEY is configured; the local piper_tts remains the default offline path. Shares one Speech resource with azure_stt.
+description: Generate neural narration audio using Azure AI Speech (REST text-to-speech). Use when synthesizing voiceovers or narration in OpenMontage. Optional cloud TTS provider - preferred when AZURE_SPEECH_KEY is configured; the local piper_tts remains the default offline path. Shares one Speech resource with azure_stt.
 license: MIT
 compatibility: Requires internet access and an Azure AI Speech resource (AZURE_SPEECH_KEY + AZURE_SPEECH_REGION).
 metadata: {"openclaw": {"requires": {"env": ["AZURE_SPEECH_KEY", "AZURE_SPEECH_REGION"]}, "primaryEnv": "AZURE_SPEECH_KEY"}}
 ---
 
-# Azure AI Speech — Text-to-Speech
+# Azure AI Speech - Text-to-Speech
 
-Generate narration with **Azure neural TTS** — high-quality multilingual voices,
+Generate narration with **Azure neural TTS** - high-quality multilingual voices,
 SSML prosody control, and express-as styles, served synchronously by the REST
 `/cognitiveservices/v1` endpoint (no token exchange, Blob storage, or job
 polling). In OpenMontage this is exposed through the `azure_tts` tool
-(`capability=tts`, `provider=azure`). It is an **optional cloud TTS provider** —
+(`capability=tts`, `provider=azure`). It is an **optional cloud TTS provider** -
 when `AZURE_SPEECH_KEY` is configured, prefer it for high-quality cloud
 narration. The local `piper_tts` remains the **default offline path** and the
 fallback when Azure is unavailable; `elevenlabs_tts` remains the choice for
@@ -22,7 +22,7 @@ voice cloning.
 
 ## Setup
 
-Same Speech resource as `azure_stt` — **one key/region unlocks both directions**
+Same Speech resource as `azure_stt` - **one key/region unlocks both directions**
 (STT and TTS). Create a **Speech** resource in the
 [Azure portal](https://portal.azure.com); copy the key and region from its
 **Keys and Endpoint** page.
@@ -67,26 +67,26 @@ Curated shortlist (aliases accepted by the `voice` param):
 
 | Alias | Voice | Character |
 |-------|-------|-----------|
-| `andrew` | en-US-AndrewMultilingualNeural | warm, confident, conversational — the default; founder/explainer register |
+| `andrew` | en-US-AndrewMultilingualNeural | warm, confident, conversational - the default; founder/explainer register |
 | `brandon` | en-US-BrandonMultilingualNeural | deeper, measured |
 | `ava` | en-US-AvaMultilingualNeural | confident, bright female |
 | `guy` | en-US-GuyNeural | authoritative |
 | `jenny` | en-US-JennyNeural | friendly, clear |
 
 Any valid Azure voice short name may be passed verbatim (e.g.
-`de-DE-KatjaNeural`); the *Multilingual* voices handle non-English text well —
+`de-DE-KatjaNeural`); the *Multilingual* voices handle non-English text well -
 set `locale` to match the text's language for correct SSML.
 
 ## Parameters that matter
 
-- **`rate` / `pitch`** — SSML prosody. Narration usually reads best slightly
+- **`rate` / `pitch`** - SSML prosody. Narration usually reads best slightly
   slowed (`"-4%"` to `"-8%"`); leave pitch at `"0%"` unless correcting a voice.
-- **`style`** — express-as style for voices that support it
+- **`style`** - express-as style for voices that support it
   (`narration-professional`, `calm`, `newscast`). Unsupported styles are
   silently ignored by Azure, so listen to a sample before batch runs.
-- **`output_format`** — `mp3` (48kHz/192kbit) for delivery, `wav` (48kHz PCM)
+- **`output_format`** - `mp3` (48kHz/192kbit) for delivery, `wav` (48kHz PCM)
   when the segment feeds `audio_mixer` for further processing.
-- Determinism: a fixed voice + SSML re-renders effectively identical audio —
+- Determinism: a fixed voice + SSML re-renders effectively identical audio -
   safe to regenerate individual segments without re-recording the whole set.
 
 ## Cost
@@ -99,12 +99,12 @@ per-call `cost_usd` for the cost tracker. See
 ## Limits & tips
 
 - One `execute` call = one narration segment. Generate per script section (the
-  asset stage convention) rather than one giant paragraph — smaller segments
+  asset stage convention) rather than one giant paragraph - smaller segments
   align cleanly to scene timings and are cheap to regenerate.
-- The synchronous endpoint caps a request at 10 minutes of audio — far above
+- The synchronous endpoint caps a request at 10 minutes of audio - far above
   any segment OpenMontage generates.
-- Text is XML-escaped automatically; do not pre-escape or wrap in SSML — pass
+- Text is XML-escaped automatically; do not pre-escape or wrap in SSML - pass
   plain text plus the `rate`/`pitch`/`style` params.
 - Verify quality: listen to the first generated segment before batch-running a
-  full script (voice/style fit is a creative decision — surface it at the
+  full script (voice/style fit is a creative decision - surface it at the
   proposal stage per the Decision Communication Contract).
