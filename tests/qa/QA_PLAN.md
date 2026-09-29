@@ -1,4 +1,4 @@
-# Quality Validation Plan — Phase 3.5 + G3.11
+# Quality Validation Plan - Phase 3.5 + G3.11
 
 ## Purpose
 
