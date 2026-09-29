@@ -1,4 +1,4 @@
-# Executive Producer — Avatar Spokesperson Pipeline
+# Executive Producer - Avatar Spokesperson Pipeline
 
 ## When to Use
 
@@ -46,7 +46,7 @@ EP_STATE:
 
 ## Pivot Decision Matrix
 
-`talking_head` is the preferred tool but commonly unavailable (requires GPU or HeyGen API key). When blocked, the EP must route the project explicitly — not improvise.
+`talking_head` is the preferred tool but commonly unavailable (requires GPU or HeyGen API key). When blocked, the EP must route the project explicitly - not improvise.
 
 ```
 IF talking_head AVAILABLE:
