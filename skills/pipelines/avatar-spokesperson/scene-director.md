@@ -65,21 +65,21 @@ When the EP triggers a no-avatar pivot (no `talking_head` or `lip_sync` availabl
 - **CTA scene**: dedicated end card with clear CTA text, no presenter needed.
 
 ### What stays the same:
-- The script and scene breaks are unchanged — the narration drives pacing.
+- The script and scene breaks are unchanged - the narration drives pacing.
 - Subtitle planning is unchanged.
 - Background discipline still applies (consistent family, not random).
 
 ### What changes:
-- No presenter framing decisions (center, left-third, etc.) — replaced with full-frame visual compositions.
+- No presenter framing decisions (center, left-third, etc.) - replaced with full-frame visual compositions.
 - Each scene needs a **primary visual** that reinforces the spoken content, since there's no face to anchor attention.
-- Plan more visual variety per scene — without a presenter, static backgrounds feel empty.
+- Plan more visual variety per scene - without a presenter, static backgrounds feel empty.
 
 ## Common Pitfalls
 
 - Switching backgrounds every few seconds.
 - Filling empty space with decorative panels.
 - Assuming a landscape presenter layout will survive a vertical crop untouched.
-- (Fallback mode) Producing a wall of text on screen to compensate for no presenter — let the narration carry the content.
+- (Fallback mode) Producing a wall of text on screen to compensate for no presenter - let the narration carry the content.
 
 ---
 
@@ -88,4 +88,4 @@ When the EP triggers a no-avatar pivot (no `talking_head` or `lip_sync` availabl
 This stage gates on human approval (`human_approval_default: true`). After review passes:
 checkpoint with `status="awaiting_human"`, present the summary (the Backlot board renders
 the artifact), and **END YOUR TURN**. Do not start the next stage in the same response.
-Approval is per-gate — an earlier "go ahead" does not cover this gate.
+Approval is per-gate - an earlier "go ahead" does not cover this gate.
