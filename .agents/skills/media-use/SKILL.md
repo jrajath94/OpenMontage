@@ -1,6 +1,6 @@
 ---
 name: media-use
-description: Agent Media OS — resolve any media need (BGM, SFX, image, icon) into a frozen local file + ledger record. One verb (`resolve`) handles the full cascade — project cache, global cache, HeyGen catalog search, freeze, register. Keeps search noise on disk, hands the agent a path. Use when a composition needs background music, sound effects, images, or icons.
+description: Agent Media OS - resolve any media need (BGM, SFX, image, icon) into a frozen local file + ledger record. One verb (`resolve`) handles the full cascade - project cache, global cache, HeyGen catalog search, freeze, register. Keeps search noise on disk, hands the agent a path. Use when a composition needs background music, sound effects, images, or icons.
 ---
 
 # media-use
@@ -9,7 +9,7 @@ Resolve media needs into frozen local files. One verb, four types, zero context 
 
 ## When to use
 
-Call `resolve` whenever a composition needs media — background music, sound effects, images, or icons. media-use searches the HeyGen catalog, downloads the best match, freezes it locally, and registers it in a manifest. The agent gets back one line; all search noise stays on disk.
+Call `resolve` whenever a composition needs media - background music, sound effects, images, or icons. media-use searches the HeyGen catalog, downloads the best match, freezes it locally, and registers it in a manifest. The agent gets back one line; all search noise stays on disk.
 
 ## Resolve
 
@@ -98,13 +98,13 @@ icon_001   icon   —     200×200    .media/images/icon_001.png    rocket
 
 ## Cross-project reuse
 
-Assets are cached automatically on resolve. Subsequent resolves for the same prompt hit the global cache at `~/.media/` — no re-download, no provider call. Promote an asset explicitly with `organize --promote <id>` to make it reusable across all projects.
+Assets are cached automatically on resolve. Subsequent resolves for the same prompt hit the global cache at `~/.media/` - no re-download, no provider call. Promote an asset explicitly with `organize --promote <id>` to make it reusable across all projects.
 
 ## Files
 
-- `.media/manifest.jsonl` — machine SSOT, one JSON record per line
-- `.media/index.md` — agent-readable table (id, type, dur, dims, path, description)
-- `~/.media/` — global cross-project reuse cache (content-addressed, SHA-256)
+- `.media/manifest.jsonl` - machine SSOT, one JSON record per line
+- `.media/index.md` - agent-readable table (id, type, dur, dims, path, description)
+- `~/.media/` - global cross-project reuse cache (content-addressed, SHA-256)
 
 ## CLI tools used
 
@@ -121,4 +121,4 @@ heygen update                                               # if already install
 export HEYGEN_API_KEY=<your-key>                            # or: heygen auth login --key <key>
 ```
 
-Requires **heygen >= v0.1.6** — the providers tag requests with the allowlisted `--headers 'X-HeyGen-Client-Source: media-use'` flag, added in v0.1.6. `asset search` is a pre-launch command hidden from `heygen --help`, but it runs. Without a `heygen` on PATH (or a valid key) the providers print a one-line diagnostic to stderr and resolve falls through to "no provider could resolve".
+Requires **heygen >= v0.1.6** - the providers tag requests with the allowlisted `--headers 'X-HeyGen-Client-Source: media-use'` flag, added in v0.1.6. `asset search` is a pre-launch command hidden from `heygen --help`, but it runs. Without a `heygen` on PATH (or a valid key) the providers print a one-line diagnostic to stderr and resolve falls through to "no provider could resolve".
