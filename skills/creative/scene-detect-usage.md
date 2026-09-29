@@ -44,7 +44,7 @@ MIXED CONTENT:    Use adaptive detector
 ### ThresholdDetector
 
 - Only for videos with deliberate fade-to-black transitions
-- Most AI-generated video does NOT use fades — prefer `content` or `adaptive`
+- Most AI-generated video does NOT use fades - prefer `content` or `adaptive`
 
 ## Tuning Workflow
 
@@ -53,7 +53,7 @@ MIXED CONTENT:    Use adaptive detector
    scenedetect -i video.mp4 --stats stats.csv detect-content
    ```
 
-2. **Inspect `stats.csv`** — look at the `content_val` column. Peaks = scene changes.
+2. **Inspect `stats.csv`** - look at the `content_val` column. Peaks = scene changes.
 
 3. **Set threshold** just below the smallest real peak.
 
@@ -80,9 +80,9 @@ weights=(1.0, 0.5, 1.0, 0.2), threshold=32
 
 After detection, clean up the scene list:
 
-1. **Merge too-short segments** — any scene under `min_scene_length` should be merged with the adjacent scene
-2. **Validate boundaries** — check that scene boundaries align with narration pauses (for explainers)
-3. **Label scenes** — map detected scenes to script sections for the edit stage
+1. **Merge too-short segments** - any scene under `min_scene_length` should be merged with the adjacent scene
+2. **Validate boundaries** - check that scene boundaries align with narration pauses (for explainers)
+3. **Label scenes** - map detected scenes to script sections for the edit stage
 
 ## Content-Type Presets
 
@@ -99,10 +99,10 @@ After detection, clean up the scene list:
 
 When using the `scene_detect` tool:
 
-1. **Start with `content` method, threshold 27** — it works for most content
+1. **Start with `content` method, threshold 27** - it works for most content
 2. **For talking-head pipeline**, lower threshold to 22 and set min_scene_length to 3.0s
 3. **For animated-explainer pipeline**, use `adaptive` with default threshold 3.0
-4. **Always generate stats CSV first** when tuning — don't guess thresholds
+4. **Always generate stats CSV first** when tuning - don't guess thresholds
 5. **Set min_scene_length to 2.0s** for educational content to avoid micro-scenes
-6. **Use detected scenes to inform the edit stage** — map scenes to script sections
-7. **For AI-generated video clips**, use `content` not `threshold` — AI video rarely uses fade-to-black
+6. **Use detected scenes to inform the edit stage** - map scenes to script sections
+7. **For AI-generated video clips**, use `content` not `threshold` - AI video rarely uses fade-to-black
