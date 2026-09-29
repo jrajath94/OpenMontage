@@ -1,11 +1,11 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/monty-dark.svg">
-    <img src="assets/monty-light.svg" alt="Monty the Clapper — OpenMontage 官方吉祥物" width="200">
+    <img src="assets/monty-light.svg" alt="Monty the Clapper - OpenMontage 官方吉祥物" width="200">
   </picture>
 </p>
 
-<p align="center"><sub><em>Monty the Clapper — OpenMontage 官方吉祥物</em></sub></p>
+<p align="center"><sub><em>Monty the Clapper - OpenMontage 官方吉祥物</em></sub></p>
 
 <h1 align="center">OpenMontage</h1>
 
@@ -26,7 +26,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/trending"><img src="https://img.shields.io/badge/%F0%9F%8F%86%20%231%20on%20GitHub%20Trending-Repository%20of%20the%20Day-8957E5?style=for-the-badge&labelColor=1a1a2e" alt="#1 on GitHub Trending — Repository of the Day"></a>
+  <a href="https://github.com/trending"><img src="https://img.shields.io/badge/%F0%9F%8F%86%20%231%20on%20GitHub%20Trending-Repository%20of%20the%20Day-8957E5?style=for-the-badge&labelColor=1a1a2e" alt="#1 on GitHub Trending - Repository of the Day"></a>
 </p>
 
 <p align="center"><strong>关注开发进展</strong></p>
@@ -39,7 +39,7 @@
 
 ---
 
-将您的 AI 编程助手变成一个完整的视频制作工作室。用通俗的语言描述您的需求——您的智能体会自动处理研究、脚本编写、资产生成、剪辑以及最终合成。
+将您的 AI 编程助手变成一个完整的视频制作工作室。用通俗的语言描述您的需求--您的智能体会自动处理研究、脚本编写、资产生成、剪辑以及最终合成。
 
 **重要的区别：** OpenMontage 可以制作基于图像生成的视频，但它也能为免费/开源工作流制作真正的**原生视频（video video）**：智能体会从免费的免版税素材和开源档案中建立语料库，检索实际的动态画面，将它们剪辑到时间线中，并渲染出成品。这绝非通常那种“让几张静态图片动起来就称为视频”的把戏。
 
@@ -47,40 +47,40 @@
   <video src="https://github.com/user-attachments/assets/f77ce7a4-68b8-4f94-a287-e94bf50a32e1" width="100%" controls></video>
 </div>
 
-> **“来自明天的信号 (SIGNAL FROM TOMORROW)”** — 一部完全通过 OpenMontage 制作的电影级科幻预告片：包括概念、剧本、场景规划、Veo 生成的动态片段、配乐以及 Remotion 合成。
+> **“来自明天的信号 (SIGNAL FROM TOMORROW)”** - 一部完全通过 OpenMontage 制作的电影级科幻预告片：包括概念、剧本、场景规划、Veo 生成的动态片段、配乐以及 Remotion 合成。
 
 <div align="center">
   <video src="https://github.com/user-attachments/assets/8daca07f-cdf8-4bec-89c3-9dc2176363fa" width="100%" controls></video>
 </div>
 
-> **“最后的香蕉 (THE LAST BANANA)”** — 一部 60 秒皮克斯风格的动画短片，讲述了一根孤独的香蕉与奇异果建立友谊的故事。使用了 6 个 Kling v3 生成的动态片段（通过 fal.ai）、Google Chirp3-HD 旁白、免版税钢琴曲、TikTok 风格的词级字幕以及 Remotion 合成。总成本：**1.33 美元**。
+> **“最后的香蕉 (THE LAST BANANA)”** - 一部 60 秒皮克斯风格的动画短片，讲述了一根孤独的香蕉与奇异果建立友谊的故事。使用了 6 个 Kling v3 生成的动态片段（通过 fal.ai）、Google Chirp3-HD 旁白、免版税钢琴曲、TikTok 风格的词级字幕以及 Remotion 合成。总成本：**1.33 美元**。
 
 <div align="center">
   <video src="https://github.com/user-attachments/assets/8a6d2cc3-7ad2-46f5-922f-a8e3e5848d9f" width="100%" controls></video>
 </div>
 
-> **“虚空神经接口 (VOID — Neural Interface)”** — 仅使用一个 API 密钥 (OpenAI) 制作的产品广告。包含 4 张 AI 生成的图像 (gpt-image-1)、TTS 旁白、自动获取的免版税音乐、通过 WhisperX 生成的词级字幕以及 Remotion 数据可视化。总成本：**0.69 美元**。零手动资产工作。
+> **“虚空神经接口 (VOID - Neural Interface)”** - 仅使用一个 API 密钥 (OpenAI) 制作的产品广告。包含 4 张 AI 生成的图像 (gpt-image-1)、TTS 旁白、自动获取的免版税音乐、通过 WhisperX 生成的词级字幕以及 Remotion 数据可视化。总成本：**0.69 美元**。零手动资产工作。
 
 <div align="center">
   <video src="https://github.com/user-attachments/assets/3c5d7122-7198-43e2-a97d-ed27558dd324" width="100%" controls></video>
 </div>
 
-> **“糖果乐园的午后 (Afternoon in Candyland)”** — 一部吉卜力风格的动漫。一个小女孩在糖果门、软糖河和棒棒糖花园中奇妙的午后冒险。包含 12 张 FLUX 生成的图像，配有多图交叉淡入淡出、电影级摄像机运动（缩放、平移、Ken Burns 特效）、闪光/花瓣/萤火虫粒子叠加效果，以及带有自动检测能量偏移的环境音乐。总成本：**0.15 美元**。无需视频生成，无需手动剪辑。
+> **“糖果乐园的午后 (Afternoon in Candyland)”** - 一部吉卜力风格的动漫。一个小女孩在糖果门、软糖河和棒棒糖花园中奇妙的午后冒险。包含 12 张 FLUX 生成的图像，配有多图交叉淡入淡出、电影级摄像机运动（缩放、平移、Ken Burns 特效）、闪光/花瓣/萤火虫粒子叠加效果，以及带有自动检测能量偏移的环境音乐。总成本：**0.15 美元**。无需视频生成，无需手动剪辑。
 
 <div align="center">
   <video src="https://github.com/user-attachments/assets/e8dc5e32-5c70-46de-bd52-eef887719d13" width="100%" controls></video>
 </div>
 
-> **“森林之灵 (Mori no Seishin)”** — 一部吉卜力风格的动漫，讲述森林之灵穿过古老树林的旅程。包含 12 张 FLUX 生成的图像，配有视差交叉淡入淡出、漂移和平移的摄像机运动、萤火虫和花瓣粒子、电影级暗角光照效果以及环境森林配乐。总成本：**0.15 美元**。通过 Remotion 动画引擎让静态图像栩栩如生。
+> **“森林之灵 (Mori no Seishin)”** - 一部吉卜力风格的动漫，讲述森林之灵穿过古老树林的旅程。包含 12 张 FLUX 生成的图像，配有视差交叉淡入淡出、漂移和平移的摄像机运动、萤火虫和花瓣粒子、电影级暗角光照效果以及环境森林配乐。总成本：**0.15 美元**。通过 Remotion 动画引擎让静态图像栩栩如生。
 
 <div align="center">
   <video src="https://github.com/user-attachments/assets/9cf633d9-c264-4961-bfd0-b1db188654aa" width="100%" controls></video>
 </div>
 
-> **“潜入深渊 (Into the Abyss)”** — 以动漫风格渲染的深海探索。生物发光的花园、珊瑚大教堂和发光生物 — 12 张 FLUX 生成的图像，配有闪烁和薄雾粒子叠加、光线特效、平滑的摄像机运动和海洋环境配乐。总成本：**0.15 美元**。完全不需要视频生成 API。
+> **“潜入深渊 (Into the Abyss)”** - 以动漫风格渲染的深海探索。生物发光的花园、珊瑚大教堂和发光生物 - 12 张 FLUX 生成的图像，配有闪烁和薄雾粒子叠加、光线特效、平滑的摄像机运动和海洋环境配乐。总成本：**0.15 美元**。完全不需要视频生成 API。
 
 <p align="center">
-  <a href="https://www.youtube.com/@OpenMontage?sub_confirmation=1"><strong>订阅 YouTube 上的 @OpenMontage</strong></a>，第一时间观看发布的最新视频 — 每个视频都包含了完整的提示词、流水线、使用的工具和成本，方便您自行复现。
+  <a href="https://www.youtube.com/@OpenMontage?sub_confirmation=1"><strong>订阅 YouTube 上的 @OpenMontage</strong></a>，第一时间观看发布的最新视频 - 每个视频都包含了完整的提示词、流水线、使用的工具和成本，方便您自行复现。
 </p>
 
 ---
@@ -106,7 +106,7 @@ OpenMontage 可以从 **YouTube 视频、Short、Reel、TikTok 或本地片段**
 - 在您的目标时长下，资产生成开始前**预估成本是多少**
 - 使用您当前可用的工具**实际渲染效果会是什么样**
 
-完美兼容 **Claude Code、Cursor、Copilot、Windsurf、Codex** — 任何能够读取文件并运行代码的 AI 编程助手。
+完美兼容 **Claude Code、Cursor、Copilot、Windsurf、Codex** - 任何能够读取文件并运行代码的 AI 编程助手。
 
 ---
 
@@ -114,10 +114,10 @@ OpenMontage 可以从 **YouTube 视频、Short、Reel、TikTok 或本地片段**
 
 ### 必备条件
 
-- **Python 3.10+** — [python.org](https://www.python.org/downloads/)
-- **FFmpeg** — `brew install ffmpeg` / `sudo apt install ffmpeg` / [ffmpeg.org](https://ffmpeg.org/download.html)
-- **Node.js 18+** — [nodejs.org](https://nodejs.org/)
-- **一款 AI 编程助手** — Claude Code、Cursor、Copilot、Windsurf 或 Codex
+- **Python 3.10+** - [python.org](https://www.python.org/downloads/)
+- **FFmpeg** - `brew install ffmpeg` / `sudo apt install ffmpeg` / [ffmpeg.org](https://ffmpeg.org/download.html)
+- **Node.js 18+** - [nodejs.org](https://nodejs.org/)
+- **一款 AI 编程助手** - Claude Code、Cursor、Copilot、Windsurf 或 Codex
 
 ### 安装与运行
 
@@ -139,7 +139,7 @@ make setup
 "制作一部 75 秒的纪录片蒙太奇，展现雨中的城市生活。只使用真实素材，无旁白，需要一种挽歌般的基调和配乐。"
 ```
 
-就是这么简单。智能体会通过实时网络搜索研究您的主题，生成 AI 图像，撰写并配音带有语音指导的脚本，自动寻找免版税的背景音乐，烧录词级字幕，并渲染最终视频。在您看到任何内容之前，系统会运行多点自我审查——ffprobe 验证、帧采样、音频电平分析、交付承诺验证以及字幕检查。每一个提供商的选择都会在 7 个维度上进行评分，并附有可审计的决策日志。每一个创意决定都需要您的批准。
+就是这么简单。智能体会通过实时网络搜索研究您的主题，生成 AI 图像，撰写并配音带有语音指导的脚本，自动寻找免版税的背景音乐，烧录词级字幕，并渲染最终视频。在您看到任何内容之前，系统会运行多点自我审查--ffprobe 验证、帧采样、音频电平分析、交付承诺验证以及字幕检查。每一个提供商的选择都会在 7 个维度上进行评分，并附有可审计的决策日志。每一个创意决定都需要您的批准。
 
 > **没有 `make`？** macOS/Linux：`python3 -m venv .venv && source .venv/bin/activate && python -m pip install -r requirements.txt && cd remotion-composer && npm install && cd .. && python -m pip install piper-tts && cp .env.example .env`
 >
@@ -164,7 +164,7 @@ make setup
 4. **将每个视频请求视为一个流水线选择问题**
    首先选择正确的流水线，然后阅读清单（manifest），接着阅读阶段技能（stage skill），最后再使用工具。
 
-### 添加 API 密钥（可选 — 密钥越多 = 工具越多）
+### 添加 API 密钥（可选 - 密钥越多 = 工具越多）
 
 ```bash
 # .env — 每个密钥都是可选的，只需添加您拥有的即可
@@ -213,11 +213,11 @@ VIDEO_GEN_LOCAL_MODEL=wan2.2-ti2v-5b  # 或 wan2.1-1.3b, wan2.1-14b, hunyuan-1.5
 
 | 能力 | 免费工具 | 功能 |
 |-----------|-----------|-------------|
-| **旁白配音** | Piper TTS | 免费离线文本转语音 — 逼真的真人发音旁白 |
+| **旁白配音** | Piper TTS | 免费离线文本转语音 - 逼真的真人发音旁白 |
 | **开源影像素材** | Archive.org + NASA + Wikimedia Commons | 免费/开源档案影像、教育媒体及纪录片素材 |
 | **额外素材库** | Pexels + Unsplash + Pixabay | 免费库存影像/图片（开发者密钥可免费获取） |
-| **合成 (React)** | Remotion | 基于 React 的渲染 — 带弹簧动画的图片场景、文字卡片、数据卡片、图表、TikTok 风格词级字幕、数字人开口说话 (TalkingHead) |
-| **合成 (HTML/GSAP)** | HyperFrames | HTML/CSS/GSAP 渲染 — 动态排版、产品宣传、发布短片、注册区块、网站转视频、绑定好的 SVG 角色动画 |
+| **合成 (React)** | Remotion | 基于 React 的渲染 - 带弹簧动画的图片场景、文字卡片、数据卡片、图表、TikTok 风格词级字幕、数字人开口说话 (TalkingHead) |
+| **合成 (HTML/GSAP)** | HyperFrames | HTML/CSS/GSAP 渲染 - 动态排版、产品宣传、发布短片、注册区块、网站转视频、绑定好的 SVG 角色动画 |
 | **后期制作** | FFmpeg | 编码、字幕烧录、音频混合、色彩调色 |
 | **字幕生成** | 内置 | 带有词级时间轴的自动生成字幕 |
 
@@ -305,7 +305,7 @@ OpenMontage 会在提案阶段在 Remotion 和 HyperFrames 之间进行选择（
 研究 -> 提案 -> 脚本 -> 场景规划 -> 资产生成 -> 剪辑 -> 合成
 ```
 
-每个阶段都有专门的 **导演技能 (director skill)** — 一个 Markdown 指令文件，指导智能体如何精确执行该阶段。智能体阅读技能、使用工具、自我审查、为状态做检查点，并在创意决定点请求人类批准。
+每个阶段都有专门的 **导演技能 (director skill)** - 一个 Markdown 指令文件，指导智能体如何精确执行该阶段。智能体阅读技能、使用工具、自我审查、为状态做检查点，并在创意决定点请求人类批准。
 
 > **网络研究是一等公民（first-class stage）。** 在写下一句脚本之前，智能体会搜索 YouTube、Reddit、Hacker News、新闻网站和学术资源。它会收集数据点、受众问题、热门角度和视觉参考，然后将所有内容记录在结构化的研究简报中。您的视频将立足于真实、当前的信息，而不是幻觉产生的虚假事实。
 
@@ -313,22 +313,22 @@ OpenMontage 会在提案阶段在 Remotion 和 HyperFrames 之间进行选择（
 
 ## 为什么选择 OpenMontage？
 
-大多数 AI 视频工具仅根据提示词提供单一的剪辑片段。OpenMontage 为您提供了一个 **端到端的制作流水线** — 就像真实制作团队所遵循的结构化流程一样，由您的 AI 智能体自动完成。
+大多数 AI 视频工具仅根据提示词提供单一的剪辑片段。OpenMontage 为您提供了一个 **端到端的制作流水线** - 就像真实制作团队所遵循的结构化流程一样，由您的 AI 智能体自动完成。
 
 大多数“免费 AI 视频”技术栈往往暗指“让静态图像动起来”。OpenMontage 固然也能做到这一点，但它还能利用从免费/开源获取的**真实素材**制作完整的视频：在语义上对其进行排名，有目的地进行剪辑，并作为正确的时间线渲染输出。
 
 剪辑您自己的口播素材。从零开始生成一个完全动画化的解说。将长达 2 小时的播客剪辑成十几个社交短片。将您的内容翻译并配音成 10 种语言。用库存影像和 AI 生成的场景构建电影级品牌预告片。**只要制作团队能做出来的东西，OpenMontage 就能编排它。**
 
-- **12 条生产流水线** — 涵盖解说、口播、屏幕演示、电影预告、动画、播客、本地化和纪录片蒙太奇等
-- **52 种生产工具** — 涵盖视频生成、图像创建、文本转语音、音乐、音频混合、字幕、画面增强和分析
-- **400 多项智能体技能** — 制作技能、流水线导演、创意技巧、质量检查表以及深厚的技术知识包，教导智能体如何像专家一样使用每一种工具
-- **参考驱动的创作** — 粘贴您喜欢的视频，智能体会将其转换为脚踏实地的、差异化的制作计划，无需您绞尽脑汁去编撰完美的提示词
-- **无需付费视频模型的真实纪录片创作** — 从免费/开源的动态影像和档案材料中制作真正剪辑过的视频，而不仅仅是在图片上加推拉镜头
-- **内置实时网络研究** — 在撰写脚本前，智能体会对 YouTube、Reddit、新闻和学术站点进行 15-25 次网络检索，确保视频基于真实的最新数据
-- **兼顾免费/本地与云端提供商** — 每一项功能均支持开源的本地替代方案或高级的 API。根据您已有的资源灵活使用。
-- **没有供应商锁定** — 自由切换提供商。系统根据 7 个维度（任务契合度、输出质量、控制功能、可靠性、成本效益、延迟、连续性）对所有提供商打分并自动选择最佳匹配项。
-- **生产级质量关卡** — 交付承诺强制机制拦截类似 PPT 播放效果的渲染；合成前验证检查避免计划崩溃浪费 GPU 算力；渲染后必须执行自我审查（ffprobe + 抽帧 + 音频分析），确保绝不产出垃圾。每一次提供商选择、风格决定和后备方案都会记录在可审计的决策日志中。
-- **内置预算管控** — 执行前进行预估、花费上限和各行动批准阈值设置。没有意外账单。
+- **12 条生产流水线** - 涵盖解说、口播、屏幕演示、电影预告、动画、播客、本地化和纪录片蒙太奇等
+- **52 种生产工具** - 涵盖视频生成、图像创建、文本转语音、音乐、音频混合、字幕、画面增强和分析
+- **400 多项智能体技能** - 制作技能、流水线导演、创意技巧、质量检查表以及深厚的技术知识包，教导智能体如何像专家一样使用每一种工具
+- **参考驱动的创作** - 粘贴您喜欢的视频，智能体会将其转换为脚踏实地的、差异化的制作计划，无需您绞尽脑汁去编撰完美的提示词
+- **无需付费视频模型的真实纪录片创作** - 从免费/开源的动态影像和档案材料中制作真正剪辑过的视频，而不仅仅是在图片上加推拉镜头
+- **内置实时网络研究** - 在撰写脚本前，智能体会对 YouTube、Reddit、新闻和学术站点进行 15-25 次网络检索，确保视频基于真实的最新数据
+- **兼顾免费/本地与云端提供商** - 每一项功能均支持开源的本地替代方案或高级的 API。根据您已有的资源灵活使用。
+- **没有供应商锁定** - 自由切换提供商。系统根据 7 个维度（任务契合度、输出质量、控制功能、可靠性、成本效益、延迟、连续性）对所有提供商打分并自动选择最佳匹配项。
+- **生产级质量关卡** - 交付承诺强制机制拦截类似 PPT 播放效果的渲染；合成前验证检查避免计划崩溃浪费 GPU 算力；渲染后必须执行自我审查（ffprobe + 抽帧 + 音频分析），确保绝不产出垃圾。每一次提供商选择、风格决定和后备方案都会记录在可审计的决策日志中。
+- **内置预算管控** - 执行前进行预估、花费上限和各行动批准阈值设置。没有意外账单。
 
 ---
 
@@ -418,7 +418,7 @@ OpenMontage/
 > **包含定价与免费额度的完整设置指南：** [`docs/PROVIDERS.md`](docs/PROVIDERS.md)
 
 <details>
-<summary><strong>视频生成 — 15 家提供商</strong></summary>
+<summary><strong>视频生成 - 15 家提供商</strong></summary>
 
 | 提供商 | 类型 | 备注 |
 |----------|------|-------|
@@ -441,12 +441,12 @@ OpenMontage/
 </details>
 
 <details>
-<summary><strong>图像生成 — 10 种工具/提供商</strong></summary>
+<summary><strong>图像生成 - 10 种工具/提供商</strong></summary>
 
 | 提供商 | 类型 | 备注 |
 |----------|------|-------|
 | **FLUX** | 云端 API | 业界顶尖质量 |
-| **Google Imagen** | 云端 API | Imagen 4 — 高质量、多种长宽比 |
+| **Google Imagen** | 云端 API | Imagen 4 - 高质量、多种长宽比 |
 | **Grok Imagine Image** | 云端 API | 强大的图像编辑、风格转换和多图合成 |
 | **GPT Image 2** | 云端 API | OpenAI 的图像模型 |
 | **Recraft** | 云端 API | 专注于设计的生成 |
@@ -459,12 +459,12 @@ OpenMontage/
 </details>
 
 <details>
-<summary><strong>文本转语音 (TTS) — 4 家提供商</strong></summary>
+<summary><strong>文本转语音 (TTS) - 4 家提供商</strong></summary>
 
 | 提供商 | 类型 | 备注 |
 |----------|------|-------|
 | **ElevenLabs** | 云端 API | 顶级的语音质量 |
-| **Google TTS** | 云端 API | 700+ 种声音，50+ 种语言 — 最适合本地化 |
+| **Google TTS** | 云端 API | 700+ 种声音，50+ 种语言 - 最适合本地化 |
 | **OpenAI TTS** | 云端 API | 快速且价格实惠 |
 | **Piper** | 本地 | 完全免费，支持离线 |
 
@@ -522,11 +522,11 @@ OpenMontage/
 
 | 引擎 | 类型 | 功能 |
 |--------|------|-------------|
-| **Remotion** | 本地 (Node.js) | 基于 React 的编程式视频 — 带有弹簧动画的图片场景、数据揭示、章节标题、展示卡片、TikTok 风格的逐词字幕、场景过渡（淡入淡出/滑动/擦除/翻转）、Google Fonts、带淡化曲线的音频，以及 TalkingHead 虚拟人物合成。**当未配置视频生成提供商时，智能体会生成静态图片并由 Remotion 将它们转化为具有完整动画效果的视频。** |
-| **HyperFrames** | 本地 (Node.js ≥ 22) | 基于 HTML/CSS/GSAP 的编程式视频 — 动态排版、产品宣传片、发布短片、自定义动态图形、注册区块（数据图表、噪点覆盖、着色器过渡）、网站转视频工作流，以及绑定的 SVG 角色动画。通过 `npx hyperframes` 调用；无需拉取整个 monorepo 代码。 |
+| **Remotion** | 本地 (Node.js) | 基于 React 的编程式视频 - 带有弹簧动画的图片场景、数据揭示、章节标题、展示卡片、TikTok 风格的逐词字幕、场景过渡（淡入淡出/滑动/擦除/翻转）、Google Fonts、带淡化曲线的音频，以及 TalkingHead 虚拟人物合成。**当未配置视频生成提供商时，智能体会生成静态图片并由 Remotion 将它们转化为具有完整动画效果的视频。** |
+| **HyperFrames** | 本地 (Node.js ≥ 22) | 基于 HTML/CSS/GSAP 的编程式视频 - 动态排版、产品宣传片、发布短片、自定义动态图形、注册区块（数据图表、噪点覆盖、着色器过渡）、网站转视频工作流，以及绑定的 SVG 角色动画。通过 `npx hyperframes` 调用；无需拉取整个 monorepo 代码。 |
 | **FFmpeg** | 本地 | 核心视频组装、编码、字幕烧录、音频混音、色彩调色 |
 
-运行时会在提案阶段选择（`render_runtime`）并通过 `edit_decisions` 锁定。在运行时之间静默切换属于治理违规行为 — 详见 `skills/core/hyperframes.md`。
+运行时会在提案阶段选择（`render_runtime`）并通过 `edit_decisions` 锁定。在运行时之间静默切换属于治理违规行为 - 详见 `skills/core/hyperframes.md`。
 
 </details>
 
@@ -565,14 +565,14 @@ OpenMontage/
 
 ## 制作治理
 
-OpenMontage 像对待真正的工程开发一样对待视频制作——在每个阶段都设有质量关卡、审计跟踪和执行控制。
+OpenMontage 像对待真正的工程开发一样对待视频制作--在每个阶段都设有质量关卡、审计跟踪和执行控制。
 
 ### 质量检验门
 
-- **合成前验证** — 如果违反了交付承诺（例如：“以运动为主”的视频却有 80% 是静态图像），幻灯片风险得分处于危急水平，或缺少渲染器族，则阻止渲染。在浪费 GPU 时间之前拦截崩溃的计划。
-- **渲染后自我审查** — 每次渲染后，运行时会运行 ffprobe 验证，在 4 个位置提取帧以检查是否存在黑屏和破损覆盖，分析音频电平是否静音或削峰（clipping），验证是否履行了交付承诺，并检查字幕是否正常。如果审查失败，将不会展示此视频。
-- **PPT 风险评分** — 6 维度分析（重复性、装饰性视觉、运动幅度弱、镜头意图、过度依赖排版、不支持的电影级宣称）防止产生“带动画的 PPT”输出。
-- **源文件检查** — 当用户提供自己的素材时，系统会探查每个文件（分辨率、编解码器、音频通道、时长）并在做出单一创意决策前建立规划预估。不再凭借文件名来虚构内容。
+- **合成前验证** - 如果违反了交付承诺（例如：“以运动为主”的视频却有 80% 是静态图像），幻灯片风险得分处于危急水平，或缺少渲染器族，则阻止渲染。在浪费 GPU 时间之前拦截崩溃的计划。
+- **渲染后自我审查** - 每次渲染后，运行时会运行 ffprobe 验证，在 4 个位置提取帧以检查是否存在黑屏和破损覆盖，分析音频电平是否静音或削峰（clipping），验证是否履行了交付承诺，并检查字幕是否正常。如果审查失败，将不会展示此视频。
+- **PPT 风险评分** - 6 维度分析（重复性、装饰性视觉、运动幅度弱、镜头意图、过度依赖排版、不支持的电影级宣称）防止产生“带动画的 PPT”输出。
+- **源文件检查** - 当用户提供自己的素材时，系统会探查每个文件（分辨率、编解码器、音频通道、时长）并在做出单一创意决策前建立规划预估。不再凭借文件名来虚构内容。
 
 ### 基于评分的提供商选择
 
@@ -584,16 +584,16 @@ OpenMontage 像对待真正的工程开发一样对待视频制作——在每�
 
 ### 决策审计跟踪
 
-每一个重大的创意和技术选择——提供商选择、风格/剧本选择、音乐曲目、声音选择、渲染器族系，以及任何备选方案或降级——都会被记录下来，包含备选项、置信度得分和推理过程。累积的决策日志跨所有阶段持久保存，这样您就能确切追溯为何输出呈现出最终的模样。
+每一个重大的创意和技术选择--提供商选择、风格/剧本选择、音乐曲目、声音选择、渲染器族系，以及任何备选方案或降级--都会被记录下来，包含备选项、置信度得分和推理过程。累积的决策日志跨所有阶段持久保存，这样您就能确切追溯为何输出呈现出最终的模样。
 
 ### 预算控制
 
-- 执行前进行**预估** — 查看预计成本
-- **锁定**预算 — 在调用前锁定资金
-- 事后**结算** — 记录实际开销
-- **可配置模式** — `observe` (仅跟踪)、`warn` (超支警告)、`cap` (硬性上限)
-- **按行动审批** — 高于特定阈值（默认：0.50 美元）暂停等待确认
-- **总预算上限** — 默认 10 美元，完全可配置
+- 执行前进行**预估** - 查看预计成本
+- **锁定**预算 - 在调用前锁定资金
+- 事后**结算** - 记录实际开销
+- **可配置模式** - `observe` (仅跟踪)、`warn` (超支警告)、`cap` (硬性上限)
+- **按行动审批** - 高于特定阈值（默认：0.50 美元）暂停等待确认
+- **总预算上限** - 默认 10 美元，完全可配置
 
 没有意外的账单。智能体会在花费之前告诉您需要花多少钱。
 
@@ -613,7 +613,7 @@ OpenMontage 兼容所有能够读取文件并执行 Python 的 AI 编程助手�
 
 所有平台的指令文件都指向共享的 `AGENT_GUIDE.md`（操作指南和智能体契约）与 `PROJECT_CONTEXT.md`（架构参考）。
 
-> **即将推出：** 借助 **Ollama** 和 **LM Studio** 提供本地 LLM 支持 — 无需任何云端大模型即可运行整个生产流水线。
+> **即将推出：** 借助 **Ollama** 和 **LM Studio** 提供本地 LLM 支持 - 无需任何云端大模型即可运行整个生产流水线。
 
 ---
 
@@ -625,14 +625,14 @@ OpenMontage 被设计为高度可扩展的。最常见的两种贡献是：
 
 1. 在对应的 `tools/` 子目录中创建一个 Python 文件
 2. 继承自 `BaseTool` 并实现工具契约
-3. 注册表会自动发现它 — 无需手动注册
+3. 注册表会自动发现它 - 无需手动注册
 4. 如果该工具需要使用指导，添加一个对应的技能 (skill) 文件
 
 ### 添加新流水线
 
 1. 在 `pipeline_defs/` 中创建一个 YAML 清单
 2. 在 `skills/pipelines/<你的流水线名称>/` 中创建阶段导演技能文件
-3. 引用现有的工具 — 或在需要时添加新工具
+3. 引用现有的工具 - 或在需要时添加新工具
 
 详见 `docs/ARCHITECTURE.md` 获取完整的技术参考，`docs/PROVIDERS.md` 查看完整的提供商指南（设置、定价、免费额度），以及 `AGENT_GUIDE.md` 了解智能体契约。
 
@@ -640,11 +640,11 @@ OpenMontage 被设计为高度可扩展的。最常见的两种贡献是：
 
 我们使用 [GitHub Discussions](https://github.com/calesthio/OpenMontage/discussions) 来分享作品与想法：
 
-- **[展示与分享](https://github.com/calesthio/OpenMontage/discussions/categories/show-and-tell)** — 分享您制作的视频、好用的提示词，或您发现的创意工作流
-- **[想法](https://github.com/calesthio/OpenMontage/discussions/categories/ideas)** — 提出新的流水线、工具、风格指南或集成的建议
-- **[问答](https://github.com/calesthio/OpenMontage/discussions/categories/q-a)** — 询问有关设置、流水线或故障排除的问题
+- **[展示与分享](https://github.com/calesthio/OpenMontage/discussions/categories/show-and-tell)** - 分享您制作的视频、好用的提示词，或您发现的创意工作流
+- **[想法](https://github.com/calesthio/OpenMontage/discussions/categories/ideas)** - 提出新的流水线、工具、风格指南或集成的建议
+- **[问答](https://github.com/calesthio/OpenMontage/discussions/categories/q-a)** - 询问有关设置、流水线或故障排除的问题
 
-制作了超酷的内容？发在“展示与分享”里 — 我们非常期待看到您的成果。
+制作了超酷的内容？发在“展示与分享”里 - 我们非常期待看到您的成果。
 
 ---
 
@@ -674,6 +674,6 @@ make test
 
 ---
 
-**OpenMontage** — 拥有真正质量把控、由您的 AI 助手编排的生产级视频制作系统。
+**OpenMontage** - 拥有真正质量把控、由您的 AI 助手编排的生产级视频制作系统。
 
-如果这个项目对您有帮助，点一个 Star 对我们意义重大 —— 这也能帮助其他人发现它。
+如果这个项目对您有帮助，点一个 Star 对我们意义重大 -- 这也能帮助其他人发现它。
