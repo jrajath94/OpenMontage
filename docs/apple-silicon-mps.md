@@ -1,8 +1,8 @@
 # Apple Silicon (MPS) Support
 
 OpenMontage supports Apple Silicon Macs (M1/M2/M3/M4/M5) via PyTorch's
-Metal Performance Shaders (MPS) backend. Local GPU tools — video generation,
-upscaling, and face restoration — automatically detect and use MPS when
+Metal Performance Shaders (MPS) backend. Local GPU tools - video generation,
+upscaling, and face restoration - automatically detect and use MPS when
 available.
 
 ## Requirements
@@ -24,7 +24,7 @@ uv pip install diffusers transformers accelerate torch pillow requests
 uv pip install realesrgan gfpgan
 ```
 
-No special CUDA build or separate MPS package is needed — `uv pip install torch`
+No special CUDA build or separate MPS package is needed - `uv pip install torch`
 on macOS automatically includes MPS support.
 
 ## How It Works
@@ -32,9 +32,9 @@ on macOS automatically includes MPS support.
 The `get_torch_device()` helper in `tools/video/_shared.py` detects the best
 available device:
 
-1. **CUDA** (NVIDIA GPU) — used when available; fastest for diffusion models
-2. **MPS** (Apple Silicon Metal) — used on M-series Macs; good performance
-3. **CPU** — fallback, always available but significantly slower
+1. **CUDA** (NVIDIA GPU) - used when available; fastest for diffusion models
+2. **MPS** (Apple Silicon Metal) - used on M-series Macs; good performance
+3. **CPU** - fallback, always available but significantly slower
 
 Device selection is automatic. All local GPU tools (`upscale`, `face_restore`,
 `ltx_video_local`, `wan_video_local`, etc.) route through this helper.
