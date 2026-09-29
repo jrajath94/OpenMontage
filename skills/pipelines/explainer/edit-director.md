@@ -1,4 +1,4 @@
-# Edit Director — Explainer Pipeline
+# Edit Director - Explainer Pipeline
 
 ## When to Use
 
@@ -54,9 +54,9 @@ Each cut defines what visual is shown and when:
 ```
 
 **Layering rules:**
-- `primary` — main visual (one at a time)
-- `overlay` — text cards, stat cards, key terms (on top of primary)
-- `background` — solid color or texture behind everything
+- `primary` - main visual (one at a time)
+- `overlay` - text cards, stat cards, key terms (on top of primary)
+- `background` - solid color or texture behind everything
 
 ### Step 3: Configure Subtitles
 
