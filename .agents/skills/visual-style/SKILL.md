@@ -21,13 +21,13 @@ Create, extract, and apply portable visual design systems. A `visual-style.md` f
 
 ### Create
 
-1. **Gather vibe** — Ask about mood, era, references, inspiration
-2. **Define colors** — Primary (2+), accent, neutrals with hex values and roles
-3. **Set typography** — Display, body, caption families + weight/style rules
-4. **Layout & motion** — Grid system, transitions, pacing
-5. **Generate** — Output complete `visual-style.md` using [references/templates/minimal.visual-style.md](references/templates/minimal.visual-style.md) or [references/templates/full.visual-style.md](references/templates/full.visual-style.md)
-6. **Preview** — Show a small HTML swatch or describe the visual result
-7. **Optionally apply** — Ask if user wants to use it with a connector
+1. **Gather vibe** - Ask about mood, era, references, inspiration
+2. **Define colors** - Primary (2+), accent, neutrals with hex values and roles
+3. **Set typography** - Display, body, caption families + weight/style rules
+4. **Layout & motion** - Grid system, transitions, pacing
+5. **Generate** - Output complete `visual-style.md` using [references/templates/minimal.visual-style.md](references/templates/minimal.visual-style.md) or [references/templates/full.visual-style.md](references/templates/full.visual-style.md)
+6. **Preview** - Show a small HTML swatch or describe the visual result
+7. **Optionally apply** - Ask if user wants to use it with a connector
 
 Questions to batch:
 1. What's the vibe? (mood keywords, era, references)
@@ -37,26 +37,26 @@ Questions to batch:
 
 ### Extract
 
-1. **Receive source** — URL, image, video, or PDF
-2. **Load extractor** — Read the appropriate extractor reference file
-3. **Analyze** — Identify colors, typography, layout, motion, mood
-4. **Generate** — Output complete `visual-style.md` with `source_url` set
-5. **Validate** — Ensure all required fields are present
+1. **Receive source** - URL, image, video, or PDF
+2. **Load extractor** - Read the appropriate extractor reference file
+3. **Analyze** - Identify colors, typography, layout, motion, mood
+4. **Generate** - Output complete `visual-style.md` with `source_url` set
+5. **Validate** - Ensure all required fields are present
 
 ### Apply
 
-1. **Read the style** — Load the `visual-style.md` file
-2. **Ask which connector** — Or detect from context
-3. **Load connector** — Read the appropriate connector reference file
-4. **Transform** — Map style fields to tool-specific format
-5. **Generate output** — Produce tool-ready instructions or code
+1. **Read the style** - Load the `visual-style.md` file
+2. **Ask which connector** - Or detect from context
+3. **Load connector** - Read the appropriate connector reference file
+4. **Transform** - Map style fields to tool-specific format
+5. **Generate output** - Produce tool-ready instructions or code
 
 ### Gallery
 
-1. **List styles** — Show available styles from [references/gallery/](references/gallery/)
-2. **Preview** — Describe the selected style's visual character
-3. **Load** — Read the full `visual-style.md`
-4. **Apply** — Use with a connector
+1. **List styles** - Show available styles from [references/gallery/](references/gallery/)
+2. **Preview** - Describe the selected style's visual character
+3. **Load** - Read the full `visual-style.md`
+4. **Apply** - Use with a connector
 
 ## Format Quick Reference
 
@@ -109,14 +109,14 @@ Full spec: [references/spec.md](references/spec.md)
 
 ### Templates & Spec
 
-- [references/templates/minimal.visual-style.md](references/templates/minimal.visual-style.md) — Bare minimum template
-- [references/templates/full.visual-style.md](references/templates/full.visual-style.md) — Complete template with all fields
-- [references/spec.md](references/spec.md) — Full format specification
+- [references/templates/minimal.visual-style.md](references/templates/minimal.visual-style.md) - Bare minimum template
+- [references/templates/full.visual-style.md](references/templates/full.visual-style.md) - Complete template with all fields
+- [references/spec.md](references/spec.md) - Full format specification
 
 ## Best Practices
 
-1. **`style_prompt_full` is king** — Always usable as a standalone generation prompt
-2. **One style, one file** — No multi-style bundling
-3. **Assets are URLs** — Never embed binary data
-4. **Show, don't tell** — Generate previews when creating styles
-5. **Opinionated defaults, flexible extensions** — Core schema is fixed; `x_*` for tool-specific config
+1. **`style_prompt_full` is king** - Always usable as a standalone generation prompt
+2. **One style, one file** - No multi-style bundling
+3. **Assets are URLs** - Never embed binary data
+4. **Show, don't tell** - Generate previews when creating styles
+5. **Opinionated defaults, flexible extensions** - Core schema is fixed; `x_*` for tool-specific config
