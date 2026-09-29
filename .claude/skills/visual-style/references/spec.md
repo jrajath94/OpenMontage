@@ -7,9 +7,9 @@
 
 A `visual-style.md` file is a Markdown document with YAML frontmatter that defines a complete visual design system. The format is designed to be:
 
-- **Human-readable** — Understandable in any text editor
-- **AI-consumable** — Every field directly usable by AI models
-- **Portable** — Works across any tool that reads the format
+- **Human-readable** - Understandable in any text editor
+- **AI-consumable** - Every field directly usable by AI models
+- **Portable** - Works across any tool that reads the format
 
 ## File Structure
 
@@ -28,7 +28,7 @@ A `visual-style.md` file is a Markdown document with YAML frontmatter that defin
 | `name` | string | Display name for the style |
 | `version` | string | Spec version (currently `1.0`) |
 | `style_prompt_short` | string | 1-2 sentence elevator pitch |
-| `style_prompt_full` | string | Full natural language generation prompt — **the most important field** |
+| `style_prompt_full` | string | Full natural language generation prompt - **the most important field** |
 | `colors.primary` | array | At least 2 colors, each with `name`, `hex`, `role` |
 
 ## Optional Fields
@@ -98,7 +98,7 @@ display:
 | `mood.keywords` | array | Mood/feeling keywords |
 | `mood.era` | string | Time period reference |
 | `mood.cultural_reference` | string | Cultural/historical context |
-| `mood.avoid` | array | **Anti-patterns** — things to explicitly avoid |
+| `mood.avoid` | array | **Anti-patterns** - things to explicitly avoid |
 
 ### Assets
 
@@ -309,7 +309,7 @@ The `version` field refers to the spec version, not the style version. When the 
 
 ### Why `style_prompt_full` is required
 
-Many AI tools only accept a text prompt. By requiring a complete, natural language description of the style, we ensure every `visual-style.md` file is immediately usable by any tool — even ones that don't parse the structured fields.
+Many AI tools only accept a text prompt. By requiring a complete, natural language description of the style, we ensure every `visual-style.md` file is immediately usable by any tool - even ones that don't parse the structured fields.
 
 ### Why no embedded binary data
 
