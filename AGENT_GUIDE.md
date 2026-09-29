@@ -4,7 +4,7 @@ Start here. This is the complete operating guide and agent contract for OpenMont
 
 For architecture, key files, and conventions see [`PROJECT_CONTEXT.md`](PROJECT_CONTEXT.md).
 
-## First Interaction — Onboarding
+## First Interaction - Onboarding
 
 When the user's first message is vague, exploratory, or asks what you can do ("make me a video", "what can you do?", "help me create something", "I want to make content"), read the onboarding skill **before** doing anything else:
 
@@ -16,13 +16,13 @@ This skill teaches you to run discovery, classify the user's setup, present capa
 
 ## Reference Video Entry Point
 
-When the user provides a **video URL or local video file as inspiration** — for example:
+When the user provides a **video URL or local video file as inspiration** - for example:
 
 - "Can you make a video like this?"
 - "I love this YouTube Short. Make me something similar."
 - "Use this Reel as a reference."
 
-— do **not** treat this as a generic web-search or prompt-writing request.
+- do **not** treat this as a generic web-search or prompt-writing request.
 
 This is a first-class workflow in OpenMontage.
 
@@ -37,7 +37,7 @@ This is a first-class workflow in OpenMontage.
    - style
    - what makes it work
 4. **Then** run normal capability audit and pipeline selection
-5. Present **2-3 differentiated concepts** for the user's version — not a carbon copy
+5. Present **2-3 differentiated concepts** for the user's version - not a carbon copy
 
 ### Important distinction
 
@@ -46,14 +46,14 @@ This is a first-class workflow in OpenMontage.
 
 If a model misses this distinction, it will often fall back to plain search + guesswork. That is incorrect for OpenMontage.
 
-## Rule Zero — All Production Goes Through a Pipeline
+## Rule Zero - All Production Goes Through a Pipeline
 
 **Every video production request MUST go through the pipeline system. No exceptions.**
 
-When the user asks to make, create, produce, or generate any video content — a trailer, explainer, clip, animation, or any other video — the agent must:
+When the user asks to make, create, produce, or generate any video content - a trailer, explainer, clip, animation, or any other video - the agent must:
 
 1. **Identify the pipeline.** Match the request to one of the pipelines in `pipeline_defs/`. If unclear, ask the user.
-2. **Read the pipeline manifest.** `pipeline_defs/<pipeline>.yaml` — know the stages, tools, and quality gates.
+2. **Read the pipeline manifest.** `pipeline_defs/<pipeline>.yaml` - know the stages, tools, and quality gates.
 3. **Run preflight.** Discover available tools via the registry. Present the capability menu.
 4. **Execute stage by stage.** For EACH stage, read the stage director skill (`skills/pipelines/<pipeline>/<stage>-director.md`) BEFORE doing any work in that stage.
 5. **Read Layer 3 skills before calling tools.** Before using any tool with an `agent_skills` field, read the referenced skill in `.agents/skills/`. These contain provider-specific prompting guidance, parameter optimization, and quality techniques that dramatically improve output.
@@ -69,7 +69,7 @@ The intelligence is in the skills, not in improvised code. An agent that reads t
 
 ## What OpenMontage Is
 
-OpenMontage is an instruction-driven video production system. The AI agent IS the intelligence — it reads instructions (pipeline manifests + stage director skills + meta skills) and drives the pipeline using tools.
+OpenMontage is an instruction-driven video production system. The AI agent IS the intelligence - it reads instructions (pipeline manifests + stage director skills + meta skills) and drives the pipeline using tools.
 
 ```
 Agent reads pipeline manifest (YAML) -> reads stage director skill (MD)
@@ -116,13 +116,13 @@ Minor prompt refinements inside an already approved provider/model path do not r
 
 ### Re-log Changed Decisions (Binding)
 
-The `decision_log` is the board's Decisions rail and the run's audit trail. It is **append-only history, not a scratchpad.** When a choice you already logged changes mid-run — the user swaps the voice, you switch provider/model/runtime/music, or a fallback overrides an earlier pick — you MUST **append a new `decision_log` entry** for the new choice, reusing the **same `category` AND the same `subject`** (e.g. `category: "voice_selection"`, `subject: "Narration TTS provider"`), with the superseded option moved into `options_considered` and `rejected_because` noting it was changed.
+The `decision_log` is the board's Decisions rail and the run's audit trail. It is **append-only history, not a scratchpad.** When a choice you already logged changes mid-run - the user swaps the voice, you switch provider/model/runtime/music, or a fallback overrides an earlier pick - you MUST **append a new `decision_log` entry** for the new choice, reusing the **same `category` AND the same `subject`** (e.g. `category: "voice_selection"`, `subject: "Narration TTS provider"`), with the superseded option moved into `options_considered` and `rejected_because` noting it was changed.
 
-Editing only a downstream artifact (the `asset_manifest`, a prop) while leaving the old decision in the log is a defect: the board keeps showing the stale choice (e.g. `voice → openai_onyx` after the user moved to Chirp3). The board identifies a decision by its **(category, subject) pair** and renders the latest entry for that pair as current (tagged "revised") — so the fix is to append the new entry with an identical `subject`, never to silently mutate the old one or reword the subject (a reworded subject reads as a different decision and both will show). Keeping distinct decisions in one category (e.g. TTS vs image `provider_selection`) is exactly why the pair, not the category alone, is the key. This applies at every stage, not just `idea`.
+Editing only a downstream artifact (the `asset_manifest`, a prop) while leaving the old decision in the log is a defect: the board keeps showing the stale choice (e.g. `voice → openai_onyx` after the user moved to Chirp3). The board identifies a decision by its **(category, subject) pair** and renders the latest entry for that pair as current (tagged "revised") - so the fix is to append the new entry with an identical `subject`, never to silently mutate the old one or reword the subject (a reworded subject reads as a different decision and both will show). Keeping distinct decisions in one category (e.g. TTS vs image `provider_selection`) is exactly why the pair, not the category alone, is the key. This applies at every stage, not just `idea`.
 
 ### Present Both Composition Runtimes (HARD RULE)
 
-When both Remotion and HyperFrames are available on the machine (check `video_compose.get_info()["render_engines"]`), the agent **MUST present both options to the user** before locking `render_runtime` at the proposal stage. The agent MAY recommend one with rationale — but silently picking a "default" is forbidden even when the pipeline manifest or a director skill suggests one.
+When both Remotion and HyperFrames are available on the machine (check `video_compose.get_info()["render_engines"]`), the agent **MUST present both options to the user** before locking `render_runtime` at the proposal stage. The agent MAY recommend one with rationale - but silently picking a "default" is forbidden even when the pipeline manifest or a director skill suggests one.
 
 The presentation MUST include, for each runtime:
 
@@ -130,20 +130,20 @@ The presentation MUST include, for each runtime:
 2. A one-sentence honest tradeoff (why it might not be the right pick here).
 3. The agent's recommendation and the reason, tied to the brief's delivery_promise and visual approach.
 
-Then wait for explicit user approval before advancing. Record the full shortlist — BOTH runtimes plus any "ffmpeg" option that applies — as `options_considered` in the `render_runtime_selection` decision logged in `decision_log`. A decision log entry with only one runtime considered when both were available is a CRITICAL reviewer finding.
+Then wait for explicit user approval before advancing. Record the full shortlist - BOTH runtimes plus any "ffmpeg" option that applies - as `options_considered` in the `render_runtime_selection` decision logged in `decision_log`. A decision log entry with only one runtime considered when both were available is a CRITICAL reviewer finding.
 
 Exception: if only one runtime is available on the machine, the agent proceeds with it but MUST say so explicitly ("HyperFrames isn't installed on this machine; I'm proceeding with Remotion. Install HyperFrames if you want the alternative."). The `render_runtime_selection` decision still records the unavailable option as `rejected_because: "runtime not available on this machine"`.
 
-This rule applies to every pipeline that invokes `video_compose` — not just Wave 1. A pipeline's director skill may recommend a runtime, but that recommendation is input to the conversation with the user, not a decision.
+This rule applies to every pipeline that invokes `video_compose` - not just Wave 1. A pipeline's director skill may recommend a runtime, but that recommendation is input to the conversation with the user, not a decision.
 
-### Composition Authoring Mode — Templated vs Atelier
+### Composition Authoring Mode - Templated vs Atelier
 
 Orthogonal to *runtime* is *authoring mode*: **how** the composition is built. Present it as its own proposal decision and log it in `decision_log` (`category: "composition_mode"`).
 
-- **Templated** — assemble the stock `cut.type` scene-types (`text_card`, `stat_card`, `bar_chart`, …) into the `Explainer`/`CinematicRenderer` compositions. Fast, cheap, reliable — and the reason most videos look alike. Right for batch output, localization variants, quick drafts, and low-stakes internal clips.
-- **Atelier** — **hand-author the composition from scratch**: bespoke scenes, a one-off theme, and motion written for this piece, rendered via `composition_mode: "atelier"` (see `video_compose` → `_render_via_atelier`). No reusable creative components; a fresh visual language every time.
+- **Templated** - assemble the stock `cut.type` scene-types (`text_card`, `stat_card`, `bar_chart`, …) into the `Explainer`/`CinematicRenderer` compositions. Fast, cheap, reliable - and the reason most videos look alike. Right for batch output, localization variants, quick drafts, and low-stakes internal clips.
+- **Atelier** - **hand-author the composition from scratch**: bespoke scenes, a one-off theme, and motion written for this piece, rendered via `composition_mode: "atelier"` (see `video_compose` → `_render_via_atelier`). No reusable creative components; a fresh visual language every time.
 
-**Default to atelier for hero work** — marketing, launches, brand pieces, any single-deliverable explainer that must impress. The deciding rule: *reuse engine knowledge, never creative components.* In atelier mode the stock scene-type catalog, `hyperframes-registry` blocks, fixtures, and finished components are **off-limits** — they are frozen looks that reintroduce sameness. Before building, route through **`skills/meta/taste-direction.md`** to set the design read and taste dials, then **`skills/meta/bespoke-composition.md`**, which sequences: art direction (`visual-style`) → motion principles (Disney 12 via `framer-motion`/`lottie-bodymovin`) → engine mechanics (`remotion-best-practices` + the stock components read *only as a mechanics codex*) → render via the atelier path. Close with a **distinctness review**: *could this be any other product's video? does it reuse a look I've made before?* — the inverse of "does it match the reference." Atelier costs more tokens and iteration than templated; say so at proposal so the user opts in knowingly.
+**Default to atelier for hero work** - marketing, launches, brand pieces, any single-deliverable explainer that must impress. The deciding rule: *reuse engine knowledge, never creative components.* In atelier mode the stock scene-type catalog, `hyperframes-registry` blocks, fixtures, and finished components are **off-limits** - they are frozen looks that reintroduce sameness. Before building, route through **`skills/meta/taste-direction.md`** to set the design read and taste dials, then **`skills/meta/bespoke-composition.md`**, which sequences: art direction (`visual-style`) → motion principles (Disney 12 via `framer-motion`/`lottie-bodymovin`) → engine mechanics (`remotion-best-practices` + the stock components read *only as a mechanics codex*) → render via the atelier path. Close with a **distinctness review**: *could this be any other product's video? does it reuse a look I've made before?* - the inverse of "does it match the reference." Atelier costs more tokens and iteration than templated; say so at proposal so the user opts in knowingly.
 
 ### Escalate Blockers Explicitly
 
@@ -196,13 +196,13 @@ The agent:
 
 Infrastructure files:
 
-- `lib/checkpoint.py` — read/write checkpoints, stage validation
-- `tools/cost_tracker.py` — budget governance
-- `lib/pipeline_loader.py` — manifest loading and helpers
+- `lib/checkpoint.py` - read/write checkpoints, stage validation
+- `tools/cost_tracker.py` - budget governance
+- `lib/pipeline_loader.py` - manifest loading and helpers
 
 ## Project Directory Convention
 
-Every production run creates a project workspace under `projects/`. This directory is gitignored — all generated assets are regenerable.
+Every production run creates a project workspace under `projects/`. This directory is gitignored - all generated assets are regenerable.
 
 ```
 projects/<project-name>/
@@ -221,10 +221,10 @@ projects/<project-name>/
 
 At pipeline initialization, before any stage runs:
 
-1. **Initialize the workspace**: `python -c "from lib.checkpoint import init_project; init_project('<project-id>', title='<Title>', pipeline_type='<pipeline>')"` — creates the layout above and writes `project.json` (the marker the Backlot board reads).
-2. **Open the board**: run `python -m backlot open <project-id>`. This starts the Backlot server if needed and opens the user's browser at the project's live board. If the command fails, continue the production — the board is an observer, never a blocker. This is the agent's ONLY board duty; the board derives everything else from disk.
+1. **Initialize the workspace**: `python -c "from lib.checkpoint import init_project; init_project('<project-id>', title='<Title>', pipeline_type='<pipeline>')"` - creates the layout above and writes `project.json` (the marker the Backlot board reads).
+2. **Open the board**: run `python -m backlot open <project-id>`. This starts the Backlot server if needed and opens the user's browser at the project's live board. If the command fails, continue the production - the board is an observer, never a blocker. This is the agent's ONLY board duty; the board derives everything else from disk.
 
-All tools and agents must write outputs to these paths — **always pass an explicit `output_path` under `projects/<project-id>/`**. Assets written to the repo root, cwd, or temp dirs are invisible to the user's board and violate the workspace contract.
+All tools and agents must write outputs to these paths - **always pass an explicit `output_path` under `projects/<project-id>/`**. Assets written to the repo root, cwd, or temp dirs are invisible to the user's board and violate the workspace contract.
 
 **This applies to atelier and HyperFrames-skill runs too**: hand-authored compositions still write the canonical artifacts they have (script or beats-plan, scene_plan-equivalent, asset manifest) plus checkpoints into `projects/<project-id>/`. The board is runtime-agnostic; only runs that skip the artifacts get a degraded board.
 
@@ -262,7 +262,7 @@ If the folder has tracks, the proposal and asset stages should present them as o
 
 ## Mandatory Preflight
 
-Do this before any creative work. **Use `provider_menu_summary()` first — it's the human-ready rollup.** The raw `support_envelope()` dump is a firehose (megabytes of JSON on a well-configured machine); pasting it into chat will bury the user.
+Do this before any creative work. **Use `provider_menu_summary()` first - it's the human-ready rollup.** The raw `support_envelope()` dump is a firehose (megabytes of JSON on a well-configured machine); pasting it into chat will bury the user.
 
 ```bash
 python -c "
@@ -275,10 +275,10 @@ print(json.dumps(registry.provider_menu_summary(), indent=2))
 
 The summary returns four fields the agent should translate into plain language:
 
-- `composition_runtimes` — booleans for `ffmpeg`, `remotion`, `hyperframes`. This is the source of truth for the "Present Both Composition Runtimes (HARD RULE)" check.
-- `capabilities[]` — one entry per capability family with `configured / total` counts and provider lists. Ready-made for the "N of M configured" menu.
-- `setup_offers[]` — unavailable tools whose install is a 1-minute env-var fix. Lead with these when offering upgrades.
-- `runtime_warnings[]` — specific signals like "hyperframes: npm package not resolvable". Surface these to the user verbatim — they're the kind of silent-failure bugs that break the governance contract.
+- `composition_runtimes` - booleans for `ffmpeg`, `remotion`, `hyperframes`. This is the source of truth for the "Present Both Composition Runtimes (HARD RULE)" check.
+- `capabilities[]` - one entry per capability family with `configured / total` counts and provider lists. Ready-made for the "N of M configured" menu.
+- `setup_offers[]` - unavailable tools whose install is a 1-minute env-var fix. Lead with these when offering upgrades.
+- `runtime_warnings[]` - specific signals like "hyperframes: npm package not resolvable". Surface these to the user verbatim - they're the kind of silent-failure bugs that break the governance contract.
 
 Then, for deeper inspection (only when the summary isn't enough):
 
@@ -343,10 +343,10 @@ Already Available:
 **Rules:**
 - Do NOT hardcode provider names, API key names, or setup URLs in your prompts.
   Read them from the registry's `install_instructions` field on each tool.
-- Always show the ratio: "X of Y configured" — this makes breadth visible.
+- Always show the ratio: "X of Y configured" - this makes breadth visible.
 - Group by capability, not by individual tool.
 - Show what they CAN do now, then what they COULD unlock.
-- If the user declines setup, proceed with the best available path — no nagging.
+- If the user declines setup, proceed with the best available path - no nagging.
 - If a tool shares an env var with others, group them (read from `dependencies` field).
 
 ### Setup Offer Protocol
@@ -355,19 +355,19 @@ When tools are `UNAVAILABLE` but can be fixed with simple configuration, **offer
 
 | Fix Complexity | Action |
 |----------------|--------|
-| **1-minute fix** (env var) | Offer to help configure now — read `install_instructions` from the tool |
-| **5-minute fix** (install) | Explain what to install and why — read `install_instructions` from the tool |
+| **1-minute fix** (env var) | Offer to help configure now - read `install_instructions` from the tool |
+| **5-minute fix** (install) | Explain what to install and why - read `install_instructions` from the tool |
 | **Complex fix** (GPU, model download) | Note the limitation, explain what it would unlock, move on |
 
 **Rules:**
 - Always tell the user what they're missing AND what they'd gain
 - Show the cost difference (free local vs. paid API)
-- If the user declines setup, proceed with the best available path — no nagging
+- If the user declines setup, proceed with the best available path - no nagging
 - Group related fixes (tools sharing the same env var dependency)
 
 ### Composition Runtimes (Inside video_compose)
 
-`video_compose` has **three** render engines / runtimes. They are parallel, not ranked — the choice is made at proposal and locked in `edit_decisions.render_runtime`. Check which are available:
+`video_compose` has **three** render engines / runtimes. They are parallel, not ranked - the choice is made at proposal and locked in `edit_decisions.render_runtime`. Check which are available:
 
 ```bash
 python -c "
@@ -403,7 +403,7 @@ For these requests:
 - The `render_runtime` chosen at proposal (Remotion, HyperFrames, or FFmpeg) must be confirmed available up front if the planned visual treatment depends on it.
 - Still-image fallback is forbidden. Do not quietly convert the job into a Ken Burns teaser, animatic, or slide-based video.
 - FFmpeg-only fallback is forbidden when it changes the approved deliverable from motion-led video to still-led video.
-- **Silent runtime swap is forbidden.** If `render_runtime="hyperframes"` was locked and HyperFrames is unavailable, do NOT route to Remotion instead. Surface the blocker, propose options, get user approval, log a `render_runtime_selection` decision — then proceed.
+- **Silent runtime swap is forbidden.** If `render_runtime="hyperframes"` was locked and HyperFrames is unavailable, do NOT route to Remotion instead. Surface the blocker, propose options, get user approval, log a `render_runtime_selection` decision - then proceed.
 - Bubble critical issues immediately. If the chosen runtime is unavailable, fails to render, or provider clip generation fails in a way that blocks the approved treatment, stop and tell the user before proceeding.
 - Do not spend more tokens or time on downgraded output unless the user explicitly approves the downgrade as an animatic or proof-of-concept.
 
@@ -418,13 +418,13 @@ For these requests:
 See `remotion-composer/SCENE_TYPES.md` for the authoritative list and their cut schemas. Current scene types usable via `cut.type`:
 `text_card`, `stat_card`, `callout`, `comparison`, `hero_title`, `terminal_scene`, `anime_scene`, `bar_chart`, `line_chart`, `pie_chart`, `kpi_grid`, `progress_bar`. Overlay types include `section_title`, `stat_reveal`, `hero_title`, `provider_chip`.
 
-These stock scene-types are the **templated** path — fast and reliable, but they are why videos look alike. For **hero work, prefer atelier mode** (hand-authored composition) over this catalog; read those types as a *mechanics codex*, not a menu to assemble. See "Composition Authoring Mode" above and `skills/meta/bespoke-composition.md`.
+These stock scene-types are the **templated** path - fast and reliable, but they are why videos look alike. For **hero work, prefer atelier mode** (hand-authored composition) over this catalog; read those types as a *mechanics codex*, not a menu to assemble. See "Composition Authoring Mode" above and `skills/meta/bespoke-composition.md`.
 
-**When Remotion is NOT available** and `render_runtime="remotion"` was NOT locked, `video_compose` may use FFmpeg Ken Burns motion on still images. This still works but produces less engaging visuals. Mention this tradeoff in the proposal. When `render_runtime="remotion"` IS locked and Remotion is unavailable, that's a blocker — escalate, don't silently swap.
+**When Remotion is NOT available** and `render_runtime="remotion"` was NOT locked, `video_compose` may use FFmpeg Ken Burns motion on still images. This still works but produces less engaging visuals. Mention this tradeoff in the proposal. When `render_runtime="remotion"` IS locked and Remotion is unavailable, that's a blocker - escalate, don't silently swap.
 
 When `render_runtime="hyperframes"` is locked and HyperFrames is unavailable (Node < 22, missing `ffmpeg`/`npx`, or `hyperframes doctor` reports issues), that's also a blocker. Do not substitute Remotion or FFmpeg without user approval + a logged `render_runtime_selection` decision.
 
-Routing is automatic — `video_compose` reads `edit_decisions.render_runtime` and dispatches to the matching engine (`_render_via_hyperframes`, `_remotion_render`, or `_render_via_ffmpeg`). But the **agent must know both Remotion and HyperFrames exist at proposal time** so it can design the visual approach intentionally. Don't default to Remotion for motion-graphics-heavy concepts that HTML/GSAP would express more naturally, and don't default to HyperFrames for briefs that reuse the existing React scene stack.
+Routing is automatic - `video_compose` reads `edit_decisions.render_runtime` and dispatches to the matching engine (`_render_via_hyperframes`, `_remotion_render`, or `_render_via_ffmpeg`). But the **agent must know both Remotion and HyperFrames exist at proposal time** so it can design the visual approach intentionally. Don't default to Remotion for motion-graphics-heavy concepts that HTML/GSAP would express more naturally, and don't default to HyperFrames for briefs that reuse the existing React scene stack.
 
 ## Capability Discovery
 
@@ -465,22 +465,22 @@ python -c "from tools.tool_registry import registry; import json; registry.disco
 
 Key capability families to look for in the output:
 
-- **tts** — Text-to-speech providers. Route via `tts_selector`.
-- **video_generation** — Video generation providers (cloud, local GPU, stock). Route via `video_selector`.
-- **image_generation** — Image generation providers (cloud, local GPU, stock). Route via `image_selector`.
-- **music_generation** — Music and sound effect generation.
-- **video_post** — Composition, stitching, trimming (FFmpeg-based, always local).
-- **audio_processing** — Mixing, enhancement (FFmpeg-based, always local).
-- **analysis** — Transcription, scene detection, frame sampling.
-- **avatar** — Talking head and lip sync generation.
-- **character_animation** — Local character specs, SVG rigs, pose libraries, action timelines, previews, and QA.
-- **3d_world_generation** — Local semantic terrain, procedural biome scattering, explicit landmarks, diagnostic passes, and deterministic HyperFrames/Three.js camera fly-throughs. Route through `threejs_world` and read `skills/creative/3d-world-generation.md` plus `.agents/skills/threejs-world-generation/SKILL.md`.
-- **3d_asset_acquisition** — Rights-safe GLTF/GLB catalogs for production-tier Three.js worlds. Route through `threejs_asset_catalog`; never substitute blockout primitives for a requested detailed or reference-grade environment.
-- **3d_asset_generation** — Unique textured/PBR meshes from text or concept images. Route text-described hero assets through `atlas_3d`, image-conditioned assets and regional object extraction through `fal_3d`, and read `.agents/skills/3d-asset-generation/SKILL.md`. Announce provider/model/unit cost before every first paid call and sample before batching.
-- **3d_world_rendering** — Production assembly, terrain, lighting, materials, camera, and image-sequence rendering in Blender. Route through `blender_world`; use Three.js for interactive/blockout review, not as a substitute for Blender when reference-grade scene density is requested.
-- **enhancement** — Upscale, background removal, face enhance, color grading.
+- **tts** - Text-to-speech providers. Route via `tts_selector`.
+- **video_generation** - Video generation providers (cloud, local GPU, stock). Route via `video_selector`.
+- **image_generation** - Image generation providers (cloud, local GPU, stock). Route via `image_selector`.
+- **music_generation** - Music and sound effect generation.
+- **video_post** - Composition, stitching, trimming (FFmpeg-based, always local).
+- **audio_processing** - Mixing, enhancement (FFmpeg-based, always local).
+- **analysis** - Transcription, scene detection, frame sampling.
+- **avatar** - Talking head and lip sync generation.
+- **character_animation** - Local character specs, SVG rigs, pose libraries, action timelines, previews, and QA.
+- **3d_world_generation** - Local semantic terrain, procedural biome scattering, explicit landmarks, diagnostic passes, and deterministic HyperFrames/Three.js camera fly-throughs. Route through `threejs_world` and read `skills/creative/3d-world-generation.md` plus `.agents/skills/threejs-world-generation/SKILL.md`.
+- **3d_asset_acquisition** - Rights-safe GLTF/GLB catalogs for production-tier Three.js worlds. Route through `threejs_asset_catalog`; never substitute blockout primitives for a requested detailed or reference-grade environment.
+- **3d_asset_generation** - Unique textured/PBR meshes from text or concept images. Route text-described hero assets through `atlas_3d`, image-conditioned assets and regional object extraction through `fal_3d`, and read `.agents/skills/3d-asset-generation/SKILL.md`. Announce provider/model/unit cost before every first paid call and sample before batching.
+- **3d_world_rendering** - Production assembly, terrain, lighting, materials, camera, and image-sequence rendering in Blender. Route through `blender_world`; use Three.js for interactive/blockout review, not as a substitute for Blender when reference-grade scene density is requested.
+- **enhancement** - Upscale, background removal, face enhance, color grading.
 
-Each tool in the registry declares `best_for`, `install_instructions`, `runtime` (LOCAL, API, LOCAL_GPU, HYBRID), and `status`. Read these fields — do not assume tool strengths from memory.
+Each tool in the registry declares `best_for`, `install_instructions`, `runtime` (LOCAL, API, LOCAL_GPU, HYBRID), and `status`. Read these fields - do not assume tool strengths from memory.
 
 ### Tool Class Naming Convention
 
@@ -501,7 +501,7 @@ All tools call via `.execute(params_dict)` (returns `ToolResult` with `.success`
 
 ### Selector Pattern
 
-Three selector tools abstract multi-provider capabilities. **Selectors auto-discover providers from the registry.** Adding a new provider tool automatically makes it available through the selector — no selector code changes needed.
+Three selector tools abstract multi-provider capabilities. **Selectors auto-discover providers from the registry.** Adding a new provider tool automatically makes it available through the selector - no selector code changes needed.
 
 | Selector | Routes to | How it discovers |
 |----------|-----------|-----------------|
@@ -520,7 +520,7 @@ Before committing to execution, present:
 3. Recommended tool path.
 4. Alternative tool paths that are actually available.
 5. Cost estimate and quality tradeoffs.
-6. **Music plan** — mandatory for every pipeline that has audio. See below.
+6. **Music plan** - mandatory for every pipeline that has audio. See below.
 7. Production plan by stage.
 8. Approval gate before asset generation.
 
@@ -528,7 +528,7 @@ If a user prefers a specific vendor and that tool is available, surface it direc
 
 ### Music Plan (Mandatory)
 
-Music is a critical part of any video. **Surface the music situation to the user at proposal/idea time** — do not silently defer it to the asset stage where a failure becomes expensive.
+Music is a critical part of any video. **Surface the music situation to the user at proposal/idea time** - do not silently defer it to the asset stage where a failure becomes expensive.
 
 Check music availability in this order and present the options:
 
@@ -540,7 +540,7 @@ Check music availability in this order and present the options:
 **Always present the user with explicit choices:**
 - Use a track from their library (which one?)
 - Provide a different track (drop it in `music_library/`)
-- Generate one via API (if available — name the provider and cost)
+- Generate one via API (if available - name the provider and cost)
 - Proceed without music
 
 **If no music source is available:** Tell the user explicitly. Do NOT let this surface as a surprise at the asset stage.
@@ -549,7 +549,7 @@ Record the music decision in the proposal/brief artifact so the asset director k
 
 ## Pipeline Asset Expectations
 
-Each pipeline manifest's `tools_available` field declares what tools a stage can use. Use selectors for multi-provider capabilities — the selector handles routing to whatever is available. Read the pipeline manifest for the authoritative list per stage.
+Each pipeline manifest's `tools_available` field declares what tools a stage can use. Use selectors for multi-provider capabilities - the selector handles routing to whatever is available. Read the pipeline manifest for the authoritative list per stage.
 
 ## Stage Agents
 
@@ -573,7 +573,7 @@ Stage contract rules:
 
 ## Reviewer Protocol
 
-The reviewer is a meta skill (`skills/meta/reviewer.md`) — advisory, never directly blocks progression.
+The reviewer is a meta skill (`skills/meta/reviewer.md`) - advisory, never directly blocks progression.
 
 - Self-review after every stage execution, before checkpointing.
 - Load `review_focus` items from the pipeline manifest for the current stage.
@@ -586,9 +586,9 @@ The reviewer is a meta skill (`skills/meta/reviewer.md`) — advisory, never dir
 
 The checkpoint protocol meta skill (`skills/meta/checkpoint-protocol.md`) teaches the agent when to pause:
 
-- Read `human_approval_default` from the pipeline manifest per stage. **The manifest value is binding** — never re-judge it. `lib/checkpoint.py` enforces this: a gated stage cannot be written `completed` without `human_approved=True`.
-- Typical gated stages: `idea`/`proposal`, `script`, `scene_plan`, **`assets`** (review the generated assets scene-by-scene — the Backlot board's filmstrip — before compose locks them in), and `publish` where the pipeline has one. Most pipelines auto-proceed on `edit` and `compose`, but not all (documentary-montage gates `edit`) — the manifest you loaded is the only authority.
-- When approval is required: write the checkpoint as `awaiting_human`, present artifact summary, review findings, and cost snapshot — then **END YOUR TURN**. Doing further pipeline work in the same response is a gate violation.
+- Read `human_approval_default` from the pipeline manifest per stage. **The manifest value is binding** - never re-judge it. `lib/checkpoint.py` enforces this: a gated stage cannot be written `completed` without `human_approved=True`.
+- Typical gated stages: `idea`/`proposal`, `script`, `scene_plan`, **`assets`** (review the generated assets scene-by-scene - the Backlot board's filmstrip - before compose locks them in), and `publish` where the pipeline has one. Most pipelines auto-proceed on `edit` and `compose`, but not all (documentary-montage gates `edit`) - the manifest you loaded is the only authority.
+- When approval is required: write the checkpoint as `awaiting_human`, present artifact summary, review findings, and cost snapshot - then **END YOUR TURN**. Doing further pipeline work in the same response is a gate violation.
 - **Approval is per-gate.** An early "go ahead" never covers later gates; explicit full-run pre-authorization must be recorded as a `decision_log` entry (`category: "approval_policy"`) to count.
 - Wait for human to approve, request revision, or abort.
 
@@ -610,12 +610,12 @@ Primary files:
 
 Checkpoint rules:
 
-- Checkpoints live at `projects/<project_id>/checkpoint_<stage>.json` (the project workspace — this is what the Backlot board watches).
+- Checkpoints live at `projects/<project_id>/checkpoint_<stage>.json` (the project workspace - this is what the Backlot board watches).
 - `status` may be `completed`, `failed`, `awaiting_human`, or `in_progress`.
-- Write an `in_progress` checkpoint on entering each stage; during `assets`/`compose`, refresh `metadata.partial_progress` after each completed scene/asset unit — this powers live progress on the board.
+- Write an `in_progress` checkpoint on entering each stage; during `assets`/`compose`, refresh `metadata.partial_progress` after each completed scene/asset unit - this powers live progress on the board.
 - `completed` and `awaiting_human` checkpoints must include the canonical artifact.
-- A gated stage (`human_approval_default: true`) can only be written `completed` with `human_approved=True` — the writer raises a GATE VIOLATION otherwise.
-- Superseded checkpoints are archived automatically to `projects/<project_id>/history/` — stage re-runs never destroy run history.
+- A gated stage (`human_approval_default: true`) can only be written `completed` with `human_approved=True` - the writer raises a GATE VIOLATION otherwise.
+- Superseded checkpoints are archived automatically to `projects/<project_id>/history/` - stage re-runs never destroy run history.
 - Invalid checkpoints or invalid canonical artifacts are contract violations and should fail fast.
 
 Pipeline manifest rules:
@@ -644,7 +644,7 @@ For custom, atelier, brand, launch, or hero work, read `skills/meta/taste-direct
 
 ### Hand-drawn "doodle" animation → Ink Theater / Ink Puppet
 
-For any brief that wants a **hand-drawn ink doodle** look — "a sketch that comes to life", "a pencil / stick figure that walks or dances", "a little character that acts out the idea", whiteboard-doodle explainers — use the **Ink Theater** engine + **Ink Puppet** mocap system (`skills/creative/ink-theater.md`, `ink-theater/README.md`). It is a **style + reusable engine, not a new pipeline**: illustration / contraption pieces run on the `animation` pipeline; a mocap character (draws itself → walks / dances / waves via `InkPuppet.choreograph([...])`) runs on `character-animation`. Cross-tool entry points: **`/ink-art`** (create a vector doodle from scratch) and **`/animated-drawing`** (animate a *supplied* drawing with mocap — raster; `skills/creative/animated-drawing.md`). Never hand-tune character motion — the agent only chooses named mocap clips.
+For any brief that wants a **hand-drawn ink doodle** look - "a sketch that comes to life", "a pencil / stick figure that walks or dances", "a little character that acts out the idea", whiteboard-doodle explainers - use the **Ink Theater** engine + **Ink Puppet** mocap system (`skills/creative/ink-theater.md`, `ink-theater/README.md`). It is a **style + reusable engine, not a new pipeline**: illustration / contraption pieces run on the `animation` pipeline; a mocap character (draws itself → walks / dances / waves via `InkPuppet.choreograph([...])`) runs on `character-animation`. Cross-tool entry points: **`/ink-art`** (create a vector doodle from scratch) and **`/animated-drawing`** (animate a *supplied* drawing with mocap - raster; `skills/creative/animated-drawing.md`). Never hand-tune character motion - the agent only chooses named mocap clips.
 
 ## Layer Map
 
@@ -659,13 +659,13 @@ OpenMontage has three instruction layers:
 
 Reading order:
 
-1. registry / tool contract — discover what's available
-2. relevant pipeline or creative skill (Layer 2) — know HOW to use it in this context
-3. underlying vendor skill (Layer 3) — **mandatory before calling any generation tool**
+1. registry / tool contract - discover what's available
+2. relevant pipeline or creative skill (Layer 2) - know HOW to use it in this context
+3. underlying vendor skill (Layer 3) - **mandatory before calling any generation tool**
 
-**Prefer skills over source code for tool usage.** Skills exist precisely so you don't need implementation details in the common case. Layer 2 tells you *what* and *when*. Layer 3 tells you *how*. For authoring prompts, choosing parameters, or understanding usage patterns, you should be reading skills — not `.py` files.
+**Prefer skills over source code for tool usage.** Skills exist precisely so you don't need implementation details in the common case. Layer 2 tells you *what* and *when*. Layer 3 tells you *how*. For authoring prompts, choosing parameters, or understanding usage patterns, you should be reading skills - not `.py` files.
 
-**Exception: debugging, audits, and verifying the governance contract.** When a skill and a tool disagree, or when something behaves differently than the skill claims, reading the tool source is fair game — that's often the only way to catch a silent-availability bug or a stale doc string. An audit that refuses to look at the implementation will miss exactly the bugs that matter most. If you do read source to debug, consider whether the finding belongs in a skill update afterward so the next agent doesn't need to repeat the dive.
+**Exception: debugging, audits, and verifying the governance contract.** When a skill and a tool disagree, or when something behaves differently than the skill claims, reading the tool source is fair game - that's often the only way to catch a silent-availability bug or a stale doc string. An audit that refuses to look at the implementation will miss exactly the bugs that matter most. If you do read source to debug, consider whether the finding belongs in a skill update afterward so the next agent doesn't need to repeat the dive.
 
 **Layer 3 is not optional.** Every generation tool (video, image, TTS, music) has an `agent_skills` field listing its Layer 3 skills. These skills contain provider-specific prompt engineering, parameter tuning, and quality techniques. Read them before writing prompts. The difference between a generic prompt and a skill-informed prompt is the difference between "usable" and "cinematic."
 
@@ -681,9 +681,9 @@ The `.agents/skills/` directory is large. When you're not coming in through a to
 | **Animation knowledge (generic)** | `gsap-core`, `gsap-timeline`, `gsap-plugins` (SplitText / MorphSVG / DrawSVG / MotionPath / Flip / CustomEase), `gsap-utils`, `gsap-react`, `gsap-performance`, `gsap-scrolltrigger`, `gsap-frameworks`, `framer-motion` (Disney 12 principles), `lottie-bodymovin` (Lottie export) |
 | **Character animation** | `character-rigging`, `svg-character-animation`, `pose-library-design`, `canvas-procedural-animation`, `character-animation-qa` |
 | **Image generation** | `bfl-api`, `flux-best-practices` |
-| **Video generation** | `seedance-2-0` (preferred premium default — cinematic, trailer, multi-shot, synced audio, lip-sync), `gemini-omni` (conversational video editing, reference tags, timecoded beats), `ai-video-gen`, `ltx2` |
-| **Audio** | `elevenlabs`, `music`, `sound-effects`, `acestep`, `text-to-speech`, `azure-text-to-speech` (optional cloud TTS — tool `azure_tts`, same Speech key as `azure_stt`), `setup-api-key` |
-| **Speech-to-text** | `speech-to-text` (whisper `transcriber` — default, offline), `azure-speech-to-text` (optional cloud STT — tool `azure_stt`, preferred when `AZURE_SPEECH_KEY` is set) |
+| **Video generation** | `seedance-2-0` (preferred premium default - cinematic, trailer, multi-shot, synced audio, lip-sync), `gemini-omni` (conversational video editing, reference tags, timecoded beats), `ai-video-gen`, `ltx2` |
+| **Audio** | `elevenlabs`, `music`, `sound-effects`, `acestep`, `text-to-speech`, `azure-text-to-speech` (optional cloud TTS - tool `azure_tts`, same Speech key as `azure_stt`), `setup-api-key` |
+| **Speech-to-text** | `speech-to-text` (whisper `transcriber` - default, offline), `azure-speech-to-text` (optional cloud STT - tool `azure_stt`, preferred when `AZURE_SPEECH_KEY` is set) |
 | **Avatar / lip-sync** | `avatar-video`, `heygen`, `create-video`, `faceswap`, `video-translate`, `agents` |
 | **Capture** | `playwright-recording` (browser flows), `ffmpeg` (post) |
 | **Visualization** | `beautiful-mermaid`, `d3-viz`, `manim-composer`, `manimce-best-practices`, `manimgl-best-practices` |
