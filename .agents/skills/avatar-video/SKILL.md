@@ -27,7 +27,7 @@ curl -X GET "https://api.heygen.com/v2/avatars" \
 
 ## Tool Selection
 
-If HeyGen MCP tools are available (`mcp__heygen__*`), **prefer them** over direct HTTP API calls — they handle authentication and request formatting automatically.
+If HeyGen MCP tools are available (`mcp__heygen__*`), **prefer them** over direct HTTP API calls - they handle authentication and request formatting automatically.
 
 | Task | MCP Tool | Fallback (Direct API) |
 |------|----------|----------------------|
@@ -35,15 +35,15 @@ If HeyGen MCP tools are available (`mcp__heygen__*`), **prefer them** over direc
 | List account videos | `mcp__heygen__list_videos` | `GET /v2/videos` |
 | Delete a video | `mcp__heygen__delete_video` | `DELETE /v2/videos/{video_id}` |
 
-Video generation (`POST /v2/video/generate`) and avatar/voice listing are done via direct API calls — see reference files below.
+Video generation (`POST /v2/video/generate`) and avatar/voice listing are done via direct API calls - see reference files below.
 
 ## Default Workflow
 
-1. **List avatars** — `GET /v2/avatars` → pick an avatar, preview it, note `avatar_id` and `default_voice_id`. See [avatars.md](references/avatars.md)
-2. **List voices** (if needed) — `GET /v2/voices` → pick a voice matching the avatar's gender/language. See [voices.md](references/voices.md)
-3. **Write the script** — Structure scenes with one concept each. See [scripts.md](references/scripts.md)
-4. **Generate the video** — `POST /v2/video/generate` with avatar, voice, script, and background per scene. See [video-generation.md](references/video-generation.md)
-5. **Poll for completion** — `GET /v2/videos/{video_id}` until status is `completed`. See [video-status.md](references/video-status.md)
+1. **List avatars** - `GET /v2/avatars` → pick an avatar, preview it, note `avatar_id` and `default_voice_id`. See [avatars.md](references/avatars.md)
+2. **List voices** (if needed) - `GET /v2/voices` → pick a voice matching the avatar's gender/language. See [voices.md](references/voices.md)
+3. **Write the script** - Structure scenes with one concept each. See [scripts.md](references/scripts.md)
+4. **Generate the video** - `POST /v2/video/generate` with avatar, voice, script, and background per scene. See [video-generation.md](references/video-generation.md)
+5. **Poll for completion** - `GET /v2/videos/{video_id}` until status is `completed`. See [video-status.md](references/video-status.md)
 
 ## Quick Reference
 
@@ -66,7 +66,7 @@ Video generation (`POST /v2/video/generate`) and avatar/voice listing are done v
 
 ## When to Use This Skill vs Create Video
 
-This skill is for **precise control** — you choose the avatar, write the exact script, configure each scene.
+This skill is for **precise control** - you choose the avatar, write the exact script, configure each scene.
 
 If the user just wants to **describe a video idea** and let AI handle the rest (script, avatar, visuals), use the **create-video** skill instead.
 
@@ -109,9 +109,9 @@ If the user just wants to **describe a video idea** and let AI handle the rest (
 
 ## Best Practices
 
-1. **Preview avatars before generating** — Download `preview_image_url` so the user can see the avatar before committing
-2. **Use avatar's default voice** — Most avatars have a `default_voice_id` pre-matched for natural results
-3. **Fallback: match gender manually** — If no default voice, ensure avatar and voice genders match
-4. **Use test mode for development** — Set `test: true` to avoid consuming credits (output will be watermarked)
-5. **Set generous timeouts** — Video generation often takes 5-15 minutes, sometimes longer
-6. **Validate inputs** — Check avatar and voice IDs exist before generating
+1. **Preview avatars before generating** - Download `preview_image_url` so the user can see the avatar before committing
+2. **Use avatar's default voice** - Most avatars have a `default_voice_id` pre-matched for natural results
+3. **Fallback: match gender manually** - If no default voice, ensure avatar and voice genders match
+4. **Use test mode for development** - Set `test: true` to avoid consuming credits (output will be watermarked)
+5. **Set generous timeouts** - Video generation often takes 5-15 minutes, sometimes longer
+6. **Validate inputs** - Check avatar and voice IDs exist before generating
