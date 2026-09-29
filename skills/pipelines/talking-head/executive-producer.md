@@ -1,4 +1,4 @@
-# Executive Producer — Talking Head Pipeline
+# Executive Producer - Talking Head Pipeline
 
 ## When to Use
 
@@ -34,13 +34,13 @@ The talking-head pipeline is **footage-first**, not idea-first:
 
 | Aspect | Explainer EP | Talking-Head EP |
 |--------|-------------|-----------------|
-| Source material | None — generates everything | Raw footage provided up front |
+| Source material | None - generates everything | Raw footage provided up front |
 | Script stage | Writes from scratch | Extracts from transcription |
 | Core challenge | Creative generation quality | Transcript accuracy + timing |
 | Budget model | Moderate (TTS + image gen) | Low (mostly processing, optional overlays) |
 | Duration source | Target set in proposal | Determined by raw footage length |
 | Critical sync | Narration ↔ visual duration | Subtitles ↔ speech timing |
-| Pre-production | Research + proposal (2 stages) | Idea (1 stage) — no research needed |
+| Pre-production | Research + proposal (2 stages) | Idea (1 stage) - no research needed |
 
 ## Cumulative State
 
@@ -95,7 +95,7 @@ EP_STATE:
 
 1. Load the pipeline manifest (`talking-head.yaml`)
 2. Load the playbook from user selection, brand system, or footage-derived visual identity. Use `clean-professional` only when no stronger identity is warranted.
-3. Set budget from configuration or user input (default: $0.50 — talking-head is mostly processing)
+3. Set budget from configuration or user input (default: $0.50 - talking-head is mostly processing)
 4. Probe the raw footage with ffprobe: duration, resolution, fps, audio channels, codec
 5. Store footage metadata in EP_STATE
 6. Initialize EP_STATE
@@ -193,7 +193,7 @@ FINAL_QA:
 
 ## EP-Specific Cross-Stage Checks
 
-These checks use information accumulated across stages — something no individual director can do.
+These checks use information accumulated across stages - something no individual director can do.
 
 ### After IDEA stage:
 ```
@@ -356,13 +356,13 @@ Enhancement adjustments: {skip/add face_enhance, color_grade, etc.}
 | Max send-backs per stage pair | 1 | Prevent ping-pong between stages |
 | Max total send-backs | 3 | Cap total pipeline re-work |
 | Max total budget | Configurable (default $0.50) | Hard stop on spending |
-| Max total wall-time | 10 minutes | Timeout for entire pipeline (shorter than explainer — less generation) |
+| Max total wall-time | 10 minutes | Timeout for entire pipeline (shorter than explainer - less generation) |
 
 After any limit is hit: **proceed with warnings**, never block indefinitely.
 
 ## Integration with Existing Skills
 
-The EP doesn't replace any director skill — it wraps them. Each director skill continues to work exactly as documented. The EP adds:
+The EP doesn't replace any director skill - it wraps them. Each director skill continues to work exactly as documented. The EP adds:
 
 1. **Context injection**: Directors receive EP_STATE with cross-stage information they couldn't access before
 2. **Feedback injection**: Directors receive specific revision instructions when sent back
@@ -438,7 +438,7 @@ The EP doesn't replace any director skill — it wraps them. Each director skill
 
 ## Common Pitfalls
 
-- **Ignoring transcript quality**: Everything downstream depends on the transcript. If confidence is low, fix it in the script stage — don't let bad timestamps propagate to subtitles and edits.
+- **Ignoring transcript quality**: Everything downstream depends on the transcript. If confidence is low, fix it in the script stage - don't let bad timestamps propagate to subtitles and edits.
 - **Over-enhancing**: Face enhance and color grade are optional. If the raw footage looks good, skip them. Don't add processing for the sake of it.
 - **Subtitle style mismatch**: The subtitle style must come from the playbook. Don't let the asset director use default SRT styling when the playbook specifies font/color/position.
 - **Not probing raw footage**: Always ffprobe before starting. A video with no audio track or a corrupt container will waste every downstream stage.
