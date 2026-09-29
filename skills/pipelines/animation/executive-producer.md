@@ -1,4 +1,4 @@
-# Executive Producer — Animation Pipeline
+# Executive Producer - Animation Pipeline
 
 ## When to Use
 
@@ -100,8 +100,8 @@ EP_STATE:
 For each stage in order: `research → proposal → script → scene_plan → assets → edit → compose → publish`
 
 **Pre-production stages (research, proposal)** run before any money is spent:
-- **research** gathers topic data AND animation technique references via web search — zero cost
-- **proposal** presents concepts with animation mode selection and costs to the user — zero cost, but contains the **approval gate**
+- **research** gathers topic data AND animation technique references via web search - zero cost
+- **proposal** presents concepts with animation mode selection and costs to the user - zero cost, but contains the **approval gate**
 - The pipeline MUST NOT proceed past proposal without `approval.status == "approved"` or `"approved_with_changes"`
 
 After proposal approval, extract and store in EP_STATE:
@@ -204,7 +204,7 @@ FINAL_QA:
 
 ## EP-Specific Cross-Stage Checks
 
-These checks use information accumulated across stages — something no individual director can do.
+These checks use information accumulated across stages - something no individual director can do.
 
 ### After RESEARCH stage:
 ```
@@ -411,7 +411,7 @@ After any limit is hit: **proceed with warnings**, never block indefinitely.
 
 ## Integration with Existing Skills
 
-The EP doesn't replace any director skill — it wraps them. Each director skill continues to work exactly as documented. The EP adds:
+The EP doesn't replace any director skill - it wraps them. Each director skill continues to work exactly as documented. The EP adds:
 
 1. **Context injection**: Directors receive EP_STATE with cross-stage information
 2. **Feedback injection**: Directors receive specific revision instructions when sent back
