@@ -13,15 +13,15 @@ stock footage vs. AI generation, and how to get good results from each.
 
 | Scene Need | Prefer Stock | Prefer Generated |
 |------------|-------------|-----------------|
-| Real-world establishing shot (city, office, nature) | **Yes** — stock excels here | Only if no good stock match |
-| People in realistic settings | **Yes** — generated humans often look uncanny | Only with high-quality models |
-| Abstract concept visualization | No | **Yes** — AI can create what doesn't exist |
-| Custom diagrams/infographics | No | **Yes** — use `diagram_gen` or `image_selector` |
-| Branded/stylized imagery | No | **Yes** — AI matches your playbook style |
-| Historical/archival footage | **Yes** — stock libraries have archives | No |
-| Specific technical equipment | **Yes** — real photos are more credible | Only if equipment doesn't exist |
-| Motion/action clips (waves, traffic, clouds) | **Yes** — stock video is perfect for this | AI video is catching up |
-| Metaphorical imagery (growth, connection) | Either works | **Yes** — more creative control |
+| Real-world establishing shot (city, office, nature) | **Yes** - stock excels here | Only if no good stock match |
+| People in realistic settings | **Yes** - generated humans often look uncanny | Only with high-quality models |
+| Abstract concept visualization | No | **Yes** - AI can create what doesn't exist |
+| Custom diagrams/infographics | No | **Yes** - use `diagram_gen` or `image_selector` |
+| Branded/stylized imagery | No | **Yes** - AI matches your playbook style |
+| Historical/archival footage | **Yes** - stock libraries have archives | No |
+| Specific technical equipment | **Yes** - real photos are more credible | Only if equipment doesn't exist |
+| Motion/action clips (waves, traffic, clouds) | **Yes** - stock video is perfect for this | AI video is catching up |
+| Metaphorical imagery (growth, connection) | Either works | **Yes** - more creative control |
 
 **Rule of thumb:** If the scene needs to look _real_, use stock. If it needs to look _specific to your concept_, generate it.
 
@@ -29,11 +29,11 @@ stock footage vs. AI generation, and how to get good results from each.
 
 Walk the script section by section. For each section, ask:
 
-1. **What is the narrator talking about?** — The subject suggests the visual.
-2. **Is there an enhancement cue?** — The script writer may have embedded `[B-ROLL: ...]` cues.
-3. **Does this section reference something concrete?** — "servers in a data center" → stock footage of servers.
-4. **Does this section explain an abstract concept?** — "the algorithm weighs each factor" → generated diagram.
-5. **How long is this section?** — Determines clip duration needed.
+1. **What is the narrator talking about?** - The subject suggests the visual.
+2. **Is there an enhancement cue?** - The script writer may have embedded `[B-ROLL: ...]` cues.
+3. **Does this section reference something concrete?** - "servers in a data center" → stock footage of servers.
+4. **Does this section explain an abstract concept?** - "the algorithm weighs each factor" → generated diagram.
+5. **How long is this section?** - Determines clip duration needed.
 
 ### Output: B-Roll Brief
 
@@ -70,7 +70,7 @@ Fallback: AI-generated image of server racks
 
 ### Query Templates by Scene Type
 
-Add a **POV keyword** to every query. Stock libraries (Pexels, Pixabay, Storyblocks, Artgrid) explicitly index POV terms — drone, aerial, OTS (over-the-shoulder), macro, top-down, dashcam, FPV, handheld, locked-off — and adding the POV often unlocks better matches than refining the subject. The CMU/Harvard CHAI taxonomy treats POV as a first-class Scene aspect for the same reason: it changes which library shelf you're searching.
+Add a **POV keyword** to every query. Stock libraries (Pexels, Pixabay, Storyblocks, Artgrid) explicitly index POV terms - drone, aerial, OTS (over-the-shoulder), macro, top-down, dashcam, FPV, handheld, locked-off - and adding the POV often unlocks better matches than refining the subject. The CMU/Harvard CHAI taxonomy treats POV as a first-class Scene aspect for the same reason: it changes which library shelf you're searching.
 
 | Scene Type | Query Template | Example with POV |
 |-----------|---------------|---------|
@@ -81,7 +81,7 @@ Add a **POV keyword** to every query. Stock libraries (Pexels, Pixabay, Storyblo
 | Abstract motion | `[movement] [style] [POV]` | "light trails timelapse locked-off" |
 | Workplace | `[setting] [activity] [POV]` | "modern office meeting handheld" |
 
-If the scene description doesn't already imply a POV, ask the script/scene director — don't default to "no POV." A wrong-POV match (handheld when the scene needs drone) is harder to fix than a wrong color grade.
+If the scene description doesn't already imply a POV, ask the script/scene director - don't default to "no POV." A wrong-POV match (handheld when the scene needs drone) is harder to fix than a wrong color grade.
 
 ## Evaluating Stock Footage Quality
 
@@ -93,13 +93,13 @@ When the stock tool returns results, evaluate before using:
 - **Style compatibility:** Doesn't clash with the playbook's visual style
 - **No watermarks:** Pexels/Pixabay are license-free, but verify
 - **Composition:** Subject is well-framed, not cut off awkwardly
-- **POV match:** Does the footage's actual POV (drone, OTS, macro, handheld, locked-off, etc.) match what the scene needs? A wrong POV — e.g., handheld when the scene wants drone — is **more costly to fix than a wrong color grade**. Reject and re-query rather than try to crop your way out of it.
+- **POV match:** Does the footage's actual POV (drone, OTS, macro, handheld, locked-off, etc.) match what the scene needs? A wrong POV - e.g., handheld when the scene wants drone - is **more costly to fix than a wrong color grade**. Reject and re-query rather than try to crop your way out of it.
 
 ### Video Criteria (all image criteria plus)
 - **Duration:** At least as long as the scene needs (can trim, can't extend)
 - **Motion:** Smooth, no jarring camera movement (unless that's the intent)
 - **Frame rate:** Matches target output (24/30fps standard)
-- **Audio:** Stock video audio is usually discarded — don't factor it in
+- **Audio:** Stock video audio is usually discarded - don't factor it in
 
 ### Scoring Heuristic
 
@@ -107,8 +107,8 @@ Rate each result 1-5:
 - **5:** Perfect match, use immediately
 - **4:** Good match, minor crop or trim needed
 - **3:** Acceptable, would benefit from color grading to match playbook
-- **2:** Marginal — try different keywords first
-- **1:** Wrong — doesn't match the scene at all
+- **2:** Marginal - try different keywords first
+- **1:** Wrong - doesn't match the scene at all
 
 **Threshold:** Use results scoring 3+. Below 3, refine the query or switch to generated.
 
@@ -116,10 +116,10 @@ Rate each result 1-5:
 
 When stock search fails (no results or all score below 3):
 
-1. **Retry with different keywords** — try synonyms, broader terms, or different angles
-2. **Try the other stock provider** — Pexels and Pixabay have different libraries
-3. **Switch to AI generation** — use `flux_image` or `openai_image` with the scene description
-4. **Escalate to user** — "I couldn't find good stock footage for [scene]. Here are the best options: [show results]. Or I can generate an image instead. What do you prefer?"
+1. **Retry with different keywords** - try synonyms, broader terms, or different angles
+2. **Try the other stock provider** - Pexels and Pixabay have different libraries
+3. **Switch to AI generation** - use `flux_image` or `openai_image` with the scene description
+4. **Escalate to user** - "I couldn't find good stock footage for [scene]. Here are the best options: [show results]. Or I can generate an image instead. What do you prefer?"
 
 The agent should only ask the user when both stock search AND generation fallback would produce suboptimal results. For most cases, the fallback chain handles it silently.
 
