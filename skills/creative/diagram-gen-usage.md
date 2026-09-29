@@ -24,7 +24,7 @@ THEME (light bg):   github-light or catppuccin-latte
 | **Sequence diagram** | Good | API calls, user interactions, message flows |
 | **State diagram** | Good | State machines, lifecycle, workflow status |
 | **Class diagram** | Fair | Architecture (limit to 3-5 classes) |
-| **ER diagram** | Poor for video | Too dense — simplify to key entities only |
+| **ER diagram** | Poor for video | Too dense - simplify to key entities only |
 | **Gantt chart** | Fair | Timelines, project phases |
 | **Mindmap** | Good | Concept overviews, topic breakdowns |
 
@@ -32,7 +32,7 @@ THEME (light bg):   github-light or catppuccin-latte
 
 ## Complexity Limits for Video
 
-Video is transient — viewers can't zoom or scroll. Cut complexity in half compared to static documentation.
+Video is transient - viewers can't zoom or scroll. Cut complexity in half compared to static documentation.
 
 | Target Resolution | Max Nodes | Max Edges | Min Font Size (CSS) |
 |------------------|-----------|-----------|---------------------|
@@ -60,7 +60,7 @@ Mermaid doesn't animate natively. Use progressive rendering to create a "buildin
 
 ### Approach: Multi-Stage Renders
 
-1. Render diagram in stages — first 2 nodes, then 4, then full diagram
+1. Render diagram in stages - first 2 nodes, then 4, then full diagram
 2. Each stage is a separate Mermaid render → SVG → PNG
 3. Crossfade or cut between stages in FFmpeg
 4. Viewers follow the logic step by step
@@ -85,7 +85,7 @@ Generate one PNG per step with different `classDef` assignments, then sequence t
 ### Node Sizing
 - Minimum node width: 150px at 1080p
 - Padding inside nodes: 15-20px
-- Keep text to 3-5 words per node — use abbreviations if needed
+- Keep text to 3-5 words per node - use abbreviations if needed
 
 ### Edge Labels
 - Keep to 1-2 words maximum
@@ -95,17 +95,17 @@ Generate one PNG per step with different `classDef` assignments, then sequence t
 ### Layout Direction
 - **Top-down (TD):** Best for processes, hierarchies, flows
 - **Left-right (LR):** Best for timelines, sequences, pipelines
-- Avoid bottom-up (BT) — counterintuitive for most viewers
+- Avoid bottom-up (BT) - counterintuitive for most viewers
 
 ## Applying to OpenMontage
 
 When using the `diagram_gen` tool:
 
-1. **Check complexity** — max 15-20 nodes at 1080p. Split larger diagrams into multiple frames
+1. **Check complexity** - max 15-20 nodes at 1080p. Split larger diagrams into multiple frames
 2. **Choose theme** to match the video's style playbook and background
-3. **Use progressive building** — render stages and crossfade for "building" effect in video
-4. **Highlight with classDef** — show the current step in orange/red, completed in green, upcoming in grey
-5. **Keep text minimal** — 3-5 words per node, 1-2 words per edge label
+3. **Use progressive building** - render stages and crossfade for "building" effect in video
+4. **Highlight with classDef** - show the current step in orange/red, completed in green, upcoming in grey
+5. **Keep text minimal** - 3-5 words per node, 1-2 words per edge label
 6. **Default to flowchart TD** unless the content specifically requires another diagram type
-7. **Render at 4K viewport** (3840x2160) even for 1080p output — ensures crisp text when scaled
-8. **Test readability** — view the rendered PNG at actual video frame size before composing
+7. **Render at 4K viewport** (3840x2160) even for 1080p output - ensures crisp text when scaled
+8. **Test readability** - view the rendered PNG at actual video frame size before composing
