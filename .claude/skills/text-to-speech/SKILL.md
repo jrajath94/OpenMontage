@@ -13,7 +13,7 @@ metadata:
 
 # Text-to-Speech (HeyGen Starfish)
 
-Generate speech audio files from text using HeyGen's in-house Starfish TTS model. This skill is for standalone audio generation — separate from video creation.
+Generate speech audio files from text using HeyGen's in-house Starfish TTS model. This skill is for standalone audio generation - separate from video creation.
 
 ## Authentication
 
@@ -44,7 +44,7 @@ If HeyGen MCP tools are available (`mcp__heygen__*`), **prefer them** over direc
 
 Retrieve voices compatible with the Starfish TTS model.
 
-> **Note:** This uses `GET /v1/audio/voices` — a different endpoint from the video voices API (`GET /v2/voices`). Not all video voices support Starfish TTS.
+> **Note:** This uses `GET /v1/audio/voices` - a different endpoint from the video voices API (`GET /v2/voices`). Not all video voices support Starfish TTS.
 
 ### curl
 
@@ -377,8 +377,8 @@ rushed, or ignores the intended breaks.
 
 ## Best Practices
 
-1. **Use `GET /v1/audio/voices`** to find compatible voices — not all voices from `GET /v2/voices` support Starfish TTS
-2. **Check `support_locale`** before setting a `locale` — only multilingual voices support locale selection
+1. **Use `GET /v1/audio/voices`** to find compatible voices - not all voices from `GET /v2/voices` support Starfish TTS
+2. **Check `support_locale`** before setting a `locale` - only multilingual voices support locale selection
 3. **Keep speed between 0.8-1.2** for natural-sounding output
 4. **Preview voices** using the `preview_audio_url` before generating (may be null for some voices)
 5. **Use `word_timestamps`** in the response for caption syncing or timed text overlays
