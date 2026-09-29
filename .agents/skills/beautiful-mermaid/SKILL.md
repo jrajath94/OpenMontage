@@ -160,7 +160,7 @@ Check the render script output for the `bg` and `fg` values, or inspect the SVG'
 
 ### Diagram appears cut off or incomplete
 
-- Check edge label syntax — use `-->|label|` pipe notation, not `-- label -->`
+- Check edge label syntax - use `-->|label|` pipe notation, not `-- label -->`
 - Verify all node IDs are unique
 - Check for unclosed brackets in node labels
 
