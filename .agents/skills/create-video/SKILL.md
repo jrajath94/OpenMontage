@@ -29,7 +29,7 @@ curl -X POST "https://api.heygen.com/v1/video_agent/generate" \
 
 ## Tool Selection
 
-If HeyGen MCP tools are available (`mcp__heygen__*`), **prefer them** over direct HTTP API calls — they handle authentication and request formatting automatically.
+If HeyGen MCP tools are available (`mcp__heygen__*`), **prefer them** over direct HTTP API calls - they handle authentication and request formatting automatically.
 
 | Task | MCP Tool | Fallback (Direct API) |
 |------|----------|----------------------|
@@ -51,8 +51,8 @@ Always use [prompt-optimizer.md](references/prompt-optimizer.md) guidelines to s
 
 **Without MCP tools (direct API):**
 1. Write an optimized prompt using [prompt-optimizer.md](references/prompt-optimizer.md) → [visual-styles.md](references/visual-styles.md)
-2. `POST /v1/video_agent/generate` — see [video-agent.md](references/video-agent.md)
-3. `GET /v2/videos/<id>` — see [video-status.md](references/video-status.md)
+2. `POST /v1/video_agent/generate` - see [video-agent.md](references/video-agent.md)
+3. `GET /v2/videos/<id>` - see [video-status.md](references/video-status.md)
 
 ## Quick Reference
 
@@ -60,11 +60,11 @@ Always use [prompt-optimizer.md](references/prompt-optimizer.md) guidelines to s
 |------|----------|------|
 | Generate video from prompt | `mcp__heygen__generate_video_agent` | [prompt-optimizer.md](references/prompt-optimizer.md) → [visual-styles.md](references/visual-styles.md) → [video-agent.md](references/video-agent.md) |
 | Check video status / get download URL | `mcp__heygen__get_video` | [video-status.md](references/video-status.md) |
-| Upload reference files for prompt | — | [assets.md](references/assets.md) |
+| Upload reference files for prompt | - | [assets.md](references/assets.md) |
 
 ## When to Use This Skill vs Avatar Video
 
-This skill is for **prompt-based video creation** — describe what you want, and the AI handles the rest.
+This skill is for **prompt-based video creation** - describe what you want, and the AI handles the rest.
 
 If the user needs **precise control** over specific avatars, exact scripts, per-scene voice/background configuration, or multi-scene composition, use the **avatar-video** skill instead.
 
@@ -93,8 +93,8 @@ If the user needs **precise control** over specific avatars, exact scripts, per-
 
 ## Best Practices
 
-1. **Optimize your prompt** — The difference between mediocre and professional results depends entirely on prompt quality. Always use the prompt optimizer
-2. **Specify duration** — Use `config.duration_sec` for predictable length
-3. **Lock avatar if needed** — Use `config.avatar_id` for consistency across videos
-4. **Upload reference files** — Help the agent understand your brand/product
-5. **Iterate on prompts** — Refine based on results; Video Agent is great for quick iterations
+1. **Optimize your prompt** - The difference between mediocre and professional results depends entirely on prompt quality. Always use the prompt optimizer
+2. **Specify duration** - Use `config.duration_sec` for predictable length
+3. **Lock avatar if needed** - Use `config.avatar_id` for consistency across videos
+4. **Upload reference files** - Help the agent understand your brand/product
+5. **Iterate on prompts** - Refine based on results; Video Agent is great for quick iterations
