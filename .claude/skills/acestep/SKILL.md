@@ -1,6 +1,6 @@
 ---
 name: acestep
-description: AI music generation with ACE-Step 1.5 — background music, vocal tracks, covers, stem extraction for video production. Use when generating music, soundtracks, jingles, or working with audio stems. Triggers include background music, soundtrack, jingle, music generation, stem extraction, cover, style transfer, or musical composition tasks.
+description: AI music generation with ACE-Step 1.5 - background music, vocal tracks, covers, stem extraction for video production. Use when generating music, soundtracks, jingles, or working with audio stems. Triggers include background music, soundtrack, jingle, music generation, stem extraction, cover, style transfer, or musical composition tasks.
 ---
 
 # ACE-Step 1.5 Music Generation
@@ -97,7 +97,7 @@ python tools/music_gen.py --preset tension --duration 20 --output problem_scene.
 - **UPPERCASE in lyrics** = high vocal intensity
 - **Parentheses** = background vocals: "We rise (together)"
 - **Keep 6-10 syllables per line** for natural rhythm
-- **Don't describe the melody in the caption** — describe the *sound* and *feeling*
+- **Don't describe the melody in the caption** - describe the *sound* and *feeling*
 - **Use `--seed`** to lock randomness when iterating on prompt/lyrics
 
 ## Scene Presets
@@ -120,13 +120,13 @@ Generate music from text prompt + optional lyrics.
 
 ### cover
 Style transfer from reference audio. Control blend with `--cover-strength` (0.0-1.0):
-- **0.2** — Loose style inspiration (more creative freedom)
-- **0.5** — Balanced style transfer
-- **0.7** — Close to original structure (default)
-- **1.0** — Maximum fidelity to source
+- **0.2** - Loose style inspiration (more creative freedom)
+- **0.5** - Balanced style transfer
+- **0.7** - Close to original structure (default)
+- **1.0** - Maximum fidelity to source
 
 ### extract
-Stem separation — isolate individual tracks from mixed audio.
+Stem separation - isolate individual tracks from mixed audio.
 Tracks: `vocals`, `drums`, `bass`, `guitar`, `piano`, `keyboard`, `strings`, `brass`, `woodwinds`, `other`
 
 ### repaint (future)
@@ -140,7 +140,7 @@ Extend partial compositions by adding specified instruments.
 
 ## Prompt Engineering
 
-### Caption Writing — Layer Dimensions
+### Caption Writing - Layer Dimensions
 
 Write captions by layering multiple descriptive dimensions rather than single-word descriptions.
 
@@ -158,11 +158,11 @@ Write captions by layering multiple descriptive dimensions rather than single-wo
 
 ### Key Principles
 
-1. **Specificity over vagueness** — describe instruments, mood, production style
-2. **Avoid contradictions** — don't request "classical strings" and "hardcore metal" simultaneously
-3. **Repetition reinforces priority** — repeat important elements for emphasis
-4. **Sparse captions = more creative freedom** — detailed captions constrain the model
-5. **Use metadata params for BPM/key** — don't write "120 BPM" in the caption, use `--bpm 120`
+1. **Specificity over vagueness** - describe instruments, mood, production style
+2. **Avoid contradictions** - don't request "classical strings" and "hardcore metal" simultaneously
+3. **Repetition reinforces priority** - repeat important elements for emphasis
+4. **Sparse captions = more creative freedom** - detailed captions constrain the model
+5. **Use metadata params for BPM/key** - don't write "120 BPM" in the caption, use `--bpm 120`
 
 ### Lyrics Formatting
 
@@ -195,7 +195,7 @@ Write captions by layering multiple descriptive dimensions rather than single-wo
 - Parentheses = background vocals ("We rise (together)")
 - Keep 6-10 syllables per line within sections for natural rhythm
 
-**Example — Tech Product Jingle:**
+**Example - Tech Product Jingle:**
 ```
 [Verse]
 Build it better, ship it faster
@@ -258,7 +258,7 @@ For consistent sound across a project: fix the seed (`--seed 42`) and vary only 
 - **Shift parameter**: 3.0 recommended for turbo (improves quality)
 
 ### When NOT to use ACE-Step
-- **Voice cloning** — use Qwen3-TTS or ElevenLabs instead
-- **Sound effects** — use ElevenLabs SFX (`tools/sfx.py`)
-- **Speech/narration** — use voiceover tools, not music gen
-- **Stem extraction from video** — extract audio first with FFmpeg, then use `--extract`
+- **Voice cloning** - use Qwen3-TTS or ElevenLabs instead
+- **Sound effects** - use ElevenLabs SFX (`tools/sfx.py`)
+- **Speech/narration** - use voiceover tools, not music gen
+- **Stem extraction from video** - extract audio first with FFmpeg, then use `--extract`
