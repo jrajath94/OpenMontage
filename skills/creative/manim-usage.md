@@ -44,15 +44,15 @@ frame_rate = 30
 | Shape creation (`Create`) | 0.8-1.2s | `smooth` | `Create()` or `DrawBorderThenFill()` |
 | Color highlight | 0.5s | `smooth` | Brief attention call |
 | Camera zoom | 1.5-2.0s | `ease_in_out_cubic` | Smooth entry/exit |
-| Staggered reveals | `lag_ratio=0.1-0.2` | — | `LaggedStart` for grid/list reveals |
-| Wait after reveal | 1.0-2.0s | — | Longer for complex equations |
+| Staggered reveals | `lag_ratio=0.1-0.2` | - | `LaggedStart` for grid/list reveals |
+| Wait after reveal | 1.0-2.0s | - | Longer for complex equations |
 | Fast cut / punctuation | 0.3-0.5s | `rush_from` | Between concepts |
 
 ## Scene Composition
 
 ### Pacing Rule (3Blue1Brown Convention)
 
-- **One concept per scene** — build incrementally
+- **One concept per scene** - build incrementally
 - Show the simple version first, then `Transform` it into the complex version
 - Never reveal more than **3-4 new visual elements** simultaneously
 - Use `self.wait(1.5)` after every major reveal
@@ -61,7 +61,7 @@ frame_rate = 30
 
 **Use 2D** (`Scene` or `MovingCameraScene`) for:
 - Equation derivations, graph plots, number lines, matrices
-- 2D vector spaces (even for "high dimensions" — project down)
+- 2D vector spaces (even for "high dimensions" - project down)
 - State diagrams, flowcharts, timelines
 
 **Use 3D** (`ThreeDScene`) only when:
@@ -69,7 +69,7 @@ frame_rate = 30
 - The spatial relationship IS the concept (cross products, surface normals)
 - You need camera orbit to reveal hidden structure
 
-**Performance:** 3D uses CPU-only Cairo rendering — 5-10x slower than 2D.
+**Performance:** 3D uses CPU-only Cairo rendering - 5-10x slower than 2D.
 
 ## Color Usage
 
@@ -92,11 +92,11 @@ frame_rate = 30
 When using the `math_animate` tool:
 
 1. **Render at `-qh`** (1080p60) for final output, `-qm` for drafts
-2. **One concept per scene** — break complex proofs into multiple Manim scenes
-3. **Use timing table above** — don't rush equations (1.5-2.0s for writes)
-4. **Wait after reveals** — `self.wait(1.5)` minimum after key insights
-5. **Dark background** — set `background_color=BLACK` in config
-6. **Use color semantically** — yellow for unknowns, blue for knowns, red for operators
-7. **Default to 2D** — only use `ThreeDScene` when 3D is essential to understanding
-8. **Stagger complex reveals** — `LaggedStart` with `lag_ratio=0.15` for lists/grids
-9. **Sync to narration** — the scene's total duration should match the narration segment timing from the script
+2. **One concept per scene** - break complex proofs into multiple Manim scenes
+3. **Use timing table above** - don't rush equations (1.5-2.0s for writes)
+4. **Wait after reveals** - `self.wait(1.5)` minimum after key insights
+5. **Dark background** - set `background_color=BLACK` in config
+6. **Use color semantically** - yellow for unknowns, blue for knowns, red for operators
+7. **Default to 2D** - only use `ThreeDScene` when 3D is essential to understanding
+8. **Stagger complex reveals** - `LaggedStart` with `lag_ratio=0.15` for lists/grids
+9. **Sync to narration** - the scene's total duration should match the narration segment timing from the script
