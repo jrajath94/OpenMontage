@@ -103,13 +103,13 @@ window.__timelines["cover-flip"] = tl;
 
 **Why a wrapper div, not opacity on the video itself?**
 
-The framework forces `opacity: 1` on any element with `data-start`/`data-duration` while it's "active" — that's how it manages clip lifecycles. A CSS `opacity: 0` on the video element is silently overwritten. Wrap the video in a div with no `data-*` attributes; the wrapper is owned by your CSS/GSAP.
+The framework forces `opacity: 1` on any element with `data-start`/`data-duration` while it's "active" - that's how it manages clip lifecycles. A CSS `opacity: 0` on the video element is silently overwritten. Wrap the video in a div with no `data-*` attributes; the wrapper is owned by your CSS/GSAP.
 
 **Why both videos at `data-start="0"`?**
 
-So both decode in sync from t=0. Late-mounting the cutout (`data-start=3.3`) makes Chrome do a seek + decoder warm-up at mount, which can land a frame off the base mp4 — visible as a one-frame jitter at the cut.
+So both decode in sync from t=0. Late-mounting the cutout (`data-start=3.3`) makes Chrome do a seek + decoder warm-up at mount, which can land a frame off the base mp4 - visible as a one-frame jitter at the cut.
 
-**Color match:** `remove-background` defaults to `--quality balanced` (crf 18) which keeps the cutout's RGB nearly identical to the source mp4 — minimal edge halo or color shift when overlaid. Use `--quality best` (crf 12) for hero shots; only drop to `--quality fast` (crf 30) when the cutout sits over a _different_ background and the size matters.
+**Color match:** `remove-background` defaults to `--quality balanced` (crf 18) which keeps the cutout's RGB nearly identical to the source mp4 - minimal edge halo or color shift when overlaid. Use `--quality best` (crf 12) for hero shots; only drop to `--quality fast` (crf 30) when the cutout sits over a _different_ background and the size matters.
 
 ## Title Card with Fade
 
