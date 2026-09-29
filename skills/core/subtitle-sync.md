@@ -16,22 +16,22 @@ formatting, and readability for both vertical and horizontal video.
 
 | Format | Extension | Use Case |
 |--------|-----------|----------|
-| SRT | `.srt` | Universal — works with FFmpeg, players, YouTube upload |
-| VTT | `.vtt` | Web-native — HTML5 video, browser playback |
-| Caption JSON | `.caption.json` | Programmatic — word-level data for custom renderers |
+| SRT | `.srt` | Universal - works with FFmpeg, players, YouTube upload |
+| VTT | `.vtt` | Web-native - HTML5 video, browser playback |
+| Caption JSON | `.caption.json` | Programmatic - word-level data for custom renderers |
 
 ## Cue Length by Format
 
 ### Vertical Short-form (TikTok, Reels, Shorts)
 
-- **Max 3-4 words per cue** — screen is narrow, text must be large enough to read
-- **Max 20 characters per line** — prevents wrapping on narrow screens
+- **Max 3-4 words per cue** - screen is narrow, text must be large enough to read
+- **Max 20 characters per line** - prevents wrapping on narrow screens
 - Subtitles are **mandatory** (most viewers watch muted)
 
 ### Horizontal Standard (YouTube, web)
 
-- **Max 6-8 words per cue** — wider screen accommodates more text
-- **Max 42 characters per line** — standard broadcast limit
+- **Max 6-8 words per cue** - wider screen accommodates more text
+- **Max 42 characters per line** - standard broadcast limit
 
 ### General Rules
 
@@ -97,8 +97,8 @@ to segment-level timing with even distribution.
 
 - [ ] Every spoken word appears in a subtitle cue
 - [ ] No cue exceeds the character limit for the target format
-- [ ] Subtitles are in the bottom 20% of frame — never covering the face
+- [ ] Subtitles are in the bottom 20% of frame - never covering the face
 - [ ] Text is readable on mobile at native resolution
-- [ ] Timing matches speech — no early or late cues
+- [ ] Timing matches speech - no early or late cues
 - [ ] Cues don't overlap each other
 - [ ] Outline/shadow provides sufficient contrast against all backgrounds
