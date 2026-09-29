@@ -17,7 +17,7 @@ good as the slot descriptions you write.
 | Schema | `schemas/artifacts/scene_plan.schema.json` | Artifact validation |
 | Prior artifact | `state.artifacts["idea"]["brief"]` | Thematic question, tone, duration, shape |
 | Reference | `skills/pipelines/documentary-montage/executive-producer.md` | Cross-stage rules |
-| Tools | none yet — this stage is pure planning | — |
+| Tools | none yet - this stage is pure planning | - |
 
 ## Mental Model
 
@@ -61,9 +61,9 @@ Write the beat count down before writing any slot.
 ### 2. Decompose The Thematic Question Into Concrete Beats
 
 Take the ONE thematic question from the brief and answer it in
-sensory language. Not themes — textures.
+sensory language. Not themes - textures.
 
-**Example — "What does rain show you about a city?"**
+**Example - "What does rain show you about a city?"**
 
 Bad decomposition (abstract, unsearchable):
 
@@ -92,7 +92,7 @@ montage its weight.
 
 Every slot carries a `description` field. This is the text CLIP will
 embed and rank against. Write it like a good stock-footage tag string
-— nouns and adjectives, no verbs of intention, no emotion words.
+- nouns and adjectives, no verbs of intention, no emotion words.
 
 **Template:**
 
@@ -111,9 +111,9 @@ embed and rank against. Write it like a good stock-footage tag string
 
 **Bad:**
 
-- `"the feeling of arriving home"` — emotion word, no subject
-- `"a warm welcoming moment"` — adjective soup, no image
-- `"someone going through a door in a symbolic way"` — intent, no shot
+- `"the feeling of arriving home"` - emotion word, no subject
+- `"a warm welcoming moment"` - adjective soup, no image
+- `"someone going through a door in a symbolic way"` - intent, no shot
 
 Rule of thumb: if you can't imagine a specific photograph from the
 description, CLIP can't either.
@@ -126,11 +126,11 @@ different jobs, so write them differently.
 
 Give each slot a `queries` array with 2-3 entries:
 
-1. **Literal query** — the most direct stock-search phrase. This is
+1. **Literal query** - the most direct stock-search phrase. This is
    what a Pexels user would type. `"raindrop on asphalt slow motion"`.
-2. **Lateral query** — the same idea from a different angle or scale.
+2. **Lateral query** - the same idea from a different angle or scale.
    `"wet pavement close up"`.
-3. **Association query** (optional, for hero slots) — an adjacent
+3. **Association query** (optional, for hero slots) - an adjacent
    concept that might surface texture clips the literal query misses.
    `"first rain city street"`.
 
@@ -149,15 +149,15 @@ based on what footage lives where:
 | `coverr` | Curated cinematic B-roll, nature, urban, abstract backgrounds | High-quality establishing shots, mood-setters, modern lifestyle |
 | `mixkit` | Curated HD/4K by Envato, nature, business, technology | Premium-feel B-roll, clean nature footage, no attribution needed |
 | `archive_org` | Prelinger home movies, mid-century educational film, 1940s-1980s texture | Vintage, wry, dreamlike, anything nostalgic |
-| `nara` | U.S. National Archives — WWII, Cold War, Apollo, civil rights, presidential | Historical American documentary, military, government, space race |
-| `loc` | Library of Congress — early cinema, newsreels, cultural recordings | Pre-1928 public domain footage, American history, folk traditions |
-| `pond5_pd` | Pond5 Public Domain — WWI/WWII, early cinema, historical speeches | Archival/vintage footage, Méliès, Edison, newsreels |
+| `nara` | U.S. National Archives - WWII, Cold War, Apollo, civil rights, presidential | Historical American documentary, military, government, space race |
+| `loc` | Library of Congress - early cinema, newsreels, cultural recordings | Pre-1928 public domain footage, American history, folk traditions |
+| `pond5_pd` | Pond5 Public Domain - WWI/WWII, early cinema, historical speeches | Archival/vintage footage, Méliès, Edison, newsreels |
 | `videvo` | 90K+ free clips, nature, aerial, city, abstract, time-lapses | Large free library, complements Pexels with different contributors |
 | `nasa` | Earth-from-orbit, astronomy, flight, scale imagery | Reverent, anything about scale, space, planet, flight |
 | `esa` | European space missions, Hubble/Webb imagery, Earth observation | European space content, complements NASA for non-U.S. missions |
 | `jaxa` | Japanese space missions, Hayabusa, ISS Kibo module, H-IIA rockets | Asian space content, unique angle on space exploration |
 | `noaa` | Deep-sea ROV footage, marine life, coral reefs, weather, hurricanes | Ocean/underwater, unique deep-sea content, weather phenomena |
-| `dareful` | Boutique 4K nature — mountains, forests, waterfalls, time-lapses | High-quality nature B-roll, consistent visual style, aerial shots |
+| `dareful` | Boutique 4K nature - mountains, forests, waterfalls, time-lapses | High-quality nature B-roll, consistent visual style, aerial shots |
 | `wikimedia` | Commons photos and CC video, civic/documentary/public-event coverage | Public spaces, landmarks, protests, city texture, educational footage |
 | `unsplash` | Polished editorial stills, lifestyle, product-adjacent photography | Modern still-image support shots when motion footage is thin |
 
@@ -165,7 +165,7 @@ If `era_mix = "vintage"`, bias slots toward `archive_org` and write
 queries in period-appropriate vocabulary ("commuter", "housewife",
 "suburb" not "influencer", "wfh", "coworking").
 
-If `era_mix = "any"`, mix sources per slot — the scene director
+If `era_mix = "any"`, mix sources per slot - the scene director
 decides which slot gets which source based on the beat's meaning.
 
 #### Children's / Fairy-Tale Content
@@ -196,7 +196,7 @@ that dramatically outperform real footage for children's engagement.
 
 **Source routing:** Set `preferred_sources: ["pixabay_video"]` for ALL
 slots. Pixabay is the only free source with a deep AI-generated fantasy
-library. Do not mix real footage with fantasy — the style clash breaks
+library. Do not mix real footage with fantasy - the style clash breaks
 immersion for children.
 
 **Keywords that surface AI fantasy content:** `fairy tale`, `fantasy`,
@@ -223,7 +223,7 @@ exact clip, you've done the asset director's job badly and pre-empted
 its creative choices.
 
 Rule: describe the slot the way you would describe it to a research
-assistant over the phone — specific enough to recognise, loose enough
+assistant over the phone - specific enough to recognise, loose enough
 to surprise you.
 
 ### 8. Record The Shot List
@@ -276,14 +276,14 @@ For this pipeline, put documentary-montage-specific fields inside
 ```
 
 The `scenes[]` array satisfies the schema. The `metadata.slots[]`
-array is what the asset director actually reads — it carries the
+array is what the asset director actually reads - it carries the
 retrieval-specific fields (`queries`, `preferred_sources`, `hero`,
 `era_hint`) that `scene_plan.schema.json` doesn't know about.
 
 ### 9. Quality Gate
 
 - Slot count matches the beat-count math from step 1.
-- Every slot `description` follows the noun-and-adjective template —
+- Every slot `description` follows the noun-and-adjective template -
   no emotion words, no verbs of intention.
 - Every slot has 2-3 short queries (5 words or fewer each).
 - At least 2 slots are marked `hero`.
@@ -301,7 +301,7 @@ retrieval-specific fields (`queries`, `preferred_sources`, `hero`,
   knob" is.
 - **Category queries.** `"home"` and `"family"` match everything and
   nothing. Push for concrete nouns: door, mat, key, hall, shoe.
-- **One-query slots.** The second query is cheap insurance — if the
+- **One-query slots.** The second query is cheap insurance - if the
   first query returns junk, the corpus still has something usable.
 - **Forgetting duration math.** 90 elegiac seconds is ~15 holds of
   ~6s. If you wrote 40 slots, you've drafted an urgent piece by
@@ -312,7 +312,7 @@ retrieval-specific fields (`queries`, `preferred_sources`, `hero`,
   home" and your slot list has three shots of airplanes, the piece
   will be about travel, not home. Re-read the brief after drafting.
 
-## Worked Example — "A Minute in the Rain"
+## Worked Example - "A Minute in the Rain"
 
 - Duration: 90s, elegiac tone → ~15 slots at ~6s each.
 - Shape: list (catalogue of weather + city).
@@ -355,4 +355,4 @@ This is the artifact the asset director will run retrieval against.
 This stage gates on human approval (`human_approval_default: true`). After review passes:
 checkpoint with `status="awaiting_human"`, present the summary (the Backlot board renders
 the artifact), and **END YOUR TURN**. Do not start the next stage in the same response.
-Approval is per-gate — an earlier "go ahead" does not cover this gate.
+Approval is per-gate - an earlier "go ahead" does not cover this gate.
