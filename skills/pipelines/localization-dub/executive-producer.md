@@ -1,4 +1,4 @@
-# Executive Producer — Localization Dub Pipeline
+# Executive Producer - Localization Dub Pipeline
 
 ## When to Use
 
@@ -121,7 +121,7 @@ CHECK: Per-locale validation
 | Max revisions per stage | 3 |
 | Max send-backs per stage pair | 1 |
 | Max total send-backs | 3 |
-| Max total budget | Configurable (default $3 — localization is costlier) |
+| Max total budget | Configurable (default $3 - localization is costlier) |
 | Max total wall-time | 15 minutes |
 
 ## Common Pitfalls
