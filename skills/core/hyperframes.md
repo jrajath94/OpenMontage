@@ -9,18 +9,18 @@ For raw HyperFrames knowledge (authoring contract, `data-*` attributes, GSAP
 timeline rules, CLI flags, registry blocks, website-to-video), read the Layer 3
 skills:
 
-- `.agents/skills/hyperframes/` — router into the focused skills below (HF 0.7+ split the monolithic skill)
-- `.agents/skills/hyperframes-core/` — composition contract: `data-*` timing, tracks, sub-compositions, deterministic-render rules
-- `.agents/skills/hyperframes-creative/` — non-animation creative direction: palette, type, narration, beat planning
-- `.agents/skills/hyperframes-media/` — TTS/BGM/SFX/transcription/captions/background-removal
-- `.agents/skills/hyperframes-animation/` — all motion knowledge (rules, blueprints, transitions, runtime adapters)
-- `.agents/skills/hyperframes-cli/` — init, add, lint, validate, inspect, snapshot, preview, render, benchmark, lambda, doctor (0.7+)
-- `.agents/skills/hyperframes-registry/` — `hyperframes add` + block wiring
-- `.agents/skills/website-to-video/` — capture-to-video workflow (renamed from website-to-video in 0.7)
-- `.agents/skills/music-to-video/` — beat-synced music-driven video using `hyperframes beats`
-- `.agents/skills/motion-graphics/` — short design-led motion graphic patterns
-- `.agents/skills/media-use/` — `resolve` verb for BGM/SFX/image/icon (any pipeline, any runtime)
-- `.agents/skills/remotion-to-hyperframes/` — migration ONLY when user explicitly asks to port a Remotion source
+- `.agents/skills/hyperframes/` - router into the focused skills below (HF 0.7+ split the monolithic skill)
+- `.agents/skills/hyperframes-core/` - composition contract: `data-*` timing, tracks, sub-compositions, deterministic-render rules
+- `.agents/skills/hyperframes-creative/` - non-animation creative direction: palette, type, narration, beat planning
+- `.agents/skills/hyperframes-media/` - TTS/BGM/SFX/transcription/captions/background-removal
+- `.agents/skills/hyperframes-animation/` - all motion knowledge (rules, blueprints, transitions, runtime adapters)
+- `.agents/skills/hyperframes-cli/` - init, add, lint, validate, inspect, snapshot, preview, render, benchmark, lambda, doctor (0.7+)
+- `.agents/skills/hyperframes-registry/` - `hyperframes add` + block wiring
+- `.agents/skills/website-to-video/` - capture-to-video workflow (renamed from website-to-video in 0.7)
+- `.agents/skills/music-to-video/` - beat-synced music-driven video using `hyperframes beats`
+- `.agents/skills/motion-graphics/` - short design-led motion graphic patterns
+- `.agents/skills/media-use/` - `resolve` verb for BGM/SFX/image/icon (any pipeline, any runtime)
+- `.agents/skills/remotion-to-hyperframes/` - migration ONLY when user explicitly asks to port a Remotion source
 
 This file teaches the bridge between the two.
 
@@ -30,9 +30,9 @@ This file teaches the bridge between the two.
 
 OpenMontage separates two concepts:
 
-- **`renderer_family`** — the creative grammar (`explainer-data`,
+- **`renderer_family`** - the creative grammar (`explainer-data`,
   `cinematic-trailer`, `product-reveal`, etc.). Chosen at proposal.
-- **`render_runtime`** — the technical engine that realizes that grammar
+- **`render_runtime`** - the technical engine that realizes that grammar
   (`remotion`, `hyperframes`, `ffmpeg`). Also chosen at proposal.
 
 Both are locked in `proposal_packet.schema.json` and carried through
@@ -50,7 +50,7 @@ logged in `decision_log`. Silent runtime swaps are a contract violation.
 | Product promo / launch reel / marketing title card | **HyperFrames** | CSS/GSAP composition grammar matches how designers already think about these. Templates (`kinetic-type`, `product-promo`, `swiss-grid`) give a strong starting point. |
 | Website-to-video / UI-driven composition | **HyperFrames** | The `website-to-video` workflow exists for exactly this. |
 | Registry block needed (data chart, grain overlay, shimmer sweep, shader transition) | **HyperFrames** | The registry is HyperFrames-only. Remotion does not have `hyperframes add`. |
-| Synthetic UI / fake terminal / fake browser demo | Either — depends on existing coverage | OpenMontage already ships Remotion `TerminalScene` (see `synthetic-screen-recording` Layer 3). For UI chrome beyond terminal, HyperFrames HTML is easier. |
+| Synthetic UI / fake terminal / fake browser demo | Either - depends on existing coverage | OpenMontage already ships Remotion `TerminalScene` (see `synthetic-screen-recording` Layer 3). For UI chrome beyond terminal, HyperFrames HTML is easier. |
 | Pure concat / trim of source clips, no composition | **FFmpeg** | Neither Remotion nor HyperFrames add value here. |
 | Remotion is not installed on this machine | **HyperFrames** (if available) or **FFmpeg** | Do not silently fall back. Tell the user before downgrading. |
 
@@ -102,7 +102,7 @@ For these, keep `render_runtime = "remotion"` and proceed as today.
 ## Project workspace layout
 
 HyperFrames needs its own project workspace. Do **not** reuse
-`remotion-composer/public/` — that's Remotion's shared staging directory and
+`remotion-composer/public/` - that's Remotion's shared staging directory and
 mixing runtimes there causes cross-project collisions.
 
 ```
@@ -155,7 +155,7 @@ OpenMontage artifacts into HyperFrames project files:
 | `asset_manifest.assets[]` paths | Copied or symlinked into `projects/<p>/hyperframes/assets/` and referenced with relative `src=` |
 | `audio.narration.segments[]` | `<audio>` element with matching `data-start` / `data-duration` |
 | `audio.music` | Second `<audio>` element, lower `data-volume` |
-| `subtitles` (enabled + source) | Either a registry `captions` block or hand-authored per-word spans — NOT `remotion_caption_burn` |
+| `subtitles` (enabled + source) | Either a registry `captions` block or hand-authored per-word spans - NOT `remotion_caption_burn` |
 | Selected playbook (`flat-motion-graphics`, `clean-professional`, etc.) | `:root` CSS custom properties + `DESIGN.md`. See `lib/hyperframes_style_bridge.py`. |
 | `renderer_family` | Controls which top-level HTML template is used and which registry blocks are pre-installed |
 
@@ -167,17 +167,17 @@ with the path to the generated MP4. See `tools/video/hyperframes_compose.py`.
 
 Upstream's `website-to-video` skill uses `DESIGN.md`, `SCRIPT.md`, and
 `STORYBOARD.md` as step-by-step workspace files. OpenMontage does **not**
-replace its canonical artifact contracts with these — `brief`, `script`,
+replace its canonical artifact contracts with these - `brief`, `script`,
 `scene_plan`, `edit_decisions`, etc. remain the source of truth under
 `projects/<p>/artifacts/`. Treat the upstream files as **convenience copies**
 written into the HyperFrames workspace so the runtime workflow feels natural:
 
-- `DESIGN.md` — derived from the selected playbook, written by
+- `DESIGN.md` - derived from the selected playbook, written by
   `hyperframes_compose` or `lib/hyperframes_style_bridge.py`. Safe to use as
   a working brief in the workspace.
-- `SCRIPT.md` — optional narration copy for human review. Canonical script
+- `SCRIPT.md` - optional narration copy for human review. Canonical script
   stays in `artifacts/script.json`.
-- `STORYBOARD.md` — optional per-beat creative direction. Canonical scene
+- `STORYBOARD.md` - optional per-beat creative direction. Canonical scene
   plan stays in `artifacts/scene_plan.json`.
 
 If a workspace-local file and a canonical artifact disagree, the canonical
@@ -203,7 +203,7 @@ artifact wins.
 
 ---
 
-## Preflight — HyperFrames availability
+## Preflight - HyperFrames availability
 
 At preflight, the provider menu reports HyperFrames availability. The
 `hyperframes_compose` tool's `get_info()` returns:
@@ -225,7 +225,7 @@ Floor requirements (all must hold for `runtime_available: true`):
 - `npx` on PATH (bundled with Node.js)
 - `npx hyperframes doctor` exits 0, OR a lightweight equivalent check passes
 
-`bun` is NOT required — HyperFrames is consumable via `npx hyperframes` (published npm package name is `hyperframes`; the monorepo-internal `@hyperframes/cli` name is NOT on the public npm registry and returns 404).
+`bun` is NOT required - HyperFrames is consumable via `npx hyperframes` (published npm package name is `hyperframes`; the monorepo-internal `@hyperframes/cli` name is NOT on the public npm registry and returns 404).
 
 When `runtime_available: false`, preflight must surface the reason and the
 install instructions. Per `AGENT_GUIDE.md` Setup Offer Protocol, group the
@@ -242,21 +242,21 @@ fix by effort:
 HyperFrames ships a real validation stack. Run **all** of these before
 declaring a render complete:
 
-1. **`npx hyperframes lint`** — static contract checks (duplicate ids,
+1. **`npx hyperframes lint`** - static contract checks (duplicate ids,
    overlapping tracks, missing `data-composition-id`, unregistered timelines).
    MUST pass before render.
-2. **`npx hyperframes validate`** — browser-based runtime checks: seeks into
+2. **`npx hyperframes validate`** - browser-based runtime checks: seeks into
    the paused composition, screenshots, samples pixels, computes WCAG
    contrast ratios, verifies `window.__timelines` registration and
    `class="clip"` on timed elements. MUST pass before render (contrast can
    be deferred with `--no-contrast` during iteration, but not for final).
-3. **`npx hyperframes render --quality standard`** — produces the MP4.
-4. **Post-render final review** — probe with ffprobe, sample frames,
+3. **`npx hyperframes render --quality standard`** - produces the MP4.
+4. **Post-render final review** - probe with ffprobe, sample frames,
    transcribe audio, compare to script. Same contract as the Remotion path.
    See `final_review.schema.json`.
 
 If lint or validate fails, do **not** render. Fix the composition and re-run.
-Silent render from a failing composition is a contract violation — the whole
+Silent render from a failing composition is a contract violation - the whole
 point of HyperFrames is that validate catches issues that FFmpeg or Remotion
 cannot.
 
@@ -274,7 +274,7 @@ objects. For HyperFrames, the equivalent translation produces:
 - Optional typography `@import` statements (only for fonts the HyperFrames
   font compiler supports).
 
-See `lib/hyperframes_style_bridge.py`. Playbooks do NOT need to fork — the
+See `lib/hyperframes_style_bridge.py`. Playbooks do NOT need to fork - the
 existing playbook schema carries enough information to drive both Remotion
 and HyperFrames output.
 
@@ -285,9 +285,9 @@ and HyperFrames output.
 HyperFrames renders are local: $0 API cost, but CPU-intensive (headless
 Chrome + FFmpeg). Track via `cost_tracker`:
 
-- `estimate` — based on composition duration × resolution × `--workers`
-- `reserve` — 0 (no API spend)
-- `reconcile` — wall-clock render time
+- `estimate` - based on composition duration × resolution × `--workers`
+- `reserve` - 0 (no API spend)
+- `reconcile` - wall-clock render time
 
 Same pattern as Remotion.
 
@@ -312,7 +312,7 @@ size tier. If your pre-transform does
 `scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:...`
 you'll produce a 1920×1080 file whose visible content is a centered
 640×360 rectangle with black padding. HyperFrames plays this clip
-faithfully — the small-video-in-black-frame you see is a correctly
+faithfully - the small-video-in-black-frame you see is a correctly
 rendered letterboxed input.
 
 Diagnostic first: before blaming CSS, run
@@ -350,14 +350,14 @@ Use it because `overflow: hidden` on the wrapper crops gracefully when
 the video's aspect differs slightly from 16:9, and because
 `object-fit: cover` on the inner `<video>` handles the (rare) case
 where source aspect isn't 16:9. It is **not** a workaround for a
-framework layout bug — the framework will size `<video class="clip">`
+framework layout bug - the framework will size `<video class="clip">`
 correctly too if the source file has content filling the full frame.
 
 Apply visual treatments (`filter`, `border-radius`, etc.) on the
 wrapper or on a scoped selector like `.bg-slot video { filter: ... }`.
 
 Invisible-vs-obvious failure mode: this trap hides when you stack
-dim filters (`brightness(0.25–0.35)`) or full-bleed typography on top —
+dim filters (`brightness(0.25–0.35)`) or full-bleed typography on top -
 the letterbox reads as "moody darkness." It becomes obvious the moment
 you go footage-forward (brightness > 0.5, lower-third typography). If
 you're planning footage-forward from the start, probe your source
@@ -374,13 +374,13 @@ HyperFrames renders with 640×360 Pexels sources.
 60-minute renders are expensive. Before committing to a full render,
 open the Launch preview panel (or `npx hyperframes preview`) and scrub
 to at least one scene per chapter where b-roll should dominate. The
-tiny-video bug — and similar layout issues like "lower-third text sits
-off-screen at 1080p" — are 2-second visual checks at preview time and
+tiny-video bug - and similar layout issues like "lower-third text sits
+off-screen at 1080p" - are 2-second visual checks at preview time and
 60-minute regression costs at render time.
 
 ### Bump stock-footage legibility, not opacity
 
-When layering typography over b-roll, don't just lower video opacity —
+When layering typography over b-roll, don't just lower video opacity -
 that muddies both layers. Instead:
 
 - Keep `filter: brightness(0.55) saturate(0.85)` on the video (visible
@@ -399,7 +399,7 @@ Render fails with `video_heavy_parallel_timeout` or produces frame
 freezes when stock clips have keyframe intervals > 5s. Always re-encode
 downloaded stock via `ffmpeg ... -c:v libx264 -r 30 -g 30 -keyint_min 30
 -sc_threshold 0 -movflags +faststart` before staging into the
-workspace. See `hyperframes_compose`'s existing workspace prep — it
+workspace. See `hyperframes_compose`'s existing workspace prep - it
 doesn't do this automatically yet.
 
 ### Render with `--workers 1` for video-heavy compositions
@@ -421,9 +421,9 @@ the `deterministicFonts.ts` mapping table. Safe bets: `Outfit`,
 - ❌ Forking playbook data for HyperFrames when the current schema already
   carries colors, typography, and motion.
 - ❌ Writing HyperFrames compositions that reference `remotion-composer/public/`
-  — the HyperFrames workspace is separate and self-contained.
+  - the HyperFrames workspace is separate and self-contained.
 - ❌ Running `hyperframes init` from the OpenMontage orchestrator. `init`
-  creates its own project semantics and installs agent skills — it's meant
+  creates its own project semantics and installs agent skills - it's meant
   for humans bootstrapping a project, not for the pipeline. `hyperframes_compose`
   generates the project files directly.
 - ❌ Using HyperFrames as "React without Remotion." HyperFrames is
@@ -441,17 +441,17 @@ the `deterministicFonts.ts` mapping table. Safe bets: `Outfit`,
 
 | Pipeline | Status |
 |----------|--------|
-| `animation` | Wave 1 — HyperFrames is a first-class option for motion-graphics-heavy briefs |
-| `animated-explainer` | Wave 1 — HyperFrames viable when the concept is HTML/GSAP-native; Remotion remains default for data-chart-heavy explainers |
-| `screen-demo` | Wave 1 — HyperFrames viable for synthetic product UI; `TerminalScene` (Remotion) remains preferred for terminal-specific demos |
+| `animation` | Wave 1 - HyperFrames is a first-class option for motion-graphics-heavy briefs |
+| `animated-explainer` | Wave 1 - HyperFrames viable when the concept is HTML/GSAP-native; Remotion remains default for data-chart-heavy explainers |
+| `screen-demo` | Wave 1 - HyperFrames viable for synthetic product UI; `TerminalScene` (Remotion) remains preferred for terminal-specific demos |
 | `cinematic` | Wave 2 |
 | `hybrid` | Wave 2 |
 | `documentary-montage` | Wave 2 |
-| `talking-head` | Deferred — depends on TalkingHead parity |
-| `avatar-spokesperson` | Deferred — depends on TalkingHead parity |
-| `clip-factory`, `podcast-repurpose`, `localization-dub` | Deferred — current compose paths rely on Remotion caption burn |
+| `talking-head` | Deferred - depends on TalkingHead parity |
+| `avatar-spokesperson` | Deferred - depends on TalkingHead parity |
+| `clip-factory`, `podcast-repurpose`, `localization-dub` | Deferred - current compose paths rely on Remotion caption burn |
 | `framework-smoke` | N/A (test pipeline) |
 
 Proposal and compose directors for adopted pipelines describe runtime choice
-explicitly — see each pipeline's `proposal-director.md` and
+explicitly - see each pipeline's `proposal-director.md` and
 `compose-director.md`.
