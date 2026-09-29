@@ -1,4 +1,4 @@
-# Seedance 2.5 — the ten official prompt categories
+# Seedance 2.5 - the ten official prompt categories
 
 Higgsfield published a prompt library of ten categories in August 2026, each tested across
 multiple generations to see which structures hold up on a second run. This file records the
@@ -8,7 +8,7 @@ introduces**.
 Use it to pick the closest archetype before writing from scratch.
 
 The full prompts are at <https://higgsfield.ai/blog/seedance-2-5-prompting-guide> with a
-copy button. They are not reproduced here — what follows is the extractable method.
+copy button. They are not reproduced here - what follows is the extractable method.
 
 ---
 
@@ -43,8 +43,8 @@ nine-shot fight reads as one continuous sequence rather than stitched takes.
 
 **Introduces:**
 - **Physics per material, named and marked critical.** An entire block devoted to the
-  banknotes being individual paper — visible fibre, worn creased edges, each bill tumbling
-  on its own air current — so hundreds of notes do not read as one rigid mass.
+  banknotes being individual paper - visible fibre, worn creased edges, each bill tumbling
+  on its own air current - so hundreds of notes do not read as one rigid mass.
 - **Marking sections "(critical)".** Flagging the block that must not be ignored.
 - **Palette in percentages.** 60% cold steel, 30% matte black, 10% warm focal pop. "She and
   the cash are the only warm things in a cold world."
@@ -151,7 +151,7 @@ performing.
 **Settings:** Genre horror · Deep one-point perspective, 4:3 · Real weight and inertia ·
 Emotional control: tired, welling tears, held tension without release.
 
-**Introduces:** the negative space past the shoulder declared first empty, then filled —
+**Introduces:** the negative space past the shoulder declared first empty, then filled -
 dread built from absence rather than a reveal.
 
 And the most elegant rule of the ten: the antagonist is **never in sharp focus** until the
@@ -168,7 +168,7 @@ sequence · Five distinct natural light states across one continuous span of tim
   achieved by the operator physically walking, with camera-to-subject distance declared per
   segment: 5 m, 2 m, 3 m, 2.5 m, 7 m.
 - **Crowd size as the clock.** Forty people at the start, sixty, a hundred at the peak,
-  fifteen or twenty deep in the night, five or six by dawn — so it reads as one continuous
+  fifteen or twenty deep in the night, five or six by dawn - so it reads as one continuous
   night rather than five separate scenes.
 - **FRAMING RESPECT LOCK.** The camera treats her as a person at a party, not a body: no
   slow pans up or down a figure, no isolated shots of torso or legs, no low angles.
