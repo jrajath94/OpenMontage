@@ -1,8 +1,8 @@
-# Skill Creator — Meta Skill
+# Skill Creator - Meta Skill
 
 ## When to Use
 
-When you encounter a situation where no existing skill covers what you need to do, and the gap is reusable — not a one-off task. This skill teaches you to create new skills dynamically during a pipeline run.
+When you encounter a situation where no existing skill covers what you need to do, and the gap is reusable - not a one-off task. This skill teaches you to create new skills dynamically during a pipeline run.
 
 Examples of when to create a new skill:
 - A scene requires a visualization technique not covered by existing skills (e.g., "interactive map animation")
@@ -20,8 +20,8 @@ Do NOT create a skill for:
 
 Clearly articulate:
 1. **What you need to do** that no existing skill covers
-2. **Why it's reusable** — will future pipelines benefit?
-3. **Where it fits** — which layer and directory?
+2. **Why it's reusable** - will future pipelines benefit?
+3. **Where it fits** - which layer and directory?
 
 ### Step 2: Research Best Practices
 
