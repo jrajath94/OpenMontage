@@ -52,7 +52,7 @@ save(audio, "voiceover.mp3")
 | `eleven_multilingual_v2` | Highest consistency | None | Stable, production-ready, 29 languages |
 | `eleven_flash_v2_5` | Good | `<break>`, `<phoneme>` | Fast, supports pause/pronunciation tags |
 | `eleven_turbo_v2_5` | Good | `<break>`, `<phoneme>` | Fastest latency |
-| `eleven_v3` | Most expressive | None | Alpha — unreliable, needs prompt engineering |
+| `eleven_v3` | Most expressive | None | Alpha - unreliable, needs prompt engineering |
 
 **Choose:** multilingual_v2 for reliability, flash/turbo for SSML control, v3 for maximum expressiveness (expect retakes).
 
@@ -73,10 +73,10 @@ save(audio, "voiceover.mp3")
 Max 3 seconds per break. Excessive breaks can cause speed artifacts.
 
 **With multilingual_v2 / v3:** No SSML support. Options:
-- Paragraph breaks (blank lines) — creates ~0.3-0.5s natural pause
+- Paragraph breaks (blank lines) - creates ~0.3-0.5s natural pause
 - Post-process with ffmpeg: split audio and insert silence
 
-**WARNING:** `...` (ellipsis) is NOT a reliable pause — it can be vocalized as a word/sound. Do not use ellipsis as a pause mechanism.
+**WARNING:** `...` (ellipsis) is NOT a reliable pause - it can be vocalized as a word/sound. Do not use ellipsis as a pause mechanism.
 
 ### Pronunciation Control
 
@@ -133,7 +133,7 @@ with open("thunder.mp3", "wb") as f:
         f.write(chunk)
 ```
 
-**Prompt tips:** Be specific — "Heavy footsteps on wooden floorboards, slow and deliberate, with creaking"
+**Prompt tips:** Be specific - "Heavy footsteps on wooden floorboards, slow and deliberate, with creaking"
 
 ## Music Generation
 
