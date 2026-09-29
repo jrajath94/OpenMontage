@@ -70,11 +70,11 @@ h1, h2, h3 {
 
 When generating HTML slides, follow these rules:
 
-1. **Single HTML file** — Zero dependencies, inline CSS/JS
-2. **Viewport units** — All sizes use `clamp()`, never fixed px/rem
-3. **No scrolling** — `height: 100vh; overflow: hidden;` per slide
-4. **Content overflow** — If content doesn't fit, split into multiple slides
-5. **Google Fonts** — Load via `<link>` tag in `<head>`
+1. **Single HTML file** - Zero dependencies, inline CSS/JS
+2. **Viewport units** - All sizes use `clamp()`, never fixed px/rem
+3. **No scrolling** - `height: 100vh; overflow: hidden;` per slide
+4. **Content overflow** - If content doesn't fit, split into multiple slides
+5. **Google Fonts** - Load via `<link>` tag in `<head>`
 
 ## Example: Swiss Style Slides
 
@@ -154,16 +154,16 @@ Given `mueller-brockmann-swiss.visual-style.md`:
 
 ## Workflow
 
-1. **Load the style** — Read the `visual-style.md` file
-2. **Generate CSS variables** — Map colors and typography
-3. **Apply typography rules** — Follow `typography.rules` constraints
-4. **Check constraints** — Verify against `mood.avoid` list
-5. **Generate slides** — One `<section class="slide">` per slide
-6. **Validate** — Ensure no scrolling, all sizes responsive
+1. **Load the style** - Read the `visual-style.md` file
+2. **Generate CSS variables** - Map colors and typography
+3. **Apply typography rules** - Follow `typography.rules` constraints
+4. **Check constraints** - Verify against `mood.avoid` list
+5. **Generate slides** - One `<section class="slide">` per slide
+6. **Validate** - Ensure no scrolling, all sizes responsive
 
 ## Tips
 
-- **Typography drives hierarchy** — Use `typography.display` for headlines, `typography.body` for content
-- **Honor the avoid list** — Check `mood.avoid` before adding decorative elements
-- **Transitions** — Map `motion.transitions` to CSS transitions between slides
-- **Font loading** — Always include fallback fonts in the stack
+- **Typography drives hierarchy** - Use `typography.display` for headlines, `typography.body` for content
+- **Honor the avoid list** - Check `mood.avoid` before adding decorative elements
+- **Transitions** - Map `motion.transitions` to CSS transitions between slides
+- **Font loading** - Always include fallback fonts in the stack
