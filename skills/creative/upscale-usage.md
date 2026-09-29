@@ -40,7 +40,7 @@ DENOISE:         0.5 default, raise to 0.8 for very noisy inputs
 | 2x | Moderate upscale when 4x is overkill | 720p→1080p |
 
 - **4x** is the most common choice. Use it for 480p sources targeting 1080p, or 720p targeting 4K.
-- **2x** is appropriate when the source is already 720p and the target is 1080p — avoids unnecessary processing and potential artifacts.
+- **2x** is appropriate when the source is already 720p and the target is 1080p - avoids unnecessary processing and potential artifacts.
 - **Never upscale beyond 4x in a single pass.** Quality degrades sharply, and hallucinated details become obvious.
 
 ## Face Enhancement
@@ -48,7 +48,7 @@ DENOISE:         0.5 default, raise to 0.8 for very noisy inputs
 - Enable `face_enhance` when the video contains human faces
 - Uses GFPGAN internally to enhance face regions while Real-ESRGAN handles the rest
 - Particularly valuable for webcam footage and old video
-- Do NOT enable for content without faces — adds processing time with no benefit
+- Do NOT enable for content without faces - adds processing time with no benefit
 
 ## Denoising Strength
 
@@ -59,19 +59,19 @@ DENOISE:         0.5 default, raise to 0.8 for very noisy inputs
 | Old/noisy footage | 0.7-0.8 | Aggressive denoising for archival content |
 | Very noisy / low-light footage | 0.8 | Maximum practical denoising |
 
-Do not exceed 0.8 — higher values destroy legitimate detail.
+Do not exceed 0.8 - higher values destroy legitimate detail.
 
 ## Video Upscaling Notes
 
 - Video upscaling extracts frames, upscales each, reassembles
-- This is **SLOW** — budget 5-10x real-time on GPU
+- This is **SLOW** - budget 5-10x real-time on GPU
 - For long videos, consider upscaling only key scenes/clips rather than the full video
 - Audio is preserved from the original
 - Output file size will be significantly larger (~16x for 4x upscale)
 
 ## Common Workflows
 
-### Workflow 1 — User-Provided Low-Res Footage
+### Workflow 1 - User-Provided Low-Res Footage
 
 ```
 1. Assess source resolution (e.g., 480p webcam recording)
@@ -81,7 +81,7 @@ Do not exceed 0.8 — higher values destroy legitimate detail.
 5. Upscale → inspect output → proceed to compose stage
 ```
 
-### Workflow 2 — AI-Generated Image Frames
+### Workflow 2 - AI-Generated Image Frames
 
 ```
 1. Generate images at native model resolution (512-1024px)
@@ -90,7 +90,7 @@ Do not exceed 0.8 — higher values destroy legitimate detail.
 4. Do NOT enable face_enhance unless faces are prominent
 ```
 
-### Workflow 3 — Manim / Motion Graphics Frames
+### Workflow 3 - Manim / Motion Graphics Frames
 
 ```
 1. Render Manim at default resolution
@@ -99,7 +99,7 @@ Do not exceed 0.8 — higher values destroy legitimate detail.
 4. Verify text and line art remain sharp
 ```
 
-### Workflow 4 — Archival Footage Restoration
+### Workflow 4 - Archival Footage Restoration
 
 ```
 1. Assess noise level and resolution
@@ -121,10 +121,10 @@ Do not exceed 0.8 — higher values destroy legitimate detail.
 
 When using the `upscale` tool in the asset stage:
 
-1. **Upscale BEFORE the compose stage** — it is an asset-prep step, not a post-processing step
-2. **Use `face_enhance=true` for any talking-head footage** — GFPGAN dramatically improves face quality
-3. **Use `RealESRGAN_x4plus_anime_6B` model for Manim outputs** or flat illustration frames — preserves clean edges and flat color areas
+1. **Upscale BEFORE the compose stage** - it is an asset-prep step, not a post-processing step
+2. **Use `face_enhance=true` for any talking-head footage** - GFPGAN dramatically improves face quality
+3. **Use `RealESRGAN_x4plus_anime_6B` model for Manim outputs** or flat illustration frames - preserves clean edges and flat color areas
 4. **For budget-conscious pipelines**, upscale only hero shots and thumbnails rather than every frame
 5. **Set `denoise_strength` to 0.7-0.8 for old/noisy footage**, keep at 0.5 for clean digital sources
-6. **Check upscaled output for artifacts** — over-sharpening, hallucinated texture, face distortion
-7. **Prefer 2x over 4x when the source is already 720p and target is 1080p** — less compute, fewer artifacts
+6. **Check upscaled output for artifacts** - over-sharpening, hallucinated texture, face distortion
+7. **Prefer 2x over 4x when the source is already 720p and target is 1080p** - less compute, fewer artifacts
