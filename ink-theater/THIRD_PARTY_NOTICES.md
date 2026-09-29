@@ -1,9 +1,9 @@
-# Third-party notices — Ink Theater
+# Third-party notices - Ink Theater
 
 Ink Theater bundles two third-party assets. Both are free for any use, including
 commercial, subject only to attribution.
 
-## Patrick Hand (handwriting font) — SIL Open Font License 1.1
+## Patrick Hand (handwriting font) - SIL Open Font License 1.1
 
 `assets/patrickhand.ttf`
 
@@ -13,7 +13,7 @@ embedding, and redistribution (including commercially); it only forbids selling
 the font by itself and requires that this notice and the license text ship with
 it. Full license: `assets/OFL.txt`.
 
-## Motion-capture clips — CMU Graphics Lab Motion Capture Database
+## Motion-capture clips - CMU Graphics Lab Motion Capture Database
 
 `mocap/clips/*.json`, bundled into `mocap/clips.js`
 
