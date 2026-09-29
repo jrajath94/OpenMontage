@@ -1,4 +1,4 @@
-# Scene Director — Explainer Pipeline
+# Scene Director - Explainer Pipeline
 
 ## When to Use
 
@@ -30,7 +30,7 @@ Read every section. For each, note:
 **Use web search** to find visual techniques for this topic:
 
 1. **How do top creators visualize this?** Search YouTube thumbnails, blog diagrams, conference slides for the topic.
-2. **What visual metaphors work?** Some concepts have well-known visual representations (e.g., neural networks as node graphs, encryption as locks/keys). Use these — viewers recognize them instantly.
+2. **What visual metaphors work?** Some concepts have well-known visual representations (e.g., neural networks as node graphs, encryption as locks/keys). Use these - viewers recognize them instantly.
 3. **What's novel?** Is there a visual approach nobody has tried? A fresh visualization can make an explainer memorable.
 4. **What's feasible?** Match your ambitions to available tools: `image_selector` (static images), `diagram_gen` (Mermaid flowcharts/sequences), `code_snippet` (syntax-highlighted code), Remotion (motion graphics, text animations), Manim (mathematical animations).
 
@@ -103,7 +103,7 @@ Remotion components with zero external dependencies.
 These are proven patterns for explainer visuals. Reference them by name in scene descriptions:
 
 **Diagram Reveal**
-Build a diagram progressively — start empty, add components with labels as the narrator describes each part. Perfect for architecture, processes, and systems.
+Build a diagram progressively - start empty, add components with labels as the narrator describes each part. Perfect for architecture, processes, and systems.
 - Tools: Mermaid + Remotion animation or FLUX-generated diagram
 - Example: "Show the vector database architecture. Add the encoder node when narrator says 'embeddings'. Add the index when narrator says 'search'."
 
@@ -164,23 +164,23 @@ If the video includes narration, the script **must** be written to fit the video
 - [ ] Opening and closing scenes have brief narration (let visuals breathe)
 
 **After TTS generation:**
-- The TTS tool returns `audio_duration_seconds` — compare it against video duration.
+- The TTS tool returns `audio_duration_seconds` - compare it against video duration.
 - If narration exceeds video by >1s, either trim the script and regenerate, or extend the video's closing scene.
 - Always run `composition_validator` before rendering to catch mismatches automatically.
 
 ### Step 4c: 5-Aspect Scene-Plan Checklist
 
-> Every scene must specify all five aspects. For diagram, chart, and Remotion-native scenes, "Subject" can map to a foregrounded data element and "Camera" can be marked N/A — but only EXPLICITLY (e.g., `"camera": "N/A — Remotion native scene, no virtual camera"`). Silent omission is the most common failure mode and produces unpredictable model output, brittle prompts, and reviewer churn.
+> Every scene must specify all five aspects. For diagram, chart, and Remotion-native scenes, "Subject" can map to a foregrounded data element and "Camera" can be marked N/A - but only EXPLICITLY (e.g., `"camera": "N/A — Remotion native scene, no virtual camera"`). Silent omission is the most common failure mode and produces unpredictable model output, brittle prompts, and reviewer churn.
 >
-> 1. **Subject** — type + key visual attributes; if multiple, how to disambiguate. For diagram/chart scenes, this is the foregrounded data element (the node, the bar, the KPI being highlighted). For generated images, it's the person/object/concept being illustrated.
-> 2. **Subject Motion** — actions in temporal order; for animated diagrams, the order in which nodes/edges/values appear or change.
-> 3. **Scene** — overlays (separately!) + POV + setting + time of day + scene dynamics. For Remotion scenes, "setting" maps to background treatment + theme.
-> 4. **Spatial Framing** — shot size + position-in-frame + depth (FG/MG/BG) + camera-height-relative; and how those CHANGE. For static Remotion scenes, document the layout grid + which element occupies the visual center.
-> 5. **Camera** — playback speed → lens distortion → height → angle → focus/DoF → steadiness → movement. Mark N/A for native-Remotion scenes; specify fully for `generated`/`broll`/`image_animation` scenes.
+> 1. **Subject** - type + key visual attributes; if multiple, how to disambiguate. For diagram/chart scenes, this is the foregrounded data element (the node, the bar, the KPI being highlighted). For generated images, it's the person/object/concept being illustrated.
+> 2. **Subject Motion** - actions in temporal order; for animated diagrams, the order in which nodes/edges/values appear or change.
+> 3. **Scene** - overlays (separately!) + POV + setting + time of day + scene dynamics. For Remotion scenes, "setting" maps to background treatment + theme.
+> 4. **Spatial Framing** - shot size + position-in-frame + depth (FG/MG/BG) + camera-height-relative; and how those CHANGE. For static Remotion scenes, document the layout grid + which element occupies the visual center.
+> 5. **Camera** - playback speed → lens distortion → height → angle → focus/DoF → steadiness → movement. Mark N/A for native-Remotion scenes; specify fully for `generated`/`broll`/`image_animation` scenes.
 >
 > See `skills/creative/video-gen-prompting.md` for the primitive vocabulary.
 
-> **Overlays callout.** Overlays (titles, subtitles, HUD, watermarks, framing graphics, lower-thirds, section_title bars, stat_reveal chips, hero_title overlays, provider chips) are NOT part of the scene's foreground/midground/background depth axis. List them separately in scene metadata (`overlays: [...]`) with content and placement. Never describe an overlay as "in the foreground" — that confuses both downstream tools and any video-understanding model that re-analyzes the output.
+> **Overlays callout.** Overlays (titles, subtitles, HUD, watermarks, framing graphics, lower-thirds, section_title bars, stat_reveal chips, hero_title overlays, provider chips) are NOT part of the scene's foreground/midground/background depth axis. List them separately in scene metadata (`overlays: [...]`) with content and placement. Never describe an overlay as "in the foreground" - that confuses both downstream tools and any video-understanding model that re-analyzes the output.
 
 ### Step 5: Validate Against Playbook
 
@@ -245,13 +245,13 @@ separate explainer submit function.
 ## Common Pitfalls
 
 - **One scene per section**: Script sections often cover multiple concepts. A 10-second section might need 2-3 visual scenes to avoid boring stasis.
-- **Ignoring enhancement cues**: The script writer embedded visual hints in `enhancement_cues`. Don't ignore them — they represent the writer's visual intent.
+- **Ignoring enhancement cues**: The script writer embedded visual hints in `enhancement_cues`. Don't ignore them - they represent the writer's visual intent.
 - **Overly ambitious animations**: "Photorealistic 3D fly-through of a data center" can't be generated with current tools. Keep it achievable.
 - **No transition strategy**: Random transitions feel chaotic. Use the playbook's transition rules consistently. Reserve special transitions for topic shifts.
 - **Vague required_assets**: "An image about databases" is useless for prompt engineering. "Isometric illustration of a vector database with embedding vectors floating in 3D space, using the playbook's blue-green palette" is actionable.
 - **Preset thinking**: A scene plan that says "make it flat-motion-graphics" is not enough. The planner must specify what makes THIS video's motion graphics feel distinct.
 - **Static scenes for dynamic concepts**: If the narrator describes a process or transformation, the visual should move. Use animation or progressive reveal, not a static image.
-- **Using `generated` type for CTA/closing screens with exact text**: AI image models hallucinate text — wrong business names, misspelled words, wrong phone numbers. Any scene with verbatim text (CTA, business info, contact details, legal) MUST be `type: "text_card"` so Remotion renders the text exactly. Never plan a `generated` image for a scene where text accuracy matters.
+- **Using `generated` type for CTA/closing screens with exact text**: AI image models hallucinate text - wrong business names, misspelled words, wrong phone numbers. Any scene with verbatim text (CTA, business info, contact details, legal) MUST be `type: "text_card"` so Remotion renders the text exactly. Never plan a `generated` image for a scene where text accuracy matters.
 
 ---
 
@@ -260,4 +260,4 @@ separate explainer submit function.
 This stage gates on human approval (`human_approval_default: true`). After review passes:
 checkpoint with `status="awaiting_human"`, present the summary (the Backlot board renders
 the artifact), and **END YOUR TURN**. Do not start the next stage in the same response.
-Approval is per-gate — an earlier "go ahead" does not cover this gate.
+Approval is per-gate - an earlier "go ahead" does not cover this gate.
