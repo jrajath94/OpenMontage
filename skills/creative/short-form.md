@@ -27,9 +27,9 @@ MUSIC:            120-140 BPM for energetic, 90-110 for explainers
 | YouTube Shorts | 984x1500 | 120px | 300px | 96px |
 | Facebook Reels | 1080x1520 | 100px | 300px | 60px |
 
-**Universal safe zone: 900x1400px centered** — works across all platforms.
+**Universal safe zone: 900x1400px centered** - works across all platforms.
 
-**Bottom dead zones are critical** — platform UI (comments, share buttons, captions) covers the bottom 300-320px. Never put important content there.
+**Bottom dead zones are critical** - platform UI (comments, share buttons, captions) covers the bottom 300-320px. Never put important content there.
 
 ## Upload Specs
 
@@ -52,7 +52,7 @@ MAX SIZE:    500 MB (desktop), 287.6 MB (iOS), 72 MB (Android)
 **Platform sweet spots:**
 - TikTok: 21-34 seconds for completion; 60-180s for maximum total watch time
 - Reels: 15-30 seconds for viral reach; 60-90s for highest engagement
-- Shorts: Bimodal — ~13 seconds OR full 60 seconds (Shortimize 35B views analysis)
+- Shorts: Bimodal - ~13 seconds OR full 60 seconds (Shortimize 35B views analysis)
 
 **Key formula:** A 45s video with 70% completion (31.5s watch time) outperforms a 15s video with 40% completion (6s). Total watch time is what the algorithm rewards.
 
@@ -81,7 +81,7 @@ MAX SIZE:    500 MB (desktop), 287.6 MB (iOS), 72 MB (Android)
 
 | Technique | Example | When to Use |
 |-----------|---------|-------------|
-| **Bold text on screen** | "STOP doing this..." (text appears frame 1) | Always — text hooks work even muted |
+| **Bold text on screen** | "STOP doing this..." (text appears frame 1) | Always - text hooks work even muted |
 | **Pattern interrupt** | Unexpected visual, jump cut, color flash | Attention-grabbing |
 | **Question** | "Why does X happen?" (text + voiceover) | Educational |
 | **Result first** | Show the finished result, then explain how | Tutorial/how-to |
@@ -89,10 +89,10 @@ MAX SIZE:    500 MB (desktop), 287.6 MB (iOS), 72 MB (Android)
 
 ### Hook Rules
 
-1. **Frame 1 must have visual interest** — no blank intros, no logos, no "hey guys"
-2. **Text appears in the first 0.5 seconds** — viewers scan text before listening
-3. **Voice starts immediately** — no silent buildup
-4. **Movement in frame 1** — static opening frames get scrolled past
+1. **Frame 1 must have visual interest** - no blank intros, no logos, no "hey guys"
+2. **Text appears in the first 0.5 seconds** - viewers scan text before listening
+3. **Voice starts immediately** - no silent buildup
+4. **Movement in frame 1** - static opening frames get scrolled past
 
 ## Pacing
 
@@ -146,7 +146,7 @@ MAX SIZE:    500 MB (desktop), 287.6 MB (iOS), 72 MB (Android)
 | Element | Level | Notes |
 |---------|-------|-------|
 | Voiceover | -12 to -14 dB peak | Primary |
-| Music | -22 to -26 dB | Lower than long-form — less room |
+| Music | -22 to -26 dB | Lower than long-form - less room |
 | SFX | -18 to -14 dB | Brief pops/whooshes only |
 | Target LUFS | -14 LUFS | Same as long-form YouTube |
 | True peak | -1 dBTP | TikTok/Instagram spec |
@@ -154,13 +154,13 @@ MAX SIZE:    500 MB (desktop), 287.6 MB (iOS), 72 MB (Android)
 ### Music Selection
 - **Energetic content:** 120-140 BPM
 - **Explainer content:** 90-110 BPM
-- **Match trending audio patterns** — short-form audiences expect music-forward content
-- **Music should start immediately** — no silent intro
+- **Match trending audio patterns** - short-form audiences expect music-forward content
+- **Music should start immediately** - no silent intro
 
 ### Voiceover Pacing
 - **180-200 WPM** for short-form (faster than long-form's 150-160)
 - Speak with energy and urgency
-- No long pauses — dead air = scroll
+- No long pauses - dead air = scroll
 
 ## Structure Templates
 
@@ -195,11 +195,11 @@ MAX SIZE:    500 MB (desktop), 287.6 MB (iOS), 72 MB (Android)
 When building short-form content:
 
 1. **Set output resolution to 1080x1920** (9:16) in the compose stage
-2. **Keep all text within 900x1400px safe zone** — centered in frame
-3. **Captions are mandatory** — use `subtitle_gen` with word-by-word timing
-4. **Hook in frame 1** — text overlay + voice starts immediately, no intro
-5. **Visual change every 1-3 seconds** — use quick cuts, zooms, text pops
-6. **Voiceover at 180-200 WPM** — faster than long-form
-7. **Music starts immediately** — set `music_gen` to energetic BPM (110-140)
+2. **Keep all text within 900x1400px safe zone** - centered in frame
+3. **Captions are mandatory** - use `subtitle_gen` with word-by-word timing
+4. **Hook in frame 1** - text overlay + voice starts immediately, no intro
+5. **Visual change every 1-3 seconds** - use quick cuts, zooms, text pops
+6. **Voiceover at 180-200 WPM** - faster than long-form
+7. **Music starts immediately** - set `music_gen` to energetic BPM (110-140)
 8. **Target 15-30 seconds** for maximum completion rate
-9. **Test on phone** — view at actual mobile size before publishing
+9. **Test on phone** - view at actual mobile size before publishing
