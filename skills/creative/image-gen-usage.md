@@ -29,7 +29,7 @@ All FLUX dimensions **must be multiples of 16**. Maximum total is 4MP.
 
 The biggest challenge: making 8-12 generated images look like they belong in the same video.
 
-### Strategy 1 — Shared Visual System (Always Use)
+### Strategy 1 - Shared Visual System (Always Use)
 
 Define a shared visual system for the project first, then adapt it per scene.
 Capture the project's:
@@ -43,7 +43,7 @@ Capture the project's:
 The playbook's `image_prompt_prefix` is source material, not something to paste
 verbatim into every prompt. Distill it into a shorter scene-appropriate anchor.
 
-### Strategy 2 — Hero Reference Image (Recommended)
+### Strategy 2 - Hero Reference Image (Recommended)
 
 1. Generate one "hero" image at maximum quality (`FLUX.2 [max]`, $0.07)
 2. Use it as `input_image` for all subsequent frames:
@@ -56,11 +56,11 @@ Frame 3: I2I with hero.png + "Same style, zoomed in on..."
 
 FLUX.2 supports up to 4 references (klein) or 8 references (pro/max/flex). Reference by number: "The character from image 1 in the environment from image 2."
 
-### Strategy 3 — Seed Locking
+### Strategy 3 - Seed Locking
 
-Use the same `seed` parameter across generations with similar prompts. Produces similar compositions but is fragile to prompt changes — use as supplement, not primary strategy.
+Use the same `seed` parameter across generations with similar prompts. Produces similar compositions but is fragile to prompt changes - use as supplement, not primary strategy.
 
-## Prompt Construction — 3-Part Contextual Approach
+## Prompt Construction - 3-Part Contextual Approach
 
 **Do NOT copy the playbook's `image_prompt_prefix` verbatim into every prompt.** That's what makes all scenes look the same. Instead, build each prompt from 3 contextual layers:
 
@@ -78,7 +78,7 @@ If the scene has no shot_language, fall back to the template below.
 
 ### Part 2: Playbook Consistency Anchor (adapted, not verbatim)
 
-Extract the ESSENCE of the playbook's visual language — don't copy the prefix. For example:
+Extract the ESSENCE of the playbook's visual language - don't copy the prefix. For example:
 - Playbook says "Clean, minimal illustration with soft shadows, muted color palette" → Adapt to: "muted color palette, soft shadows"
 - Playbook says "Bold flat motion graphics, vibrant gradients" → Adapt to: "vibrant flat style"
 
@@ -86,7 +86,7 @@ The anchor keeps scenes visually coherent without making them identical.
 
 ### Part 3: Scene Description
 
-The actual content of the scene. Be specific — replace generic words with concrete details.
+The actual content of the scene. Be specific - replace generic words with concrete details.
 
 **BAD:** "A person using a computer in a modern office"
 **GOOD:** "Software developer in a dimly lit home office, blue monitor glow reflecting off glasses, desk cluttered with energy drinks and sticky notes"
@@ -149,11 +149,11 @@ optimized for image/video generation providers.
 
 ## Common Pitfalls
 
-1. **Text in images** — AI image generators are unreliable with text. Never include text in prompts; add text as overlays in the compose stage
-2. **Hands and fingers** — AI image models still struggle. Avoid prompts requiring detailed hand poses
-3. **Inconsistent characters** — Without reference images, the same character will look different each time. Always use the hero reference strategy
-4. **Over-prompting** — Long, complex prompts produce unpredictable results. Keep to 2-3 sentences
-5. **Over-unifying prompts** — Forcing the exact same style phrase into every prompt makes scenes look samey. Keep the visual system consistent, but let each scene express its own subject, shot, and emotional beat.
+1. **Text in images** - AI image generators are unreliable with text. Never include text in prompts; add text as overlays in the compose stage
+2. **Hands and fingers** - AI image models still struggle. Avoid prompts requiring detailed hand poses
+3. **Inconsistent characters** - Without reference images, the same character will look different each time. Always use the hero reference strategy
+4. **Over-prompting** - Long, complex prompts produce unpredictable results. Keep to 2-3 sentences
+5. **Over-unifying prompts** - Forcing the exact same style phrase into every prompt makes scenes look samey. Keep the visual system consistent, but let each scene express its own subject, shot, and emotional beat.
 
 ## Applying to OpenMontage
 
@@ -162,8 +162,8 @@ When using the `image_selector` tool in the asset stage:
 1. **Design the visual system first** from the proposal or custom playbook: mood, palette, texture, motion energy
 2. **Generate a hero image first** at highest quality, use as reference for all others
 3. **Use `1920x1088`** for 16:9 video frames (FLUX multiple-of-16 requirement)
-4. **Never request text in images** — add text overlays in the compose stage
-5. **Budget check** — estimate total image cost before generating; switch to local diffusers if over budget
+4. **Never request text in images** - add text overlays in the compose stage
+5. **Budget check** - estimate total image cost before generating; switch to local diffusers if over budget
 6. **Iterate with klein** during planning, finalize with pro
-7. **Keep prompts to 2-3 sentences** — scene-specific camera/lighting + adapted visual anchor + concrete subject
-8. **Match the scene plan** — each image maps to a specific scene in the script
+7. **Keep prompts to 2-3 sentences** - scene-specific camera/lighting + adapted visual anchor + concrete subject
+8. **Match the scene plan** - each image maps to a specific scene in the script
