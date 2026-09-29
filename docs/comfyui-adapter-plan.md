@@ -275,7 +275,7 @@ resume_prompt_id:     string    # optional, resume a timed-out job without resub
 4. Return `ToolResult`
 
 **Timeout and resume (added after real-world local-GPU testing):** the
-default client wait was raised from 900s to 3600s — non-accelerated custom
+default client wait was raised from 900s to 3600s - non-accelerated custom
 Wan 1.3B workflows on modest local GPUs were observed taking ~1360-1630s at
 832x480/81-97 frames, and the old 900s default false-failed those jobs even
 though ComfyUI kept rendering server-side. `ComfyUIError` now carries a
@@ -284,7 +284,7 @@ and `ComfyUIVideo`'s `ToolResult.error`/`.data` surface it on timeout so the
 caller isn't left guessing whether the job is dead. Callers recover a
 timed-out-but-still-running job by calling `execute()` again with
 `resume_prompt_id` set to that `prompt_id` (and a longer `timeout_seconds` if
-needed) — `client.generate()` then skips `submit()` entirely and just resumes
+needed) - `client.generate()` then skips `submit()` entirely and just resumes
 polling/downloading the existing job instead of queuing a duplicate.
 
 `comfyui_video` publishes `operation_statuses` in `get_info()` and implements
@@ -523,12 +523,12 @@ pipeline definition, or any schema.
 2. ~~**Async generation:**~~ **Resolved.** `ComfyUIClient.generate()` now
    waits via ComfyUI's websocket feed (`wait_ws()`) by default, reacting to
    `executing`/`execution_error` events immediately instead of sleeping
-   between REST polls — completion and errors are caught without the
+   between REST polls - completion and errors are caught without the
    `interval`-seconds lag, and an optional `on_progress` callback gets live
    `progress` events (`comfyui_video` uses this to print step progress on
    long renders). No new hard dependency: `websocket-client` is an optional
    import, and `_wait()` transparently falls back to the original
-   `poll()` REST loop when it isn't installed or the connection fails —
+   `poll()` REST loop when it isn't installed or the connection fails -
    `resume_prompt_id` recovery behaves identically either way.
 
 3. ~~**Multi-server:**~~ **Resolved.** `ComfyUIClient(capability="image"|"video"|"music")`
