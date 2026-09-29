@@ -2,7 +2,7 @@
 
 `npx hyperframes tts` auto-detects a provider from env vars; explicit override via `--provider`.
 
-> **Run the Preflight first — no credential is not a green light to silently use the local voice.** Before generating a voiceover, complete the sign-in **Preflight** (see `../SKILL.md` → Preflight): run `npx hyperframes auth status`, recommend signing in, and **STOP for the user's choice** (sign in for HeyGen voices, or continue offline with local Kokoro). This applies to a one-off "generate a voiceover" request just as much as inside a full workflow.
+> **Run the Preflight first - no credential is not a green light to silently use the local voice.** Before generating a voiceover, complete the sign-in **Preflight** (see `../SKILL.md` → Preflight): run `npx hyperframes auth status`, recommend signing in, and **STOP for the user's choice** (sign in for HeyGen voices, or continue offline with local Kokoro). This applies to a one-off "generate a voiceover" request just as much as inside a full workflow.
 
 ## Provider chain
 
@@ -25,14 +25,14 @@ npx hyperframes tts "Hello" --provider elevenlabs --voice 21m00Tcm4TlvDq8ikWAM
 npx hyperframes tts "Hi there" --words narration.words.json
 ```
 
-## Self-contained HeyGen (no CLI) — `scripts/heygen-tts.mjs`
+## Self-contained HeyGen (no CLI) - `scripts/heygen-tts.mjs`
 
 The published `hyperframes tts` CLI synthesizes locally with Kokoro only. When you
-want HeyGen specifically — best quality **plus** word timestamps in one call — use
+want HeyGen specifically - best quality **plus** word timestamps in one call - use
 the skill's bundled script, which calls the HeyGen v3 REST API directly and needs
 no CLI provider plumbing:
 
-The script resolves a HeyGen credential the same way the CLI does — first source
+The script resolves a HeyGen credential the same way the CLI does - first source
 wins: `$HEYGEN_API_KEY` → `$HYPERFRAMES_API_KEY` → a project `.env` (auto-loaded,
 walks up ≤5 dirs) → `~/.heygen/credentials` (shared with heygen-cli;
 `$HEYGEN_CONFIG_DIR` overrides the dir). An OAuth login is sent as
@@ -88,7 +88,7 @@ the text or provider settings:
 
 ## ffmpeg requirement
 
-HeyGen + ElevenLabs return mp3. The CLI transcodes to wav when `--output` ends in `.wav` (the default and what downstream `ffprobe` + Whisper expect). If you'd rather skip the transcode, pass `-o file.mp3`. Without `ffmpeg` on PATH, `.wav` output from the cloud providers fails — install ffmpeg or use `.mp3`.
+HeyGen + ElevenLabs return mp3. The CLI transcodes to wav when `--output` ends in `.wav` (the default and what downstream `ffprobe` + Whisper expect). If you'd rather skip the transcode, pass `-o file.mp3`. Without `ffmpeg` on PATH, `.wav` output from the cloud providers fails - install ffmpeg or use `.mp3`.
 
 ## Voice selection (Kokoro)
 
@@ -131,10 +131,10 @@ Non-English phonemization requires `espeak-ng` system-wide (`brew install espeak
 
 ## Speed
 
-- `0.7-0.8` — tutorial, complex content, accessibility
-- `1.0` — natural pace (default)
-- `1.1-1.2` — intros, transitions, upbeat content
-- `1.5+` — rarely appropriate, test carefully
+- `0.7-0.8` - tutorial, complex content, accessibility
+- `1.0` - natural pace (default)
+- `1.1-1.2` - intros, transitions, upbeat content
+- `1.5+` - rarely appropriate, test carefully
 
 Honored by Kokoro + HeyGen; ElevenLabs ignores `--speed` (use voice settings on their dashboard).
 
@@ -144,7 +144,7 @@ Past a few paragraphs, write the text to a `.txt` file and pass the path. Inputs
 
 ## HeyGen word-timestamp shape
 
-When `--words <path>` is passed to a HeyGen call, the file is written in the same flat shape `transcribe` produces — drop-in compatible with the captions pipeline:
+When `--words <path>` is passed to a HeyGen call, the file is written in the same flat shape `transcribe` produces - drop-in compatible with the captions pipeline:
 
 ```json
 [
