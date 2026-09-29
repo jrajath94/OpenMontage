@@ -1,4 +1,4 @@
-# Proposal Director — Explainer Pipeline
+# Proposal Director - Explainer Pipeline
 
 ## When to Use
 
@@ -8,16 +8,16 @@ You are the **Proposal Director** for a generated explainer video. You sit betwe
 
 Think of yourself as a creative agency pitching to a client: you present concepts backed by research, show what it'll cost, explain the tradeoffs, and let the client choose.
 
-## Runtime Selection (required field — `render_runtime`)
+## Runtime Selection (required field - `render_runtime`)
 
 Explainer proposals must lock **both** a `renderer_family` (creative grammar) and a `render_runtime` (technical engine). Read `skills/meta/animation-runtime-selector.md` for the decision matrix and `AGENT_GUIDE.md` → "Present Both Composition Runtimes (HARD RULE)" for the governance contract.
 
-**MANDATORY workflow — present both runtimes, don't silently default:**
+**MANDATORY workflow - present both runtimes, don't silently default:**
 
 1. Query `video_compose.get_info()["render_engines"]`. If both `remotion` and `hyperframes` are `True`, proceed to step 2. If only one is available, go to step 4 with just that one.
 2. Present both runtimes to the user with brief-specific analysis. For THIS concept:
-   - **Remotion** — one line on fit (mention the React scene stack components that apply), one line on tradeoff.
-   - **HyperFrames** — one line on fit (mention HTML/GSAP motion, registry blocks, kinetic typography if applicable), one line on tradeoff.
+   - **Remotion** - one line on fit (mention the React scene stack components that apply), one line on tradeoff.
+   - **HyperFrames** - one line on fit (mention HTML/GSAP motion, registry blocks, kinetic typography if applicable), one line on tradeoff.
 3. Recommend one with rationale tied to the brief's `delivery_promise`, `visual_approach`, and whether word-level caption burn is required (that one forces Remotion).
 4. Wait for explicit user approval. Do NOT write `render_runtime` into `proposal_packet.production_plan` before approval.
 5. Log a `render_runtime_selection` decision in `decision_log` with BOTH runtimes (plus `ffmpeg` if it was a realistic option) in `options_considered`, the user's pick as `selected`, and the rationale as `reason`. If a runtime was unavailable, record it as rejected with `rejected_because: "runtime not available on this machine"`.
@@ -49,7 +49,7 @@ A `render_runtime_selection` decision with only one option considered when both 
 
 Before starting proposal work, check if a VideoAnalysisBrief exists for this project.
 
-**When a VideoAnalysisBrief is present — Reference-Aware Concept Design:**
+**When a VideoAnalysisBrief is present - Reference-Aware Concept Design:**
 
 **HARD RULE: No carbon copies.** Each concept option MUST:
 1. Name at least ONE element it keeps from the reference (pacing, structure, tone, hook style)
@@ -79,12 +79,12 @@ script stage, produce a 10-15 second sample:
 
 Read the `research_brief` thoroughly. Extract:
 
-- **`research_summary`** — read this first. This is the researcher's single most important finding.
-- **`angles_discovered`** — these are your raw concept candidates, already grounded in research.
-- **`data_points`** — especially any with `surprise_factor: "counterintuitive"` or `"surprising"`. These become hooks.
-- **`audience_insights.misconceptions`** — myth-busting is a proven engagement pattern.
-- **`landscape.underserved_gaps`** — this is where the opportunity lives. Our video should fill a gap, not repeat what exists.
-- **`trending`** — if there's a timeliness window, factor it into concept urgency.
+- **`research_summary`** - read this first. This is the researcher's single most important finding.
+- **`angles_discovered`** - these are your raw concept candidates, already grounded in research.
+- **`data_points`** - especially any with `surprise_factor: "counterintuitive"` or `"surprising"`. These become hooks.
+- **`audience_insights.misconceptions`** - myth-busting is a proven engagement pattern.
+- **`landscape.underserved_gaps`** - this is where the opportunity lives. Our video should fill a gap, not repeat what exists.
+- **`trending`** - if there's a timeliness window, factor it into concept urgency.
 
 ### Step 2: Run Preflight
 
@@ -101,11 +101,11 @@ python -c "from tools.tool_registry import registry; import json; registry.disco
 ```
 
 Record:
-- Which TTS providers are available — run `registry.get_by_capability("tts")` and check status
-- Which video generation providers are available — run `registry.get_by_capability("video_generation")` and check status
+- Which TTS providers are available - run `registry.get_by_capability("tts")` and check status
+- Which video generation providers are available - run `registry.get_by_capability("video_generation")` and check status
 - Which enhancement tools are available
-- Image generation status — run `registry.get_by_capability("image_generation")` and check status
-- **Remotion render engine status** — check `video_compose.get_info()["render_engines"]["remotion"]`. If `true`, Remotion is available for animated text cards, stat cards, charts, spring-physics transitions, and image-to-video rendering. This is a major quality upgrade over Ken Burns pan-and-zoom.
+- Image generation status - run `registry.get_by_capability("image_generation")` and check status
+- **Remotion render engine status** - check `video_compose.get_info()["render_engines"]["remotion"]`. If `true`, Remotion is available for animated text cards, stat cards, charts, spring-physics transitions, and image-to-video rendering. This is a major quality upgrade over Ken Burns pan-and-zoom.
 
 This directly affects what you can promise in the production plan. **Do not propose a concept that requires tools you don't have.**
 
@@ -149,7 +149,7 @@ The title and hook are the most important two lines. They determine whether the 
 
 **Rules:**
 - Hook must be under 20 words
-- Hook must create an information gap — the viewer needs to watch to close it
+- Hook must create an information gap - the viewer needs to watch to close it
 - Hook must be grounded in a specific research finding (cite it in `grounded_in`)
 - Never use: "In this video we'll...", "Hey guys...", "Let me explain..."
 
@@ -170,7 +170,7 @@ Choose the structure that best fits the research findings:
 | `tutorial` | Audience wants to DO something | `audience_insights.common_questions` are how-to |
 | `story` | Human interest angle exists | Expert voices or real-world cases available |
 
-#### 3c: Visual Identity — Design It, Don't Pick It
+#### 3c: Visual Identity - Design It, Don't Pick It
 
 **Your job is to design a visual identity for THIS video, not to pick from a preset menu.**
 
@@ -180,7 +180,7 @@ Before choosing or generating a playbook, read `skills/meta/taste-direction.md` 
 
 **How to design visual identity:**
 
-1. **Start from the content.** What colors does the subject naturally evoke? What textures, materials, lighting? A video about volcanoes should feel different from a video about meditation — in colors, motion speed, typography weight, and transition style.
+1. **Start from the content.** What colors does the subject naturally evoke? What textures, materials, lighting? A video about volcanoes should feel different from a video about meditation - in colors, motion speed, typography weight, and transition style.
 
 2. **Consider the audience.** A Gen Z TikTok audience expects bold, high-contrast, fast motion. A corporate training audience expects restrained, professional, readable. A kids' educational audience expects bright, playful, bouncy.
 
@@ -193,7 +193,7 @@ Before choosing or generating a playbook, read `skills/meta/taste-direction.md` 
 
 5. **Use a preset playbook only when it genuinely fits.** If the video is a straightforward corporate explainer, `clean-professional` is fine. But if the topic has its own visual world (nature, space, food, music, sports, history), design a custom identity.
 
-6. **Generate a custom playbook when presets don't match.** Use `lib/playbook_generator.py` to create one from your design decisions. The Remotion theme system will automatically derive colors, fonts, and motion from whatever playbook you create — including custom ones.
+6. **Generate a custom playbook when presets don't match.** Use `lib/playbook_generator.py` to create one from your design decisions. The Remotion theme system will automatically derive colors, fonts, and motion from whatever playbook you create - including custom ones.
 
 **Record your visual identity choices in the proposal_packet:**
 - `production_plan.playbook`: name of preset OR "custom"
@@ -202,16 +202,16 @@ Before choosing or generating a playbook, read `skills/meta/taste-direction.md` 
 - Include the reasoning: "Warm amber palette because the subject is coffee craftsmanship"
 - Log as decision: `category: "playbook_selection"`
 
-**Check Remotion availability** — if `video_compose` reports `render_engines.remotion: true`, design for animated components (text cards, stat cards, charts, spring transitions). This is a major quality upgrade.
+**Check Remotion availability** - if `video_compose` reports `render_engines.remotion: true`, design for animated components (text cards, stat cards, charts, spring transitions). This is a major quality upgrade.
 
 **Remotion components available** (when Remotion engine is active):
-- `text_card` — animated text with spring entrance
-- `stat_card` — number + label with count-up animation
-- `callout` — highlighted explanation box
-- `comparison` — side-by-side with animated reveal
-- `progress` — animated progress bar
-- `chart` — bar, line, pie charts with animated data entry
-- `kpi_grid` — multi-stat dashboard layout
+- `text_card` - animated text with spring entrance
+- `stat_card` - number + label with count-up animation
+- `callout` - highlighted explanation box
+- `comparison` - side-by-side with animated reveal
+- `progress` - animated progress bar
+- `chart` - bar, line, pie charts with animated data entry
+- `kpi_grid` - multi-stat dashboard layout
 
 **Important:** When Remotion is available, **always design for Remotion component scenes** rather than static AI-generated images with Ken Burns pan. This is the difference between a professional motion graphics video and a slideshow.
 
@@ -258,7 +258,7 @@ This is two checks, not one:
 - [ ] Each concept offers a genuinely different INSIGHT, not just a different title for the same insight
 - [ ] At least one concept takes a creative risk (unusual structure, unexpected angle, provocative framing)
 - [ ] If you removed the titles and hooks, the concepts would still be distinguishable by their content structure
-- [ ] The concepts are NOT interchangeable — each serves a different audience need or curiosity
+- [ ] The concepts are NOT interchangeable - each serves a different audience need or curiosity
 
 If your concepts fail the conceptual diversity test, go back to the research brief. The problem is usually that you're working from one angle and varying the surface, instead of working from different angles entirely.
 
@@ -281,21 +281,21 @@ Don't dump the full proposal at once. Build understanding step by step:
 **4a. Research summary** (2-3 sentences): "Here's what I found..."
 → User reacts, course-corrects if needed.
 
-**4b. Mood board** (from Step 2c — already presented)
+**4b. Mood board** (from Step 2c - already presented)
 → User confirms feel.
 
 **4c. Concept options** (3+ directions):
 
 For each concept, show:
-1. **Title** and **hook** — the creative pitch
-2. **Why this works** — the research backing, in one sentence
-3. **What it'll look like** — visual approach in plain language
-4. **Duration** — how long the video will be
+1. **Title** and **hook** - the creative pitch
+2. **Why this works** - the research backing, in one sentence
+3. **What it'll look like** - visual approach in plain language
+4. **Duration** - how long the video will be
 
 **4d. Invite Mixing:**
 
 After presenting concepts, always say something like:
-> "You can also mix elements — for example, Concept A's hook with Concept C's visual approach. What speaks to you?"
+> "You can also mix elements - for example, Concept A's hook with Concept C's visual approach. What speaks to you?"
 
 If the user mixes, create a new hybrid concept entry in the proposal_packet with clear attribution: "Hook from Concept A, visual approach from Concept C, narrative structure from Concept B."
 
@@ -318,11 +318,11 @@ For the selected concept, design the stage-by-stage production plan.
 
 For each stage in the pipeline manifest (`animated-explainer.yaml`), specify:
 
-1. **Which tools will be used** — specific provider names, not just selectors
-2. **Whether each tool is available** — from the preflight check
-3. **Estimated cost per tool** — from the tool's cost metadata
-4. **Why this provider** — explain the choice ("ElevenLabs for narration because voice quality is critical for this topic" or "Piper TTS because running local-only and free")
-5. **Fallback if unavailable** — what happens if the primary tool is down
+1. **Which tools will be used** - specific provider names, not just selectors
+2. **Whether each tool is available** - from the preflight check
+3. **Estimated cost per tool** - from the tool's cost metadata
+4. **Why this provider** - explain the choice ("ElevenLabs for narration because voice quality is critical for this topic" or "Piper TTS because running local-only and free")
+5. **Fallback if unavailable** - what happens if the primary tool is down
 
 **Tool selection rationale must be honest:**
 - If using a free/local tool because the cloud tool is unavailable, say so
@@ -354,7 +354,7 @@ TRADEOFF: Render Path (check video_compose render_engines)
 
 **If Remotion is available:** Design the scene plan around Remotion component types (text_card, stat_card, chart, etc.) rather than generating AI images for every scene. This is both cheaper (fewer image gen calls) and higher quality (animated motion graphics vs. static images with pan).
 
-Also present **alternative production paths** — complete packages at different price points:
+Also present **alternative production paths** - complete packages at different price points:
 
 | Path | Quality | Cost | What Changes |
 |------|---------|------|-------------|
@@ -365,7 +365,7 @@ Also present **alternative production paths** — complete packages at different
 
 ### Step 5b: Music Plan (Mandatory)
 
-Music is a critical part of the video's feel. **Surface the music situation to the user at proposal time** — do not silently defer it to the asset stage where a failure becomes expensive.
+Music is a critical part of the video's feel. **Surface the music situation to the user at proposal time** - do not silently defer it to the asset stage where a failure becomes expensive.
 
 **Check music availability in this order:**
 
@@ -397,7 +397,7 @@ Would you like to:
 **If no music source is available:** Tell the user explicitly. Do NOT let this surface as a surprise at the asset stage. Offer the `music_library/` path so they can add a track before production starts.
 
 **Rules:**
-- Always check `music_library/` first — user-provided music is free and intentional
+- Always check `music_library/` first - user-provided music is free and intentional
 - Always report music API status (available, unavailable, quota remaining if checkable)
 - Record the music decision in `proposal_packet.production_plan.music_source`
 - If the user picks a library track, record its path for the asset director
@@ -422,8 +422,8 @@ COST ESTIMATE
 **Rules:**
 - Always show per-item costs, not just the total
 - Always show the budget cap comparison
-- If over budget, list specific savings options (e.g., "Switch to a cheaper TTS provider: saves $0.18" — check each provider's `estimate_cost` via the registry)
-- Include headroom note — some budget should remain for revisions
+- If over budget, list specific savings options (e.g., "Switch to a cheaper TTS provider: saves $0.18" - check each provider's `estimate_cost` via the registry)
+- Include headroom note - some budget should remain for revisions
 
 ### Step 7: Assemble the Approval Gate
 
@@ -456,11 +456,11 @@ Validate the `proposal_packet` artifact against `schemas/artifacts/proposal_pack
 |------------------|------------------------------------|
 | Script Director | `selected_concept` (title, hook, key_points, core_message, tone, narrative_structure) + research_brief data points |
 | Scene Director | `selected_concept.visual_approach` + `production_plan.playbook` |
-| Asset Director | `production_plan.stages[assets].tools` — knows exactly which providers to use |
-| Executive Producer | `cost_estimate` — initializes budget tracking |
-| All stages | `approval.approved_budget_usd` — hard spending cap |
+| Asset Director | `production_plan.stages[assets].tools` - knows exactly which providers to use |
+| Executive Producer | `cost_estimate` - initializes budget tracking |
+| All stages | `approval.approved_budget_usd` - hard spending cap |
 
-The `selected_concept` in the proposal_packet effectively replaces what the old `brief` artifact used to be — but it's grounded in research and comes with an explicit production plan attached.
+The `selected_concept` in the proposal_packet effectively replaces what the old `brief` artifact used to be - but it's grounded in research and comes with an explicit production plan attached.
 
 ## Common Pitfalls
 
@@ -477,24 +477,24 @@ The `selected_concept` in the proposal_packet effectively replaces what the old 
 
 **Concept 1: "The 200ms Journey" (data_driven)**
 - Hook: "Every website you visit starts with a 200-millisecond treasure hunt across the internet."
-- Structure: journey — follow a DNS query step by step
-- Visual: custom signal-map identity — midnight background, electric route traces, packet-flow motion language
+- Structure: journey - follow a DNS query step by step
+- Visual: custom signal-map identity - midnight background, electric route traces, packet-flow motion language
 - Duration: 90s (YouTube)
 - Grounded in: recursive resolution timing data, audience gap about multi-step process
 - Why it works: Most viewers think DNS is instant and singular. Showing the real journey is the aha moment.
 
 **Concept 2: "Your ISP Knows Everything" (contrarian)**
 - Hook: "Your internet provider logs every website you visit. Here's the 40-year-old system that makes it possible."
-- Structure: myth_busting — challenge "private browsing = private" belief
-- Visual: custom surveillance-noir identity — low-key contrast, privacy-warning accents, restrained typography
+- Structure: myth_busting - challenge "private browsing = private" belief
+- Visual: custom surveillance-noir identity - low-key contrast, privacy-warning accents, restrained typography
 - Duration: 75s (YouTube)
 - Grounded in: DNS privacy misconception (audience research), DoH trending signal
 - Why it works: Privacy is emotionally charged. The misconception that HTTPS = full privacy is widespread.
 
 **Concept 3: "The Internet's Phone Book" (analogy)**
 - Hook: "DNS is a phone book designed in 1983 that somehow still runs the modern internet."
-- Structure: analogy — phone book metaphor through historical evolution
-- Visual: custom retro-systems identity — off-white paper base, archival type, neon-modern contrast for present-day beats
+- Structure: analogy - phone book metaphor through historical evolution
+- Visual: custom retro-systems identity - off-white paper base, archival type, neon-modern contrast for present-day beats
 - Duration: 60s (LinkedIn)
 - Grounded in: audience knowledge gap about DNS age, landscape gap (no historical angle found)
 - Why it works: Simplest on-ramp for non-technical audience. The "still works after 40 years" angle is inherently surprising.
@@ -533,17 +533,17 @@ TOTAL: $0.64 of $2.00 budget
 
 If you encounter a generation technique, provider behavior, or prompting pattern you are unsure about:
 
-1. **Search the web** for current best practices — models and APIs change frequently, and the agent's training data may be stale
+1. **Search the web** for current best practices - models and APIs change frequently, and the agent's training data may be stale
 2. **Check `.agents/skills/`** for existing Layer 3 knowledge (provider-specific prompting guides, API patterns)
 3. **If neither helps**, write a project-scoped skill at `projects/<project-name>/skills/<name>.md` documenting what you learned
 4. **Reference source URLs** in the skill so the knowledge is traceable
 5. **Log it** in the decision log: `category: "capability_extension"`, `subject: "learned technique: <name>"`
 
 This is especially important for:
-- **Video generation prompting** — models respond to specific vocabularies that change with each version
-- **Image model parameters** — optimal settings for FLUX, GPT Image, Imagen differ and evolve
-- **Audio provider quirks** — voice cloning, music generation, and TTS each have model-specific best practices
-- **Remotion component patterns** — new composition techniques emerge as the framework evolves
+- **Video generation prompting** - models respond to specific vocabularies that change with each version
+- **Image model parameters** - optimal settings for FLUX, GPT Image, Imagen differ and evolve
+- **Audio provider quirks** - voice cloning, music generation, and TTS each have model-specific best practices
+- **Remotion component patterns** - new composition techniques emerge as the framework evolves
 
 Do not rely on stale knowledge. When in doubt, search first.
 
@@ -554,4 +554,4 @@ Do not rely on stale knowledge. When in doubt, search first.
 This stage gates on human approval (`human_approval_default: true`). After review passes:
 checkpoint with `status="awaiting_human"`, present the summary (the Backlot board renders
 the artifact), and **END YOUR TURN**. Do not start the next stage in the same response.
-Approval is per-gate — an earlier "go ahead" does not cover this gate.
+Approval is per-gate - an earlier "go ahead" does not cover this gate.
