@@ -1,8 +1,8 @@
-# Script Director — Animation Pipeline
+# Script Director - Animation Pipeline
 
 ## When to Use
 
-This stage turns the approved proposal into animation-ready beats. The script must leave room for motion, staging, and hold time — and must integrate the research findings and respect the selected animation mode.
+This stage turns the approved proposal into animation-ready beats. The script must leave room for motion, staging, and hold time - and must integrate the research findings and respect the selected animation mode.
 
 ## Prerequisites
 
@@ -20,27 +20,27 @@ This stage turns the approved proposal into animation-ready beats. The script mu
 
 Read the `proposal_packet.selected_concept` thoroughly. Extract:
 
-- **Title and hook** — the opening must deliver on this promise
-- **Animation mode** — `manim`, `remotion`, `ai_video`, `diagram_stills`, or `mixed`. This constrains how you write.
-- **Narrative structure** — `progressive_build`, `myth_busting`, `journey`, etc. Follow it.
-- **Target duration** — word budget = target_seconds × 2.5 words/sec (at 150 WPM)
-- **Key points** — from `selected_concept.key_points`
-- **Reuse strategy** — recurring motifs mean recurring script structures
+- **Title and hook** - the opening must deliver on this promise
+- **Animation mode** - `manim`, `remotion`, `ai_video`, `diagram_stills`, or `mixed`. This constrains how you write.
+- **Narrative structure** - `progressive_build`, `myth_busting`, `journey`, etc. Follow it.
+- **Target duration** - word budget = target_seconds × 2.5 words/sec (at 150 WPM)
+- **Key points** - from `selected_concept.key_points`
+- **Reuse strategy** - recurring motifs mean recurring script structures
 
 If `research_brief` is available, also extract:
-- **Data points** — weave specific, sourced facts into the narration (not vague claims)
-- **Audience misconceptions** — address them directly in the script
-- **Mathematical accuracy notes** — constraints on what can and cannot be simplified
+- **Data points** - weave specific, sourced facts into the narration (not vague claims)
+- **Audience misconceptions** - address them directly in the script
+- **Mathematical accuracy notes** - constraints on what can and cannot be simplified
 
 ### 2. Write in Animation Beats
 
 Each section should express ONE clear visual idea:
 
-- **Statement** — introduce a concept (entrance animation)
-- **Demonstration** — show it working (the main animation)
-- **Transformation** — morph from one state to another (transition)
-- **Comparison** — show two things side by side (split screen or sequential)
-- **Conclusion** — land the insight (hold + emphasis)
+- **Statement** - introduce a concept (entrance animation)
+- **Demonstration** - show it working (the main animation)
+- **Transformation** - morph from one state to another (transition)
+- **Comparison** - show two things side by side (split screen or sequential)
+- **Conclusion** - land the insight (hold + emphasis)
 
 If the piece is narration-led, also create `voice_performance` and section
 `delivery_cues` using `skills/meta/voice-performance-director.md`. Motion-heavy
@@ -55,7 +55,7 @@ animation, and mark emphasis where a reveal, transform, or comparison lands.
 | Remotion | Data-driven, punchy. Each beat maps to a chart/component animation. Narration complements the visual data. |
 | AI Video | Descriptive, evocative. Each beat describes a scene the AI should generate. Narration adds context the visual can't convey. |
 | Diagram Stills | Explanatory, progressive. Each beat adds a layer to a building diagram. Narration walks through the build. |
-| Mixed | Varies per section — tag each section's mode in metadata. |
+| Mixed | Varies per section - tag each section's mode in metadata. |
 
 ### 3. Keep On-Screen Text Tight
 
@@ -65,7 +65,7 @@ Animation-heavy pieces fail when the viewer has to read too much while motion is
 - **Max 15 words** for on-screen descriptions
 - Prefer phrases over sentences
 - Prefer numbers and labels over paragraphs
-- Mathematical notation is fine — it IS the content in math-animation mode
+- Mathematical notation is fine - it IS the content in math-animation mode
 
 ### 4. Leave Room for Visual Holds
 
@@ -99,7 +99,7 @@ If a `research_brief` is available:
 - Ground the hook in the research's most surprising finding
 - Address at least 1 audience misconception if the narrative structure supports it
 - Cite sources naturally ("According to [source]..." or "A [year] study found...")
-- Do NOT invent statistics — only use what the research found
+- Do NOT invent statistics - only use what the research found
 
 ### 7. Quality Gate
 
@@ -142,4 +142,4 @@ add the source. Do not invent statistics, dates, or attributions.
 This stage gates on human approval (`human_approval_default: true`). After review passes:
 checkpoint with `status="awaiting_human"`, present the summary (the Backlot board renders
 the artifact), and **END YOUR TURN**. Do not start the next stage in the same response.
-Approval is per-gate — an earlier "go ahead" does not cover this gate.
+Approval is per-gate - an earlier "go ahead" does not cover this gate.
