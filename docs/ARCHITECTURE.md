@@ -2,7 +2,7 @@
 
 > Last updated: 2026-03-28 | Derived from code exploration, not prior documentation.
 
-OpenMontage is an **agent-orchestrated video production platform**. An LLM coding assistant (Claude Code, Cursor, Copilot, etc.) acts as the orchestrator — reading pipeline manifests, following skill instructions, calling Python tools, and checkpointing state. There is no runtime Python orchestrator; the agent _is_ the control plane.
+OpenMontage is an **agent-orchestrated video production platform**. An LLM coding assistant (Claude Code, Cursor, Copilot, etc.) acts as the orchestrator - reading pipeline manifests, following skill instructions, calling Python tools, and checkpointing state. There is no runtime Python orchestrator; the agent _is_ the control plane.
 
 ---
 
@@ -129,11 +129,11 @@ All tools inherit from `BaseTool` (ABC) and declare:
 `ToolRegistry` is a singleton that auto-discovers all `BaseTool` subclasses via `pkgutil.walk_packages()`. No manual registration.
 
 Key queries:
-- `get_by_capability("tts")` — all TTS tools
-- `get_by_provider("elevenlabs")` — all ElevenLabs tools
-- `get_available()` — tools whose dependencies are satisfied
-- `find_fallback("elevenlabs_tts")` — resolve fallback chain
-- `support_envelope()` — full capability report for agent consumption
+- `get_by_capability("tts")` - all TTS tools
+- `get_by_provider("elevenlabs")` - all ElevenLabs tools
+- `get_available()` - tools whose dependencies are satisfied
+- `find_fallback("elevenlabs_tts")` - resolve fallback chain
+- `support_envelope()` - full capability report for agent consumption
 - `gpu_required_tools()`, `network_required_tools()`
 
 ### Selector Pattern
@@ -263,9 +263,9 @@ Checkpoints persist pipeline state as JSON in the project's `pipeline/` director
 **Status values:** `pending` | `in_progress` | `awaiting_human` | `completed` | `failed`
 
 **Checkpoint policies:**
-- `guided` — checkpoint at key creative stages, auto-proceed on mechanical ones
-- `manual_all` — human approval at every stage
-- `auto_noncreative` — auto-proceed unless stage is creative (assets, edit)
+- `guided` - checkpoint at key creative stages, auto-proceed on mechanical ones
+- `manual_all` - human approval at every stage
+- `auto_noncreative` - auto-proceed unless stage is creative (assets, edit)
 
 **Functions:** `write_checkpoint()`, `read_checkpoint()`, `get_latest_checkpoint()`, `get_completed_stages()`, `get_next_stage()`
 
@@ -311,9 +311,9 @@ reconcile(entry_id, $)     # records actual spend
 
 ### Controls
 - **Total budget** (default: $10.00)
-- **Reserve holdback** (default: 10%) — kept as safety margin
-- **Single-action approval threshold** (default: $0.50) — pause for approval above this
-- **New paid tool approval** — first-time use of any paid tool requires confirmation
+- **Reserve holdback** (default: 10%) - kept as safety margin
+- **Single-action approval threshold** (default: $0.50) - pause for approval above this
+- **New paid tool approval** - first-time use of any paid tool requires confirmation
 - Persists to `cost_log.json` per project
 
 ---
@@ -418,9 +418,9 @@ not registered as tools because current pipelines do not define stable
 
 Style playbooks in `styles/` define visual language for pipelines:
 
-- `clean-professional.yaml` — Corporate, polished look
-- `flat-motion-graphics.yaml` — Modern flat design
-- `minimalist-diagram.yaml` — Technical, minimal diagrams
+- `clean-professional.yaml` - Corporate, polished look
+- `flat-motion-graphics.yaml` - Modern flat design
+- `minimalist-diagram.yaml` - Technical, minimal diagrams
 
 Loaded by `styles/playbook_loader.py`. Each pipeline declares `compatible_playbooks` in its manifest. Validated against `schemas/styles/playbook.schema.json`.
 
@@ -471,7 +471,7 @@ Consumed via `npx hyperframes` (no monorepo checkout needed). Runtime floor: Nod
 - Handles pure concat/trim when no composition is needed
 - Also handles subtitle burn-in as a post-hoc operation
 
-`video_compose` reads `edit_decisions.render_runtime` and dispatches via `_render_via_hyperframes`, `_remotion_render`, or `_render_via_ffmpeg`. Silent runtime swaps are forbidden — the tool returns a structured blocker when the chosen runtime is unavailable. See `AGENT_GUIDE.md` → "Composition Runtimes (Inside video_compose)" and `skills/core/hyperframes.md` for the full decision matrix.
+`video_compose` reads `edit_decisions.render_runtime` and dispatches via `_render_via_hyperframes`, `_remotion_render`, or `_render_via_ffmpeg`. Silent runtime swaps are forbidden - the tool returns a structured blocker when the chosen runtime is unavailable. See `AGENT_GUIDE.md` → "Composition Runtimes (Inside video_compose)" and `skills/core/hyperframes.md` for the full decision matrix.
 
 ---
 
@@ -514,14 +514,14 @@ tests/
 
 ## Key Design Decisions
 
-1. **No runtime orchestrator** — The LLM agent reads YAML + Markdown and drives everything. This makes the system debuggable (just read the skill) and model-agnostic.
+1. **No runtime orchestrator** - The LLM agent reads YAML + Markdown and drives everything. This makes the system debuggable (just read the skill) and model-agnostic.
 
-2. **Checkpoint-based resumption** — Any stage can fail and the pipeline resumes from the last checkpoint. No re-running completed stages.
+2. **Checkpoint-based resumption** - Any stage can fail and the pipeline resumes from the last checkpoint. No re-running completed stages.
 
-3. **Schema-validated artifacts** — Every stage output is validated against a JSON Schema before the checkpoint is written. Prevents garbage propagation.
+3. **Schema-validated artifacts** - Every stage output is validated against a JSON Schema before the checkpoint is written. Prevents garbage propagation.
 
-4. **Budget as a first-class concept** — Cost estimation before execution, budget reservation, and reconciliation. The agent cannot silently overspend.
+4. **Budget as a first-class concept** - Cost estimation before execution, budget reservation, and reconciliation. The agent cannot silently overspend.
 
-5. **Selector pattern over hard-coded providers** — Capabilities degrade gracefully. Missing an API key? The selector falls through to the next provider or a local alternative.
+5. **Selector pattern over hard-coded providers** - Capabilities degrade gracefully. Missing an API key? The selector falls through to the next provider or a local alternative.
 
-6. **Skills over code for intelligence** — Creative decisions, quality checklists, review criteria, and prompt templates live in Markdown skills, not Python. This means the agent's behavior can be tuned by editing text files, not code.
+6. **Skills over code for intelligence** - Creative decisions, quality checklists, review criteria, and prompt templates live in Markdown skills, not Python. This means the agent's behavior can be tuned by editing text files, not code.
