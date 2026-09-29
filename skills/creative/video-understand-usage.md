@@ -16,12 +16,12 @@ MAX FRAMES:       5 default for video — sample strategically, not exhaustively
 
 ## When to Use video_understand
 
-- **Visual QA during review** — check rendered output quality before delivering
-- **Footage analysis** — understand what's in user-provided footage before planning
-- **Highlight extraction** — identify the most visually interesting frames
-- **Quality gating** — programmatic check for blur, exposure, scene coherence
-- **Scene classification** — categorize footage by content type
-- **Asset validation** — verify generated images match the intended scene description
+- **Visual QA during review** - check rendered output quality before delivering
+- **Footage analysis** - understand what's in user-provided footage before planning
+- **Highlight extraction** - identify the most visually interesting frames
+- **Quality gating** - programmatic check for blur, exposure, scene coherence
+- **Scene classification** - categorize footage by content type
+- **Asset validation** - verify generated images match the intended scene description
 
 ## Mode Selection
 
@@ -114,11 +114,11 @@ Check face visibility and framing before applying lip-sync or face restoration t
 
 When using the `video_understand` tool:
 
-1. **Use `quality` mode as a post-render gate in the compose stage** — reject outputs below quality thresholds
+1. **Use `quality` mode as a post-render gate in the compose stage** - reject outputs below quality thresholds
 2. **Use `describe` mode to analyze user-provided footage** at the start of the talking-head pipeline
-3. **For batch quality checks, use `clip` model** (fastest) — switch to `blip2` only for detailed review
-4. **Sample at least 3 frames for quality assessment** — beginning, middle, end
+3. **For batch quality checks, use `clip` model** (fastest) - switch to `blip2` only for detailed review
+4. **Sample at least 3 frames for quality assessment** - beginning, middle, end
 5. **Quality thresholds for passing:** blur_score > 100, brightness 50-200, contrast > 30
 6. **Use `qa` mode to validate generated assets:** "Does this image show [expected content]?"
 7. **In the review stage**, combine video_understand quality data with the reviewer skill's rubric
-8. **Do NOT run video_understand on every frame of a long video** — sample strategically
+8. **Do NOT run video_understand on every frame of a long video** - sample strategically
