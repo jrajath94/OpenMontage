@@ -96,7 +96,7 @@ const scribe = useScribe({
 });
 ```
 
-> **Important:** The default is `CommitStrategy.MANUAL`. For microphone input, always set `CommitStrategy.VAD` — without it, committed transcripts will never fire and the connection may drop.
+> **Important:** The default is `CommitStrategy.MANUAL`. For microphone input, always set `CommitStrategy.VAD` - without it, committed transcripts will never fire and the connection may drop.
 
 #### JavaScript client
 
