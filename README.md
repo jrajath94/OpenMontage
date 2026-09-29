@@ -1,11 +1,11 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/monty-dark.svg">
-    <img src="assets/monty-light.svg" alt="Monty the Clapper — the official mascot of OpenMontage" width="200">
+    <img src="assets/monty-light.svg" alt="Monty the Clapper - the official mascot of OpenMontage" width="200">
   </picture>
 </p>
 
-<p align="center"><sub><em>Monty the Clapper — the official mascot of OpenMontage</em></sub></p>
+<p align="center"><sub><em>Monty the Clapper - the official mascot of OpenMontage</em></sub></p>
 
 <h1 align="center">OpenMontage</h1>
 
@@ -70,7 +70,7 @@
 
 ---
 
-Turn your AI coding assistant into a full video production studio. Describe what you want in plain language — your agent handles research, scripting, asset generation, editing, and final composition.
+Turn your AI coding assistant into a full video production studio. Describe what you want in plain language - your agent handles research, scripting, asset generation, editing, and final composition.
 
 **Important distinction:** OpenMontage can make image-based videos, but it can also make a real **video video** for free/open-source workflows: the agent builds a corpus from free stock footage and open archives, retrieves actual motion clips, edits them into a timeline, and renders a finished piece. That is not the usual "animate a handful of stills and call it video" trick.
 
@@ -78,52 +78,52 @@ Turn your AI coding assistant into a full video production studio. Describe what
   <video src="https://github.com/user-attachments/assets/f77ce7a4-68b8-4f94-a287-e94bf50a32e1" width="100%" controls></video>
 </div>
 
-> **"SIGNAL FROM TOMORROW"** — a cinematic sci-fi trailer fully produced through OpenMontage: concept, script, scene plan, Veo-generated motion clips, soundtrack, and Remotion composition.
+> **"SIGNAL FROM TOMORROW"** - a cinematic sci-fi trailer fully produced through OpenMontage: concept, script, scene plan, Veo-generated motion clips, soundtrack, and Remotion composition.
 
 <div align="center">
   <video src="https://github.com/user-attachments/assets/8daca07f-cdf8-4bec-89c3-9dc2176363fa" width="100%" controls></video>
 </div>
 
-> **"THE LAST BANANA"** — a 60-second Pixar-style animated short about a lonely banana who finds friendship with a kiwi. 6 Kling v3-generated motion clips (via fal.ai), Google Chirp3-HD narration, royalty-free piano music, TikTok-style word-level captions, and Remotion composition. Total cost: **$1.33**.
+> **"THE LAST BANANA"** - a 60-second Pixar-style animated short about a lonely banana who finds friendship with a kiwi. 6 Kling v3-generated motion clips (via fal.ai), Google Chirp3-HD narration, royalty-free piano music, TikTok-style word-level captions, and Remotion composition. Total cost: **$1.33**.
 
 <div align="center">
   <video src="https://github.com/user-attachments/assets/0a71333b-9b05-40b5-8800-a0a679e9b433" width="100%" controls></video>
 </div>
 
-> **"OBJECTS IN OVERDRIVE"** — a 54-second, music-driven 3D showcase featuring ten objects with distinct choreography: gravity-shifting furniture, frozen car drifts, cloth impacts, refractive lenses, moving gears, an acrobatic robot, and more. Custom Blender animation and physics, kinetic typography, and a phonk soundtrack. Rendered with Blender Eevee/Cycles and assembled with FFmpeg. No narration.
+> **"OBJECTS IN OVERDRIVE"** - a 54-second, music-driven 3D showcase featuring ten objects with distinct choreography: gravity-shifting furniture, frozen car drifts, cloth impacts, refractive lenses, moving gears, an acrobatic robot, and more. Custom Blender animation and physics, kinetic typography, and a phonk soundtrack. Rendered with Blender Eevee/Cycles and assembled with FFmpeg. No narration.
 
 <div align="center">
   <video src="https://github.com/user-attachments/assets/88962725-97a0-4aac-a08e-34aaa9d8bb92" width="100%" controls></video>
 </div>
 
-> **"Reimagine Your Universe"** — a 50-second vertical transformation film in which one visual idea moves across objects, eras, materials, and scale. Five generated motion scenes, sparse Google Chirp narration, a Pixabay score, and a bespoke HyperFrames composition turn separate clips into one authored cinematic journey. Total cost: **about $4**.
+> **"Reimagine Your Universe"** - a 50-second vertical transformation film in which one visual idea moves across objects, eras, materials, and scale. Five generated motion scenes, sparse Google Chirp narration, a Pixabay score, and a bespoke HyperFrames composition turn separate clips into one authored cinematic journey. Total cost: **about $4**.
 
 <div align="center">
   <video src="https://github.com/user-attachments/assets/c947070c-95ee-4d73-8d76-0bd3dc4826eb" width="100%" controls></video>
 </div>
 
-> **"Products Come to Life"** — a 60-second product film built from approved hero stills. Five hard-surface products separate into their own engineering and reassemble, with each still pinned as the first and last frame so the model invents motion without losing product identity. Image-to-video generation, bespoke sound, narration, and a custom composition complete the film.
+> **"Products Come to Life"** - a 60-second product film built from approved hero stills. Five hard-surface products separate into their own engineering and reassemble, with each still pinned as the first and last frame so the model invents motion without losing product identity. Image-to-video generation, bespoke sound, narration, and a custom composition complete the film.
 
 <div align="center">
   <video src="https://github.com/user-attachments/assets/6815c2d2-17a3-4057-b9a0-893fc9c05bef" width="100%" controls></video>
 </div>
 
-> **"Imagine the Possibilities with OpenMontage"** — seven generated worlds collected into one music-only showcase. Three image models supply campaign, fashion, and miniature-world artwork; four video models expand the journey through architecture, material transformation, a living greenhouse, and a creature encounter. OpenMontage animates the stills, edits the motion, unifies the soundtrack, and closes with Monty the Clapper. Source generation cost: **about $5**.
+> **"Imagine the Possibilities with OpenMontage"** - seven generated worlds collected into one music-only showcase. Three image models supply campaign, fashion, and miniature-world artwork; four video models expand the journey through architecture, material transformation, a living greenhouse, and a creature encounter. OpenMontage animates the stills, edits the motion, unifies the soundtrack, and closes with Monty the Clapper. Source generation cost: **about $5**.
 
 <div align="center">
   <video src="https://github.com/user-attachments/assets/a524f02a-2d18-42ca-a2c4-d3dc09503546" width="100%" controls></video>
 </div>
 
-> **"How Salt Made History"** — a 100-second cinematic documentary about the mineral that funded empires, shaped trade routes, sparked revolutions, and gave us the word “salary.” Real-world footage is woven together with original narration and hand-authored motion graphics for its etched title, etymology reveal, animated maps, historical timeline, and closing thesis.
+> **"How Salt Made History"** - a 100-second cinematic documentary about the mineral that funded empires, shaped trade routes, sparked revolutions, and gave us the word “salary.” Real-world footage is woven together with original narration and hand-authored motion graphics for its etched title, etymology reveal, animated maps, historical timeline, and closing thesis.
 
 <div align="center">
   <video src="https://github.com/user-attachments/assets/61919fb8-9dd1-446c-b833-dca82f6a3af8" width="100%" controls></video>
 </div>
 
-> **"One Prompt Built This Complete 3D World"** — a continuous 60-second journey through one coherent, editable fantasy world. Distinct terrain regions, an inhabited village, waterways, ruins, dense vegetation, and a late hero-landmark reveal are assembled from textured 3D assets, then brought together with cinematic lighting, atmospheric music, and a planned camera path.
+> **"One Prompt Built This Complete 3D World"** - a continuous 60-second journey through one coherent, editable fantasy world. Distinct terrain regions, an inhabited village, waterways, ruins, dense vegetation, and a late hero-landmark reveal are assembled from textured 3D assets, then brought together with cinematic lighting, atmospheric music, and a planned camera path.
 
 <p align="center">
-  <a href="https://www.youtube.com/@OpenMontage?sub_confirmation=1"><strong>Subscribe to @OpenMontage on YouTube</strong></a> to see new videos as they ship — every video includes the full prompt, pipeline, tools used, and cost so you can reproduce it yourself.
+  <a href="https://www.youtube.com/@OpenMontage?sub_confirmation=1"><strong>Subscribe to @OpenMontage on YouTube</strong></a> to see new videos as they ship - every video includes the full prompt, pipeline, tools used, and cost so you can reproduce it yourself.
 </p>
 
 ---
@@ -149,25 +149,25 @@ What you get back is not "best guess prompt spaghetti." You get:
 - **What it will cost** at your target duration, before asset generation starts
 - **What it will actually look like** with your currently available tools
 
-Works with **Claude Code, Cursor, Copilot, Windsurf, Codex** — any AI coding assistant that can read files and run code.
+Works with **Claude Code, Cursor, Copilot, Windsurf, Codex** - any AI coding assistant that can read files and run code.
 
 ---
 
-## Watch It Happen — The Backlot Living Storyboard
+## Watch It Happen - The Backlot Living Storyboard
 
-Chat tells you what the agent *said*. **Backlot shows you what the production is actually doing** — a local board that fills itself in as the pipeline runs. Stages light up, the script lands as a screenplay page, scene cards shimmer while assets generate, and every provider decision and dollar spent is on the wall.
+Chat tells you what the agent *said*. **Backlot shows you what the production is actually doing** - a local board that fills itself in as the pipeline runs. Stages light up, the script lands as a screenplay page, scene cards shimmer while assets generate, and every provider decision and dollar spent is on the wall.
 
-When a production starts, the agent opens it for you automatically. No setup, no reporting — the board derives everything from the project files the pipeline already writes.
+When a production starts, the agent opens it for you automatically. No setup, no reporting - the board derives everything from the project files the pipeline already writes.
 
-<p align="center"><img src="docs/images/backlot/board-live.png" alt="Backlot live board — assets generating" width="920"></p>
+<p align="center"><img src="docs/images/backlot/board-live.png" alt="Backlot live board - assets generating" width="920"></p>
 
-**The storyboard is now a real approval gate.** Asset generation pauses on a scene-by-scene contact sheet — takes, prompts, per-asset cost, quality scores — so you approve the visuals *before* the render, not after it's too late:
+**The storyboard is now a real approval gate.** Asset generation pauses on a scene-by-scene contact sheet - takes, prompts, per-asset cost, quality scores - so you approve the visuals *before* the render, not after it's too late:
 
-<p align="center"><img src="docs/images/backlot/storyboard.png" alt="Backlot storyboard — filmstrip with takes and renders" width="920"></p>
+<p align="center"><img src="docs/images/backlot/storyboard.png" alt="Backlot storyboard - filmstrip with takes and renders" width="920"></p>
 
 Creative gates hold until you answer. The board shows what's waiting and why; you reply in chat:
 
-<p align="center"><img src="docs/images/backlot/script-gate.png" alt="Backlot script gate — awaiting approval" width="920"></p>
+<p align="center"><img src="docs/images/backlot/script-gate.png" alt="Backlot script gate - awaiting approval" width="920"></p>
 
 Every production on your machine, live-first, in the library:
 
@@ -179,7 +179,7 @@ python -m backlot open <project-id>     # one production's live board
 python scripts/backlot_simulate_run.py  # no production yet? watch a simulated one live
 ```
 
-And when a run is done, hit **▶ REPLAY RUN** — the whole production replays from its timestamps, scrubbable end to end. See [`backlot/README.md`](backlot/README.md) for how it works.
+And when a run is done, hit **▶ REPLAY RUN** - the whole production replays from its timestamps, scrubbable end to end. See [`backlot/README.md`](backlot/README.md) for how it works.
 
 ---
 
@@ -187,10 +187,10 @@ And when a run is done, hit **▶ REPLAY RUN** — the whole production replays 
 
 ### Prerequisites
 
-- **Python 3.10+** — [python.org](https://www.python.org/downloads/)
-- **FFmpeg** — `brew install ffmpeg` / `sudo apt install ffmpeg` / [ffmpeg.org](https://ffmpeg.org/download.html)
-- **Node.js 18+** — [nodejs.org](https://nodejs.org/)
-- **An AI coding assistant** — Claude Code, Cursor, Copilot, Windsurf, or Codex
+- **Python 3.10+** - [python.org](https://www.python.org/downloads/)
+- **FFmpeg** - `brew install ffmpeg` / `sudo apt install ffmpeg` / [ffmpeg.org](https://ffmpeg.org/download.html)
+- **Node.js 18+** - [nodejs.org](https://nodejs.org/)
+- **An AI coding assistant** - Claude Code, Cursor, Copilot, Windsurf, or Codex
 
 ### Install & Run
 
@@ -212,7 +212,7 @@ Or if you want the real-footage path:
 "Make a 75-second documentary montage about city life in the rain. Use real footage only, no narration, elegiac tone, with music."
 ```
 
-That's it. The agent researches your topic with live web search, generates AI images, writes and narrates the script with voice direction, finds royalty-free background music automatically, burns in word-level subtitles, and renders the final video. Before you see anything, the system runs a multi-point self-review — ffprobe validation, frame sampling, audio level analysis, delivery promise verification, and subtitle checks. Every provider selection is scored across 7 dimensions with an auditable decision log. Every creative decision gets your approval.
+That's it. The agent researches your topic with live web search, generates AI images, writes and narrates the script with voice direction, finds royalty-free background music automatically, burns in word-level subtitles, and renders the final video. Before you see anything, the system runs a multi-point self-review - ffprobe validation, frame sampling, audio level analysis, delivery promise verification, and subtitle checks. Every provider selection is scored across 7 dimensions with an auditable decision log. Every creative decision gets your approval.
 
 > **No `make`?** macOS/Linux: `python3 -m venv .venv && source .venv/bin/activate && python -m pip install -r requirements.txt && cd remotion-composer && npm install && cd .. && python -m pip install piper-tts && cp .env.example .env`
 >
@@ -237,7 +237,7 @@ This repo is built for agentic operation. If you're an OpenClaw-style agent, her
 4. **Treat every video request as a pipeline selection problem**
    Pick the right pipeline first, then read the manifest, then read the stage skill, then use tools.
 
-### Add API Keys (optional — more keys = more tools)
+### Add API Keys (optional - more keys = more tools)
 
 ```bash
 # .env — every key is optional, add what you have
@@ -291,11 +291,11 @@ You don't need paid API keys to make real videos. Out of the box, `make setup` g
 
 | Capability | Free Tool | What It Does |
 |-----------|-----------|-------------|
-| **Narration** | Piper TTS | Free offline text-to-speech — real human-sounding narration |
+| **Narration** | Piper TTS | Free offline text-to-speech - real human-sounding narration |
 | **Open footage** | Archive.org + NASA + Wikimedia Commons | Free/open archival footage, educational media, and documentary texture |
 | **Extra stock** | Pexels + Unsplash + Pixabay | Free stock footage/images (developer keys are free to get) |
-| **Composition (React)** | Remotion | React-based rendering — spring-animated image scenes, text cards, stat cards, charts, TikTok-style word-level captions, TalkingHead |
-| **Composition (HTML/GSAP)** | HyperFrames | HTML/CSS/GSAP rendering — kinetic typography, product promos, launch reels, registry blocks, website-to-video, rigged SVG character animation |
+| **Composition (React)** | Remotion | React-based rendering - spring-animated image scenes, text cards, stat cards, charts, TikTok-style word-level captions, TalkingHead |
+| **Composition (HTML/GSAP)** | HyperFrames | HTML/CSS/GSAP rendering - kinetic typography, product promos, launch reels, registry blocks, website-to-video, rigged SVG character animation |
 | **Post-production** | FFmpeg | Encoding, subtitle burn-in, audio mixing, color grading |
 | **Subtitles** | Built-in | Auto-generated captions with word-level timing |
 
@@ -383,31 +383,31 @@ Every pipeline follows the same structured flow:
 research -> proposal -> script -> scene_plan -> assets -> edit -> compose
 ```
 
-Each stage has a dedicated **director skill** — a markdown instruction file that teaches the agent exactly how to execute that stage. The agent reads the skill, uses the tools, self-reviews, checkpoints state, and asks for human approval at creative decision points.
+Each stage has a dedicated **director skill** - a markdown instruction file that teaches the agent exactly how to execute that stage. The agent reads the skill, uses the tools, self-reviews, checkpoints state, and asks for human approval at creative decision points.
 
-> **Web research is a first-class stage.** Before writing a single word of script, the agent searches YouTube, Reddit, Hacker News, news sites, and academic sources. It gathers data points, audience questions, trending angles, and visual references — then cites everything in a structured research brief. Your videos are grounded in real, current information, not hallucinated facts.
+> **Web research is a first-class stage.** Before writing a single word of script, the agent searches YouTube, Reddit, Hacker News, news sites, and academic sources. It gathers data points, audience questions, trending angles, and visual references - then cites everything in a structured research brief. Your videos are grounded in real, current information, not hallucinated facts.
 
 ---
 
 ## Why OpenMontage?
 
-Most AI video tools give you a single clip from a prompt. OpenMontage gives you an **end-to-end production pipeline** — the same structured process a real production team follows, automated by your AI agent.
+Most AI video tools give you a single clip from a prompt. OpenMontage gives you an **end-to-end production pipeline** - the same structured process a real production team follows, automated by your AI agent.
 
 Most "free AI video" stacks quietly mean "animate still images." OpenMontage can do that too, but it can also build a finished video from **real footage** pulled from free/open sources, ranked semantically, edited intentionally, and rendered as a proper timeline.
 
 Edit your own talking-head footage. Generate a fully animated explainer from scratch. Cut a 2-hour podcast into a dozen social clips. Translate and dub your content into 10 languages. Build a cinematic brand teaser from stock footage and AI-generated scenes. **If a production team can make it, OpenMontage can orchestrate it.**
 
-- **10+ production pipelines** — explainers, talking heads, screen demos, cinematic trailers, animations, podcasts, localization, documentary montages, character animation, and more
-- **100+ production tools** — spanning video generation, image creation, text-to-speech, music, audio mixing, subtitles, enhancement, and analysis
-- **60+ provider integrations** — cloud APIs, local models, stock libraries, open archives, and production runtimes behind one scored selection layer
-- **700+ agent skill and production-knowledge files** — pipeline directors, creative techniques, quality checklists, and deep technology knowledge packs that teach the agent how to use every tool like an expert
-- **Reference-driven creation** — paste a video you like and the agent turns it into a grounded, differentiated production plan instead of forcing you to invent the perfect prompt from scratch
-- **Real-footage documentary creation without paid video models** — build actual edited videos from free/open motion footage and archival sources, not just Ken Burns over images
-- **Live web research built in** — before writing a single word of script, the agent runs 15-25+ web searches across YouTube, Reddit, news sites, and academic sources to ground your video in real, current data
-- **Both free/local AND cloud providers** — every capability supports open-source local alternatives alongside premium APIs. Use what you have.
-- **No vendor lock-in** — swap providers freely. The scored selector ranks every provider across 7 dimensions (task fit, output quality, control, reliability, cost efficiency, latency, continuity) and picks the best match automatically.
-- **Production-grade quality gates** — delivery promise enforcement blocks slideshow-looking renders, pre-compose validation catches broken plans before wasting GPU time, and mandatory post-render self-review (ffprobe + frame extraction + audio analysis) ensures the agent never presents garbage. Every provider choice, style decision, and fallback gets logged in an auditable decision trail.
-- **Budget governance built in** — cost estimation before execution, spend caps, per-action approval thresholds. No surprise bills.
+- **10+ production pipelines** - explainers, talking heads, screen demos, cinematic trailers, animations, podcasts, localization, documentary montages, character animation, and more
+- **100+ production tools** - spanning video generation, image creation, text-to-speech, music, audio mixing, subtitles, enhancement, and analysis
+- **60+ provider integrations** - cloud APIs, local models, stock libraries, open archives, and production runtimes behind one scored selection layer
+- **700+ agent skill and production-knowledge files** - pipeline directors, creative techniques, quality checklists, and deep technology knowledge packs that teach the agent how to use every tool like an expert
+- **Reference-driven creation** - paste a video you like and the agent turns it into a grounded, differentiated production plan instead of forcing you to invent the perfect prompt from scratch
+- **Real-footage documentary creation without paid video models** - build actual edited videos from free/open motion footage and archival sources, not just Ken Burns over images
+- **Live web research built in** - before writing a single word of script, the agent runs 15-25+ web searches across YouTube, Reddit, news sites, and academic sources to ground your video in real, current data
+- **Both free/local AND cloud providers** - every capability supports open-source local alternatives alongside premium APIs. Use what you have.
+- **No vendor lock-in** - swap providers freely. The scored selector ranks every provider across 7 dimensions (task fit, output quality, control, reliability, cost efficiency, latency, continuity) and picks the best match automatically.
+- **Production-grade quality gates** - delivery promise enforcement blocks slideshow-looking renders, pre-compose validation catches broken plans before wasting GPU time, and mandatory post-render self-review (ffprobe + frame extraction + audio analysis) ensures the agent never presents garbage. Every provider choice, style decision, and fallback gets logged in an auditable decision trail.
+- **Budget governance built in** - cost estimation before execution, spend caps, per-action approval thresholds. No surprise bills.
 
 ---
 
@@ -497,7 +497,7 @@ Each tool declares which Layer 3 skills it relies on. The agent reads Layer 1 to
 > **Full setup guide with pricing and free tiers:** [`docs/PROVIDERS.md`](docs/PROVIDERS.md)
 
 <details>
-<summary><strong>Video Generation — 20+ providers</strong></summary>
+<summary><strong>Video Generation - 20+ providers</strong></summary>
 
 | Provider | Type | Notes |
 |----------|------|-------|
@@ -524,12 +524,12 @@ Each tool declares which Layer 3 skills it relies on. The agent reads Layer 1 to
 </details>
 
 <details>
-<summary><strong>Image Generation — 15+ providers</strong></summary>
+<summary><strong>Image Generation - 15+ providers</strong></summary>
 
 | Provider | Type | Notes |
 |----------|------|-------|
 | **FLUX** | Cloud API | State-of-the-art quality |
-| **Google Imagen** | Cloud API | Imagen 4 — high-quality, multiple aspect ratios |
+| **Google Imagen** | Cloud API | Imagen 4 - high-quality, multiple aspect ratios |
 | **Grok Imagine Image** | Cloud API | Strong image edits, style transfer, and multi-image compositing |
 | **GPT Image 2** | Cloud API | OpenAI's image model |
 | **Seedream 5.0** | Cloud API | High-fidelity text-to-image and image editing through supported gateways |
@@ -546,12 +546,12 @@ Each tool declares which Layer 3 skills it relies on. The agent reads Layer 1 to
 </details>
 
 <details>
-<summary><strong>Text-to-Speech — 10+ providers</strong></summary>
+<summary><strong>Text-to-Speech - 10+ providers</strong></summary>
 
 | Provider | Type | Notes |
 |----------|------|-------|
 | **ElevenLabs** | Cloud API | Premium voice quality |
-| **Google TTS** | Cloud API | 700+ voices, 50+ languages — best for localization |
+| **Google TTS** | Cloud API | 700+ voices, 50+ languages - best for localization |
 | **Kling Official TTS** | Cloud API | Official Kling narration when a `voice_id` is known |
 | **OpenAI TTS** | Cloud API | Fast, affordable |
 | **Piper** | Local | Completely free, offline |
@@ -614,11 +614,11 @@ Each tool declares which Layer 3 skills it relies on. The agent reads Layer 1 to
 
 | Engine | Type | What It Does |
 |--------|------|-------------|
-| **Remotion** | Local (Node.js) | React-based programmatic video — spring-animated image scenes, stat reveals, section titles, hero cards, TikTok-style word-by-word captions, scene transitions (fade/slide/wipe/flip), Google Fonts, audio with fade curves, and the TalkingHead avatar composition. **When no video generation providers are configured, the agent generates still images and Remotion turns them into fully animated video.** |
-| **HyperFrames** | Local (Node.js ≥ 22) | HTML/CSS/GSAP programmatic video — kinetic typography, product promos, launch reels, custom motion graphics, registry blocks (data charts, grain overlays, shader transitions), website-to-video workflows, and rigged SVG character animation. Consumed via `npx hyperframes`; no monorepo checkout needed. |
+| **Remotion** | Local (Node.js) | React-based programmatic video - spring-animated image scenes, stat reveals, section titles, hero cards, TikTok-style word-by-word captions, scene transitions (fade/slide/wipe/flip), Google Fonts, audio with fade curves, and the TalkingHead avatar composition. **When no video generation providers are configured, the agent generates still images and Remotion turns them into fully animated video.** |
+| **HyperFrames** | Local (Node.js ≥ 22) | HTML/CSS/GSAP programmatic video - kinetic typography, product promos, launch reels, custom motion graphics, registry blocks (data charts, grain overlays, shader transitions), website-to-video workflows, and rigged SVG character animation. Consumed via `npx hyperframes`; no monorepo checkout needed. |
 | **FFmpeg** | Local | Core video assembly, encoding, subtitle burn, audio muxing, color grading |
 
-Runtime is chosen at proposal (`render_runtime`) and locked through `edit_decisions`. Silent swaps between runtimes are a governance violation — see `skills/core/hyperframes.md`.
+Runtime is chosen at proposal (`render_runtime`) and locked through `edit_decisions`. Silent swaps between runtimes are a governance violation - see `skills/core/hyperframes.md`.
 
 </details>
 
@@ -657,15 +657,15 @@ Built-in render profiles for every major platform:
 
 ## Production Governance
 
-OpenMontage treats video production like real engineering — with quality gates, audit trails, and enforcement at every stage.
+OpenMontage treats video production like real engineering - with quality gates, audit trails, and enforcement at every stage.
 
 ### Quality Gates
 
-- **Human approval gates are enforced, not suggested** — proposal, script, scene plan, generated assets, and publish all pause for your sign-off. The checkpoint writer rejects a "completed" gated stage without recorded approval, and every superseded checkpoint is archived so the audit trail (including gate transitions) survives revisions. Review happens visually on the [Backlot board](#watch-it-happen--the-backlot-living-storyboard).
-- **Pre-compose validation** — blocks render if the delivery promise is violated (e.g. "motion-led" video with 80% still images), slideshow risk score is critical, or renderer family is missing. Catches broken plans before wasting GPU time.
-- **Post-render self-review** — after every render, the runtime runs ffprobe validation, extracts frames at 4 positions to check for black frames and broken overlays, analyzes audio levels for silence and clipping, verifies the delivery promise was honored, and checks subtitle presence. If the review fails, the video is not presented.
-- **Slideshow risk scoring** — 6-dimension analysis (repetition, decorative visuals, weak motion, shot intent, typography overreliance, unsupported cinematic claims) prevents "animated PowerPoint" outputs.
-- **Source media inspection** — when users supply their own footage, the system probes every file (resolution, codec, audio channels, duration) and builds planning implications before a single creative decision is made. No hallucinating content from filenames.
+- **Human approval gates are enforced, not suggested** - proposal, script, scene plan, generated assets, and publish all pause for your sign-off. The checkpoint writer rejects a "completed" gated stage without recorded approval, and every superseded checkpoint is archived so the audit trail (including gate transitions) survives revisions. Review happens visually on the [Backlot board](#watch-it-happen--the-backlot-living-storyboard).
+- **Pre-compose validation** - blocks render if the delivery promise is violated (e.g. "motion-led" video with 80% still images), slideshow risk score is critical, or renderer family is missing. Catches broken plans before wasting GPU time.
+- **Post-render self-review** - after every render, the runtime runs ffprobe validation, extracts frames at 4 positions to check for black frames and broken overlays, analyzes audio levels for silence and clipping, verifies the delivery promise was honored, and checks subtitle presence. If the review fails, the video is not presented.
+- **Slideshow risk scoring** - 6-dimension analysis (repetition, decorative visuals, weak motion, shot intent, typography overreliance, unsupported cinematic claims) prevents "animated PowerPoint" outputs.
+- **Source media inspection** - when users supply their own footage, the system probes every file (resolution, codec, audio channels, duration) and builds planning implications before a single creative decision is made. No hallucinating content from filenames.
 
 ### Scored Provider Selection
 
@@ -677,16 +677,16 @@ Selector outputs also surface the chosen provider's `agent_skills`, so the agent
 
 ### Decision Audit Trail
 
-Every major creative and technical choice — provider selection, style/playbook choice, music track, voice selection, renderer family, any fallback or downgrade — is logged with alternatives considered, confidence scores, and reasoning. The cumulative decision log persists across all stages so you can trace exactly why the output looks the way it does.
+Every major creative and technical choice - provider selection, style/playbook choice, music track, voice selection, renderer family, any fallback or downgrade - is logged with alternatives considered, confidence scores, and reasoning. The cumulative decision log persists across all stages so you can trace exactly why the output looks the way it does.
 
 ### Budget Controls
 
-- **Estimate** before execution — see what it will cost
-- **Reserve** budget — lock funds before the call
-- **Reconcile** after — record actual spend
-- **Configurable modes** — `observe` (track only), `warn` (log overruns), `cap` (hard limit)
-- **Per-action approval** — pause for confirmation above a threshold (default: $0.50)
-- **Total budget cap** — default $10, fully configurable
+- **Estimate** before execution - see what it will cost
+- **Reserve** budget - lock funds before the call
+- **Reconcile** after - record actual spend
+- **Configurable modes** - `observe` (track only), `warn` (log overruns), `cap` (hard limit)
+- **Per-action approval** - pause for confirmation above a threshold (default: $0.50)
+- **Total budget cap** - default $10, fully configurable
 
 No surprise bills. The agent tells you what it will cost before it spends.
 
@@ -706,7 +706,7 @@ OpenMontage works with any AI coding assistant that can read files and execute P
 
 All platform files point to the shared `AGENT_GUIDE.md` (operating guide and agent contract) and `PROJECT_CONTEXT.md` (architecture reference).
 
-> **Coming soon:** Local LLM support via **Ollama** and **LM Studio** — run the full production pipeline without any cloud LLM.
+> **Coming soon:** Local LLM support via **Ollama** and **LM Studio** - run the full production pipeline without any cloud LLM.
 
 ---
 
@@ -718,14 +718,14 @@ OpenMontage is built to be extended. The two most common contributions:
 
 1. Create a Python file in the appropriate `tools/` subdirectory
 2. Inherit from `BaseTool` and implement the tool contract
-3. The registry auto-discovers it — no manual registration needed
+3. The registry auto-discovers it - no manual registration needed
 4. Add a skill file if the tool needs usage guidance
 
 ### Adding a New Pipeline
 
 1. Create a YAML manifest in `pipeline_defs/`
 2. Create stage director skills in `skills/pipelines/<your-pipeline>/`
-3. Reference existing tools — or add new ones if needed
+3. Reference existing tools - or add new ones if needed
 
 See `docs/ARCHITECTURE.md` for the full technical reference, `docs/PROVIDERS.md` for the complete provider guide (setup, pricing, free tiers), and `AGENT_GUIDE.md` for the agent contract.
 
@@ -733,11 +733,11 @@ See `docs/ARCHITECTURE.md` for the full technical reference, `docs/PROVIDERS.md`
 
 We use [GitHub Discussions](https://github.com/calesthio/OpenMontage/discussions) to share work and ideas:
 
-- **[Show and Tell](https://github.com/calesthio/OpenMontage/discussions/categories/show-and-tell)** — Share videos you've made, prompts that worked well, or creative workflows you've discovered
-- **[Ideas](https://github.com/calesthio/OpenMontage/discussions/categories/ideas)** — Suggest new pipelines, tools, style playbooks, or integrations
-- **[Q&A](https://github.com/calesthio/OpenMontage/discussions/categories/q-a)** — Ask questions about setup, pipelines, or troubleshooting
+- **[Show and Tell](https://github.com/calesthio/OpenMontage/discussions/categories/show-and-tell)** - Share videos you've made, prompts that worked well, or creative workflows you've discovered
+- **[Ideas](https://github.com/calesthio/OpenMontage/discussions/categories/ideas)** - Suggest new pipelines, tools, style playbooks, or integrations
+- **[Q&A](https://github.com/calesthio/OpenMontage/discussions/categories/q-a)** - Ask questions about setup, pipelines, or troubleshooting
 
-Made something cool? Post it in Show and Tell — we'd love to see what you build.
+Made something cool? Post it in Show and Tell - we'd love to see what you build.
 
 ---
 
@@ -779,8 +779,8 @@ make test
 
 ---
 
-**OpenMontage** — Production-grade video with real quality enforcement, orchestrated by your AI assistant.
+**OpenMontage** - Production-grade video with real quality enforcement, orchestrated by your AI assistant.
 
-If this project looks useful to you, a ⭐ would really mean a lot — it helps others discover it too.
+If this project looks useful to you, a ⭐ would really mean a lot - it helps others discover it too.
 
-If you'd like to go further, [sponsor the project](https://github.com/sponsors/calesthio) — OpenMontage is built nights and weekends, and your support makes that sustainable.
+If you'd like to go further, [sponsor the project](https://github.com/sponsors/calesthio) - OpenMontage is built nights and weekends, and your support makes that sustainable.
