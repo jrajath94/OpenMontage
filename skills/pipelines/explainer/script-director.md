@@ -1,8 +1,8 @@
-# Script Director — Explainer Pipeline
+# Script Director - Explainer Pipeline
 
 ## When to Use
 
-You are the Script Writer for a generated explainer video. You have a `brief` artifact from the Idea Explorer. Your job is to write a narration script from scratch — there is no existing footage to transcribe.
+You are the Script Writer for a generated explainer video. You have a `brief` artifact from the Idea Explorer. Your job is to write a narration script from scratch - there is no existing footage to transcribe.
 
 The script is the backbone of the video. Every visual, every scene, every audio cue flows from what you write here. A mediocre script cannot be saved by great visuals.
 
@@ -12,7 +12,7 @@ The script is the backbone of the video. Every visual, every scene, every audio 
 |-------|----------|---------|
 | Schema | `schemas/artifacts/script.schema.json` | Artifact validation |
 | Prior artifact | `proposal_packet` | Selected concept with title, hook, key_points, core_message, tone, narrative_structure, duration |
-| Prior artifact | `research_brief` (optional but high-value) | Data points, audience insights, expert quotes — ground the script in real facts |
+| Prior artifact | `research_brief` (optional but high-value) | Data points, audience insights, expert quotes - ground the script in real facts |
 | Playbook | Active style playbook from `proposal_packet.selected_concept.suggested_playbook` | Voice style, pacing rules |
 | Meta skill | `skills/meta/voice-performance-director.md` | Structured TTS delivery cues for natural, expressive narration |
 | Layer 3 | TTS provider skills (check `agent_skills` on the selected TTS tool) | TTS capabilities for speaker directions |
@@ -22,26 +22,26 @@ The script is the backbone of the video. Every visual, every scene, every audio 
 ### Step 1: Absorb the Proposal and Research
 
 Read the `proposal_packet.selected_concept` carefully. Extract:
-- **Target duration** — this is your word budget (see timing table below)
-- **Hook** — your opening must deliver on this promise
-- **Key points** — these must all be covered in the script
-- **Core message** — the one thing the viewer should remember
-- **Tone** — shapes word choice, sentence length, formality
-- **Target audience** — shapes complexity and assumed knowledge
-- **Narrative structure** — the structural approach (myth_busting, journey, data_narrative, etc.)
+- **Target duration** - this is your word budget (see timing table below)
+- **Hook** - your opening must deliver on this promise
+- **Key points** - these must all be covered in the script
+- **Core message** - the one thing the viewer should remember
+- **Tone** - shapes word choice, sentence length, formality
+- **Target audience** - shapes complexity and assumed knowledge
+- **Narrative structure** - the structural approach (myth_busting, journey, data_narrative, etc.)
 
 Then read the `research_brief` for grounding material:
-- **`data_points`** — specific statistics and facts to weave into the script. Use claims with `surprise_factor: "surprising"` or `"counterintuitive"` as retention anchors.
-- **`audience_insights.misconceptions`** — if the narrative structure is `myth_busting`, these are your myth/reality pairs.
-- **`audience_insights.common_questions`** — address these directly in the script where they naturally fit.
-- **`expert_voices`** — quotable experts add authority. Use sparingly — one or two per script.
-- **`trending.recent_developments`** — if timely, reference them to make the content feel current.
+- **`data_points`** - specific statistics and facts to weave into the script. Use claims with `surprise_factor: "surprising"` or `"counterintuitive"` as retention anchors.
+- **`audience_insights.misconceptions`** - if the narrative structure is `myth_busting`, these are your myth/reality pairs.
+- **`audience_insights.common_questions`** - address these directly in the script where they naturally fit.
+- **`expert_voices`** - quotable experts add authority. Use sparingly - one or two per script.
+- **`trending.recent_developments`** - if timely, reference them to make the content feel current.
 
 **The research_brief is your cheat sheet.** Every fact, every surprising stat, every misconception is pre-verified and sourced. Use them. A script that cites "73% of developers..." (from research) is more compelling than one that says "many developers..."
 
 ### Step 2: Deepen Research Where Needed
 
-The Research Director has already done the heavy lifting — you have a `research_brief` full of sourced facts. Your job here is targeted:
+The Research Director has already done the heavy lifting - you have a `research_brief` full of sourced facts. Your job here is targeted:
 
 1. **Verify and update**: If any data point from the research_brief feels stale or uncertain, re-search to confirm.
 2. **Fill script-specific gaps**: The research gives you broad facts. You may need a specific analogy, a precise technical detail, or a better example for a particular section.
@@ -265,4 +265,4 @@ add the source. Do not invent statistics, dates, or attributions.
 This stage gates on human approval (`human_approval_default: true`). After review passes:
 checkpoint with `status="awaiting_human"`, present the summary (the Backlot board renders
 the artifact), and **END YOUR TURN**. Do not start the next stage in the same response.
-Approval is per-gate — an earlier "go ahead" does not cover this gate.
+Approval is per-gate - an earlier "go ahead" does not cover this gate.
