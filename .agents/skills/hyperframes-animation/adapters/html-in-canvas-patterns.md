@@ -1,8 +1,8 @@
 # HTML-in-Canvas Patterns
 
-HyperFrames' most powerful visual capability. Capture ANY live HTML/CSS as a GPU texture, then render it through WebGL shaders, Three.js 3D scenes, or post-processing effects — at 60fps, pixel-perfect, with every CSS feature supported.
+HyperFrames' most powerful visual capability. Capture ANY live HTML/CSS as a GPU texture, then render it through WebGL shaders, Three.js 3D scenes, or post-processing effects - at 60fps, pixel-perfect, with every CSS feature supported.
 
-**Read this file when a beat deserves cinematic treatment beyond flat GSAP animations.** Use for 1-3 hero beats per video, not every beat. The rest can use standard GSAP — the contrast between flat beats and HTML-in-Canvas beats IS part of the visual storytelling.
+**Read this file when a beat deserves cinematic treatment beyond flat GSAP animations.** Use for 1-3 hero beats per video, not every beat. The rest can use standard GSAP - the contrast between flat beats and HTML-in-Canvas beats IS part of the visual storytelling.
 
 ---
 
@@ -64,7 +64,7 @@ tl.to(
 );
 ```
 
-**Fallback:** When `drawElementImage` is not available (preview without Chrome flag), draw a solid-color placeholder or use Canvas 2D text. The HyperFrames renderer auto-enables the flag — the effect WILL work in the final video. See the liquid-glass block for a complete fallback example.
+**Fallback:** When `drawElementImage` is not available (preview without Chrome flag), draw a solid-color placeholder or use Canvas 2D text. The HyperFrames renderer auto-enables the flag - the effect WILL work in the final video. See the liquid-glass block for a complete fallback example.
 
 ---
 
@@ -139,7 +139,7 @@ tl.to(
 </script>
 ```
 
-The `examples/js/` path was removed in Three.js r152. Use `examples/jsm/` (ES modules) with `three@0.181.2` — the version used by the HyperFrames Three.js adapter.
+The `examples/js/` path was removed in Three.js r152. Use `examples/jsm/` (ES modules) with `three@0.181.2` - the version used by the HyperFrames Three.js adapter.
 
 ---
 
@@ -149,7 +149,7 @@ The `examples/js/` path was removed in Three.js r152. Use `examples/jsm/` (ES mo
 
 **When to use:** Interactive feel, product demo with cursor, "look at THIS feature" moment.
 
-**Key technique:** Custom fragment shader with Gaussian warp + chromatic split. No Three.js needed — just raw WebGL2.
+**Key technique:** Custom fragment shader with Gaussian warp + chromatic split. No Three.js needed - just raw WebGL2.
 
 ```js
 // WebGL2 setup
@@ -342,7 +342,7 @@ Study `registry/blocks/vfx-portal/vfx-portal.html` for the complete 863-line imp
 
 ## More Effects You Can Build
 
-These aren't in the VFX blocks — build them yourself from the core boilerplate + a custom fragment shader. Each effect is a single GLSL function applied to the captured texture.
+These aren't in the VFX blocks - build them yourself from the core boilerplate + a custom fragment shader. Each effect is a single GLSL function applied to the captured texture.
 
 ### 6. Noise Dissolve
 
@@ -395,7 +395,7 @@ void main() {
 
 ### 8. Scan Lines + CRT
 
-Retro CRT monitor look — scan lines, slight curvature, phosphor glow. Great for "code" or "terminal" beats.
+Retro CRT monitor look - scan lines, slight curvature, phosphor glow. Great for "code" or "terminal" beats.
 
 ```glsl
 uniform sampler2D u_tex;
@@ -423,7 +423,7 @@ void main() {
 
 ### 9. Frosted Glass Blur
 
-Content behind frosted glass — visible but softened, with subtle light refraction. Good for "behind the scenes" or "coming soon" moments.
+Content behind frosted glass - visible but softened, with subtle light refraction. Good for "behind the scenes" or "coming soon" moments.
 
 ```glsl
 uniform sampler2D u_tex;
@@ -449,7 +449,7 @@ void main() {
 
 ### 10. Pixel Sort / Glitch Art
 
-Pixels rearrange themselves in vertical or horizontal strips — digital art aesthetic. Great for tech/creative brands.
+Pixels rearrange themselves in vertical or horizontal strips - digital art aesthetic. Great for tech/creative brands.
 
 ```glsl
 uniform sampler2D u_tex;
@@ -490,11 +490,11 @@ Any GLSL effect from ShaderToy, The Book of Shaders, CodePen, or anywhere else c
 
 **Geometry ideas beyond flat planes:**
 
-- `SphereGeometry` — content mapped onto a globe (world map, global reach)
-- `CylinderGeometry` — content on a rotating cylinder (carousel/scroll feel)
-- `TorusGeometry` — content wrapped around a ring (infinity, cycle)
-- `BoxGeometry` — content on a 3D box (product packaging, dice)
-- GLTF models — content mapped as screen texture on phone, laptop, monitor (see `vfx-iphone-device`)
+- `SphereGeometry` - content mapped onto a globe (world map, global reach)
+- `CylinderGeometry` - content on a rotating cylinder (carousel/scroll feel)
+- `TorusGeometry` - content wrapped around a ring (infinity, cycle)
+- `BoxGeometry` - content on a 3D box (product packaging, dice)
+- GLTF models - content mapped as screen texture on phone, laptop, monitor (see `vfx-iphone-device`)
 
 **Post-processing stacking** (Three.js EffectComposer):
 
@@ -502,6 +502,6 @@ Any GLSL effect from ShaderToy, The Book of Shaders, CodePen, or anywhere else c
 - Bloom + chromatic aberration = lens effect
 - Depth of field + vignette = focused attention
 - Film grain + scan lines = retro
-- Multiple passes stack — add as many as you want
+- Multiple passes stack - add as many as you want
 
 **You are not limited to the effects listed here.** If you can imagine a visual treatment, you can build it. The HTML-in-Canvas API gives you the source material (any HTML rendered as a texture), and WebGL/Three.js gives you unlimited creative control over how that material is presented.
