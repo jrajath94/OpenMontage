@@ -13,10 +13,10 @@ ffprobe -v quiet -print_format json -show_format -show_streams video.mp4
 ```
 
 **Key flags:**
-- `-v quiet` — suppress banner/log noise, output only the requested data.
-- `-print_format json` — output as JSON (easy to parse). Also accepts `csv`, `flat`, `ini`.
-- `-show_format` — container-level info: duration, bitrate, format name, size.
-- `-show_streams` — per-stream info: codec, resolution, frame rate, sample rate, channels.
+- `-v quiet` - suppress banner/log noise, output only the requested data.
+- `-print_format json` - output as JSON (easy to parse). Also accepts `csv`, `flat`, `ini`.
+- `-show_format` - container-level info: duration, bitrate, format name, size.
+- `-show_streams` - per-stream info: codec, resolution, frame rate, sample rate, channels.
 
 **Variations:**
 ```bash
@@ -38,9 +38,9 @@ ffmpeg -y -ss 00:00:30 -to 00:01:45 -i video.mp4 -c copy trimmed.mp4
 ```
 
 **Key flags:**
-- `-ss <time>` — seek to start position. Placed before `-i` for fast input seeking.
-- `-to <time>` — stop at this timestamp (absolute). Alternative: `-t <duration>` for relative duration.
-- `-c copy` — copy streams without re-encoding. Fast but cuts only on keyframes (may be off by a few frames).
+- `-ss <time>` - seek to start position. Placed before `-i` for fast input seeking.
+- `-to <time>` - stop at this timestamp (absolute). Alternative: `-t <duration>` for relative duration.
+- `-c copy` - copy streams without re-encoding. Fast but cuts only on keyframes (may be off by a few frames).
 
 **Timestamps** accept `HH:MM:SS`, `HH:MM:SS.mmm`, `MM:SS`, or raw seconds (`90`, `90.5`).
 
@@ -68,9 +68,9 @@ ffmpeg -y -f concat -safe 0 -i list.txt -c copy joined.mp4
 ```
 
 **Key flags:**
-- `-f concat` — use the concat demuxer.
-- `-safe 0` — allow absolute paths in the file list.
-- `-c copy` — copy streams without re-encoding. Requires all inputs to share the same codec, resolution, and frame rate.
+- `-f concat` - use the concat demuxer.
+- `-safe 0` - allow absolute paths in the file list.
+- `-c copy` - copy streams without re-encoding. Requires all inputs to share the same codec, resolution, and frame rate.
 
 **Variations:**
 ```bash
@@ -94,10 +94,10 @@ ffmpeg -y -i video.mp4 \
 ```
 
 **Key flags:**
-- `-vf` — video filter chain.
-- `scale=W:H:force_original_aspect_ratio=decrease` — scale down to fit within WxH, preserving aspect ratio.
-- `pad=W:H:(ow-iw)/2:(oh-ih)/2:black` — pad to exact WxH with centered black bars.
-- `-c:a copy` — copy audio without re-encoding.
+- `-vf` - video filter chain.
+- `scale=W:H:force_original_aspect_ratio=decrease` - scale down to fit within WxH, preserving aspect ratio.
+- `pad=W:H:(ow-iw)/2:(oh-ih)/2:black` - pad to exact WxH with centered black bars.
+- `-c:a copy` - copy audio without re-encoding.
 
 **Variations:**
 ```bash
@@ -126,8 +126,8 @@ ffmpeg -y -i video.mp4 -filter:v "setpts=2.0*PTS" -filter:a "atempo=0.5" slow.mp
 ```
 
 **Key flags:**
-- `-filter:v "setpts=N*PTS"` — multiply presentation timestamps. `0.5` = 2x faster, `2.0` = half speed. Formula: `N = 1 / speed_factor`.
-- `-filter:a "atempo=F"` — adjust audio speed. Preserves pitch. Only supports values between 0.5 and 2.0.
+- `-filter:v "setpts=N*PTS"` - multiply presentation timestamps. `0.5` = 2x faster, `2.0` = half speed. Formula: `N = 1 / speed_factor`.
+- `-filter:a "atempo=F"` - adjust audio speed. Preserves pitch. Only supports values between 0.5 and 2.0.
 
 **For factors outside 0.5-2.0**, chain multiple atempo filters:
 ```bash
@@ -149,8 +149,8 @@ ffmpeg -y -i video.mp4 -vn -acodec libmp3lame audio.mp3
 ```
 
 **Key flags:**
-- `-vn` — disable video (audio only output).
-- `-acodec <codec>` — audio codec to use.
+- `-vn` - disable video (audio only output).
+- `-acodec <codec>` - audio codec to use.
 
 **Audio codec map:**
 
@@ -184,11 +184,11 @@ ffmpeg -y -i video.mp4 -i audio.mp3 -c:v copy -map 0:v:0 -map 1:a:0 -shortest ou
 ```
 
 **Key flags:**
-- `-i video.mp4 -i audio.mp3` — two inputs: video (index 0) and audio (index 1).
-- `-c:v copy` — copy video stream without re-encoding.
-- `-map 0:v:0` — take video from the first input.
-- `-map 1:a:0` — take audio from the second input.
-- `-shortest` — stop when the shorter input ends.
+- `-i video.mp4 -i audio.mp3` - two inputs: video (index 0) and audio (index 1).
+- `-c:v copy` - copy video stream without re-encoding.
+- `-map 0:v:0` - take video from the first input.
+- `-map 1:a:0` - take audio from the second input.
+- `-shortest` - stop when the shorter input ends.
 
 **Variations:**
 ```bash
@@ -214,8 +214,8 @@ ffmpeg -y -i video.mp4 -i logo.png \
 ```
 
 **Key flags:**
-- `-filter_complex "overlay=X:Y"` — position the overlay image at coordinates X,Y.
-- `-c:a copy` — copy audio without re-encoding.
+- `-filter_complex "overlay=X:Y"` - position the overlay image at coordinates X,Y.
+- `-c:a copy` - copy audio without re-encoding.
 
 **Position expressions:**
 
@@ -254,9 +254,9 @@ ffmpeg -y -i video.mp4 -crf 23 -preset medium -c:a copy compressed.mp4
 ```
 
 **Key flags:**
-- `-crf <int>` — Constant Rate Factor. Lower = better quality, larger file. 0 = lossless, 18 = visually lossless, 23 = default, 28 = smaller/lower quality.
-- `-preset <speed>` — encoding speed/compression tradeoff: `ultrafast`, `superfast`, `veryfast`, `faster`, `fast`, `medium`, `slow`, `slower`, `veryslow`. Slower = smaller file at same quality.
-- `-c:a copy` — copy audio as-is.
+- `-crf <int>` - Constant Rate Factor. Lower = better quality, larger file. 0 = lossless, 18 = visually lossless, 23 = default, 28 = smaller/lower quality.
+- `-preset <speed>` - encoding speed/compression tradeoff: `ultrafast`, `superfast`, `veryfast`, `faster`, `fast`, `medium`, `slow`, `slower`, `veryslow`. Slower = smaller file at same quality.
+- `-c:a copy` - copy audio as-is.
 
 ### Target file size
 
