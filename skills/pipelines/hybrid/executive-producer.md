@@ -1,4 +1,4 @@
-# Executive Producer — Hybrid Pipeline
+# Executive Producer - Hybrid Pipeline
 
 ## When to Use
 
