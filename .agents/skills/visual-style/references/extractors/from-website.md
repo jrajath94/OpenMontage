@@ -4,12 +4,12 @@ Generate a `visual-style.md` from a website URL.
 
 ## Workflow
 
-1. **Receive URL** — User provides a website URL
-2. **Fetch the page** — Use web fetch to get the HTML/CSS
-3. **Take screenshots** — Capture the page visually if possible
-4. **Analyze** — Identify colors, typography, layout, motion, mood
-5. **Generate** — Output complete `visual-style.md`
-6. **Validate** — Ensure all required fields are present
+1. **Receive URL** - User provides a website URL
+2. **Fetch the page** - Use web fetch to get the HTML/CSS
+3. **Take screenshots** - Capture the page visually if possible
+4. **Analyze** - Identify colors, typography, layout, motion, mood
+5. **Generate** - Output complete `visual-style.md`
+6. **Validate** - Ensure all required fields are present
 
 ## Extraction Prompt
 
@@ -226,8 +226,8 @@ Mesh gradient patterns noted in hero sections.
 
 ## Tips
 
-- **Use dev tools** — Inspect element to get exact hex values and font stacks
-- **Check CSS variables** — Many sites define their palette in `:root`
-- **Note responsive patterns** — How does the design adapt?
-- **Capture the feel** — The `style_prompt_full` should evoke the same feeling
-- **Be specific about avoids** — What does this brand clearly NOT do?
+- **Use dev tools** - Inspect element to get exact hex values and font stacks
+- **Check CSS variables** - Many sites define their palette in `:root`
+- **Note responsive patterns** - How does the design adapt?
+- **Capture the feel** - The `style_prompt_full` should evoke the same feeling
+- **Be specific about avoids** - What does this brand clearly NOT do?
