@@ -68,11 +68,11 @@ bass, contemplative and focused, background music for technical explanation
 
 ### Key Prompting Rules
 
-1. **Always include "background" or "underscore"** — tells the model to stay dynamically even
-2. **Always use `force_instrumental=true`** — lyrics compete with narration
-3. **Specify BPM explicitly** — don't rely on genre to set tempo
-4. **Avoid "bright hi-hats" or "prominent vocals"** — high-frequency busy elements compete with speech in the 2-4 kHz intelligibility band
-5. **Include energy direction** — "steady energy" for explainers, "building gradually" for reveals
+1. **Always include "background" or "underscore"** - tells the model to stay dynamically even
+2. **Always use `force_instrumental=true`** - lyrics compete with narration
+3. **Specify BPM explicitly** - don't rely on genre to set tempo
+4. **Avoid "bright hi-hats" or "prominent vocals"** - high-frequency busy elements compete with speech in the 2-4 kHz intelligibility band
+5. **Include energy direction** - "steady energy" for explainers, "building gradually" for reveals
 
 ## Duration Matching
 
@@ -116,20 +116,20 @@ For videos longer than the generated track:
 
 For cleaner ducking control, generate isolated stems:
 
-- `"solo electric guitar in E minor, 90 BPM"` — guitar-only track
-- `"soft ambient pad in C major, 80 BPM"` — synth pad only
+- `"solo electric guitar in E minor, 90 BPM"` - guitar-only track
+- `"soft ambient pad in C major, 80 BPM"` - synth pad only
 - Layer stems in FFmpeg during composition for precise ducking control
 
 ## Applying to OpenMontage
 
 When using the `music_gen` tool:
 
-1. **Match BPM to content type** using the table above — don't default to a generic prompt
-2. **Always set `force_instrumental=true`** — no lyrics under narration
+1. **Match BPM to content type** using the table above - don't default to a generic prompt
+2. **Always set `force_instrumental=true`** - no lyrics under narration
 3. **Include "background" or "underscore"** in every prompt
-4. **Set duration to match video length** — avoid looping when possible
-5. **Budget check** — at $0.05/30s, a 3-minute video costs ~$0.30 for music
-6. **Duck music 18-20 dB below narration** — see `skills/creative/sound-design.md` for ducking rules
+4. **Set duration to match video length** - avoid looping when possible
+5. **Budget check** - at $0.05/30s, a 3-minute video costs ~$0.30 for music
+6. **Duck music 18-20 dB below narration** - see `skills/creative/sound-design.md` for ducking rules
 7. **Cut 2-4 kHz on the music bed** in `audio_mixer` to clear the speech intelligibility band
-8. **Test on phone speakers** — if narration disappears behind music, duck more aggressively
-9. **One track per video** — avoid switching music styles mid-video unless there's a clear narrative shift
+8. **Test on phone speakers** - if narration disappears behind music, duck more aggressively
+9. **One track per video** - avoid switching music styles mid-video unless there's a clear narrative shift
