@@ -99,13 +99,13 @@ Given `mueller-brockmann-swiss.visual-style.md`:
 
 ## Workflow
 
-1. **Read the style** — Load the `visual-style.md` file
-2. **Create artboard** — Set dimensions from `layout.aspect_ratio`
-3. **Apply background** — Use `colors.primary[0].hex`
-4. **Set up grid** — Follow `layout.grid` specification
-5. **Configure fonts** — Load `typography.*` families
-6. **Build content** — Follow `mood.keywords` for direction
-7. **Review** — Check against `mood.avoid` constraints
+1. **Read the style** - Load the `visual-style.md` file
+2. **Create artboard** - Set dimensions from `layout.aspect_ratio`
+3. **Apply background** - Use `colors.primary[0].hex`
+4. **Set up grid** - Follow `layout.grid` specification
+5. **Configure fonts** - Load `typography.*` families
+6. **Build content** - Follow `mood.keywords` for direction
+7. **Review** - Check against `mood.avoid` constraints
 
 ## Design Brief Format
 
@@ -134,7 +134,7 @@ When starting a new design in paper.design, generate a brief from the style:
 
 ## Tips
 
-- **Start with the grid** — Set up `layout.grid` before placing elements
-- **Typography first** — Let `typography.rules` guide hierarchy decisions
-- **Check constraints regularly** — Reference `mood.avoid` while designing
-- **Use reference images** — If `assets.reference_images` has URLs, import them as a style board
+- **Start with the grid** - Set up `layout.grid` before placing elements
+- **Typography first** - Let `typography.rules` guide hierarchy decisions
+- **Check constraints regularly** - Reference `mood.avoid` while designing
+- **Use reference images** - If `assets.reference_images` has URLs, import them as a style board
