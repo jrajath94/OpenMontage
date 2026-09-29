@@ -6,7 +6,7 @@ Do NOT start production on a vague brief.
 ## Required Questions (ask conversationally, not as a survey)
 
 1. **Purpose**: What is this video FOR? (educate, sell, inspire, document, entertain)
-2. **Audience**: Who will watch it? (age, expertise, context — "my team" vs "YouTube public")
+2. **Audience**: Who will watch it? (age, expertise, context - "my team" vs "YouTube public")
 3. **Platform**: Where will it live? (YouTube, internal Slack, social media, presentation, website)
 4. **Tone**: What should it FEEL like? (serious, playful, cinematic, raw, warm, provocative)
 5. **References**: Any videos you admire or want this to feel like?
@@ -28,17 +28,17 @@ platform (Instagram), and tone (cinematic). Ask what's missing.
 
 When the user says something like "make me a video about X":
 
-1. Acknowledge the topic — show you understood.
+1. Acknowledge the topic - show you understood.
 2. Ask the single most important missing question first (usually purpose or audience).
 3. Based on their answer, ask the next most important gap.
-4. Stop asking when you have enough to start research. You don't need perfect answers — research will fill in details.
+4. Stop asking when you have enough to start research. You don't need perfect answers - research will fill in details.
 
 ## Handling Detailed Briefs
 
 When the user provides a multi-paragraph brief or a document:
 
 1. Summarize what you understood (1-2 sentences).
-2. Call out any gaps: "I have a clear picture of the audience and tone, but I'd love to know — is there a specific outcome you're hoping for?"
+2. Call out any gaps: "I have a clear picture of the audience and tone, but I'd love to know - is there a specific outcome you're hoping for?"
 3. Confirm the platform and constraints if not stated.
 
 ## Output
@@ -62,7 +62,7 @@ When the user provides a video URL or file as their starting point:
 1. **Read the video-reference-analyst skill** (`skills/meta/video-reference-analyst.md`)
    and follow its protocol. Do not proceed with standard creative intake.
 
-2. The VideoAnalysisBrief replaces the need for most intake questions — it provides
+2. The VideoAnalysisBrief replaces the need for most intake questions - it provides
    tone, structure, pacing, audience signals, and style information directly from the
    reference.
 
@@ -72,13 +72,13 @@ When the user provides a video URL or file as their starting point:
    - Narration yes/no?
    - Budget ceiling?
 
-4. Do NOT ask "what should it feel like?" — the reference video IS the answer to that
+4. Do NOT ask "what should it feel like?" - the reference video IS the answer to that
    question. Extract tone from the VideoAnalysisBrief instead.
 
 ## What NOT To Do
 
 - Do not present a numbered survey. This is a conversation, not a form.
 - Do not ask questions the user already answered in their initial message.
-- Do not delay production unnecessarily — if the brief is clear, move on.
+- Do not delay production unnecessarily - if the brief is clear, move on.
 - Do not invent answers for questions the user didn't address. Mark them as "not specified" and let the research stage handle ambiguity.
 - Do not assume the user wants an explainer. Many users want cinematic, animation, or source-led work. Listen for signals.
