@@ -47,17 +47,17 @@ END SCREEN:       Last 20 seconds (YouTube end screen cards)
 |-----------|-------------|----------------|
 | 0:00-0:03 | Thumbnail-to-video match | First frame must match thumbnail promise |
 | 0:00-0:30 | **55%+ leave in first 60s** | Hook + tension must be complete by 0:30. Must retain 70%+ here. |
-| 2:00-3:00 | **Retention valley** — initial curiosity spent | Deliver first major payoff BEFORE 2:00, pattern interrupt at 1:45 |
+| 2:00-3:00 | **Retention valley** - initial curiosity spent | Deliver first major payoff BEFORE 2:00, pattern interrupt at 1:45 |
 | 55-65% mark | **Secondary exodus** in long-form | Re-engage with burst sequence + open loop resolution |
 | Last 20s | End screen opportunity | CTA + end screen cards |
 
 ### Survival Tactics for the 2-3 Minute Valley
 
-1. **Open loops in first 60 seconds** — raise a question early, hold the answer until later
-2. **First major payoff before 2:00** — the hook's promise must have a down-payment
-3. **Pattern interrupt at 1:45-2:00** — camera angle shift, B-roll burst, music change
-4. **"Burst sequence" at the valley** — 5-10 quick cuts lasting 10-15 seconds, then return to calm
-5. **Foreshadowing cue** — "But the really surprising part is coming up in a minute"
+1. **Open loops in first 60 seconds** - raise a question early, hold the answer until later
+2. **First major payoff before 2:00** - the hook's promise must have a down-payment
+3. **Pattern interrupt at 1:45-2:00** - camera angle shift, B-roll burst, music change
+4. **"Burst sequence" at the valley** - 5-10 quick cuts lasting 10-15 seconds, then return to calm
+5. **Foreshadowing cue** - "But the really surprising part is coming up in a minute"
 
 ### Pattern Interrupts
 
@@ -145,7 +145,7 @@ Chapters improve navigation and can boost retention by letting viewers skip to r
 
 - Target: **-14 LUFS integrated** (YouTube standard)
 - Dynamic range: **6-12 dB** for speech-heavy content
-- Check LUFS per chapter — variation between chapters should be < 2 LUFS
+- Check LUFS per chapter - variation between chapters should be < 2 LUFS
 - Use a limiter at **-1.5 dBTP** on the final mix
 
 ### Narration Pacing
@@ -190,29 +190,29 @@ Chapters improve navigation and can boost retention by letting viewers skip to r
 
 - YouTube allows end screen elements in the **last 5-20 seconds**
 - Include: subscribe button, next video recommendation, playlist link
-- **Do NOT put critical content in the last 20 seconds** — it gets covered
+- **Do NOT put critical content in the last 20 seconds** - it gets covered
 - Verbal CTA: "If you found this helpful, check out this next video on..."
 
 ### Info Cards
 
 - Place at moments when a related topic is mentioned
-- Max 1 card per 2 minutes — too many feels spammy
+- Max 1 card per 2 minutes - too many feels spammy
 - Best placement: when you reference a concept covered in another video
 
 ## Applying to OpenMontage
 
 When building long-form content:
 
-1. **Structure with chapters** — 2-4 minutes each, max 5-6 chapters
-2. **Complete the hook by 0:30** — follow the storytelling.md Explainer Arc template
-3. **Re-hook at 2:00-3:00** — this is the retention valley
-4. **Pattern interrupt every 45-90 seconds** — B-roll, text overlay, visual change
-5. **Continuous music bed** — use `music_gen` for full-length track, duck 18-20 dB
-6. **Narrate at 150-160 WPM** — slower than short-form, clearer for learning
-7. **Check LUFS per chapter** — should be consistent (< 2 LUFS variation)
-8. **Reserve last 20 seconds** for end screen — no essential content there
-9. **Add chapter timestamps** — include in publish stage metadata
-10. **Target 40-60% average view duration** — if retention drops below 30% at any point, that section needs a pattern interrupt
+1. **Structure with chapters** - 2-4 minutes each, max 5-6 chapters
+2. **Complete the hook by 0:30** - follow the storytelling.md Explainer Arc template
+3. **Re-hook at 2:00-3:00** - this is the retention valley
+4. **Pattern interrupt every 45-90 seconds** - B-roll, text overlay, visual change
+5. **Continuous music bed** - use `music_gen` for full-length track, duck 18-20 dB
+6. **Narrate at 150-160 WPM** - slower than short-form, clearer for learning
+7. **Check LUFS per chapter** - should be consistent (< 2 LUFS variation)
+8. **Reserve last 20 seconds** for end screen - no essential content there
+9. **Add chapter timestamps** - include in publish stage metadata
+10. **Target 40-60% average view duration** - if retention drops below 30% at any point, that section needs a pattern interrupt
 
 ## Timing Cheat Sheet (12-Minute Video)
 
