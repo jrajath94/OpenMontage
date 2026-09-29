@@ -19,7 +19,7 @@ style_prompt_full: >
   geometric precision. Dramatic reveals and transformations. Type
   integrated with image, not floating above it. Vertigo spirals,
   Anatomy of a Murder paper cut-outs, The Man with the Golden Arm
-  typography. Strong diagonals. Motion is theatrical — elements
+  typography. Strong diagonals. Motion is theatrical - elements
   reveal, rotate, transform. Jazz-influenced rhythm. No photorealism,
   no soft edges, no gradients.
 
@@ -80,7 +80,7 @@ motion:
     - "silhouette transformations"
   animation_style: >
     Theatrical reveals. Elements transform and rotate with purpose.
-    Paper cut-out aesthetic — things assemble and disassemble.
+    Paper cut-out aesthetic - things assemble and disassemble.
     Jazz-influenced timing: syncopated, surprising, rhythmic.
   pacing: "Dramatic, building tension, punctuated moments"
   audio_cues:
@@ -131,7 +131,7 @@ Geometry creates emotion.
 ### HeyGen Video Agent
 Use `style_prompt_full` verbatim. Emphasize: silhouettes, bold shapes,
 dramatic reveals. Paper cut-out aesthetic. Jazz-influenced timing.
-No avatars — pure graphic cinema.
+No avatars - pure graphic cinema.
 
 ### HTML Slides
 Black backgrounds with stark white and single accent. Full-bleed silhouettes.
