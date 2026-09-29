@@ -57,9 +57,9 @@ FONT SIZE (IDE):  18-22px minimum for readability at 1080p delivery
 
 ### Cursor Behavior
 
-- **Move deliberately** — no random wandering
+- **Move deliberately** - no random wandering
 - **Pause on target** for 0.5s before clicking
-- **Avoid circling** — don't circle the cursor around what you're talking about
+- **Avoid circling** - don't circle the cursor around what you're talking about
 - **Hide cursor** when it's not needed (during code explanation)
 
 ## Zoom and Pan
@@ -68,7 +68,7 @@ FONT SIZE (IDE):  18-22px minimum for readability at 1080p delivery
 
 | Context | Zoom | Duration of Transition |
 |---------|------|----------------------|
-| Full screen overview | 1.0x (100%) | — |
+| Full screen overview | 1.0x (100%) | - |
 | Code focus | 1.5-2.0x | 0.8s ease-in-out |
 | Terminal focus | 1.5x | 0.6s ease-in-out |
 | UI element highlight | 2.0-2.5x | 0.8s ease-in-out |
@@ -76,7 +76,7 @@ FONT SIZE (IDE):  18-22px minimum for readability at 1080p delivery
 
 ### Pan Rules
 
-- Pan to follow the active area — don't make viewers search
+- Pan to follow the active area - don't make viewers search
 - Smooth pan (ease-in-out), not instant jump
 - Hold position for at least **3 seconds** before next pan
 - Announce what you're zooming into: "Let's look at this function..."
@@ -111,13 +111,13 @@ FONT SIZE (IDE):  18-22px minimum for readability at 1080p delivery
 
 When processing screen recordings in the talking-head pipeline:
 
-1. **Record at 4K** if possible — enables quality zoom in post
+1. **Record at 4K** if possible - enables quality zoom in post
 2. **Set IDE font to 20px+** before recording
 3. **Use `scene_detect`** with threshold 30, min_scene_length 2.0s to find natural segments
-4. **Apply zoom/pan** in compose stage — 1.5-2x on code, 0.8s transitions
+4. **Apply zoom/pan** in compose stage - 1.5-2x on code, 0.8s transitions
 5. **Speed ramp navigation** to 1.5-2x, keep key moments at 1.0x
 6. **Remove dead air** > 1.5s with `video_trimmer`
 7. **Add cursor highlight** in post if not captured in recording
 8. **Target -16 LUFS** (slightly below YouTube standard for comfortable viewing)
-9. **Subtitles recommended** — use `subtitle_gen` for accessibility
-10. **Dark theme** looks best in video — recommend to users before recording
+9. **Subtitles recommended** - use `subtitle_gen` for accessibility
+10. **Dark theme** looks best in video - recommend to users before recording
