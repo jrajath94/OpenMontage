@@ -44,7 +44,7 @@ Three things must happen here that cannot happen earlier:
    is what makes the 1962 home movie sit next to the 2023 kitchen
    without jumping out.
 3. **Audio mix.** Music level, silence window, L-cut ambient
-   carries, final fade — done in one pass with the timeline in hand.
+   carries, final fade - done in one pass with the timeline in hand.
 
 ## Process
 
@@ -102,7 +102,7 @@ video_compose.execute({
 ```
 
 The exact field names come from the live `video_compose` schema at
-render time — consult the tool's `agent_skills` if available before
+render time - consult the tool's `agent_skills` if available before
 writing the call. Do not invent parameters.
 
 `edit_decisions_with_renderer_family` means the normal edit artifact
@@ -120,7 +120,7 @@ Read `edit_decisions.metadata.grade_profile`. Map it to a LUT file:
 | `bleach_bypass_80` | desaturated, high contrast | wry, documentary-harsh |
 
 If the profile isn't in the styles library, use `neutral_doc_20` and
-note it in `warnings`. Do not try to auto-grade — the LUT is the
+note it in `warnings`. Do not try to auto-grade - the LUT is the
 whole point of the register-smoothing pass.
 
 Apply the LUT at the composition level, not per clip. One LUT, one
@@ -170,10 +170,10 @@ Read `brief.metadata.end_tag_plan`:
 }
 ```
 
-#### Path A — Overlay Mode (default)
+#### Path A - Overlay Mode (default)
 
 The tag fades in over the final scenes of the body footage. This is
-the default and produces a more cinematic result — the typography
+the default and produces a more cinematic result - the typography
 appears on top of live footage rather than cutting to a black card.
 
 **Execution:**
@@ -214,9 +214,9 @@ appears on top of live footage rather than cutting to a black card.
 **Verification:** Extract a frame from the overlay region (e.g.
 `offset + 2s`) and confirm text is visible over footage, not over
 black. If the frame shows a black background behind the text, the
-alpha channel was lost — re-render with `--image-format=png`.
+alpha channel was lost - re-render with `--image-format=png`.
 
-#### Path B — Concat Mode
+#### Path B - Concat Mode
 
 Classic tail-card: opaque black card appended after the body. Use
 this only when `end_tag_plan.mode == "concat"`.
@@ -269,7 +269,7 @@ Recommended encoder settings for doc montage:
 | Audio bitrate | `192k` | Music-bed friendly |
 
 If the source clips are 30fps and the canvas is 24fps, let the render
-pipeline drop frames evenly — don't blend. Motion interpolation on
+pipeline drop frames evenly - don't blend. Motion interpolation on
 mixed-source footage looks awful.
 
 ### 6. Post-Render Verification
@@ -352,7 +352,7 @@ Record verifications in `render_report.verification_notes`.
 - **Narration or ambient SFX added "to fill the gap".** Major
   change, needs user approval.
 - **Per-clip color grading.** One LUT across the whole piece. Do
-  not try to balance each clip individually — it takes 10x the time
+  not try to balance each clip individually - it takes 10x the time
   and makes the register LESS consistent, not more.
 - **Quiet FFmpeg downgrade.** If Remotion is blocked and you route to
   FFmpeg without surfacing it, you've changed the approved render path.
