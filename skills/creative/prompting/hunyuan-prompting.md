@@ -1,4 +1,4 @@
-# HunyuanVideo 1.5 — Prompting Guide
+# HunyuanVideo 1.5 - Prompting Guide
 
 > Source: [Tencent Prompt Handbook](https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5/blob/main/assets/HunyuanVideo_1_5_Prompt_Handbook_EN.md)
 > For universal vocabulary, see: `skills/creative/video-gen-prompting.md`
@@ -52,7 +52,7 @@ Describe lighting with multiple dimensions:
 
 ### Focal-plane labels at start AND end of dynamic-DoF shots
 
-Hunyuan benefits when both endpoints of focus-changing shots are stated. State where focus starts AND where it lands — don't leave one implicit.
+Hunyuan benefits when both endpoints of focus-changing shots are stated. State where focus starts AND where it lands - don't leave one implicit.
 
 Example: "shallow DoF; focus on the foreground bottle at start; focus pulls to the figure in the background by end."
 
@@ -78,11 +78,11 @@ When using image-to-video, the input image defines appearance. Your prompt shoul
 
 **Good I2V prompt**: "The woman's hair blows in the wind as she turns to face the camera. Leaves scatter across the path. Camera slowly dollies in."
 
-**Bad I2V prompt**: "A beautiful woman in a red dress standing in a forest" — this repeats what the image already shows.
+**Bad I2V prompt**: "A beautiful woman in a red dress standing in a forest" - this repeats what the image already shows.
 
 ### Order motions temporally
 
-Describe motion in temporal order; if multiple movements occur, separate them ("first the camera pans right, then tilts upward"). Hunyuan executes motion in the order it appears in the prompt — bundling two movements into one clause causes one of them to be dropped or blended.
+Describe motion in temporal order; if multiple movements occur, separate them ("first the camera pans right, then tilts upward"). Hunyuan executes motion in the order it appears in the prompt - bundling two movements into one clause causes one of them to be dropped or blended.
 
 ## Example (T2V)
 
