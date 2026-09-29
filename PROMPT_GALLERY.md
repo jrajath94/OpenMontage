@@ -4,7 +4,7 @@ Tested prompts that produce impressive videos. Copy any prompt into your AI codi
 
 ## Zero-Key Demos (instant, no API keys)
 
-These render pre-built compositions using only Remotion components — animated charts, typography, data visualization. No external services, no cost, no waiting.
+These render pre-built compositions using only Remotion components - animated charts, typography, data visualization. No external services, no cost, no waiting.
 
 ```bash
 make demo                         # Render all three demos
@@ -22,11 +22,11 @@ make demo                         # Render all three demos
 
 ## Zero-Key Prompts (free, works out of the box)
 
-These use the full agent pipeline — research, scripting, asset generation, composition — using only free tools (Piper TTS, stock media, Remotion).
+These use the full agent pipeline - research, scripting, asset generation, composition - using only free tools (Piper TTS, stock media, Remotion).
 
 ### Data Explainer
 
-> "Make a 45-second animated explainer about why the sky is blue. Use data visualization and animated text — no images needed, just charts, stat cards, and typography."
+> "Make a 45-second animated explainer about why the sky is blue. Use data visualization and animated text - no images needed, just charts, stat cards, and typography."
 
 **What you get:** Research-grounded script, Piper narration, Remotion-animated scenes with text cards, stat reveals, and callout boxes. Subtitles included.
 
@@ -88,9 +88,9 @@ Adding `FAL_KEY` to your `.env` unlocks FLUX image generation. These prompts com
 
 ---
 
-## Animation Pipeline — Anime/Ghibli Style (FAL_KEY, ~$0.15)
+## Animation Pipeline - Anime/Ghibli Style (FAL_KEY, ~$0.15)
 
-These use the **Animation pipeline** with `image_animation` approach — FLUX-generated still images brought to life through multi-image crossfade, cinematic camera motion, particle overlays, and ambient music. No video generation APIs needed. Each 30-second video costs ~$0.15.
+These use the **Animation pipeline** with `image_animation` approach - FLUX-generated still images brought to life through multi-image crossfade, cinematic camera motion, particle overlays, and ambient music. No video generation APIs needed. Each 30-second video costs ~$0.15.
 
 ### Ghibli Fantasy World
 
@@ -110,7 +110,7 @@ These use the **Animation pipeline** with `image_animation` approach — FLUX-ge
 
 ### Seasonal Journey
 
-> "Create a 30-second Ghibli-style animated video showing the four seasons in a Japanese countryside village — cherry blossoms in spring, fireflies in summer, red maple leaves in autumn, and snow-covered thatched roofs in winter."
+> "Create a 30-second Ghibli-style animated video showing the four seasons in a Japanese countryside village - cherry blossoms in spring, fireflies in summer, red maple leaves in autumn, and snow-covered thatched roofs in winter."
 
 **What you get:** 6 scenes transitioning through seasons with petal, firefly, sparkle, and mist particles matching each season. Warm-to-cool lighting transitions and ambient seasonal soundtrack.
 
@@ -118,7 +118,7 @@ These use the **Animation pipeline** with `image_animation` approach — FLUX-ge
 
 ### Steampunk Cityscape
 
-> "Make a 30-second anime-style animation of a steampunk city at dusk — airships floating between brass towers, steam rising from street vents, clockwork birds perching on copper lampposts, and a lone inventor walking home through cobblestone streets."
+> "Make a 30-second anime-style animation of a steampunk city at dusk - airships floating between brass towers, steam rising from street vents, clockwork birds perching on copper lampposts, and a lone inventor walking home through cobblestone streets."
 
 **What you get:** Industrial-fantasy atmosphere with mist and sparkle particles, parallax and zoom camera motion, warm amber lighting overlays, and steampunk-ambient soundtrack.
 
@@ -126,11 +126,11 @@ These use the **Animation pipeline** with `image_animation` approach — FLUX-ge
 
 ---
 
-## HyperFrames — HTML/GSAP Motion Graphics (zero-key, ~$0)
+## HyperFrames - HTML/GSAP Motion Graphics (zero-key, ~$0)
 
-These use the HyperFrames composition runtime — HTML + CSS + GSAP rendered deterministically to video via headless Chrome + FFmpeg. Perfect for kinetic typography, product promos, launch reels, and website-to-video treatments where the visual grammar is typographic and motion-first.
+These use the HyperFrames composition runtime - HTML + CSS + GSAP rendered deterministically to video via headless Chrome + FFmpeg. Perfect for kinetic typography, product promos, launch reels, and website-to-video treatments where the visual grammar is typographic and motion-first.
 
-**Requirements:** Node.js ≥ 22, FFmpeg, `npx` — no monorepo checkout, the CLI is fetched via `npx @hyperframes/cli` on first run.
+**Requirements:** Node.js ≥ 22, FFmpeg, `npx` - no monorepo checkout, the CLI is fetched via `npx @hyperframes/cli` on first run.
 
 ### Kinetic Product Launch
 
@@ -144,7 +144,7 @@ These use the HyperFrames composition runtime — HTML + CSS + GSAP rendered det
 
 > "Here's my landing page URL: https://example.com. Make me a 15-second social ad for Instagram. Use HyperFrames and pick up the site's real colors and typography."
 
-**What you get:** `website-to-hyperframes` workflow — capture the site, extract colors/typography into a `DESIGN.md`, storyboard 3-4 beats, generate narration, build compositions with GSAP timelines, lint + validate + render.
+**What you get:** `website-to-hyperframes` workflow - capture the site, extract colors/typography into a `DESIGN.md`, storyboard 3-4 beats, generate narration, build compositions with GSAP timelines, lint + validate + render.
 
 **Estimated time:** 8-12 minutes | **Cost:** $0 (or ~$0.05 with premium TTS)
 
@@ -192,7 +192,7 @@ With video generation (Veo, Kling, Runway) + premium TTS (ElevenLabs) + music (S
 
 ### For Teachers
 
-> "Create a 3-minute animated explainer about photosynthesis for 8th graders. Make it fun and visual — use diagrams, charts showing energy conversion, and a friendly narrator voice."
+> "Create a 3-minute animated explainer about photosynthesis for 8th graders. Make it fun and visual - use diagrams, charts showing energy conversion, and a friendly narrator voice."
 
 ### For Developer Advocates
 
@@ -220,7 +220,7 @@ With video generation (Veo, Kling, Runway) + premium TTS (ElevenLabs) + music (S
 
 **Ask for the zero-key path.** If you want free results, say "use only free tools" or "no paid APIs." The agent will route to Piper TTS, stock media, and Remotion-only compositions.
 
-**For anime/Ghibli-style videos,** mention the style explicitly: "Ghibli-style" or "anime-style." Describe the atmosphere, lighting, and mood. The agent uses the Animation pipeline with FLUX image generation and Remotion's anime scene engine — multi-image crossfade, camera motion, and particle overlays create the illusion of animation from still images. Cost is minimal (~$0.15 for 30 seconds).
+**For anime/Ghibli-style videos,** mention the style explicitly: "Ghibli-style" or "anime-style." Describe the atmosphere, lighting, and mood. The agent uses the Animation pipeline with FLUX image generation and Remotion's anime scene engine - multi-image crossfade, camera motion, and particle overlays create the illusion of animation from still images. Cost is minimal (~$0.15 for 30 seconds).
 
 ---
 
