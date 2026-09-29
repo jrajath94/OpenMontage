@@ -1,4 +1,4 @@
-# logo-reveal — category module
+# logo-reveal - category module
 
 A **logo sting / brand lockup**. The logo is user-supplied (`asset_needs` = one logo `source`, not a search). ~3–5s. Often `export: alpha-overlay` (sting to drop on other footage).
 
