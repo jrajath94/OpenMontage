@@ -25,7 +25,7 @@ Parameters:
 
 Then check status with `mcp__heygen__get_video` using the returned `video_id`.
 
-The prompt quality is still the critical factor — always follow [prompt-optimizer.md](prompt-optimizer.md) regardless of whether you use MCP or direct API.
+The prompt quality is still the critical factor - always follow [prompt-optimizer.md](prompt-optimizer.md) regardless of whether you use MCP or direct API.
 
 ## When to Use Video Agent vs Standard API
 
@@ -43,7 +43,7 @@ The prompt quality is still the critical factor — always follow [prompt-optimi
 **Required step:** Optimize your prompt using [prompt-optimizer.md](prompt-optimizer.md) before generating a video. The difference between mediocre and professional results depends entirely on prompt quality.
 
 Quick checklist:
-1. Define visual style (colors, aesthetic) — see [visual-styles.md](visual-styles.md)
+1. Define visual style (colors, aesthetic) - see [visual-styles.md](visual-styles.md)
 2. Structure scenes with specific scene types
 3. Write VO script at ~150 words/minute
 4. Specify media types for each scene (Motion Graphics, Stock, AI-generated)
@@ -61,7 +61,7 @@ POST https://api.heygen.com/v1/video_agent/generate
 | `prompt` | string | ✓ | Text prompt describing the video you want |
 | `config` | object | | Configuration options (see below) |
 | `files` | array | | Asset files to reference in generation |
-| `callback_id` | string | | Custom ID for tracking. **Requires `callback_url` to also be set** — omit both if you don't need webhooks |
+| `callback_id` | string | | Custom ID for tracking. **Requires `callback_url` to also be set** - omit both if you don't need webhooks |
 | `callback_url` | string | | Webhook URL for completion notification |
 
 ### Config Object
