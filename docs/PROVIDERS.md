@@ -1,6 +1,6 @@
 # OpenMontage Provider Guide
 
-Everything you need to know about every provider in OpenMontage — setup instructions, pricing, free tiers, and what each unlocks.
+Everything you need to know about every provider in OpenMontage - setup instructions, pricing, free tiers, and what each unlocks.
 
 ---
 
@@ -10,21 +10,21 @@ Everything you need to know about every provider in OpenMontage — setup instru
 
 | Step | Cost | What to set up | What it unlocks |
 |------|------|----------------|-----------------|
-| 1 | **$0** | Pexels + Pixabay | Stock photos and videos — enough to produce basic videos |
+| 1 | **$0** | Pexels + Pixabay | Stock photos and videos - enough to produce basic videos |
 | 2 | **$0** | Google API key | TTS with 700+ voices (1M chars/month free) + $300 new account credit |
 | 3 | **$0** | ElevenLabs | Premium TTS + music + SFX (10K chars/month free) |
-| 4 | **$0** | Piper (local install) | Fully offline TTS — no API key, no cost, no network |
-| 5 | **~$0.03/image** | fal.ai | FLUX images + Kling/Veo/MiniMax video + Recraft — broad single-key image + video coverage |
+| 4 | **$0** | Piper (local install) | Fully offline TTS - no API key, no cost, no network |
+| 5 | **~$0.03/image** | fal.ai | FLUX images + Kling/Veo/MiniMax video + Recraft - broad single-key image + video coverage |
 | 6 | **~$0.05/image** | OpenAI | GPT Image 2 images + OpenAI TTS |
 | 7 | **~$0.04/image** | Google Imagen | Imagen 4 images (shares the Google API key) |
 | 8 | **pay-as-you-go** | Kling Official | Official direct Kling video, image, TTS, avatar, and lip-sync API, separate from fal.ai Kling |
 | 9 | **pay-as-you-go** | Volcengine Ark | Official direct Seedance 2.0 Standard/Fast/Mini API |
-| 10 | **$12/month** | Runway | Gen-4 video — highest quality AI video |
+| 10 | **$12/month** | Runway | Gen-4 video - highest quality AI video |
 | 11 | **pay-as-you-go** | Hunyuan cloud video | Chinese-friendly T2V + I2V |
 | 12 | **pay-as-you-go** | HeyGen | Avatar videos, multi-model video gateway |
 | 13 | **pay-as-you-go** | Suno | Full song generation with vocals and lyrics |
-| 14 | **$0 + GPU** | Local video gen | WAN 2.1, Hunyuan, CogVideo, LTX — free, offline |
-| 15 | **$0 + GPU** | Local Diffusion | Stable Diffusion images — free, offline |
+| 14 | **$0 + GPU** | Local video gen | WAN 2.1, Hunyuan, CogVideo, LTX - free, offline |
+| 15 | **$0 + GPU** | Local Diffusion | Stable Diffusion images - free, offline |
 
 ### Environment Variable Summary
 
@@ -106,7 +106,7 @@ stable contract for them at the time of this update.
 
 ## Cloud Providers
 
-### xAI — Grok Image + Video
+### xAI - Grok Image + Video
 
 > **Best if you want one provider for image edits and reference-conditioned short video.** Grok covers both image generation/editing and video generation under one key.
 
@@ -141,7 +141,7 @@ OpenMontage now uses those published rates in the Grok tool estimators.
 
 ---
 
-### Volcengine Jimeng — 即梦 AI Video Generation
+### Volcengine Jimeng - 即梦 AI Video Generation
 
 > **Direct ByteDance API via V4 signing.** Calls the Volcengine visual API (visual.volcengineapi.com) with HMAC-SHA256 request signing using IAM AK/SK credentials. Supports text-to-video and image-to-video via Jimeng 3.0 Pro.
 
@@ -169,7 +169,7 @@ Authentication uses Volcengine IAM V4 signing (HMAC-SHA256), not a Bearer token.
 
 API flow: `POST ?Action=CVSync2AsyncSubmitTask` → poll `POST ?Action=CVSync2AsyncGetResult` → download `video_url`.
 
-The implementation uses the compatible generic `CVSync2Async*` route (API version `2022-08-31`) rather than the model-specific `2024-06-06` actions presented in the public API explorer. This is intentional — the generic route supports the same Jimeng 3.0 Pro model via `req_key` while remaining stable across model updates.
+The implementation uses the compatible generic `CVSync2Async*` route (API version `2022-08-31`) rather than the model-specific `2024-06-06` actions presented in the public API explorer. This is intentional - the generic route supports the same Jimeng 3.0 Pro model via `req_key` while remaining stable across model updates.
 
 The `req_key` for video is `jimeng_ti2v_v30_pro`. Success code is `10000`. Task statuses: `in_queue`, `generating`, `done`, `not_found`, `expired`.
 
@@ -188,7 +188,7 @@ The `req_key` for video is `jimeng_ti2v_v30_pro`. Success code is `10000`. Task 
 
 ---
 
-### Volcengine Ark — Direct Seedance 2.0 and 2.5 Video Generation
+### Volcengine Ark - Direct Seedance 2.0 and 2.5 Video Generation
 
 > **Official direct Seedance API.** Calls Volcengine Ark without routing through fal.ai or Replicate, while keeping those existing provider paths available as independent fallbacks.
 
@@ -253,9 +253,9 @@ Official references: [Seedance model list](https://www.volcengine.com/docs/82379
 
 ---
 
-### Alibaba DashScope — Qwen Image + TTS + ASR
+### Alibaba DashScope - Qwen Image + TTS + ASR
 
-> **Best for Chinese-language production.** One key unlocks Qwen-Image generation, Qwen-TTS Mandarin narration, and Qwen-ASR with word-level timestamps — the only DashScope path that provides word-level granularity for subtitle alignment.
+> **Best for Chinese-language production.** One key unlocks Qwen-Image generation, Qwen-TTS Mandarin narration, and Qwen-ASR with word-level timestamps - the only DashScope path that provides word-level granularity for subtitle alignment.
 
 **Tools unlocked:** `dashscope_image`, `dashscope_tts`, `dashscope_asr`
 **Env var:** `DASHSCOPE_API_KEY`
@@ -276,7 +276,7 @@ Official references: [Seedance model list](https://www.volcengine.com/docs/82379
 
 #### API notes
 
-DashScope's `/compatible-mode/v1/` only supports `/chat/completions` and `/embeddings`. Image gen, TTS, and ASR all use DashScope-native endpoints with nested `{model, input, parameters}` request shape — not OpenAI-compatible paths.
+DashScope's `/compatible-mode/v1/` only supports `/chat/completions` and `/embeddings`. Image gen, TTS, and ASR all use DashScope-native endpoints with nested `{model, input, parameters}` request shape - not OpenAI-compatible paths.
 
 The ASR tool (`qwen3-asr-flash-filetrans`) uses an async submit-poll pattern. Audio must be at a publicly accessible URL (local files are not supported). Word timestamps are in milliseconds, normalized to seconds by the tool.
 
@@ -290,7 +290,7 @@ The ASR tool (`qwen3-asr-flash-filetrans`) uses an async submit-poll pattern. Au
 
 ---
 
-### Tencent Hunyuan Cloud — Image Generation
+### Tencent Hunyuan Cloud - Image Generation
 
 > **Chinese-friendly first-party image generation.** `hunyuan_image` accesses
 > Hunyuan Image 3.0 through Tencent TokenHub with Bearer-token authentication.
@@ -308,7 +308,7 @@ reference-image inputs are normalized to the provider's `images` array.
 
 ---
 
-### fal.ai — Multi-Model Gateway
+### fal.ai - Multi-Model Gateway
 
 > **Broad single-key coverage.** One API key unlocks image and video providers across multiple models.
 
@@ -326,7 +326,7 @@ reference-image inputs are normalized to the provider's `images` array.
 
 #### Pricing
 
-No subscription — pure pay-as-you-go, no minimum spend.
+No subscription - pure pay-as-you-go, no minimum spend.
 
 **Image generation:**
 
@@ -349,7 +349,7 @@ No subscription — pure pay-as-you-go, no minimum spend.
 | Veo 3 | $0.40/sec | 2.5 seconds |
 | WAN 2.5 | $0.05/sec | 20 seconds |
 
-**Free tier:** None — but $0 to start, you only pay for what you use.
+**Free tier:** None - but $0 to start, you only pay for what you use.
 
 The same key can also access ElevenLabs speech and music through fal.ai. Use
 `fal_elevenlabs_tts` when direct ElevenLabs credentials are unavailable, or
@@ -357,7 +357,7 @@ select it through `tts_selector` with `preferred_provider: "fal.ai"`.
 
 ---
 
-### MiniMax — Official Direct Image and Video API
+### MiniMax - Official Direct Image and Video API
 
 > **First-party image and video generation.** The direct MiniMax API supports
 > seeded image generation plus MiniMax H3 video generation with text, first/last
@@ -404,7 +404,7 @@ choose them with `preferred_provider: "minimax"`.
 
 ---
 
-### Atlas Cloud — Image and Video Gateway
+### Atlas Cloud - Image and Video Gateway
 
 **Tools:** `atlas_image`, `atlas_video`
 **Env var:** `ATLASCLOUD_API_KEY` (aliases: `ATLAS_CLOUD_API_KEY`, `ATLAS_API_KEY`)
@@ -430,7 +430,7 @@ machine-readable Atlas page and should be reconfirmed before a paid batch.
 
 ---
 
-### Kling Official — Direct API
+### Kling Official - Direct API
 
 > **Official Kling path.** This is separate from `kling_video` via fal.ai: it uses Kling's official `Authorization: Bearer <KLING_API_KEY>` API, provider name `kling_official`, and direct Classic/Turbo/Omni task protocols.
 
@@ -472,7 +472,7 @@ machine-readable Atlas page and should be reconfirmed before a paid batch.
 
 ---
 
-### ElevenLabs — Voice, Music, Sound Effects
+### ElevenLabs - Voice, Music, Sound Effects
 
 > **Premium voice quality.** Best TTS for narration-heavy videos. Also generates music and sound effects.
 
@@ -500,7 +500,7 @@ machine-readable Atlas page and should be reconfirmed before a paid batch.
 
 ---
 
-### fish.audio — Expressive TTS + Voice Cloning
+### fish.audio - Expressive TTS + Voice Cloning
 
 > **High-emotion narration and reusable cloned voices.** S2-generation models support inline emotion tags (`[laugh]`, `[whispers]`) and 80+ languages. Voices created in the fish.audio playground are reused across runs via `reference_id`.
 
@@ -516,26 +516,26 @@ machine-readable Atlas page and should be reconfirmed before a paid batch.
 
 #### Backend models
 
-`model` is **required — there is no default**. Pass one of:
+`model` is **required - there is no default**. Pass one of:
 
 | Model | Best for |
 |-------|----------|
-| `s2.1-pro` | Latest flagship — inline emotion tags, 80+ languages, hero narration |
-| `s2.1-pro-free` | Promotional free access to s2.1-pro — drafts, samples, validation runs (see caveats below) |
-| `s2-pro` | First S2 generation — stable high quality with emotion-tag support |
+| `s2.1-pro` | Latest flagship - inline emotion tags, 80+ languages, hero narration |
+| `s2.1-pro-free` | Promotional free access to s2.1-pro - drafts, samples, validation runs (see caveats below) |
+| `s2-pro` | First S2 generation - stable high quality with emotion-tag support |
 | `s1` | Previous flagship, kept for compatibility (no emotion tags) |
 
-**`s2.1-pro-free` caveats — promotional, not a durable free tier.** Per the [fish.audio announcement](https://fish.audio/ko/blog/s2-1-pro-free-api/?articleLocale=en), free API access runs **through August 31, 2026** and is subject to Fair Use limits, carries **no SLA or latency guarantee**, requests **may be retained** by fish.audio, and **commercial use is restricted**. Don't route client work or production narration through it, and don't plan long-term costs at $0 — `fish_audio_tts.estimate_cost()` falls back to the paid `s2.1-pro` rate after the promotional window ends.
+**`s2.1-pro-free` caveats - promotional, not a durable free tier.** Per the [fish.audio announcement](https://fish.audio/ko/blog/s2-1-pro-free-api/?articleLocale=en), free API access runs **through August 31, 2026** and is subject to Fair Use limits, carries **no SLA or latency guarantee**, requests **may be retained** by fish.audio, and **commercial use is restricted**. Don't route client work or production narration through it, and don't plan long-term costs at $0 - `fish_audio_tts.estimate_cost()` falls back to the paid `s2.1-pro` rate after the promotional window ends.
 
 The legacy `speech-1.x` tier and `s1-mini` have been removed from the fish.audio API and are not supported.
 
 #### Pricing
 
-Billing is **per UTF-8 byte of input text** (not per character) — CJK text and emoji cost 3-4x an ASCII character of the same visible length. Current list pricing: `s1` / `s2-pro` / `s2.1-pro` = $15 per 1M bytes; `s2.1-pro-free` is $0 only during the promotional window (through August 31, 2026 — see caveats above). Verify current pricing in the [official pricing guide](https://docs.fish.audio/developer-guide/models-pricing/pricing-and-rate-limits) before large batches.
+Billing is **per UTF-8 byte of input text** (not per character) - CJK text and emoji cost 3-4x an ASCII character of the same visible length. Current list pricing: `s1` / `s2-pro` / `s2.1-pro` = $15 per 1M bytes; `s2.1-pro-free` is $0 only during the promotional window (through August 31, 2026 - see caveats above). Verify current pricing in the [official pricing guide](https://docs.fish.audio/developer-guide/models-pricing/pricing-and-rate-limits) before large batches.
 
 ---
 
-### Doubao Speech — Mandarin TTS
+### Doubao Speech - Mandarin TTS
 
 > **Strong Mandarin narration.** Volcengine Doubao Speech is a good choice for Chinese explainer voiceovers and long-form narration that needs subtitle timing metadata.
 
@@ -581,11 +581,11 @@ Doubao Speech 2.0 is billed by character package or usage in Volcengine. OpenMon
 
 ---
 
-### Tencent Hunyuan Cloud — Video Generation
+### Tencent Hunyuan Cloud - Video Generation
 
 > **Tencent Hunyuan (腾讯混元) cloud video generation via TokenHub API.** Generates
 > videos from text or images using Tencent's Hunyuan models through the Tencent
-> TokenHub API — an OpenAI-compatible gateway (tokenhub.tencentmaas.com) with
+> TokenHub API - an OpenAI-compatible gateway (tokenhub.tencentmaas.com) with
 > simple Bearer-token authentication. No TC3-HMAC-SHA256 signing required.
 
 **Tools unlocked:** `hunyuan_cloud_video`
@@ -603,10 +603,10 @@ Doubao Speech 2.0 is billed by character package or usage in Volcengine. OpenMon
 
 #### What It's Best For
 
-- **Chinese-friendly prompt understanding** — Hunyuan models natively understand Chinese prompts better than most Western APIs
-- **Simple auth** — Bearer token, no complex signing (just an HTTP Authorization header)
-- **Direct Tencent Cloud quota** — uses your own Tencent Cloud credits, not a third-party gateway mark-up
-- **Both T2V and I2V** — one API key unlocks text-to-video and image-to-video
+- **Chinese-friendly prompt understanding** - Hunyuan models natively understand Chinese prompts better than most Western APIs
+- **Simple auth** - Bearer token, no complex signing (just an HTTP Authorization header)
+- **Direct Tencent Cloud quota** - uses your own Tencent Cloud credits, not a third-party gateway mark-up
+- **Both T2V and I2V** - one API key unlocks text-to-video and image-to-video
 
 #### API Notes
 
@@ -654,9 +654,9 @@ Tencent TokenHub uses a credit-based pricing system (1 credit = 1.2 RMB ≈ $0.1
 
 ---
 
-### Azure AI Speech — Speech-to-Text
+### Azure AI Speech - Speech-to-Text
 
-> **Cloud transcription.** Azure AI Speech Fast Transcription turns local audio into text with word-level timestamps, speaker diarization, and multi-language identification — no GPU required. Optional: the local faster-whisper `transcriber` remains the default offline STT path. When `AZURE_SPEECH_KEY` is set, the agent prefers `azure_stt` for cloud transcription.
+> **Cloud transcription.** Azure AI Speech Fast Transcription turns local audio into text with word-level timestamps, speaker diarization, and multi-language identification - no GPU required. Optional: the local faster-whisper `transcriber` remains the default offline STT path. When `AZURE_SPEECH_KEY` is set, the agent prefers `azure_stt` for cloud transcription.
 
 **Tools unlocked:** `azure_stt`
 **Env vars:** `AZURE_SPEECH_KEY`, `AZURE_SPEECH_REGION` (or `AZURE_SPEECH_ENDPOINT`)
@@ -676,7 +676,7 @@ Tencent TokenHub uses a credit-based pricing system (1 credit = 1.2 RMB ≈ $0.1
 #### API Notes
 
 OpenMontage uses the **Fast Transcription** REST endpoint, which accepts a local
-audio file directly (multipart upload) and returns a synchronous result — no
+audio file directly (multipart upload) and returns a synchronous result - no
 Azure Blob storage, SAS URLs, or async job polling:
 
 ```text
@@ -702,16 +702,16 @@ allowance). OpenMontage estimates cost from the transcribed audio duration. See
 
 ---
 
-### Azure AI Speech — Text-to-Speech
+### Azure AI Speech - Text-to-Speech
 
-> **Cloud neural narration.** Azure neural TTS delivers high-quality multilingual voices with SSML prosody control and express-as styles — same Speech resource as `azure_stt`, so one key/region unlocks both directions. Optional: the local `piper_tts` remains the default offline TTS path. When `AZURE_SPEECH_KEY` is set, the agent may prefer `azure_tts` for cloud narration.
+> **Cloud neural narration.** Azure neural TTS delivers high-quality multilingual voices with SSML prosody control and express-as styles - same Speech resource as `azure_stt`, so one key/region unlocks both directions. Optional: the local `piper_tts` remains the default offline TTS path. When `AZURE_SPEECH_KEY` is set, the agent may prefer `azure_tts` for cloud narration.
 
 **Tools unlocked:** `azure_tts`
 **Env vars:** `AZURE_SPEECH_KEY`, `AZURE_SPEECH_REGION` (or `AZURE_TTS_ENDPOINT`)
 
 #### Setup
 
-Identical to the STT setup above — the same Speech resource key and region work
+Identical to the STT setup above - the same Speech resource key and region work
 for both. If you already configured `azure_stt`, `azure_tts` is available now.
 
 ```bash
@@ -726,7 +726,7 @@ endpoint, so the optional override var is `AZURE_TTS_ENDPOINT`, not
 
 #### API Notes
 
-OpenMontage uses the synchronous REST v1 endpoint with an SSML body — no token
+OpenMontage uses the synchronous REST v1 endpoint with an SSML body - no token
 exchange, Blob storage, or job polling:
 
 ```text
@@ -736,7 +736,7 @@ Content-Type: application/ssml+xml
 X-Microsoft-OutputFormat: audio-48khz-192kbitrate-mono-mp3
 ```
 
-Voice shortlist aliases: `andrew` (default — warm, confident), `brandon`
+Voice shortlist aliases: `andrew` (default - warm, confident), `brandon`
 (deeper), `ava` (bright female), `guy` (authoritative), `jenny` (friendly). Any
 Azure voice short name is accepted verbatim. See the `azure-text-to-speech`
 skill for SSML `rate`/`pitch`/`style` guidance.
@@ -760,12 +760,12 @@ costs about $0.015. OpenMontage estimates cost from character count. See
 
 ---
 
-### Google — TTS + Imagen + Music + Video (Shared Key)
+### Google - TTS + Imagen + Music + Video (Shared Key)
 
-> **One key, five tools.** Google Cloud TTS has 700+ voices in 50+ languages — the strongest localization option. `google_imagen` supports both Imagen 4 and Gemini 2.5 Flash Image, including projects without Imagen catalog access. Google Lyria generates high-quality background music. Gemini Omni Flash supports conversational video editing, and direct Veo generation covers premium short video clips.
+> **One key, five tools.** Google Cloud TTS has 700+ voices in 50+ languages - the strongest localization option. `google_imagen` supports both Imagen 4 and Gemini 2.5 Flash Image, including projects without Imagen catalog access. Google Lyria generates high-quality background music. Gemini Omni Flash supports conversational video editing, and direct Veo generation covers premium short video clips.
 
 **Tools unlocked:** `google_tts`, `google_imagen`, `google_music`, `gemini_omni_video`, `veo_video`
-**Env var:** `GOOGLE_API_KEY` (or `GEMINI_API_KEY` — either works; `GEMINI_API_KEY` takes precedence)
+**Env var:** `GOOGLE_API_KEY` (or `GEMINI_API_KEY` - either works; `GEMINI_API_KEY` takes precedence)
 
 #### Setup
 
@@ -791,10 +791,10 @@ costs about $0.015. OpenMontage estimates cost from character count. See
 | **Standard** | 1M chars/month | $4.00 | Basic quality, fast |
 | **WaveNet** | 1M chars/month | $16.00 | Natural-sounding |
 | **Neural2** | 1M chars/month | $16.00 | Best quality |
-| **Studio** | — | $24.00 | Professional studio voices |
-| **Chirp** | — | $4.00 | Conversational style |
+| **Studio** | - | $24.00 | Professional studio voices |
+| **Chirp** | - | $4.00 | Conversational style |
 
-The free tiers apply *independently* — you get 1M Standard AND 1M WaveNet AND 1M Neural2 characters per month free. That's roughly 250+ minutes of narration per month at zero cost.
+The free tiers apply *independently* - you get 1M Standard AND 1M WaveNet AND 1M Neural2 characters per month free. That's roughly 250+ minutes of narration per month at zero cost.
 
 #### Google Imagen Pricing
 
@@ -818,7 +818,7 @@ To select the Gemini backend through the governed `image_selector`, pass
 |-------|-------|-------|
 | `gemini-omni-flash-preview` | ~$0.10 per second of video | Billed as 5,792 output tokens/sec of 720p video at $17.50/1M tokens |
 
-Generates 3–10 second clips at 720p/24fps with synthesized audio, plus stateful conversational editing (`edit_video` via `previous_interaction_id`). **Paid tier only — no free tier.** A typical 8-second clip costs ~$0.80; each edit turn generates a new clip and bills again.
+Generates 3–10 second clips at 720p/24fps with synthesized audio, plus stateful conversational editing (`edit_video` via `previous_interaction_id`). **Paid tier only - no free tier.** A typical 8-second clip costs ~$0.80; each edit turn generates a new clip and bills again.
 
 #### Google Music (Lyria) Pricing
 
@@ -836,20 +836,20 @@ Google TTS offers 700+ voices across 50+ languages. Voice names follow the patte
 
 | Type | Example | Quality | Cost |
 |------|---------|---------|------|
-| **Chirp 3 HD** | `en-US-Chirp3-HD-Orus` | **Best (2024, most natural)** | **Mid — default** |
+| **Chirp 3 HD** | `en-US-Chirp3-HD-Orus` | **Best (2024, most natural)** | **Mid - default** |
 | Standard | `en-US-Standard-A` | Good | Cheapest |
 | WaveNet | `en-US-WaveNet-D` | Very good | Mid |
 | Neural2 | `en-US-Neural2-D` | Excellent | Mid |
 | Studio | `en-US-Studio-O` | Professional | Highest |
 | Journey | `en-US-Journey-D` | Conversational (long-form) | Mid |
 
-**Recommended voices:** `en-US-Chirp3-HD-Orus` (male, rich/cinematic), `en-US-Chirp3-HD-Aoede` (female, warm). These are Google's newest tier — most natural-sounding, uses the v1beta1 endpoint automatically.
+**Recommended voices:** `en-US-Chirp3-HD-Orus` (male, rich/cinematic), `en-US-Chirp3-HD-Aoede` (female, warm). These are Google's newest tier - most natural-sounding, uses the v1beta1 endpoint automatically.
 
 **Languages include:** English (US, UK, AU, IN), Spanish, French, German, Italian, Portuguese, Japanese, Korean, Chinese (Mandarin, Cantonese), Arabic, Hindi, Russian, Dutch, Polish, Turkish, Vietnamese, Thai, Indonesian, and 30+ more.
 
 ---
 
-### OpenAI — TTS + Image Generation
+### OpenAI - TTS + Image Generation
 
 > **Solid all-rounder.** GPT Image 2 handles complex multi-element compositions and in-image text well. TTS is fast and affordable.
 
@@ -883,13 +883,13 @@ Google TTS offers 700+ voices across 50+ languages. Voice names follow the patte
 | GPT Image 2 | 1024x1536 / 1536x1024 | medium | $0.041 |
 | GPT Image 2 | 1024x1536 / 1536x1024 | high | $0.165 |
 
-> **Note:** DALL-E 2/3 were shut down by OpenAI on 2026-05-12, and the `gpt-image-1` family (`gpt-image-1-mini`, `gpt-image-1.5`) retires 2026-12-01 — `gpt-image-2` is OpenAI's recommended replacement ([deprecations](https://developers.openai.com/api/docs/deprecations)).
+> **Note:** DALL-E 2/3 were shut down by OpenAI on 2026-05-12, and the `gpt-image-1` family (`gpt-image-1-mini`, `gpt-image-1.5`) retires 2026-12-01 - `gpt-image-2` is OpenAI's recommended replacement ([deprecations](https://developers.openai.com/api/docs/deprecations)).
 
 **Free tier:** None. Requires prepaid billing. Previously offered $5 in free credits for new accounts (discontinued for most signups).
 
 ---
 
-### Runway — Native and Third-Party Video Models
+### Runway - Native and Third-Party Video Models
 
 > **Multi-model production API.** OpenMontage supports current Runway-native
 > models plus documented third-party Seedance 2.5, Gemini Omni Flash, and
@@ -901,7 +901,7 @@ Google TTS offers 700+ voices across 50+ languages. Voice names follow the patte
 #### Setup
 
 1. Go to [dev.runwayml.com](https://dev.runwayml.com/) and create a developer account
-2. Subscribe to a paid plan (Standard or above — API requires subscription)
+2. Subscribe to a paid plan (Standard or above - API requires subscription)
 3. Generate an API key from the developer portal
 4. Add to `.env`: `RUNWAY_API_KEY=key_...`
 
@@ -938,7 +938,7 @@ Gen-3 Alpha Turbo and Gen-4 Aleph were removed from the Runway API on
 
 ---
 
-### Higgsfield — Multi-Model Video Orchestrator
+### Higgsfield - Multi-Model Video Orchestrator
 
 > **Multi-model video platform.** Routes to Kling 3.0, Veo 3.1, Sora 2, WAN 2.5, and proprietary Soul Cinema through a single API. Includes Soul ID for character consistency across clips.
 
@@ -980,7 +980,7 @@ Gen-3 Alpha Turbo and Gen-4 Aleph were removed from the Runway API on
 
 ---
 
-### HeyGen — Avatar Video Gateway
+### HeyGen - Avatar Video Gateway
 
 > **Multi-model video gateway.** Access VEO, Sora, Runway, Kling, and Seedance through a single API.
 
@@ -1017,7 +1017,7 @@ Gen-3 Alpha Turbo and Gen-4 Aleph were removed from the Runway API on
 
 ---
 
-### Suno — AI Music Generation
+### Suno - AI Music Generation
 
 > **Full songs with vocals and lyrics.** Any genre, up to 8 minutes. Instrumentals or vocal tracks.
 
@@ -1046,7 +1046,7 @@ Gen-3 Alpha Turbo and Gen-4 Aleph were removed from the Runway API on
 
 ---
 
-### Pexels — Free Stock Media
+### Pexels - Free Stock Media
 
 > **Completely free.** No cost, no attribution required, commercial use allowed.
 
@@ -1071,7 +1071,7 @@ Gen-3 Alpha Turbo and Gen-4 Aleph were removed from the Runway API on
 
 ---
 
-### Pixabay — Free Stock Media
+### Pixabay - Free Stock Media
 
 > **Completely free.** 5M+ royalty-free images and videos.
 
@@ -1101,11 +1101,11 @@ Gen-3 Alpha Turbo and Gen-4 Aleph were removed from the Runway API on
 
 These providers run entirely on your machine. No network, no API key, no cost. Some require a GPU.
 
-### Remotion — Programmatic Video Composition
+### Remotion - Programmatic Video Composition
 
-> **React-based video rendering.** Turns still images into animated video with spring physics, animated text cards, stat cards, charts, and transitions. **This is the key fallback when no video generation providers are configured** — the agent generates images and Remotion animates them into professional-looking video.
+> **React-based video rendering.** Turns still images into animated video with spring physics, animated text cards, stat cards, charts, and transitions. **This is the key fallback when no video generation providers are configured** - the agent generates images and Remotion animates them into professional-looking video.
 
-**Tool:** `video_compose` (with `operation="render"` — auto-routes to Remotion when needed)
+**Tool:** `video_compose` (with `operation="render"` - auto-routes to Remotion when needed)
 **Runtime:** CPU (Node.js required)
 **Env var:** None
 
@@ -1138,7 +1138,7 @@ The `video_compose` tool's `render` operation auto-detects when Remotion is need
 - Cuts have `type` set to `text_card`, `stat_card`, `chart`, etc.
 - Cuts specify `animation` or `transition_in`/`transition_out`
 
-If Remotion is not installed, compositions fall back to FFmpeg Ken Burns pan-and-zoom — functional but less engaging.
+If Remotion is not installed, compositions fall back to FFmpeg Ken Burns pan-and-zoom - functional but less engaging.
 
 **Cost:** Free. Always local.
 
@@ -1177,7 +1177,7 @@ HyperFrames workspaces live under `projects/<project-name>/hyperframes/`. Final 
 
 ---
 
-### Piper TTS — Offline Text-to-Speech
+### Piper TTS - Offline Text-to-Speech
 
 > **Completely free, fully offline TTS.** No network required. Good quality for drafts and budget-constrained projects.
 
@@ -1204,7 +1204,7 @@ piper --download-dir ~/.piper/models --model en_US-lessac-medium
 
 ---
 
-### ComfyUI Video — Local Workflows and Hosted Partner Nodes
+### ComfyUI Video - Local Workflows and Hosted Partner Nodes
 
 **Tool:** `comfyui_video`
 
@@ -1284,18 +1284,18 @@ VIDEO_GEN_LOCAL_MODEL=cogvideo-2b      # 6GB+ VRAM (lightest)
 
 **All local models support:** text-to-video, offline generation, seeded reproducibility.
 
-#### WAN 2.2 — the full operation matrix
+#### WAN 2.2 - the full operation matrix
 
 `wan_video` drives one checkpoint across every Wan task. The `operation` input selects
 the diffusers pipeline; the tool refuses an operation the chosen variant has no weights for.
 
 | `operation` | What it does | Extra inputs |
 |-------------|--------------|--------------|
-| `text_to_video` | Prompt to clip | — |
+| `text_to_video` | Prompt to clip | - |
 | `image_to_video` | Animate a still | `reference_image_path` / `reference_image_url` |
 | `video_to_video` | Restyle an existing clip | `source_video_path`, `strength` |
 | `first_last_frame` | Interpolate between two stills | `reference_image_*` + `last_image_*` |
-| `text_to_image` | Single frame, saved as PNG | — |
+| `text_to_image` | Single frame, saved as PNG | - |
 
 Geometry is snapped to what the VAE can encode, so you can ask for any size: frame counts
 land on `4k + 1`, and width/height land on a multiple of 32 for the TI2V line (its 16x VAE
@@ -1329,25 +1329,25 @@ repeating one prompt six times.
 both default to `auto` and are picked from visible VRAM.
 
 A bf16 5B transformer is ~10GB resident. With `offload_mode="model"` that leaves almost
-nothing for activations on a 12GB card — measured peak was 10.85GB at just 512x320.
+nothing for activations on a 12GB card - measured peak was 10.85GB at just 512x320.
 `offload_mode="sequential"` streams one submodule at a time: the same card then peaks at
 **1.97GB** and renders 704x480 comfortably, at the cost of ~4s per denoising step of PCIe
 traffic. On a 12GB GPU `auto` selects it for you.
 
 > **NVIDIA driver note.** If the loaded kernel module and the installed userspace libraries
 > are different versions, `nvmlInit` fails. CUDA compute still runs, but PyTorch calls NVML
-> while composing an out-of-memory report — so real OOMs surface as an internal assert, and
+> while composing an out-of-memory report - so real OOMs surface as an internal assert, and
 > bitsandbytes (`int8`/`int4`) cannot load at all. Compare `cat /proc/driver/nvidia/version`
 > with `nvidia-smi`; if they disagree, reboot. `wan_video` detects this and says so.
 
 
-Image-to-video is *not* universal — Wan 2.1 never shipped 1.3B I2V weights and CogVideo is
+Image-to-video is *not* universal - Wan 2.1 never shipped 1.3B I2V weights and CogVideo is
 text-only. Each variant's real capability list is `operations` in `tools/video/_shared.py`,
 and `wan_video` refuses an operation the selected checkpoint cannot do.
 
 ---
 
-### Local Diffusion — Offline Image Generation (GPU Required)
+### Local Diffusion - Offline Image Generation (GPU Required)
 
 > **Free Stable Diffusion image generation.** No API cost, fully offline.
 
@@ -1369,7 +1369,7 @@ First run downloads the model (~4GB). Subsequent runs use the cached model.
 
 ---
 
-### LTX-2 on Modal — Self-Hosted Cloud GPU
+### LTX-2 on Modal - Self-Hosted Cloud GPU
 
 > **Run LTX-2 on Modal's cloud GPUs.** Your own endpoint, your own scale. More consistent than local GPU, cheaper than commercial APIs.
 
@@ -1389,7 +1389,7 @@ First run downloads the model (~4GB). Subsequent runs use the cached model.
 
 ### Other Local Tools (Always Available)
 
-These tools require only FFmpeg or Python packages — no GPU, no API key.
+These tools require only FFmpeg or Python packages - no GPU, no API key.
 
 | Tool | Install | What it does |
 |------|---------|-------------|
@@ -1414,7 +1414,7 @@ These tools require only FFmpeg or Python packages — no GPU, no API key.
 |----------|---------|---------------|------|
 | **Pexels** | `PEXELS_API_KEY` | `pexels_image`, `pexels_video` | Free |
 | **Pixabay** | `PIXABAY_API_KEY` | `pixabay_image`, `pixabay_video` | Free |
-| **Piper** | — (install only) | `piper_tts` | Free |
+| **Piper** | - (install only) | `piper_tts` | Free |
 | **Azure AI Speech** | `AZURE_SPEECH_KEY` + `AZURE_SPEECH_REGION` | `azure_stt`, `azure_tts` | Free tier + paid |
 | **Google** | `GOOGLE_API_KEY` (or `GEMINI_API_KEY`) | `google_tts`, `google_imagen`, `google_music`, `gemini_omni_video`, `veo_video` | Free tier (TTS) + paid |
 | **ElevenLabs** | `ELEVENLABS_API_KEY` | `elevenlabs_tts`, `music_gen` | Free tier + paid |
@@ -1432,7 +1432,7 @@ These tools require only FFmpeg or Python packages — no GPU, no API key.
 | **Suno** | `SUNO_API_KEY` | `suno_music` | Pay-as-you-go |
 | **Tencent Hunyuan** | `TENCENT_TOKENHUB_API_KEY` | `hunyuan_cloud_video` | Pay-as-you-go (~$0.25–0.83/gen) |
 | **Local GPU** | `VIDEO_GEN_LOCAL_ENABLED` | `wan_video`, `hunyuan_video`, `cogvideo_video`, `ltx_video_local` | Free (GPU required) |
-| **Local Diffusion** | — (install only) | `local_diffusion` | Free (GPU required) |
+| **Local Diffusion** | - (install only) | `local_diffusion` | Free (GPU required) |
 | **Modal** | `MODAL_LTX2_ENDPOINT_URL` | `ltx_video_modal` | Self-hosted cloud |
 | **ComfyUI** | optional server URL overrides | `comfyui_video` | Local GPU, or paid Partner Node credits |
 
@@ -1447,10 +1447,10 @@ How many providers cover each capability:
 | **Image Generation** | FLUX, Kling Official, Grok, Google Imagen, GPT Image 2, Recraft | Local Diffusion | Pexels, Pixabay (stock) |
 | **Video Generation** | Grok, Kling Official, fal.ai, Seedance via Volcengine Ark, Runway, Veo, Gemini Omni, Higgsfield, MiniMax, HeyGen, Tencent Hunyuan, ComfyUI Partner Nodes | WAN, Hunyuan, CogVideo, LTX, ComfyUI WAN, ComfyUI MiniMax H3 | Pexels, Pixabay (stock) |
 | **Text-to-Speech** | Azure AI Speech, ElevenLabs, fish.audio, Google TTS, Kling Official, OpenAI | Piper | Piper, Google free tier, ElevenLabs free tier, Azure free tier, fish.audio s2.1-pro-free |
-| **Music Generation** | ElevenLabs, Suno, Google Lyria | — | ElevenLabs free tier |
-| **Post-Production** | — | FFmpeg (compose, stitch, trim, mix, enhance, grade) | All free |
-| **Analysis** | — | WhisperX, Scene Detect, Frame Sampler, CLIP/BLIP-2 | All free |
-| **Enhancement** | — | Upscale, BG Remove, Face Enhance, Face Restore | All free |
+| **Music Generation** | ElevenLabs, Suno, Google Lyria | - | ElevenLabs free tier |
+| **Post-Production** | - | FFmpeg (compose, stitch, trim, mix, enhance, grade) | All free |
+| **Analysis** | - | WhisperX, Scene Detect, Frame Sampler, CLIP/BLIP-2 | All free |
+| **Enhancement** | - | Upscale, BG Remove, Face Enhance, Face Restore | All free |
 | **Avatar** | Kling Official | SadTalker, Wav2Lip | Local tools are free |
 
 ---
@@ -1458,16 +1458,16 @@ How many providers cover each capability:
 ## FAQ
 
 **Q: What's the absolute minimum I need to produce a video?**
-A: FFmpeg + Node.js (both free, local). FFmpeg handles video assembly, audio mixing, and subtitles. With Node.js, Remotion renders still images into animated video — so even without any video generation API, the agent generates images and Remotion turns them into professional-looking video with spring animations, text cards, and transitions. Add Piper TTS for free narration and Pexels/Pixabay for free stock footage.
+A: FFmpeg + Node.js (both free, local). FFmpeg handles video assembly, audio mixing, and subtitles. With Node.js, Remotion renders still images into animated video - so even without any video generation API, the agent generates images and Remotion turns them into professional-looking video with spring animations, text cards, and transitions. Add Piper TTS for free narration and Pexels/Pixabay for free stock footage.
 
 **Q: I don't have any video generation providers. Can I still make videos?**
-A: Yes. The agent generates still images (via any image provider — even free stock from Pexels/Pixabay) and Remotion composes them into animated video with spring physics transitions, text cards, stat cards, and charts. This is the default path for explainer and animation pipelines when no video gen is configured.
+A: Yes. The agent generates still images (via any image provider - even free stock from Pexels/Pixabay) and Remotion composes them into animated video with spring physics transitions, text cards, stat cards, and charts. This is the default path for explainer and animation pipelines when no video gen is configured.
 
 **Q: What's one low-friction way to get AI-generated images and video?**
-A: fal.ai (`FAL_KEY`) is one pay-as-you-go option with broad single-key coverage. It unlocks FLUX images plus multiple video providers. No subscription — pay only for what you generate.
+A: fal.ai (`FAL_KEY`) is one pay-as-you-go option with broad single-key coverage. It unlocks FLUX images plus multiple video providers. No subscription - pay only for what you generate.
 
 **Q: I have a GPU. What can I run locally for free?**
-A: Set `VIDEO_GEN_LOCAL_ENABLED=true` and install `diffusers`. You get WAN 2.1, Hunyuan, CogVideo, and LTX video generation plus Stable Diffusion image generation — all free, all offline.
+A: Set `VIDEO_GEN_LOCAL_ENABLED=true` and install `diffusers`. You get WAN 2.1, Hunyuan, CogVideo, and LTX video generation plus Stable Diffusion image generation - all free, all offline.
 
 **Q: Which TTS provider should I use?**
 A: For quality → ElevenLabs. For localization (50+ languages) → Google TTS. For budget → Google free tier (1M chars/month). For offline → Piper.
