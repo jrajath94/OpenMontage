@@ -1,4 +1,4 @@
-# Executive Producer — Podcast Repurpose Pipeline
+# Executive Producer - Podcast Repurpose Pipeline
 
 ## When to Use
 
@@ -131,5 +131,5 @@ CHECK: Multi-deliverable validation
 
 - **Degrading source audio**: The podcast audio is the product. Never re-encode at lower quality.
 - **Context-dependent clips**: Every clip must stand alone. Test: would a stranger understand this clip?
-- **Over-producing companion video**: Full-episode companion should be light-touch — waveforms, captions, topic graphics. Not a feature film.
+- **Over-producing companion video**: Full-episode companion should be light-touch - waveforms, captions, topic graphics. Not a feature film.
 - **Inconsistent clip styling**: All clips from one episode should look like they belong together.
