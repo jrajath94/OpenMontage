@@ -2,15 +2,15 @@
 
 Meta-skill that answers two questions:
 
-1. **Which composition runtime should this video use?** — Remotion, HyperFrames, or FFmpeg.
-2. **Which animation library / Layer 3 skills should this scene reach for?** — Remotion primitives, GSAP plugins, framer-motion, Lottie, Manim, D3.
+1. **Which composition runtime should this video use?** - Remotion, HyperFrames, or FFmpeg.
+2. **Which animation library / Layer 3 skills should this scene reach for?** - Remotion primitives, GSAP plugins, framer-motion, Lottie, Manim, D3.
 
 Read this before authoring any animated component or composition, and whenever you're choosing `render_runtime` at proposal time. It routes you to the right Layer 3 skill so you don't waste time hand-rolling what a plugin already solves.
 
 > **Authoring mode comes first.** Before runtime or library, decide *how* the composition is
 > built: **templated** (assemble stock `cut.type` scenes) vs **atelier** (hand-author from
 > scratch). Default to atelier for hero work and follow `skills/meta/bespoke-composition.md`.
-> The routing below applies within either mode — but in atelier mode the stock scene-types and
+> The routing below applies within either mode - but in atelier mode the stock scene-types and
 > registry blocks are off-limits; you write your own. "Does a stock cut-type fit?" is **not** a
 > valid shortcut for a hero piece. See `AGENT_GUIDE.md` → "Composition Authoring Mode".
 
@@ -30,7 +30,7 @@ engine (`render_runtime`). Both are locked at proposal and carried through
 `edit_decisions` unchanged. Silent runtime swaps at compose time are a
 contract violation.
 
-### HARD RULE — present both runtimes, don't silently default
+### HARD RULE - present both runtimes, don't silently default
 
 When both Remotion AND HyperFrames are available on the machine (check
 `video_compose.get_info()["render_engines"]`), the agent MUST present both
@@ -64,12 +64,12 @@ when both were available is a CRITICAL reviewer finding.
 | Registry block needed (data-chart, grain-overlay, shader transitions, etc.) | **hyperframes** | `.agents/skills/hyperframes-registry/SKILL.md` |
 | Editable browser-native 3D terrain/world and free-viewpoint fly-through | **hyperframes** | `skills/creative/3d-world-generation.md` + `.agents/skills/threejs-world-generation/SKILL.md` |
 | Reference-grade 3D world film rendered in Blender | **ffmpeg packaging of Blender frames** | `skills/creative/3d-world-generation.md` + `.agents/skills/3d-asset-generation/SKILL.md` |
-| Beat-synced music video (audio drives scene timing) | **hyperframes** | `.agents/skills/music-to-video/SKILL.md` — uses `hyperframes beats` to detect drops, lays out frames on the beat grid |
-| Porting an existing Remotion composition to HyperFrames | **hyperframes** | `.agents/skills/remotion-to-hyperframes/SKILL.md` — migration guidance, ONLY for explicit port requests |
-| BGM / SFX / image / icon resolution (any pipeline, any runtime) | n/a | `.agents/skills/media-use/SKILL.md` — `resolve` verb against project cache + global cache + HeyGen catalog |
+| Beat-synced music video (audio drives scene timing) | **hyperframes** | `.agents/skills/music-to-video/SKILL.md` - uses `hyperframes beats` to detect drops, lays out frames on the beat grid |
+| Porting an existing Remotion composition to HyperFrames | **hyperframes** | `.agents/skills/remotion-to-hyperframes/SKILL.md` - migration guidance, ONLY for explicit port requests |
+| BGM / SFX / image / icon resolution (any pipeline, any runtime) | n/a | `.agents/skills/media-use/SKILL.md` - `resolve` verb against project cache + global cache + HeyGen catalog |
 | Short design-led motion graphic (lower-third, stat reveal, logo sting, headline) | **hyperframes** | `.agents/skills/motion-graphics/SKILL.md` |
 | Pure concat / trim of source clips, no composition needed | **ffmpeg** | `skills/core/ffmpeg.md` |
-| Selected runtime is unavailable | **escalate** — do not substitute silently | `AGENT_GUIDE.md` → Escalate Blockers |
+| Selected runtime is unavailable | **escalate** - do not substitute silently | `AGENT_GUIDE.md` → Escalate Blockers |
 
 Read `skills/core/hyperframes.md` for the full Remotion-vs-HyperFrames
 decision matrix and the list of features that stay Remotion-only in Phase 1.
@@ -94,7 +94,7 @@ decision matrix and the list of features that stay Remotion-only in Phase 1.
 | Mathematical / scientific visualization | Manim | `.agents/skills/manim-composer`, `.agents/skills/manimce-best-practices` |
 | D3 data-driven visualization | D3 | `.agents/skills/d3-viz` |
 | Data chart (bar/line/pie/KPI) | Remotion built-in chart components | `remotion-composer/SCENE_TYPES.md` |
-| HyperFrames composition — animation knowledge (rules, blueprints, transitions, runtime adapters) | HyperFrames + GSAP default | `.agents/skills/hyperframes-animation` (consolidated motion skill) + `.agents/skills/gsap-core`, `.agents/skills/gsap-timeline` |
+| HyperFrames composition - animation knowledge (rules, blueprints, transitions, runtime adapters) | HyperFrames + GSAP default | `.agents/skills/hyperframes-animation` (consolidated motion skill) + `.agents/skills/gsap-core`, `.agents/skills/gsap-timeline` |
 | HyperFrames composition structure (data-* timing, tracks, sub-compositions) | HyperFrames | `.agents/skills/hyperframes-core` |
 | Explicit Three.js world (terrain, regions, landmarks, camera path) | HyperFrames + `threejs_world` | `.agents/skills/threejs-world-generation` |
 | Detailed Blender world film (generated/catalog meshes, PBR, camera path) | Blender + FFmpeg packaging | `.agents/skills/3d-asset-generation` |
@@ -117,7 +117,7 @@ GSAP is a powerful escape hatch, not the default. Every plugin adds bundle weigh
 
 ## Running GSAP deterministically inside Remotion
 
-Standard GSAP runs on `requestAnimationFrame` — not deterministic, not Remotion-compatible out of the box. Three patterns that ARE Remotion-safe:
+Standard GSAP runs on `requestAnimationFrame` - not deterministic, not Remotion-compatible out of the box. Three patterns that ARE Remotion-safe:
 
 ```jsx
 // Pattern 1: paused timeline, seek by progress
@@ -141,15 +141,15 @@ For the full breakdown, read `.agents/skills/gsap-react/SKILL.md`.
 ## Check against the pipeline's stage director
 
 Every pipeline's asset-director has animation-specific guidance. If you're in:
-- **animated-explainer** → read `skills/pipelines/explainer/asset-director.md` — it references the text/SVG options for kinetic typography
-- **animation** → read `skills/pipelines/animation/asset-director.md` — it references MorphSVG and MotionPath for logo/motion-graphics work
-- **cinematic** → read `skills/pipelines/cinematic/asset-director.md` — it references MotionPath for cinematic camera moves
+- **animated-explainer** → read `skills/pipelines/explainer/asset-director.md` - it references the text/SVG options for kinetic typography
+- **animation** → read `skills/pipelines/animation/asset-director.md` - it references MorphSVG and MotionPath for logo/motion-graphics work
+- **cinematic** → read `skills/pipelines/cinematic/asset-director.md` - it references MotionPath for cinematic camera moves
 
 The asset-director tells you *what* to build in the context of this pipeline. This selector tells you *how*.
 
 ## Never do
 
-- ❌ Pull GSAP into a scene that needs only fade/slide — use Remotion primitives.
-- ❌ Use GSAP with `requestAnimationFrame` inside Remotion — render will be non-deterministic.
-- ❌ Skip reading the matching Layer 3 skill when a plugin is indicated — per-plugin prompting guidance matters.
-- ❌ Register GSAP plugins inside a component body — register once at module scope or app entry.
+- ❌ Pull GSAP into a scene that needs only fade/slide - use Remotion primitives.
+- ❌ Use GSAP with `requestAnimationFrame` inside Remotion - render will be non-deterministic.
+- ❌ Skip reading the matching Layer 3 skill when a plugin is indicated - per-plugin prompting guidance matters.
+- ❌ Register GSAP plugins inside a component body - register once at module scope or app entry.
