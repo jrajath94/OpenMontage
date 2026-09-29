@@ -4,26 +4,26 @@
 
 This stage prepares the actual animated ingredients: narration, diagrams, math renders, motion backgrounds, code visuals, and reusable type or layout systems.
 
-## Animation authoring — which runtime
+## Animation authoring - which runtime
 
-Before authoring motion-graphics components, read **`skills/meta/animation-runtime-selector.md`** for runtime routing. Animation is the pipeline most likely to justify GSAP plugins — logo morphs, curved camera paths, kinetic type, FLIP transitions.
+Before authoring motion-graphics components, read **`skills/meta/animation-runtime-selector.md`** for runtime routing. Animation is the pipeline most likely to justify GSAP plugins - logo morphs, curved camera paths, kinetic type, FLIP transitions.
 
 Quick routing for common animation-pipeline needs:
 
 | Motion type | Recommended approach |
 |---|---|
-| SVG logo morph between two shapes | GSAP MorphSVG — read `.agents/skills/gsap-plugins/SKILL.md` |
-| Line drawing / stroke reveal on SVG | GSAP DrawSVG — read `.agents/skills/gsap-plugins/SKILL.md` |
-| Object following a curved path | GSAP MotionPath — read `.agents/skills/gsap-plugins/SKILL.md` |
-| Per-character / per-word title reveals | GSAP SplitText — read `.agents/skills/gsap-plugins/SKILL.md` |
-| Custom bezier or elastic easing | GSAP CustomEase — read `.agents/skills/gsap-plugins/SKILL.md` |
-| Layout-to-layout element flight (FLIP) | GSAP Flip — read `.agents/skills/gsap-plugins/SKILL.md` |
-| Multi-step sequence across many elements | GSAP timeline — read `.agents/skills/gsap-timeline/SKILL.md` |
+| SVG logo morph between two shapes | GSAP MorphSVG - read `.agents/skills/gsap-plugins/SKILL.md` |
+| Line drawing / stroke reveal on SVG | GSAP DrawSVG - read `.agents/skills/gsap-plugins/SKILL.md` |
+| Object following a curved path | GSAP MotionPath - read `.agents/skills/gsap-plugins/SKILL.md` |
+| Per-character / per-word title reveals | GSAP SplitText - read `.agents/skills/gsap-plugins/SKILL.md` |
+| Custom bezier or elastic easing | GSAP CustomEase - read `.agents/skills/gsap-plugins/SKILL.md` |
+| Layout-to-layout element flight (FLIP) | GSAP Flip - read `.agents/skills/gsap-plugins/SKILL.md` |
+| Multi-step sequence across many elements | GSAP timeline - read `.agents/skills/gsap-timeline/SKILL.md` |
 | Particle overlay / background motion | Remotion `ParticleOverlay` component (already exists) |
-| Mathematical animation (graphs, equations) | Manim — read `.agents/skills/manim-composer`, `.agents/skills/manimce-best-practices` |
+| Mathematical animation (graphs, equations) | Manim - read `.agents/skills/manim-composer`, `.agents/skills/manimce-best-practices` |
 | Ghibli / anime-style still-driven scene | Remotion `AnimeScene` component + FLUX image gen |
 
-**Remotion determinism rule:** every GSAP use inside a Remotion component must drive timeline progress from `useCurrentFrame()` — never `requestAnimationFrame`. Pattern examples in `.agents/skills/gsap-react/SKILL.md`.
+**Remotion determinism rule:** every GSAP use inside a Remotion component must drive timeline progress from `useCurrentFrame()` - never `requestAnimationFrame`. Pattern examples in `.agents/skills/gsap-react/SKILL.md`.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ Quick routing for common animation-pipeline needs:
 |-------|----------|---------|
 | Schema | `schemas/artifacts/asset_manifest.schema.json` | Artifact validation |
 | Prior artifacts | `state.artifacts["scene_plan"]["scene_plan"]`, `state.artifacts["script"]["script"]`, `state.artifacts["proposal"]["proposal_packet"]` | Tool path and beat map |
-| Tools | `tts_selector`, `image_selector`, `video_selector`, `math_animate`, `diagram_gen`, `code_snippet`, `threejs_world`, `music_gen`, `fal_elevenlabs_music` — selectors auto-discover all available providers from the registry | Asset production options |
+| Tools | `tts_selector`, `image_selector`, `video_selector`, `math_animate`, `diagram_gen`, `code_snippet`, `threejs_world`, `music_gen`, `fal_elevenlabs_music` - selectors auto-discover all available providers from the registry | Asset production options |
 | Playbook | Active style playbook | Visual consistency |
 
 ## Process
@@ -67,7 +67,7 @@ When `animation_mode == "image_animation"`, each scene needs **2-3 images** for 
 
 **Image generation workflow:**
 
-1. **Define a VISUAL SYSTEM** — a reusable set of anchors used across all images in the project. This ensures visual coherence without flattening every shot into the same prompt. Store it as reusable metadata.
+1. **Define a VISUAL SYSTEM** - a reusable set of anchors used across all images in the project. This ensures visual coherence without flattening every shot into the same prompt. Store it as reusable metadata.
    ```
    Example: "Hand-painted nature fantasy, warm moss-and-amber palette,
    soft diffused light, painterly foliage textures, gentle wonder."
@@ -77,19 +77,19 @@ When `animation_mode == "image_animation"`, each scene needs **2-3 images** for 
    - Scene 2: close character beat, lantern glow, drifting spores
    - Scene 3: abstract magical energy reveal, brighter accent contrast
 
-2. **Use seed management** — for each scene, use nearby seed values (e.g., seed 100 and 101) for the A/B variants. Same prompt + different seed = same composition with subtle differences = natural crossfade motion.
+2. **Use seed management** - for each scene, use nearby seed values (e.g., seed 100 and 101) for the A/B variants. Same prompt + different seed = same composition with subtle differences = natural crossfade motion.
 
-3. **Generate one test image first** — render a single scene to verify the visual system produces good results at 1920×1080 before batch generating all images.
+3. **Generate one test image first** - render a single scene to verify the visual system produces good results at 1920×1080 before batch generating all images.
 
-4. **Batch generation** — generate all scene images. Skip any that already exist on disk (idempotent).
+4. **Batch generation** - generate all scene images. Skip any that already exist on disk (idempotent).
 
-5. **Composition JSON** — each scene gets `type: "anime_scene"` with `images: ["path/a.png", "path/b.png"]` plus camera motion, particle type, and lighting config.
+5. **Composition JSON** - each scene gets `type: "anime_scene"` with `images: ["path/a.png", "path/b.png"]` plus camera motion, particle type, and lighting config.
 
 **Cost estimation:** 2-3 images per scene × $0.03-0.13/image depending on provider.
 
 **Reference:** See `projects/mori-no-seishin/generate_images.py` for the proven batch generation pattern.
 
-6. **Copy to Remotion public directory** — After generating all images, copy them to `remotion-composer/public/<project-name>/` so Remotion can access them via `staticFile()`. Image paths in the composition JSON are relative to this directory:
+6. **Copy to Remotion public directory** - After generating all images, copy them to `remotion-composer/public/<project-name>/` so Remotion can access them via `staticFile()`. Image paths in the composition JSON are relative to this directory:
    ```
    remotion-composer/public/<project-name>/scene1-a.png   ← Remotion reads from here
    remotion-composer/public/<project-name>/ambient-music.mp3  ← Music too
@@ -142,7 +142,7 @@ If you encounter uncertainty during asset generation:
 
 Visual accuracy matters. If the script mentions a specific place, person, or object,
 verify what it actually looks like before generating images. Don't rely on
-the AI model's training data — it may be wrong or outdated.
+the AI model's training data - it may be wrong or outdated.
 
 ## Common Pitfalls
 
@@ -158,17 +158,17 @@ the AI model's training data — it may be wrong or outdated.
 
 If you encounter a generation technique, provider behavior, or prompting pattern you are unsure about:
 
-1. **Search the web** for current best practices — models and APIs change frequently, and the agent's training data may be stale
+1. **Search the web** for current best practices - models and APIs change frequently, and the agent's training data may be stale
 2. **Check `.agents/skills/`** for existing Layer 3 knowledge (provider-specific prompting guides, API patterns)
 3. **If neither helps**, write a project-scoped skill at `projects/<project-name>/skills/<name>.md` documenting what you learned
 4. **Reference source URLs** in the skill so the knowledge is traceable
 5. **Log it** in the decision log: `category: "capability_extension"`, `subject: "learned technique: <name>"`
 
 This is especially important for:
-- **Video generation prompting** — models respond to specific vocabularies that change with each version
-- **Image model parameters** — optimal settings for FLUX, GPT Image, Imagen differ and evolve
-- **Audio provider quirks** — voice cloning, music generation, and TTS each have model-specific best practices
-- **Remotion component patterns** — new composition techniques emerge as the framework evolves
+- **Video generation prompting** - models respond to specific vocabularies that change with each version
+- **Image model parameters** - optimal settings for FLUX, GPT Image, Imagen differ and evolve
+- **Audio provider quirks** - voice cloning, music generation, and TTS each have model-specific best practices
+- **Remotion component patterns** - new composition techniques emerge as the framework evolves
 
 Do not rely on stale knowledge. When in doubt, search first.
 
@@ -179,4 +179,4 @@ Do not rely on stale knowledge. When in doubt, search first.
 This stage gates on human approval (`human_approval_default: true`). After review passes:
 checkpoint with `status="awaiting_human"`, present the summary (the Backlot board renders
 the artifact), and **END YOUR TURN**. Do not start the next stage in the same response.
-Approval is per-gate — an earlier "go ahead" does not cover this gate.
+Approval is per-gate - an earlier "go ahead" does not cover this gate.
