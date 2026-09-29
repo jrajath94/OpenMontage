@@ -58,7 +58,7 @@ cd .. && node ../../../packages/cli/dist/cli.js render hf-src/ --output hf.mp4
 | ------------- | --------------------------------------------------------------------------- |
 | `mean`        | average SSIM across all frames; the headline number                         |
 | `min`         | worst frame; below threshold means at least one frame is structurally wrong |
-| `p05` / `p95` | 5th / 95th percentile — most frames sit between these                       |
+| `p05` / `p95` | 5th / 95th percentile - most frames sit between these                       |
 | `threshold`   | from `R2HF_SSIM_THRESHOLD` env var (default 0.85)                           |
 | `pass`        | whether `mean >= threshold`                                                 |
 
@@ -74,9 +74,9 @@ Calibrated against actual Remotion + HF renders:
 
 Each fixture's `expected.json` carries:
 
-- `ssim_threshold` — the gate for `pass`
-- `validation` — the actual measured numbers from the calibration run
-- `translation_notes` — what's lossy and why
+- `ssim_threshold` - the gate for `pass`
+- `validation` - the actual measured numbers from the calibration run
+- `translation_notes` - what's lossy and why
 
 ## Critical: encoder config
 
@@ -92,7 +92,7 @@ Config.setColorSpace("bt709");
 ```
 
 If the user's source doesn't have these, add them in the translation
-step — otherwise the diff measures encoder differences, not translation
+step - otherwise the diff measures encoder differences, not translation
 fidelity.
 
 ## What the noise floor looks like
@@ -112,11 +112,11 @@ Google Fonts).
 
 Set the threshold ~0.02 below measured `p05`:
 
-- Real translation regressions drop mean by 0.05+ — caught.
-- Encoder/font drift between CI runs is bounded at ~0.01 — not caught.
+- Real translation regressions drop mean by 0.05+ - caught.
+- Encoder/font drift between CI runs is bounded at ~0.01 - not caught.
 
 If a calibration run's measured mean is far above your initial threshold
-guess, _don't_ tighten the threshold to fit. Leave headroom — fixtures
+guess, _don't_ tighten the threshold to fit. Leave headroom - fixtures
 re-rendered on different hardware will drift.
 
 ## When the diff fails
