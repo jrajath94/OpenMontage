@@ -13,7 +13,7 @@ metadata:
 
 # Video Translation (HeyGen)
 
-Translate and dub existing videos into multiple languages, preserving lip-sync and natural speech patterns. Provide a video URL or HeyGen video ID — no need to create the video on HeyGen first.
+Translate and dub existing videos into multiple languages, preserving lip-sync and natural speech patterns. Provide a video URL or HeyGen video ID - no need to create the video on HeyGen first.
 
 ## Authentication
 
@@ -272,7 +272,7 @@ async function getTranslateStatus(translateId: string): Promise<TranslateStatusR
 
 ## Polling for Completion
 
-Translations take longer than standard video generation — allow up to 30 minutes.
+Translations take longer than standard video generation - allow up to 30 minutes.
 
 ```typescript
 async function waitForTranslation(
@@ -368,19 +368,19 @@ const translations = await translateToMultipleLanguages(
 
 ## Features
 
-- **Lip Sync** — Automatically adjusts speaker's lip movements to match translated audio
-- **Voice Cloning** — Translated audio matches the original speaker's voice characteristics
-- **Music Track Control** — Optionally remove background music with `disable_music_track: true`
-- **Speech Enhancement** — Improve audio quality with `enable_speech_enhancement: true`
+- **Lip Sync** - Automatically adjusts speaker's lip movements to match translated audio
+- **Voice Cloning** - Translated audio matches the original speaker's voice characteristics
+- **Music Track Control** - Optionally remove background music with `disable_music_track: true`
+- **Speech Enhancement** - Improve audio quality with `enable_speech_enhancement: true`
 
 ## Best Practices
 
-1. **Source quality matters** — Use high-quality source videos for better results
-2. **Clear audio** — Videos with clear speech translate better
-3. **Single speaker** — Best results with single-speaker content
-4. **Moderate pacing** — Very fast speech may affect quality
-5. **Test first** — Try with shorter clips before translating long videos
-6. **Allow extra time** — Translation takes longer than video generation (up to 30 min)
+1. **Source quality matters** - Use high-quality source videos for better results
+2. **Clear audio** - Videos with clear speech translate better
+3. **Single speaker** - Best results with single-speaker content
+4. **Moderate pacing** - Very fast speech may affect quality
+5. **Test first** - Try with shorter clips before translating long videos
+6. **Allow extra time** - Translation takes longer than video generation (up to 30 min)
 
 ## Error Handling
 
