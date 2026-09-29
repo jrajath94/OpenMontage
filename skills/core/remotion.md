@@ -2,25 +2,25 @@
 
 ## When to Use
 
-Use Remotion for advanced video composition from Phase 3 onward — anywhere that requires
+Use Remotion for advanced video composition from Phase 3 onward - anywhere that requires
 React-based scene assembly, parametric templates, animated overlays, transitions, or
 data-driven batch rendering. For simple cuts, burns, and encodes, prefer FFmpeg directly.
 
 ## Relationship to Remotion Agent Skills
 
 The **installed agent skills** (`.agents/skills/remotion-best-practices/`) teach correct
-Remotion API usage — imports, timing, animation constraints, code patterns.
-**This file** teaches how OpenMontage uses Remotion — which compositions map to pipeline
+Remotion API usage - imports, timing, animation constraints, code patterns.
+**This file** teaches how OpenMontage uses Remotion - which compositions map to pipeline
 stages, how artifacts flow in, and how renders are triggered.
 
 ## Remotion-First Routing
 
 **Remotion is the DEFAULT composition engine for ALL final renders when available.**
 It handles video clips (via `<OffthreadVideo>`), still images, animated scenes,
-component types, transitions, and mixed content — all in a single React-based
+component types, transitions, and mixed content - all in a single React-based
 render pass.
 
-FFmpeg is the **fallback** — used only when Remotion is unavailable, or for
+FFmpeg is the **fallback** - used only when Remotion is unavailable, or for
 simple standalone operations that don't benefit from React rendering.
 
 | Use Case | Backend | Why |
@@ -30,7 +30,7 @@ simple standalone operations that don't benefit from React rendering.
 | Video-only cuts with transitions | **Remotion** | Native `<OffthreadVideo>` + transitions |
 | Animated diagrams/text cards | **Remotion** | Frame-by-frame control |
 | Data-driven batch videos | **Remotion** | Zod props + parametric renders |
-| Word-level captions (in composition) | **Remotion** | CaptionOverlay with word highlight — superior to SRT |
+| Word-level captions (in composition) | **Remotion** | CaptionOverlay with word highlight - superior to SRT |
 | Audio embedding (narration + music) | **Remotion** | Native `<Audio>` components with volume/fade |
 | Simple trim, concat (no composition) | FFmpeg | Instant, no Node dependency |
 | Subtitle burn-in (standalone, post-hoc) | FFmpeg | Only for adding subs to an already-rendered video without re-rendering |
@@ -63,7 +63,7 @@ The Explainer composition supports the following cut types:
 
 **Chart animations:** `grow-up`, `slide-in`, `pop` (bar), `draw`, `fade-in` (line), `spin`, `expand`, `sequential` (pie), `count-up`, `pop`, `cascade` (kpi)
 
-### Anime Scene — Multi-Image Crossfade + Particles
+### Anime Scene - Multi-Image Crossfade + Particles
 
 The `anime_scene` type renders 1-4 images with smooth crossfade transitions, cinematic camera motion, and animated particle overlays. This creates the illusion of animation from still images.
 
@@ -71,13 +71,13 @@ The `anime_scene` type renders 1-4 images with smooth crossfade transitions, cin
 
 **Particle types:** `fireflies` (floating golden orbs), `petals` (falling cherry blossoms), `sparkles` (twinkling stars), `mist` (drifting fog layers), `light-rays` (crepuscular rays)
 
-**Key prop:** `sceneDurationSeconds` is automatically passed by `SceneRenderer` — this fixes a critical Remotion pitfall where `useVideoConfig().durationInFrames` returns the full composition duration, not the scene's Sequence duration.
+**Key prop:** `sceneDurationSeconds` is automatically passed by `SceneRenderer` - this fixes a critical Remotion pitfall where `useVideoConfig().durationInFrames` returns the full composition duration, not the scene's Sequence duration.
 
 **Multi-image crossfade math:** Each image owns an equal time segment. Fade-out of image N and fade-in of image N+1 OVERLAP by `crossfadeDur` (~1.2s) so there's never a dead frame. Generate 2-3 images per scene from the same visual system, but vary the shot, subject, and lighting per beat. Nearby seeds help create subtle motion without flattening the whole sequence into one repeated prompt.
 
-**Reference composition:** `remotion-composer/public/demo-props/mori-no-seishin.json` — 6 anime scenes, 30 seconds, with particles, lighting, overlays, and ambient music.
+**Reference composition:** `remotion-composer/public/demo-props/mori-no-seishin.json` - 6 anime scenes, 30 seconds, with particles, lighting, overlays, and ambient music.
 
-**Style playbook:** `styles/anime-ghibli.yaml` — Ghibli-inspired aesthetic with color palette, typography, motion parameters, and FLUX prompt prefix.
+**Style playbook:** `styles/anime-ghibli.yaml` - Ghibli-inspired aesthetic with color palette, typography, motion parameters, and FLUX prompt prefix.
 
 **Zero-key video strategy:** When no image or video generation is available, build
 entire videos from these component types. A well-composed sequence of hero_title →
@@ -196,7 +196,7 @@ npx remotion render Explainer \
   --output=output.mp4
 ```
 
-**Note:** Do NOT specify `src/index.ts` as entry point — Remotion auto-discovers compositions. The composition name is `Explainer` (not `ExplainerVideo`).
+**Note:** Do NOT specify `src/index.ts` as entry point - Remotion auto-discovers compositions. The composition name is `Explainer` (not `ExplainerVideo`).
 
 In Python, invoke via `subprocess` from `video_compose.py` when `backend="remotion"`.
 
@@ -284,9 +284,9 @@ const cleanProfessional = {
 Narration + background music + SFX as parallel `<Audio>` components.
 
 **Music offset and looping:** The `audio.music` config supports:
-- `offsetSeconds` — skip quiet intros, start from the energetic part of the track. Use `tools/analysis/audio_energy.py` to find the optimal offset automatically.
-- `loop` — loop the music if it's shorter than the video. Remotion handles this natively.
-- `fadeInSeconds` / `fadeOutSeconds` — smooth volume ramps at start/end.
+- `offsetSeconds` - skip quiet intros, start from the energetic part of the track. Use `tools/analysis/audio_energy.py` to find the optimal offset automatically.
+- `loop` - loop the music if it's shorter than the video. Remotion handles this natively.
+- `fadeInSeconds` / `fadeOutSeconds` - smooth volume ramps at start/end.
 
 ```json
 "audio": {
@@ -323,12 +323,12 @@ Remotion renders are CPU-intensive but $0 API cost. Track via cost_tracker:
 
 ## Critical Constraints
 
-- **No CSS animations or transitions** — they don't render correctly. Use `useCurrentFrame()` + `interpolate()` for all motion.
-- **No Tailwind animation classes** — `animate-*` classes break frame-based rendering. Static Tailwind utilities are fine.
-- **Always clamp interpolate()** — use `extrapolateLeft: 'clamp', extrapolateRight: 'clamp'` to prevent values shooting past endpoints.
-- **`useVideoConfig().durationInFrames` returns COMPOSITION duration, not Sequence duration** — This is the #1 Remotion footgun. If your composition is 31s (930 frames) and a scene's `<Sequence>` is 5s (150 frames), `durationInFrames` still returns 930 inside that scene. Any crossfade, camera motion, or timing logic that uses `durationInFrames` directly will be wildly wrong. **Fix:** Pass `sceneDurationSeconds` as a prop from the parent and compute `effectiveDuration = Math.round(sceneDurationSeconds * fps)` inside the component. The `AnimeScene` component implements this pattern.
-- **Node.js 18+ required** — listed as optional in minimum system, required in recommended.
-- **Render in series, not parallel** — unless the machine has enough RAM. Each render spawns a Chromium instance.
+- **No CSS animations or transitions** - they don't render correctly. Use `useCurrentFrame()` + `interpolate()` for all motion.
+- **No Tailwind animation classes** - `animate-*` classes break frame-based rendering. Static Tailwind utilities are fine.
+- **Always clamp interpolate()** - use `extrapolateLeft: 'clamp', extrapolateRight: 'clamp'` to prevent values shooting past endpoints.
+- **`useVideoConfig().durationInFrames` returns COMPOSITION duration, not Sequence duration** - This is the #1 Remotion footgun. If your composition is 31s (930 frames) and a scene's `<Sequence>` is 5s (150 frames), `durationInFrames` still returns 930 inside that scene. Any crossfade, camera motion, or timing logic that uses `durationInFrames` directly will be wildly wrong. **Fix:** Pass `sceneDurationSeconds` as a prop from the parent and compute `effectiveDuration = Math.round(sceneDurationSeconds * fps)` inside the component. The `AnimeScene` component implements this pattern.
+- **Node.js 18+ required** - listed as optional in minimum system, required in recommended.
+- **Render in series, not parallel** - unless the machine has enough RAM. Each render spawns a Chromium instance.
 
 ## Post-Render Verification Protocol (ALL pipelines)
 
@@ -336,13 +336,13 @@ Remotion renders are CPU-intensive but $0 API cost. Track via cost_tracker:
 to ALL pipelines, not just explainer. Pipeline-specific compose-directors may extend it but
 must not skip any step.
 
-**Step 1: Probe the output file (GATE — blocks all other steps):**
+**Step 1: Probe the output file (GATE - blocks all other steps):**
 ```bash
 ffprobe -v quiet -print_format json -show_format -show_streams rendered_video.mp4
 ```
 Verify ALL of:
 - [ ] Video stream exists with correct resolution and FPS
-- [ ] **Audio stream exists** — if missing, STOP immediately, fix audio config, re-render
+- [ ] **Audio stream exists** - if missing, STOP immediately, fix audio config, re-render
 - [ ] Duration within ±5% of target
 - [ ] File size is reasonable (not 0 bytes, not suspiciously small)
 
