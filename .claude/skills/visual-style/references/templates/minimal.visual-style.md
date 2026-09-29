@@ -8,7 +8,7 @@ style_prompt_short: >
 style_prompt_full: >
   Detailed generation prompt. Include specific hex colors, font names,
   layout structure, motion patterns, and overall mood. This is the most
-  important field — any AI tool should be able to read this and generate
+  important field - any AI tool should be able to read this and generate
   consistent visuals.
 
 colors:
