@@ -1,8 +1,8 @@
-# Backlot — the living storyboard
+# Backlot - the living storyboard
 
 A read-only local board that shows a production happening: pipeline stages
 lighting up, the script as a screenplay page, the scene plan as a filmstrip
-that fills in as assets generate, decisions, spend, and activity — all
+that fills in as assets generate, decisions, spend, and activity - all
 derived from what the pipeline already writes to `projects/<id>/`.
 
 ```bash
@@ -27,10 +27,10 @@ notifications over SSE; the browser refetches board state. State sources:
 | renders | `renders/*.mp4` (+ root-level mp4 heuristic) |
 
 Projects without checkpoints degrade gracefully to a "what the watcher
-found" view — media, snapshots, renders.
+found" view - media, snapshots, renders.
 
 **Replay**: a completed run can be scrubbed end-to-end (▶ REPLAY RUN on the
-board) — reconstructed from checkpoint history and event timestamps.
+board) - reconstructed from checkpoint history and event timestamps.
 
 Try it without a real production:
 
