@@ -1,13 +1,13 @@
 ---
 name: prompt-optimizer
-description: Write production-quality prompts for HeyGen Video Agent — from basic ideas to fully art-directed scene-by-scene scripts
+description: Write production-quality prompts for HeyGen Video Agent - from basic ideas to fully art-directed scene-by-scene scripts
 ---
 
 # Video Agent Prompt Optimizer
 
 Write effective prompts for the HeyGen Video Agent API. Based on patterns from 40+ produced videos.
 
-**The core insight: Video Agent is an HTML interpreter.** It renders layouts, typography, and structured content natively. Describe B-roll as layered text motion graphics with action verbs ("slams in," "types on," "counts up") — not layout specs ("upper-left, 48pt").
+**The core insight: Video Agent is an HTML interpreter.** It renders layouts, typography, and structured content natively. Describe B-roll as layered text motion graphics with action verbs ("slams in," "types on," "counts up") - not layout specs ("upper-left, 48pt").
 
 ## Reference Files
 
@@ -18,16 +18,16 @@ Write effective prompts for the HeyGen Video Agent API. Based on patterns from 4
 
 ## Workflow: Brief to Prompt
 
-1. **Pull data** — Research the topic: web search, APIs, internal docs. Gather real quotes, stats, handles
-2. **Synthesize a thesis** — Not a list. A story. *"X is happening because Y — here's the proof."* Group into 3-5 themes with a narrative arc
-3. **Choose a style** — Match mood first, content second. Ask: *"What should the viewer FEEL?"* See [visual-styles.md](visual-styles.md)
-4. **Write the avatar** — Thematic wardrobe matching content's emotional context. Brand logos and content-specific props in the set (see Avatar Guide below)
-5. **Extract critical text** — List every number, quote, handle, and label that must appear literally
-6. **Break into scenes** — One concept per scene. Rotate scene types. Never 3+ of same type in a row. At least 2 pure B-roll scenes
-7. **Write voiceover** — Spell out numbers in VO ("one-point-eight-five million"), use figures on screen ("1.85M"). Narration on EVERY scene including B-roll
-8. **Layer each B-roll scene** — L1 background, L2 hero, L3 supporting, L4 info bar, L5 effects. Every element must MOVE
-9. **Add music direction** — Reference artists, describe energy arc
-10. **Add narration style** — How to deliver: fast/slow, where to pause, emotional register per section
+1. **Pull data** - Research the topic: web search, APIs, internal docs. Gather real quotes, stats, handles
+2. **Synthesize a thesis** - Not a list. A story. *"X is happening because Y - here's the proof."* Group into 3-5 themes with a narrative arc
+3. **Choose a style** - Match mood first, content second. Ask: *"What should the viewer FEEL?"* See [visual-styles.md](visual-styles.md)
+4. **Write the avatar** - Thematic wardrobe matching content's emotional context. Brand logos and content-specific props in the set (see Avatar Guide below)
+5. **Extract critical text** - List every number, quote, handle, and label that must appear literally
+6. **Break into scenes** - One concept per scene. Rotate scene types. Never 3+ of same type in a row. At least 2 pure B-roll scenes
+7. **Write voiceover** - Spell out numbers in VO ("one-point-eight-five million"), use figures on screen ("1.85M"). Narration on EVERY scene including B-roll
+8. **Layer each B-roll scene** - L1 background, L2 hero, L3 supporting, L4 info bar, L5 effects. Every element must MOVE
+9. **Add music direction** - Reference artists, describe energy arc
+10. **Add narration style** - How to deliver: fast/slow, where to pause, emotional register per section
 
 ## Prompt Anatomy
 
@@ -82,7 +82,7 @@ then deliver hard. Customer stories get warmth. The close should feel like a mic
 
 ## Avatar Description Guide
 
-**The avatar is NOT a fixed headshot** — design it for each video like a movie character. Think costume designer + set designer.
+**The avatar is NOT a fixed headshot** - design it for each video like a movie character. Think costume designer + set designer.
 
 ### Thematic Wardrobe Rule
 
@@ -119,7 +119,7 @@ AVATAR: [Clothing — fabric, color, fit, accessories, posture].
 | Type | Format | When to Use |
 |------|--------|-------------|
 | **A-ROLL** | Avatar speaking to camera | Intros, key insights, CTAs, emotional beats |
-| **FULL SCREEN B-ROLL** | No avatar — motion graphics only | Data visualization, information-dense content |
+| **FULL SCREEN B-ROLL** | No avatar - motion graphics only | Data visualization, information-dense content |
 | **A-ROLL + OVERLAY** | Split frame: avatar + content | Presenting data while maintaining human connection |
 
 **Rotation is mandatory.** Never 3+ of the same type in a row. Every prompt needs at least 2 pure B-roll scenes.
@@ -223,7 +223,7 @@ Every B-roll: 4+ layers. Every overlay content side: 3+ layers. **Every element 
 | Content Type | Duration |
 |--------------|----------|
 | Hook/Intro (A-roll) | 6-10 seconds |
-| Data-heavy B-roll | 10-15 seconds (NEVER ≤5s — causes black frames) |
+| Data-heavy B-roll | 10-15 seconds (NEVER ≤5s - causes black frames) |
 | A-roll + Overlay | 8-12 seconds |
 | CTA / Close (A-roll) | 6-8 seconds |
 
@@ -235,24 +235,24 @@ Every B-roll: 4+ layers. Every overlay content side: 3+ layers. **Every element 
 
 Patterns that consistently produce poor results:
 
-**Layout language** — Screen coordinates cause empty/black B-roll:
+**Layout language** - Screen coordinates cause empty/black B-roll:
 ```
 ❌ "UPPER-LEFT: headline in 48pt Helvetica"
 ❌ "CENTER-SCREEN: display at coordinates (400, 300)"
 ✅ "135K" SLAMS in from left, white Impact 120pt, fills 40% of frame.
 ```
 
-**Named artists without specs** — "Ikko Tanaka style" means nothing to Video Agent. Translate to concrete rules:
+**Named artists without specs** - "Ikko Tanaka style" means nothing to Video Agent. Translate to concrete rules:
 ```
 ❌ "Use an Ikko Tanaka style"
 ✅ "Flat color blocks, maximum 3 colors per frame, 60% negative space, typography as primary element"
 ```
 
-**Style examples injected into prompts** — Full example scenes from a style library confuse the agent. Use the style's **rules**, not example scenes.
+**Style examples injected into prompts** - Full example scenes from a style library confuse the agent. Use the style's **rules**, not example scenes.
 
-**Forced short B-roll (≤5 seconds)** — Too short for rendering. Every tested video with 5s B-roll had empty/black screens. Use 10-15s.
+**Forced short B-roll (≤5 seconds)** - Too short for rendering. Every tested video with 5s B-roll had empty/black screens. Use 10-15s.
 
-**Content as a list, not a story** — "Here are 5 tweets" produces flat videos. Always synthesize: *"X is happening because Y — here's the proof."*
+**Content as a list, not a story** - "Here are 5 tweets" produces flat videos. Always synthesize: *"X is happening because Y - here's the proof."*
 
 ## Production Insights
 
@@ -277,13 +277,13 @@ Patterns that consistently produce poor results:
 
 ## Quality Checklist
 
-- [ ] Thesis-driven — story, not bullet points
+- [ ] Thesis-driven - story, not bullet points
 - [ ] Style named with colors, typography, motion, transitions (see [visual-styles.md](visual-styles.md))
 - [ ] Avatar has thematic wardrobe + branded environment (60-100 words)
-- [ ] Critical text listed — every stat, quote, label
-- [ ] Scenes rotate types — never 3+ same type. At least 2 B-roll scenes
-- [ ] Every scene has VOICEOVER — including B-roll
+- [ ] Critical text listed - every stat, quote, label
+- [ ] Scenes rotate types - never 3+ same type. At least 2 B-roll scenes
+- [ ] Every scene has VOICEOVER - including B-roll
 - [ ] B-roll scenes have 4+ layers, every element has motion verbs
 - [ ] B-roll scenes are 10-15 seconds (never ≤5s)
 - [ ] Brand logos appear when discussing companies
-- [ ] Every element moves — no static frames
+- [ ] Every element moves - no static frames
