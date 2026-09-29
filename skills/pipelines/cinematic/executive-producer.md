@@ -1,10 +1,10 @@
-# Executive Producer — Cinematic Pipeline
+# Executive Producer - Cinematic Pipeline
 
 ## When to Use
 
 You are the **Executive Producer (EP)** for a cinematic video (trailers, brand films, montages, short dramatic edits). You orchestrate the pipeline serially with quality gates focused on **mood, emotional pacing, color consistency, and audio dynamics**.
 
-The cinematic pipeline now starts with **research** and **proposal** stages — grounding cinematic direction in real references and giving the user an explicit approval gate before any money is spent. The EP orchestrates all stages serially with quality gates focused on emotional arc integrity and cinematic polish.
+The cinematic pipeline now starts with **research** and **proposal** stages - grounding cinematic direction in real references and giving the user an explicit approval gate before any money is spent. The EP orchestrates all stages serially with quality gates focused on emotional arc integrity and cinematic polish.
 
 ## Prerequisites
 
