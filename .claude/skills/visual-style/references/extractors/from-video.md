@@ -4,23 +4,23 @@ Generate a `visual-style.md` from video keyframes.
 
 ## Workflow
 
-1. **Receive video** — User provides a video URL or file
-2. **Sample keyframes** — Capture 4-6 screenshots at different points
-3. **Analyze frames** — Identify consistent visual patterns across all frames
-4. **Focus on motion** — Pay special attention to transitions and animation
-5. **Generate** — Output complete `visual-style.md`
-6. **Validate** — Ensure all required fields are present
+1. **Receive video** - User provides a video URL or file
+2. **Sample keyframes** - Capture 4-6 screenshots at different points
+3. **Analyze frames** - Identify consistent visual patterns across all frames
+4. **Focus on motion** - Pay special attention to transitions and animation
+5. **Generate** - Output complete `visual-style.md`
+6. **Validate** - Ensure all required fields are present
 
 ## Keyframe Sampling Strategy
 
 Sample frames at these intervals:
-- **0:00-0:02** — Opening/title frame
-- **0:05-0:10** — Early content frame
-- **0:15-0:20** — Middle content frame
-- **Near end** — Closing frame
-- **Transitions** — Capture mid-transition if possible
+- **0:00-0:02** - Opening/title frame
+- **0:05-0:10** - Early content frame
+- **0:15-0:20** - Middle content frame
+- **Near end** - Closing frame
+- **Transitions** - Capture mid-transition if possible
 
-Look for **consistency** across frames — the style is what stays the same.
+Look for **consistency** across frames - the style is what stays the same.
 
 ## Extraction Prompt
 
@@ -233,8 +233,8 @@ Motion patterns reflect 8-bit hardware limitations as aesthetic choice.
 
 ## Tips
 
-- **Focus on what's consistent** — Ignore unique content, find the system
-- **Motion is primary** — Video styles are defined by how things move
-- **Describe the rhythm** — Is it quick cuts or slow fades?
-- **Note the easing** — Does it snap, bounce, or glide?
-- **Reference the era** — Many video styles reference specific decades or genres
+- **Focus on what's consistent** - Ignore unique content, find the system
+- **Motion is primary** - Video styles are defined by how things move
+- **Describe the rhythm** - Is it quick cuts or slow fades?
+- **Note the easing** - Does it snap, bounce, or glide?
+- **Reference the era** - Many video styles reference specific decades or genres
