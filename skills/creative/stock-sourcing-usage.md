@@ -1,6 +1,6 @@
 # Stock Sourcing Usage for OpenMontage
 
-> How to use the stock image and video tools effectively — query construction,
+> How to use the stock image and video tools effectively - query construction,
 > provider selection, license awareness, and integration with the asset pipeline.
 
 ## Available Stock Tools
@@ -89,10 +89,10 @@ Pexels uses a bare API key in the `Authorization` header (NOT `Bearer`). The too
 Pexels supports 28 locales. If searching for culturally specific content, set the locale parameter.
 
 ### 5. Stock Images Are Deterministic
-Unlike AI generation, searching "ocean waves" twice returns the same results. If the first result isn't good enough, try different keywords — don't retry the same query.
+Unlike AI generation, searching "ocean waves" twice returns the same results. If the first result isn't good enough, try different keywords - don't retry the same query.
 
 ### 6. Duration Filtering for Video
-Both stock video tools support `min_duration` and `max_duration` parameters. Use these to avoid downloading 30-second clips when you only need 4 seconds — it saves bandwidth and time.
+Both stock video tools support `min_duration` and `max_duration` parameters. Use these to avoid downloading 30-second clips when you only need 4 seconds - it saves bandwidth and time.
 
 ## Integration with Asset Pipeline
 
@@ -115,7 +115,7 @@ Stock tools integrate exactly like generation tools. In the asset manifest:
 }
 ```
 
-The Edit Director and Compose Director treat stock assets identically to generated ones — they just reference the file path from the manifest.
+The Edit Director and Compose Director treat stock assets identically to generated ones - they just reference the file path from the manifest.
 
 ## Licensing Summary
 
